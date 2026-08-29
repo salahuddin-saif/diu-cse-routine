@@ -1,88 +1,124 @@
+// DIU CSE Routine - Frontend JavaScript
+
 const ROUTINE_URL = './data/routine.json?t=' + Date.now();
 const STORAGE_KEY = 'diu_cse_section';
 
-document.addEventListener('DOMContentLoaded', function() {
+// DOM Elements
+const sectionInput = document.getElementById('sectionInput');
+const showRoutineBtn = document.getElementById('showRoutineBtn');
+const clearSectionBtn = document.getElementById('clearSectionBtn');
+const routineContainer = document.getElementById('routineContainer');
+const statusBadge = document.getElementById('statusBadge');
+const lastUpdated = document.getElementById('lastUpdated');
+const message = document.getElementById('message');
+
+let routineData = null;
+let selectedSection = null;
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
     // Load saved section
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-        document.getElementById('sectionInput').value = saved;
+        sectionInput.value = saved;
     }
     
-    // Load routine
-    loadRoutine();
+    // Load routine data
+    loadRoutineData();
     
     // Event listeners
-    document.getElementById('showRoutine').addEventListener('click', showRoutine);
-    document.getElementById('clearSection').addEventListener('click', clearSection);
-    document.getElementById('sectionInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') showRoutine();
+    showRoutineBtn.addEventListener('click', handleShowRoutine);
+    clearSectionBtn.addEventListener('click', handleClearSection);
+    sectionInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleShowRoutine();
     });
 });
 
-async function loadRoutine() {
+async function loadRoutineData() {
     try {
+        setStatus('loading', 'Loading routine data...');
+        
         const response = await fetch(ROUTINE_URL);
         if (!response.ok) throw new Error('Failed to load');
         
         const data = await response.json();
-        window.routineData = data;
+        routineData = data;
         
         // Update last updated
         if (data.updated_at) {
             const date = new Date(data.updated_at);
-            document.getElementById('lastUpdated').textContent = 
-                'Last updated: ' + date.toLocaleString();
+            lastUpdated.textContent = `Updated: ${date.toLocaleString()}`;
         }
         
-        document.getElementById('status').textContent = '● Ready';
-        document.getElementById('status').className = 'status-success';
+        setStatus('success', 'Ready');
+        hideMessage();
         
-        // Show saved section if exists
+        // Show saved section
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && data.sections) {
-            const section = findSection(data.sections, saved);
+            const section = findMatchingSection(data.sections, saved);
             if (section) {
                 displayRoutine(data.sections[section], section);
             }
+        } else if (data.sections && Object.keys(data.sections).length > 0) {
+            // Show first section
+            const first = Object.keys(data.sections)[0];
+            displayRoutine(data.sections[first], first);
         }
         
     } catch (error) {
-        document.getElementById('status').textContent = '● Error';
-        document.getElementById('status').className = 'status-error';
-        showMessage('Routine data is currently unavailable', 'error');
+        console.error('Failed to load routine:', error);
+        setStatus('error', 'Error loading data');
+        showMessage('Routine data is currently unavailable. Please try again later.', 'error');
+        showNoRoutine('Could not load routine data', 'The routine data could not be loaded. The GitHub Action may not have run yet.');
     }
 }
 
-function showRoutine() {
-    const input = document.getElementById('sectionInput').value.trim();
-    if (!input) {
-        showMessage('Please enter a section', 'error');
+function handleShowRoutine() {
+    const section = sectionInput.value.trim();
+    if (!section) {
+        showMessage('Please enter a section.', 'error');
         return;
     }
     
-    if (!window.routineData || !window.routineData.sections) {
-        showMessage('Routine data not loaded', 'error');
+    if (!routineData || !routineData.sections) {
+        showMessage('Routine data is not loaded yet.', 'error');
         return;
     }
     
-    const section = findSection(window.routineData.sections, input);
-    if (section) {
-        localStorage.setItem(STORAGE_KEY, input);
-        displayRoutine(window.routineData.sections[section], section);
-        showMessage('Showing routine for ' + section, 'success');
+    const matched = findMatchingSection(routineData.sections, section);
+    if (matched) {
+        localStorage.setItem(STORAGE_KEY, section);
+        displayRoutine(routineData.sections[matched], matched);
+        showMessage(`Showing routine for ${matched}`, 'success');
     } else {
-        showMessage('No routine found for "' + input + '"', 'error');
+        showMessage(`No routine found for "${section}". Please check your section name.`, 'error');
+        showNoRoutine('Section Not Found', `No routine data available for section "${section}"`);
     }
 }
 
-function findSection(sections, input) {
-    const normalized = input.toUpperCase().replace(/\s+/g, '_');
+function handleClearSection() {
+    localStorage.removeItem(STORAGE_KEY);
+    sectionInput.value = '';
+    showMessage('Saved section cleared.', 'info');
+    
+    // Show first section
+    if (routineData && routineData.sections) {
+        const sections = Object.keys(routineData.sections);
+        if (sections.length > 0) {
+            displayRoutine(routineData.sections[sections[0]], sections[0]);
+        }
+    }
+}
+
+function findMatchingSection(sections, input) {
+    const normalized = input.trim().toUpperCase().replace(/\s+/g, '_');
     const keys = Object.keys(sections);
     
     // Direct match
     if (keys.includes(normalized)) return normalized;
     
-    // Case insensitive match
+    // Case insensitive
     for (const key of keys) {
         if (key.toUpperCase() === normalized) return key;
     }
@@ -90,65 +126,90 @@ function findSection(sections, input) {
     return null;
 }
 
-function displayRoutine(classes, section) {
-    const container = document.getElementById('routineContainer');
-    
+function displayRoutine(classes, sectionName) {
     if (!classes || classes.length === 0) {
-        container.innerHTML = '<div class="no-routine"><p>No classes found</p></div>';
+        showNoRoutine('No Classes Found', `No classes found for section "${sectionName}"`);
         return;
     }
     
     // Group by day
-    const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+    const dayOrder = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
     const grouped = {};
     for (const cls of classes) {
         if (!grouped[cls.day]) grouped[cls.day] = [];
         grouped[cls.day].push(cls);
     }
     
-    let html = '<h3>Routine for ' + section + '</h3>';
-    html += '<div class="routine-table-wrapper"><table class="routine-table">';
-    html += '<thead><tr><th>Day</th><th>Time</th><th>Course</th><th>Teacher</th><th>Room</th><th>Type</th></tr></thead><tbody>';
+    // Build HTML
+    let html = `
+        <div class="routine-header">
+            <h3><i class="fas fa-calendar-alt"></i> Routine for ${escapeHtml(sectionName)}</h3>
+            <span class="count"><i class="fas fa-clock"></i> ${classes.length} classes</span>
+        </div>
+        <div class="table-wrapper">
+            <table class="routine-table">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Course</th>
+                        <th>Teacher</th>
+                        <th>Room</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
     
-    for (const day of days) {
+    for (const day of dayOrder) {
         if (!grouped[day]) continue;
         for (const cls of grouped[day]) {
             const typeClass = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
-            html += `<tr>
-                <td class="day-cell">${escapeHtml(cls.day)}</td>
-                <td>${escapeHtml(cls.time || 'TBA')}</td>
-                <td><strong>${escapeHtml(cls.course)}</strong></td>
-                <td>${escapeHtml(cls.teacher || 'TBA')}</td>
-                <td>${escapeHtml(cls.room || 'TBA')}</td>
-                <td><span class="type-tag ${typeClass}">${escapeHtml(cls.type)}</span></td>
-            </tr>`;
+            html += `
+                <tr>
+                    <td class="day-cell">${escapeHtml(cls.day)}</td>
+                    <td>${escapeHtml(cls.time || 'TBA')}</td>
+                    <td><strong>${escapeHtml(cls.course)}</strong></td>
+                    <td>${escapeHtml(cls.teacher || 'TBA')}</td>
+                    <td>${escapeHtml(cls.room || 'TBA')}</td>
+                    <td><span class="type-tag ${typeClass}">${escapeHtml(cls.type)}</span></td>
+                </tr>
+            `;
         }
     }
     
     html += '</tbody></table></div>';
-    container.innerHTML = html;
+    routineContainer.innerHTML = html;
 }
 
-function clearSection() {
-    localStorage.removeItem(STORAGE_KEY);
-    document.getElementById('sectionInput').value = '';
-    showMessage('Saved section cleared', 'info');
-    
-    // Show first section if available
-    if (window.routineData && window.routineData.sections) {
-        const keys = Object.keys(window.routineData.sections);
-        if (keys.length > 0) {
-            displayRoutine(window.routineData.sections[keys[0]], keys[0]);
-        }
-    }
+function showNoRoutine(title, messageText) {
+    routineContainer.innerHTML = `
+        <div class="no-routine">
+            <div class="icon">📅</div>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(messageText)}</p>
+        </div>
+    `;
 }
 
-function showMessage(msg, type) {
-    const el = document.getElementById('message');
-    el.textContent = msg;
-    el.className = 'status-message ' + type;
-    el.style.display = 'block';
-    setTimeout(() => { el.style.display = 'none'; }, 5000);
+function setStatus(type, text) {
+    statusBadge.className = 'status-badge status-' + type;
+    const icons = {
+        'loading': '<i class="fas fa-spinner fa-spin"></i>',
+        'success': '<i class="fas fa-check-circle"></i>',
+        'error': '<i class="fas fa-exclamation-circle"></i>'
+    };
+    statusBadge.innerHTML = (icons[type] || '') + ' ' + text;
+}
+
+function showMessage(text, type) {
+    message.textContent = text;
+    message.className = 'message show ' + type;
+    setTimeout(() => { message.className = 'message'; }, 5000);
+}
+
+function hideMessage() {
+    message.className = 'message';
 }
 
 function escapeHtml(text) {
@@ -157,3 +218,8 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
+
+// Refresh every 5 minutes
+setInterval(() => {
+    if (!document.hidden) loadRoutineData();
+}, 5 * 60 * 1000);
