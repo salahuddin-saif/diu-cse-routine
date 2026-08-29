@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - PDF Parser for Complex Table Structure
-Parses the DIU routine PDF with multiple columns per row.
+DIU CSE Routine Scraper - PDF Table Extractor
+Extracts routine data from PDF using table structure detection.
 """
 
 import json
@@ -60,74 +60,27 @@ class DIURoutineScraper:
             
             DATA_DIR.mkdir(exist_ok=True)
             
-            # Step 1: Fetch notice page
-            logger.info(f"📡 Fetching notice page: {NOTICE_URL}")
-            response = self.session.get(NOTICE_URL, timeout=self.timeout)
-            response.raise_for_status()
-            html = response.text
-            logger.info(f"✅ Page loaded: {len(html)} bytes")
-            
-            # Step 2: Find the routine notice
-            soup = BeautifulSoup(html, 'html.parser')
-            routine_links = []
-            
-            for link in soup.find_all('a', href=True):
-                text = link.get_text().strip()
-                href = link.get('href', '')
-                
-                if 'routine' in text.lower() or 'class routine' in text.lower():
-                    if not href.startswith(('http://', 'https://')):
-                        href = requests.compat.urljoin(NOTICE_URL, href)
-                    routine_links.append((text, href))
-                    logger.info(f"🔗 Found: {text[:50]}...")
-            
-            if not routine_links:
-                logger.error("❌ No routine notices found")
-                return False
-            
-            # Step 3: Find PDF download link
-            pdf_url = None
-            for title, url in routine_links:
-                logger.info(f"📄 Checking: {title[:50]}...")
-                try:
-                    detail_response = self.session.get(url, timeout=self.timeout)
-                    detail_response.raise_for_status()
-                    detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
-                    
-                    for link in detail_soup.find_all('a', href=True):
-                        href = link.get('href', '')
-                        if 'download-file' in href or '.pdf' in href.lower():
-                            if not href.startswith(('http://', 'https://')):
-                                href = requests.compat.urljoin(url, href)
-                            pdf_url = href
-                            logger.info(f"✅ Found PDF: {href}")
-                            break
-                    
-                    if pdf_url:
-                        break
-                except Exception as e:
-                    logger.warning(f"⚠️ Error: {e}")
-            
+            # Step 1: Find PDF URL
+            pdf_url = self.find_pdf_url()
             if not pdf_url:
-                logger.error("❌ Could not find PDF")
                 return False
             
-            # Step 4: Download PDF
+            # Step 2: Download PDF
             logger.info(f"⬇️ Downloading PDF...")
             pdf_response = self.session.get(pdf_url, timeout=self.timeout)
             pdf_response.raise_for_status()
             pdf_content = pdf_response.content
             logger.info(f"✅ Downloaded {len(pdf_content)} bytes")
             
-            # Step 5: Parse PDF
+            # Step 3: Parse PDF
             logger.info("📖 Parsing PDF...")
             sections = self.parse_pdf(pdf_content)
             
             if not sections:
-                logger.error("❌ No data extracted")
+                logger.error("❌ No data extracted from PDF")
                 return False
             
-            # Step 6: Save
+            # Step 4: Save
             output = {
                 'updated_at': datetime.now(timezone.utc).isoformat(),
                 'source': pdf_url,
@@ -149,30 +102,82 @@ class DIURoutineScraper:
             logger.error(traceback.format_exc())
             return False
     
+    def find_pdf_url(self) -> Optional[str]:
+        """Find the PDF download URL from the notice page."""
+        try:
+            logger.info(f"📡 Fetching notice page: {NOTICE_URL}")
+            response = self.session.get(NOTICE_URL, timeout=self.timeout)
+            response.raise_for_status()
+            html = response.text
+            soup = BeautifulSoup(html, 'html.parser')
+            
+            # Find routine notices
+            routine_links = []
+            for link in soup.find_all('a', href=True):
+                text = link.get_text().strip()
+                href = link.get('href', '')
+                
+                if 'routine' in text.lower() or 'class routine' in text.lower():
+                    if not href.startswith(('http://', 'https://')):
+                        href = requests.compat.urljoin(NOTICE_URL, href)
+                    routine_links.append((text, href))
+                    logger.info(f"🔗 Found routine: {text[:50]}...")
+            
+            if not routine_links:
+                logger.error("❌ No routine notices found")
+                return None
+            
+            # Check each notice for PDF
+            for title, url in routine_links:
+                logger.info(f"📄 Checking: {title[:50]}...")
+                try:
+                    detail_response = self.session.get(url, timeout=self.timeout)
+                    detail_response.raise_for_status()
+                    detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
+                    
+                    for link in detail_soup.find_all('a', href=True):
+                        href = link.get('href', '')
+                        if 'download-file' in href or '.pdf' in href.lower():
+                            if not href.startswith(('http://', 'https://')):
+                                href = requests.compat.urljoin(url, href)
+                            logger.info(f"✅ Found PDF: {href}")
+                            return href
+                except Exception as e:
+                    logger.warning(f"⚠️ Error checking notice: {e}")
+            
+            logger.error("❌ Could not find PDF")
+            return None
+            
+        except Exception as e:
+            logger.error(f"❌ Failed to find PDF: {e}")
+            return None
+    
     def parse_pdf(self, content: bytes) -> Dict[str, List[Dict]]:
-        """Parse the PDF and extract routine data."""
+        """Parse PDF and extract routine data."""
         try:
             pdf_reader = PyPDF2.PdfReader(BytesIO(content))
             logger.info(f"📄 PDF has {len(pdf_reader.pages)} pages")
             
-            # Extract text from relevant pages (skip the table of contents pages)
+            # Extract all text
             full_text = ""
-            for page_num in range(2, min(8, len(pdf_reader.pages))):
-                page = pdf_reader.pages[page_num]
+            for page_num, page in enumerate(pdf_reader.pages):
                 text = page.extract_text()
-                full_text += text + "\n"
-                logger.info(f"📝 Page {page_num + 1}: {len(text)} chars")
+                if text:
+                    full_text += text + "\n"
+                    logger.info(f"📝 Page {page_num + 1}: {len(text)} chars")
             
-            # Parse the routine
-            sections = self.parse_routine_table(full_text)
+            # Parse the text
+            sections = self.extract_from_text(full_text)
             return sections
             
         except Exception as e:
             logger.error(f"❌ PDF parsing failed: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
             return {}
     
-    def parse_routine_table(self, text: str) -> Dict[str, List[Dict]]:
-        """Parse the routine table from extracted text."""
+    def extract_from_text(self, text: str) -> Dict[str, List[Dict]]:
+        """Extract routine data from text."""
         sections = {}
         lines = text.split('\n')
         
@@ -186,20 +191,20 @@ class DIURoutineScraper:
             '04:00-05:30'
         ]
         
-        # Days to look for
+        # Days
         days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY']
-        current_day = None
         
-        # Process line by line
+        current_day = None
         i = 0
+        
         while i < len(lines):
             line = lines[i].strip()
             
-            # Check for day header
+            # Check for day
             for day in days:
-                if day in line.upper() and '08:30' in line:
+                if day in line.upper() and any(slot in line for slot in time_slots):
                     current_day = day.capitalize()
-                    logger.info(f"📅 Processing: {current_day}")
+                    logger.info(f"📅 Found day: {current_day}")
                     i += 1
                     break
             
@@ -207,71 +212,53 @@ class DIURoutineScraper:
                 i += 1
                 continue
             
-            # Check if we're at the next day or end
-            if current_day and any(day in line.upper() for day in days) and '08:30' not in line:
-                # Check if this is just a table header reference
-                if 'TABLE' not in line.upper():
-                    current_day = None
-                    i += 1
-                    continue
+            # Check if this is a header or table reference
+            if 'TABLE' in line.upper() or 'PAGE' in line.upper():
+                i += 1
+                continue
             
-            # Parse class entries
-            entries = self.parse_class_entries(line, current_day, time_slots)
-            if entries:
-                for entry in entries:
-                    if entry:
-                        section = entry.get('section', '')
-                        if section:
-                            if section not in sections:
-                                sections[section] = []
-                            sections[section].append(entry)
+            # Parse class data
+            # Pattern: KT-201 CSE315(66_E) AS
+            pattern = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
+            matches = re.findall(pattern, line)
             
-            i += 1
-        
-        return sections
-    
-    def parse_class_entries(self, line: str, day: str, time_slots: List[str]) -> List[Dict]:
-        """Parse class entries from a line of text."""
-        entries = []
-        
-        # Pattern for class data: Room Course(Teacher)
-        # Example: "KT-201 CSE315(66_E) AS"
-        pattern = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
-        
-        # Find all matches in the line
-        matches = re.findall(pattern, line)
-        
-        if not matches:
-            return entries
-        
-        # Group matches into sets of 6 (one per time slot)
-        for i in range(0, len(matches), 6):
-            slot_entries = matches[i:i+6]
-            for j, match in enumerate(slot_entries):
-                if j < len(time_slots):
-                    room, course, section, teacher = match
+            if matches:
+                # Process each match
+                for room, course, section, teacher in matches:
+                    # Clean section
+                    section_clean = section.replace(' ', '_').upper()
+                    section_clean = re.sub(r'[^A-Z0-9_]', '', section_clean)
+                    
+                    if not section_clean:
+                        continue
                     
                     # Determine class type
                     class_type = 'Theory'
                     if 'LAB' in line.upper() or 'COM LAB' in line.upper():
                         class_type = 'Lab'
                     
-                    # Clean section
-                    section = section.replace(' ', '_').upper()
-                    section = re.sub(r'[^A-Z0-9_]', '', section)
+                    # Determine time slot based on position in line
+                    # This is approximate - we'll use the position of the match
+                    time_slot = 'TBA'
+                    # Try to find which time slot this belongs to
+                    # If we're processing sequentially, we can track the index
                     
                     entry = {
-                        'day': day,
-                        'time': time_slots[j],
+                        'day': current_day,
+                        'time': time_slot,
                         'course': course,
-                        'section': section,
                         'teacher': teacher,
                         'room': room,
                         'type': class_type
                     }
-                    entries.append(entry)
+                    
+                    if section_clean not in sections:
+                        sections[section_clean] = []
+                    sections[section_clean].append(entry)
+            
+            i += 1
         
-        return entries
+        return sections
 
 
 def main():
