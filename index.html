@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIU CSE Routine</title>
+    <title>DIU CSE Routine - Student View</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -22,6 +22,9 @@
                     </div>
                 </div>
                 <div class="status-section">
+                    <span id="versionBadge" class="version-badge">
+                        <i class="fas fa-tag"></i> v<span id="versionNumber">-</span>
+                    </span>
                     <span id="statusBadge" class="status-badge status-loading">
                         <i class="fas fa-spinner fa-spin"></i> Loading...
                     </span>
@@ -32,21 +35,27 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Search Section -->
+            <!-- Student Search -->
             <section class="search-section">
                 <div class="search-container">
-                    <div class="input-wrapper">
-                        <i class="fas fa-search input-icon"></i>
-                        <input 
-                            type="text" 
-                            id="sectionInput" 
-                            placeholder="Enter your section (e.g., 70_B71_B70_P)"
-                            class="section-input"
-                            autocomplete="off"
-                        >
-                        <button id="showRoutineBtn" class="btn-primary">
-                            <i class="fas fa-eye"></i> Show Routine
-                        </button>
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-user-graduate input-icon"></i>
+                            <input 
+                                type="text" 
+                                id="sectionInput" 
+                                placeholder="Enter your section (e.g., 70_N)"
+                                class="section-input"
+                                autocomplete="off"
+                            >
+                            <button id="showRoutineBtn" class="btn-primary">
+                                <i class="fas fa-eye"></i> Show Routine
+                            </button>
+                        </div>
+                        <div class="input-hint">
+                            <i class="fas fa-info-circle"></i> 
+                            Format: <strong>Batch_Section</strong> (e.g., 70_N, 71_B)
+                        </div>
                     </div>
                     <div class="action-row">
                         <button id="clearSectionBtn" class="btn-secondary">
@@ -57,7 +66,7 @@
                 </div>
             </section>
 
-            <!-- Routine Display -->
+            <!-- Student Routine Display -->
             <section id="routineContainer" class="routine-container">
                 <div class="loading-state">
                     <div class="spinner"></div>
