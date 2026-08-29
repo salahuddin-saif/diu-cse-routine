@@ -86,8 +86,20 @@ body {
 .status-section {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
+}
+
+.version-badge {
+    padding: 4px 12px;
+    background: var(--gray-100);
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .status-badge {
@@ -135,6 +147,12 @@ body {
     gap: 16px;
 }
 
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .input-wrapper {
     display: flex;
     align-items: center;
@@ -168,6 +186,16 @@ body {
 
 .section-input::placeholder {
     color: var(--gray-600);
+}
+
+.input-hint {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    padding: 0 4px;
+}
+
+.input-hint strong {
+    color: var(--primary);
 }
 
 .btn-primary {
@@ -247,7 +275,7 @@ body {
     color: #2a4365;
 }
 
-/* Routine Container */
+/* Routine Container - Student View */
 .routine-container {
     background: white;
     border-radius: var(--radius);
@@ -279,70 +307,175 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* Routine Table */
-.routine-header {
+/* Student Profile Card */
+.student-profile {
+    background: var(--gray-50);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--primary-light);
+}
+
+.profile-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 12px;
 }
 
-.routine-header h3 {
-    font-size: 1.2rem;
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-info .student-name {
+    font-size: 1.3rem;
+    font-weight: 700;
     color: var(--primary);
 }
 
-.routine-header .count {
-    color: var(--gray-600);
-    font-size: 0.9rem;
-}
-
-.table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-.routine-table {
-    width: 100%;
-    border-collapse: collapse;
+.profile-info .student-details {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
     font-size: 0.95rem;
+    color: var(--gray-600);
 }
 
-.routine-table thead {
-    background: var(--primary);
-    color: white;
+.profile-info .student-details span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.routine-table th {
-    padding: 14px 16px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+.profile-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 8px 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.stat-item .stat-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-item .stat-label {
+    font-size: 0.75rem;
+    color: var(--gray-600);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.routine-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--gray-100);
+/* Day/Week View Tabs */
+.view-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
-.routine-table tbody tr:hover {
+.view-tab {
+    padding: 8px 20px;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.view-tab:hover {
+    border-color: var(--primary-light);
     background: var(--gray-50);
 }
 
-.routine-table .day-cell {
+.view-tab.active {
+    border-color: var(--primary-light);
+    background: var(--primary-light);
+    color: white;
+}
+
+/* Day View Grid */
+.day-view-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.day-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.day-card:hover {
+    box-shadow: var(--shadow);
+}
+
+.day-card-header {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.day-card-body {
+    padding: 12px 16px;
+}
+
+.class-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.class-item:last-child {
+    border-bottom: none;
+}
+
+.class-item .class-time {
     font-weight: 600;
     color: var(--primary);
+    font-size: 0.9rem;
+}
+
+.class-item .class-course {
+    font-weight: 600;
+    margin: 2px 0;
+}
+
+.class-item .class-details {
+    display: flex;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    flex-wrap: wrap;
+}
+
+.class-item .class-details span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .type-tag {
     display: inline-block;
-    padding: 3px 12px;
+    padding: 2px 10px;
     border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -357,6 +490,42 @@ body {
     color: #6b46c1;
 }
 
+/* Week View */
+.week-view {
+    overflow-x: auto;
+}
+
+.week-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.week-table th {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.week-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+}
+
+.week-table tr:hover td {
+    background: var(--gray-50);
+}
+
+.week-table .time-col {
+    font-weight: 600;
+    color: var(--primary);
+    white-space: nowrap;
+}
+
+/* No Routine */
 .no-routine {
     text-align: center;
     padding: 60px 20px;
@@ -445,24 +614,28 @@ body {
         justify-content: center;
     }
     
-    .routine-table {
-        font-size: 0.85rem;
+    .profile-header {
+        flex-direction: column;
     }
     
-    .routine-table th,
-    .routine-table td {
-        padding: 8px 10px;
+    .profile-stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .day-view-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .status-section {
+        width: 100%;
+        justify-content: flex-start;
     }
     
     .footer-content {
         flex-direction: column;
         align-items: center;
         gap: 8px;
-    }
-    
-    .status-section {
-        width: 100%;
-        justify-content: flex-start;
     }
 }
 
@@ -477,12 +650,25 @@ body {
         font-size: 18px;
     }
     
-    .routine-table {
-        font-size: 0.75rem;
+    .profile-info .student-details {
+        flex-direction: column;
+        gap: 4px;
     }
     
-    .routine-table th,
-    .routine-table td {
-        padding: 6px 8px;
+    .stat-item {
+        padding: 4px 12px;
+    }
+    
+    .stat-item .stat-number {
+        font-size: 1rem;
+    }
+    
+    .week-table {
+        font-size: 0.8rem;
+    }
+    
+    .week-table th,
+    .week-table td {
+        padding: 6px 10px;
     }
 }
