@@ -4,36 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIU CSE Routine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>DAFFODIL INTERNATIONAL UNIVERSITY</h1>
-            <h2>DIU CSE Routine</h2>
-            <div id="statusBar">
-                <span id="status">● Loading</span>
-                <span id="lastUpdated"></span>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="university-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h1>DAFFODIL INTERNATIONAL UNIVERSITY</h1>
+                        <h2>Department of Computer Science & Engineering</h2>
+                    </div>
+                </div>
+                <div class="status-section">
+                    <span id="statusBadge" class="status-badge status-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading...
+                    </span>
+                    <span id="lastUpdated" class="last-updated"></span>
+                </div>
             </div>
         </header>
 
-        <main>
-            <div class="search-section">
-                <label for="sectionInput">Enter your section</label>
-                <div class="input-group">
-                    <input type="text" id="sectionInput" placeholder="e.g., 70_B71_B70_P">
-                    <button id="showRoutine">Show Routine</button>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="input-wrapper">
+                        <i class="fas fa-search input-icon"></i>
+                        <input 
+                            type="text" 
+                            id="sectionInput" 
+                            placeholder="Enter your section (e.g., 70_B71_B70_P)"
+                            class="section-input"
+                            autocomplete="off"
+                        >
+                        <button id="showRoutineBtn" class="btn-primary">
+                            <i class="fas fa-eye"></i> Show Routine
+                        </button>
+                    </div>
+                    <div class="action-row">
+                        <button id="clearSectionBtn" class="btn-secondary">
+                            <i class="fas fa-undo"></i> Clear Saved
+                        </button>
+                        <div id="message" class="message"></div>
+                    </div>
                 </div>
-                <button id="clearSection">Clear saved routine</button>
-                <div id="message"></div>
-            </div>
+            </section>
 
-            <div id="routineContainer">
+            <!-- Routine Display -->
+            <section id="routineContainer" class="routine-container">
                 <div class="loading-state">
                     <div class="spinner"></div>
-                    <p>Loading routine data...</p>
+                    <p>Loading your routine...</p>
                 </div>
-            </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <span><i class="fas fa-database"></i> LocalStorage • No Database</span>
+                    <span><i class="fas fa-sync-alt"></i> Auto-updates every 3 hours</span>
+                    <span><i class="fas fa-shield-alt"></i> Powered by GitHub Actions</span>
+                </div>
+            </footer>
         </main>
     </div>
 
