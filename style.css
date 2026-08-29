@@ -1,4 +1,7 @@
-/* Reset & Base */
+/* ============================================================
+   COMPLETE STYLE - MATCHES THE PICTURE
+   ============================================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -19,71 +22,68 @@
     --gray-800: #2d3748;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     --radius: 12px;
-    --transition: all 0.3s ease;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    background: #f0f4f8;
     color: var(--gray-800);
     min-height: 100vh;
     padding: 20px;
 }
 
-.app-container {
+.container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Header */
-.header {
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+header {
     background: white;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 24px 32px;
-    margin-bottom: 24px;
+    padding: 20px 28px;
+    margin-bottom: 20px;
 }
 
-.header-content {
+.header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
 }
 
-.logo-section {
+.logo {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
-.university-badge {
-    width: 56px;
-    height: 56px;
-    background: var(--primary);
+.logo i {
+    font-size: 28px;
+    color: var(--primary);
+    background: var(--gray-100);
+    padding: 12px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 24px;
 }
 
-.logo-section h1 {
-    font-size: 1.4rem;
+.logo h1 {
+    font-size: 1.3rem;
     color: var(--primary);
     font-weight: 700;
-    letter-spacing: 0.5px;
 }
 
-.logo-section h2 {
-    font-size: 0.95rem;
+.logo h2 {
+    font-size: 0.9rem;
     color: var(--gray-600);
     font-weight: 400;
 }
 
-.status-section {
+.header-right {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -91,169 +91,147 @@ body {
 }
 
 .version-badge {
-    padding: 4px 12px;
     background: var(--gray-100);
+    padding: 4px 14px;
     border-radius: 16px;
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 4px;
 }
 
 .status-badge {
-    padding: 6px 14px;
-    border-radius: 20px;
     font-size: 0.85rem;
-    font-weight: 500;
+    color: var(--gray-600);
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.status-loading {
-    background: #fefcbf;
-    color: #975a16;
+.status-badge .fa-circle {
+    font-size: 8px;
 }
 
-.status-success {
-    background: #c6f6d5;
-    color: #22543d;
+.status-badge.loading .fa-circle {
+    color: var(--warning);
 }
 
-.status-error {
-    background: #fed7d7;
-    color: #9b2c2c;
+.status-badge.ready .fa-circle {
+    color: var(--success);
+}
+
+.status-badge.error .fa-circle {
+    color: var(--error);
 }
 
 .last-updated {
+    font-size: 0.8rem;
     color: var(--gray-600);
-    font-size: 0.85rem;
 }
 
-/* Search Section */
+/* ============================================================
+   SEARCH SECTION
+   ============================================================ */
+
 .search-section {
     background: white;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 24px 32px;
-    margin-bottom: 24px;
+    padding: 20px 28px;
+    margin-bottom: 20px;
 }
 
-.search-container {
+.search-box {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
+}
+
+.search-box label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--gray-800);
+}
+
+.search-box label i {
+    color: var(--primary-light);
+    margin-right: 6px;
 }
 
 .input-group {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
-.input-group label {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--gray-800);
-}
-
-.input-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--gray-50);
+.input-group input {
+    flex: 1;
+    padding: 10px 16px;
     border: 2px solid var(--gray-200);
     border-radius: 8px;
-    padding: 4px 4px 4px 16px;
-    transition: var(--transition);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.input-wrapper:focus-within {
+.input-group input:focus {
     border-color: var(--primary-light);
     box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
 }
 
-.section-input {
-    flex: 1;
-    padding: 12px 0;
-    border: none;
-    background: transparent;
-    font-size: 1rem;
-    color: var(--gray-800);
-    outline: none;
-}
-
-.section-input::placeholder {
+.input-group input::placeholder {
     color: var(--gray-600);
 }
 
-.input-hint {
-    font-size: 0.85rem;
-    color: var(--gray-600);
-    padding: 0 4px;
-}
-
-.input-hint strong {
-    color: var(--primary);
-}
-
-.btn-primary {
-    padding: 10px 24px;
+.input-group button {
+    padding: 10px 28px;
     background: var(--primary-light);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: background 0.2s;
     white-space: nowrap;
 }
 
-.btn-primary:hover {
+.input-group button:hover {
     background: var(--primary);
-    transform: translateY(-1px);
 }
 
-.btn-primary:active {
-    transform: translateY(0);
+.input-group button i {
+    margin-right: 6px;
 }
 
-.action-row {
+.search-actions {
     display: flex;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
 }
 
-.btn-secondary {
-    padding: 8px 20px;
+.clear-btn {
+    padding: 6px 16px;
     background: var(--gray-100);
     color: var(--gray-800);
     border: 1px solid var(--gray-200);
     border-radius: 6px;
     font-size: 0.9rem;
-    font-weight: 500;
     cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: background 0.2s;
 }
 
-.btn-secondary:hover {
+.clear-btn:hover {
     background: var(--gray-200);
+}
+
+.clear-btn i {
+    margin-right: 6px;
 }
 
 .message {
     font-size: 0.9rem;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 4px 12px;
+    border-radius: 4px;
     display: none;
 }
 
@@ -262,27 +240,30 @@ body {
 }
 
 .message.success {
-    background: #c6f6d5;
-    color: #22543d;
+    color: var(--success);
+    background: #f0fff4;
 }
 
 .message.error {
-    background: #fed7d7;
-    color: #9b2c2c;
+    color: var(--error);
+    background: #fff5f5;
 }
 
 .message.info {
-    background: #bee3f8;
-    color: #2a4365;
+    color: var(--primary-light);
+    background: #ebf8ff;
 }
 
-/* Routine Container - Student View */
+/* ============================================================
+   ROUTINE CONTAINER
+   ============================================================ */
+
 .routine-container {
     background: white;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 24px 32px;
-    min-height: 200px;
+    padding: 24px 28px;
+    min-height: 300px;
 }
 
 .loading-state {
@@ -290,7 +271,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
     color: var(--gray-600);
 }
 
@@ -309,28 +290,27 @@ body {
 }
 
 /* ============================================================
-   STUDENT VIEW - MATCHES THE PICTURE
+   STUDENT PROFILE - EXACTLY LIKE PICTURE
    ============================================================ */
 
-/* Student Profile Card - Like the picture */
 .student-profile {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-bottom: 24px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
     color: white;
 }
 
-.profile-header {
+.profile-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
 }
 
 .profile-info .student-name {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -339,18 +319,18 @@ body {
 
 .profile-info .student-name .badge {
     background: rgba(255,255,255,0.2);
-    padding: 2px 12px;
+    padding: 2px 14px;
     border-radius: 12px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
 }
 
 .profile-details {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     flex-wrap: wrap;
-    margin-top: 8px;
-    font-size: 0.95rem;
+    margin-top: 6px;
+    font-size: 0.9rem;
     opacity: 0.9;
 }
 
@@ -362,195 +342,87 @@ body {
 
 .profile-stats {
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .stat-item {
     text-align: center;
-    background: rgba(255,255,255,0.15);
-    padding: 8px 16px;
+    background: rgba(255,255,255,0.12);
+    padding: 6px 14px;
     border-radius: 8px;
-    min-width: 60px;
+    min-width: 50px;
 }
 
 .stat-item .stat-number {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 
 .stat-item .stat-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     opacity: 0.8;
 }
 
-/* Course List - Like the picture */
-.course-list {
-    margin-bottom: 24px;
+/* ============================================================
+   COURSE LIST - LIKE PICTURE
+   ============================================================ */
+
+.course-section {
+    margin-bottom: 20px;
 }
 
-.course-list-header {
+.course-section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--gray-200);
 }
 
-.course-list-header h4 {
+.course-section-header h4 {
     font-size: 1rem;
     color: var(--gray-800);
 }
 
-.course-list-header .count {
+.course-section-header .count {
     font-size: 0.85rem;
     color: var(--gray-600);
 }
 
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 6px;
 }
 
 .course-tag {
     background: var(--gray-50);
     border: 1px solid var(--gray-200);
     border-radius: 6px;
-    padding: 6px 12px;
+    padding: 4px 12px;
     font-size: 0.85rem;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.course-tag .course-code {
+.course-tag .code {
     font-weight: 600;
     color: var(--primary);
 }
 
-.course-tag .course-teacher {
+.course-tag .teacher {
     color: var(--gray-600);
-    font-size: 0.8rem;
-}
-
-/* Day/Week View Tabs */
-.view-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.view-tab {
-    padding: 8px 20px;
-    border: 2px solid var(--gray-200);
-    border-radius: 8px;
-    background: white;
-    cursor: pointer;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.view-tab:hover {
-    border-color: var(--primary-light);
-    background: var(--gray-50);
-}
-
-.view-tab.active {
-    border-color: var(--primary-light);
-    background: var(--primary-light);
-    color: white;
-}
-
-/* Day View Grid - Like the picture */
-.day-view-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-}
-
-.day-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: var(--transition);
-}
-
-.day-card:hover {
-    box-shadow: var(--shadow);
-}
-
-.day-card-header {
-    background: var(--primary);
-    color: white;
-    padding: 10px 16px;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.day-card-header .day-name {
-    font-size: 1rem;
-}
-
-.day-card-header .class-count {
-    font-size: 0.8rem;
-    background: rgba(255,255,255,0.2);
-    padding: 2px 10px;
-    border-radius: 12px;
-}
-
-.day-card-body {
-    padding: 12px 16px;
-}
-
-.class-item {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--gray-100);
-}
-
-.class-item:last-child {
-    border-bottom: none;
-}
-
-.class-item .class-time {
-    font-weight: 600;
-    color: var(--primary);
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.class-item .class-course {
-    font-weight: 600;
-    font-size: 1rem;
-    margin: 2px 0;
-}
-
-.class-item .class-details {
-    display: flex;
-    gap: 12px;
-    font-size: 0.85rem;
-    color: var(--gray-600);
-    flex-wrap: wrap;
-}
-
-.class-item .class-details span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+    font-size: 0.75rem;
 }
 
 .type-tag {
     display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 0.7rem;
+    padding: 1px 10px;
+    border-radius: 10px;
+    font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -565,7 +437,120 @@ body {
     color: #6b46c1;
 }
 
-/* Week View */
+/* ============================================================
+   VIEW TABS
+   ============================================================ */
+
+.view-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.view-tab {
+    padding: 6px 18px;
+    border: 2px solid var(--gray-200);
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.view-tab:hover {
+    border-color: var(--primary-light);
+}
+
+.view-tab.active {
+    border-color: var(--primary-light);
+    background: var(--primary-light);
+    color: white;
+}
+
+.view-tab i {
+    margin-right: 4px;
+}
+
+/* ============================================================
+   DAY VIEW - LIKE PICTURE
+   ============================================================ */
+
+.day-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+}
+
+.day-card {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.day-card-header {
+    background: var(--primary);
+    color: white;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day-card-header .day-name {
+    font-weight: 600;
+}
+
+.day-card-header .class-count {
+    font-size: 0.8rem;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.day-card-body {
+    padding: 10px 14px;
+}
+
+.class-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.class-item:last-child {
+    border-bottom: none;
+}
+
+.class-item .time {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+.class-item .course {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 2px 0;
+}
+
+.class-item .details {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    flex-wrap: wrap;
+}
+
+.class-item .details span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ============================================================
+   WEEK VIEW
+   ============================================================ */
+
 .week-view {
     overflow-x: auto;
 }
@@ -573,26 +558,21 @@ body {
 .week-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .week-table th {
     background: var(--primary);
     color: white;
-    padding: 10px 14px;
+    padding: 8px 12px;
     text-align: left;
     font-weight: 600;
-    font-size: 0.85rem;
 }
 
 .week-table td {
-    padding: 8px 14px;
+    padding: 6px 12px;
     border-bottom: 1px solid var(--gray-100);
     vertical-align: top;
-}
-
-.week-table tr:hover td {
-    background: var(--gray-50);
 }
 
 .week-table .time-col {
@@ -601,7 +581,14 @@ body {
     white-space: nowrap;
 }
 
-/* No Routine */
+.week-table tr:hover td {
+    background: var(--gray-50);
+}
+
+/* ============================================================
+   NO ROUTINE
+   ============================================================ */
+
 .no-routine {
     text-align: center;
     padding: 60px 20px;
@@ -610,39 +597,22 @@ body {
 
 .no-routine .icon {
     font-size: 48px;
-    margin-bottom: 16px;
-    opacity: 0.5;
+    margin-bottom: 12px;
+    opacity: 0.4;
 }
 
 .no-routine h3 {
     font-size: 1.2rem;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-/* Download PDF Button - Like the picture */
-.download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: var(--success);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 16px;
-}
+/* ============================================================
+   FOOTER
+   ============================================================ */
 
-.download-btn:hover {
-    background: #2f855a;
-}
-
-/* Footer */
-.footer {
-    margin-top: 24px;
-    padding: 16px 0;
+footer {
+    margin-top: 20px;
+    padding: 12px 0;
 }
 
 .footer-content {
@@ -651,7 +621,7 @@ body {
     gap: 24px;
     flex-wrap: wrap;
     color: var(--gray-600);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .footer-content span {
@@ -660,57 +630,47 @@ body {
     gap: 6px;
 }
 
-/* Responsive */
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
 @media (max-width: 768px) {
     body {
-        padding: 12px;
+        padding: 10px;
     }
     
-    .header, .search-section, .routine-container {
-        padding: 16px 20px;
+    header, .search-section, .routine-container {
+        padding: 14px 18px;
     }
     
-    .header-content {
+    .header-top {
         flex-direction: column;
         align-items: flex-start;
     }
     
-    .logo-section h1 {
-        font-size: 1.1rem;
+    .logo h1 {
+        font-size: 1rem;
     }
     
-    .logo-section h2 {
-        font-size: 0.85rem;
+    .logo h2 {
+        font-size: 0.8rem;
     }
     
-    .input-wrapper {
-        flex-wrap: wrap;
+    .logo i {
+        font-size: 20px;
         padding: 8px;
     }
     
-    .section-input {
-        width: 100%;
-        padding: 10px 12px;
-        background: white;
-        border-radius: 4px;
-    }
-    
-    .btn-primary {
-        width: 100%;
-        justify-content: center;
-        padding: 12px;
-    }
-    
-    .action-row {
+    .input-group {
         flex-direction: column;
-        align-items: stretch;
     }
     
-    .btn-secondary {
+    .input-group button {
+        width: 100%;
         justify-content: center;
     }
     
-    .profile-header {
+    .profile-row {
         flex-direction: column;
     }
     
@@ -719,43 +679,37 @@ body {
         justify-content: space-around;
     }
     
-    .day-view-grid {
+    .day-grid {
         grid-template-columns: 1fr;
     }
     
     .course-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     
-    .status-section {
+    .header-right {
         width: 100%;
         justify-content: flex-start;
     }
     
-    .footer-content {
+    .search-actions {
         flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        align-items: stretch;
+    }
+    
+    .clear-btn {
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .header, .search-section, .routine-container {
-        padding: 12px 16px;
-    }
-    
-    .university-badge {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-    }
-    
-    .student-profile {
-        padding: 16px;
+    header, .search-section, .routine-container {
+        padding: 10px 14px;
     }
     
     .profile-info .student-name {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        flex-wrap: wrap;
     }
     
     .profile-details {
@@ -764,19 +718,29 @@ body {
     }
     
     .stat-item {
-        padding: 4px 12px;
+        padding: 4px 10px;
     }
     
     .stat-item .stat-number {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .course-grid {
+        grid-template-columns: 1fr;
     }
     
     .week-table {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     
     .week-table th,
     .week-table td {
-        padding: 6px 10px;
+        padding: 4px 8px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
     }
 }
