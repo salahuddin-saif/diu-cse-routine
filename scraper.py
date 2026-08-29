@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - DEBUG VERSION
-This will log everything to help identify the issue.
+DIU CSE Routine Scraper - PDF Version
+Fetches the CSE routine PDF from the notice page and converts it to JSON.
 """
 
 import json
@@ -14,7 +14,8 @@ from typing import Dict, List, Optional, Tuple
 from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
+import PyPDF2
+from io import BytesIO
 
 # ============================================================
 # CONFIGURATION
@@ -31,11 +32,11 @@ OUTPUT_FILE = DATA_DIR / "routine.json"
 TEMP_FILE = DATA_DIR / "routine.json.tmp"
 
 # ============================================================
-# LOGGING - VERY DETAILED
+# LOGGING
 # ============================================================
 
 logging.basicConfig(
-    level=logging.DEBUG,  # Changed to DEBUG for more details
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[logging.StreamHandler(sys.stdout)]
 )
@@ -51,109 +52,105 @@ class DIURoutineScraper:
         self.timeout = 30
     
     def scrape(self) -> bool:
-        """Main scraping method with detailed debugging."""
+        """Main scraping method."""
         try:
             logger.info("=" * 60)
-            logger.info("STARTING SCRAPER - DEBUG MODE")
+            logger.info("STARTING DIU CSE ROUTINE SCRAPER")
             logger.info("=" * 60)
             
-            # Step 1: Create data directory
+            # Create data directory
             DATA_DIR.mkdir(exist_ok=True)
-            logger.info(f"✅ Data directory: {DATA_DIR}")
             
-            # Step 2: Fetch notice page
-            logger.info(f"📡 Fetching: {NOTICE_URL}")
-            try:
-                response = self.session.get(NOTICE_URL, timeout=self.timeout)
-                response.raise_for_status()
-                logger.info(f"✅ Status: {response.status_code}")
-                logger.info(f"✅ Content-Type: {response.headers.get('content-type')}")
-                html = response.text
-                logger.info(f"✅ Page size: {len(html)} bytes")
-            except Exception as e:
-                logger.error(f"❌ Failed to fetch page: {e}")
-                return False
+            # Step 1: Fetch notice page
+            logger.info(f"📡 Fetching notice page: {NOTICE_URL}")
+            response = self.session.get(NOTICE_URL, timeout=self.timeout)
+            response.raise_for_status()
+            html = response.text
+            logger.info(f"✅ Page loaded: {len(html)} bytes")
             
-            # Step 3: Parse HTML and find routine links
-            logger.info("🔍 Searching for routine notices...")
+            # Step 2: Find the routine notice link
             soup = BeautifulSoup(html, 'html.parser')
             
-            # Find all links
-            all_links = soup.find_all('a', href=True)
-            logger.info(f"📊 Found {len(all_links)} total links")
-            
-            # Look for routine links
+            # Look for routine notices
             routine_links = []
-            for link in all_links:
+            for link in soup.find_all('a', href=True):
                 text = link.get_text().strip()
                 href = link.get('href', '')
                 
-                # Debug: Log all links with routine in them
-                if 'routine' in text.lower() or 'routine' in href.lower():
-                    logger.info(f"🔗 Potential routine link: '{text[:50]}' -> {href}")
+                # Look for routine-related text
+                if 'routine' in text.lower() or 'class routine' in text.lower():
+                    # Make URL absolute
+                    if not href.startswith(('http://', 'https://')):
+                        href = requests.compat.urljoin(NOTICE_URL, href)
                     routine_links.append((text, href))
+                    logger.info(f"🔗 Found: {text[:50]}...")
             
             if not routine_links:
-                logger.error("❌ No routine links found on the page")
-                # Save HTML for debugging
-                debug_file = DATA_DIR / "debug_page.html"
-                debug_file.write_text(html)
-                logger.info(f"💾 Saved HTML to {debug_file} for debugging")
+                logger.error("❌ No routine notices found on the page")
                 return False
             
-            # Step 4: Process each routine link
-            for title, href in routine_links:
-                logger.info(f"📄 Processing: {title}")
-                
-                # Make URL absolute
-                if not href.startswith(('http://', 'https://')):
-                    href = requests.compat.urljoin(NOTICE_URL, href)
-                logger.info(f"🔗 Full URL: {href}")
-                
-                # Check if it's a file
-                if any(ext in href.lower() for ext in ['.pdf', '.xlsx', '.xls']):
-                    logger.info(f"📁 Found file: {href}")
+            # Step 3: Find the PDF download link
+            pdf_url = None
+            for title, url in routine_links:
+                # Go to the notice detail page
+                logger.info(f"📄 Checking notice: {title[:50]}...")
+                try:
+                    detail_response = self.session.get(url, timeout=self.timeout)
+                    detail_response.raise_for_status()
+                    detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
                     
-                    # Download file
-                    try:
-                        logger.info(f"⬇️ Downloading: {href}")
-                        file_response = self.session.get(href, timeout=self.timeout)
-                        file_response.raise_for_status()
-                        content = file_response.content
-                        logger.info(f"✅ Downloaded {len(content)} bytes")
+                    # Look for PDF download link
+                    for link in detail_soup.find_all('a', href=True):
+                        href = link.get('href', '')
+                        if 'download-file' in href or '.pdf' in href.lower():
+                            if not href.startswith(('http://', 'https://')):
+                                href = requests.compat.urljoin(url, href)
+                            pdf_url = href
+                            logger.info(f"✅ Found PDF: {href}")
+                            break
+                    
+                    if pdf_url:
+                        break
                         
-                        # Parse based on file type
-                        if '.xlsx' in href.lower() or '.xls' in href.lower():
-                            logger.info("📊 Parsing Excel file...")
-                            sections = self.parse_excel(content)
-                            if sections:
-                                logger.info(f"✅ Found {len(sections)} sections")
-                                # Save output
-                                output = {
-                                    'updated_at': datetime.now(timezone.utc).isoformat(),
-                                    'source': href,
-                                    'sections': sections
-                                }
-                                
-                                with open(TEMP_FILE, 'w', encoding='utf-8') as f:
-                                    json.dump(output, f, indent=2, ensure_ascii=False)
-                                
-                                TEMP_FILE.rename(OUTPUT_FILE)
-                                logger.info(f"✅ Saved to {OUTPUT_FILE}")
-                                return True
-                            else:
-                                logger.warning("⚠️ No sections extracted from Excel")
-                        else:
-                            logger.warning(f"⚠️ Unsupported file type: {href}")
-                            
-                    except Exception as e:
-                        logger.error(f"❌ Failed to download/parse: {e}")
-                        continue
-                else:
-                    logger.info(f"ℹ️ Not a file link: {href}")
+                except Exception as e:
+                    logger.warning(f"⚠️ Could not process notice: {e}")
+                    continue
             
-            logger.error("❌ No valid routine file found or parsed")
-            return False
+            if not pdf_url:
+                logger.error("❌ Could not find PDF download link")
+                return False
+            
+            # Step 4: Download the PDF
+            logger.info(f"⬇️ Downloading PDF: {pdf_url}")
+            pdf_response = self.session.get(pdf_url, timeout=self.timeout)
+            pdf_response.raise_for_status()
+            pdf_content = pdf_response.content
+            logger.info(f"✅ Downloaded {len(pdf_content)} bytes")
+            
+            # Step 5: Parse the PDF
+            logger.info("📖 Parsing PDF...")
+            sections = self.parse_pdf(pdf_content)
+            
+            if not sections:
+                logger.error("❌ No routine data extracted from PDF")
+                return False
+            
+            # Step 6: Save the data
+            output = {
+                'updated_at': datetime.now(timezone.utc).isoformat(),
+                'source': pdf_url,
+                'sections': sections
+            }
+            
+            with open(TEMP_FILE, 'w', encoding='utf-8') as f:
+                json.dump(output, f, indent=2, ensure_ascii=False)
+            
+            TEMP_FILE.rename(OUTPUT_FILE)
+            
+            total_classes = sum(len(entries) for entries in sections.values())
+            logger.info(f"✅ Success! {len(sections)} sections, {total_classes} classes")
+            logger.info(f"💾 Saved to: {OUTPUT_FILE}")
+            return True
             
         except Exception as e:
             logger.error(f"❌ Scraper failed: {e}")
@@ -161,235 +158,157 @@ class DIURoutineScraper:
             logger.error(traceback.format_exc())
             return False
     
-    def parse_excel(self, content: bytes) -> Dict[str, List[Dict]]:
-        """Parse Excel file with detailed debugging."""
+    def parse_pdf(self, content: bytes) -> Dict[str, List[Dict]]:
+        """Parse the PDF and extract routine data."""
         try:
-            # Save to temp file
-            temp_file = DATA_DIR / "temp_routine.xlsx"
-            temp_file.write_bytes(content)
-            logger.info(f"💾 Saved temp Excel: {temp_file}")
+            pdf_reader = PyPDF2.PdfReader(BytesIO(content))
+            logger.info(f"📄 PDF has {len(pdf_reader.pages)} pages")
             
-            # Try to read Excel
-            logger.info("📖 Reading Excel file...")
-            try:
-                df = pd.read_excel(temp_file, engine='openpyxl')
-                logger.info("✅ Read with openpyxl")
-            except Exception as e:
-                logger.warning(f"openpyxl failed: {e}, trying xlrd")
-                try:
-                    df = pd.read_excel(temp_file, engine='xlrd')
-                    logger.info("✅ Read with xlrd")
-                except Exception as e2:
-                    logger.warning(f"xlrd failed: {e2}, trying default")
-                    df = pd.read_excel(temp_file)
-                    logger.info("✅ Read with default engine")
+            # Extract text from all pages
+            full_text = ""
+            for page_num, page in enumerate(pdf_reader.pages):
+                text = page.extract_text()
+                full_text += text + "\n"
+                logger.info(f"📝 Page {page_num + 1}: {len(text)} characters")
             
-            # Clean up
-            temp_file.unlink()
-            
-            if df is None or df.empty:
-                logger.error("❌ Excel file is empty or unreadable")
-                return {}
-            
-            logger.info(f"📊 Excel: {len(df)} rows, {len(df.columns)} columns")
-            logger.info(f"📋 Columns: {list(df.columns)}")
-            
-            # Show sample data
-            logger.info("📝 Sample data (first 3 rows):")
-            for i in range(min(3, len(df))):
-                row_data = {}
-                for col in df.columns:
-                    val = df.iloc[i][col]
-                    if pd.notna(val):
-                        row_data[col] = str(val)[:50]
-                logger.info(f"  Row {i}: {row_data}")
-            
-            # Extract data
-            sections = self.extract_from_dataframe(df)
-            logger.info(f"📊 Extracted {len(sections)} sections")
-            
+            # Parse the routine from text
+            sections = self.parse_routine_text(full_text)
             return sections
             
         except Exception as e:
-            logger.error(f"❌ Excel parsing failed: {e}")
-            import traceback
-            logger.error(traceback.format_exc())
+            logger.error(f"❌ PDF parsing failed: {e}")
             return {}
     
-    def extract_from_dataframe(self, df: pd.DataFrame) -> Dict[str, List[Dict]]:
-        """Extract routine data from DataFrame."""
+    def parse_routine_text(self, text: str) -> Dict[str, List[Dict]]:
+        """Parse the routine from the extracted text."""
         sections = {}
+        lines = text.split('\n')
         
-        # Try to find columns by name
-        column_mapping = {}
-        for idx, col in enumerate(df.columns):
-            col_lower = str(col).lower().strip()
-            
-            if 'section' in col_lower or 'sec' in col_lower:
-                column_mapping['section'] = idx
-                logger.info(f"📍 Found section column: '{col}' (index {idx})")
-            elif 'day' in col_lower:
-                column_mapping['day'] = idx
-                logger.info(f"📍 Found day column: '{col}' (index {idx})")
-            elif 'time' in col_lower:
-                column_mapping['time'] = idx
-                logger.info(f"📍 Found time column: '{col}' (index {idx})")
-            elif 'course' in col_lower or 'subject' in col_lower or 'code' in col_lower:
-                column_mapping['course'] = idx
-                logger.info(f"📍 Found course column: '{col}' (index {idx})")
-            elif 'teacher' in col_lower or 'instructor' in col_lower:
-                column_mapping['teacher'] = idx
-                logger.info(f"📍 Found teacher column: '{col}' (index {idx})")
-            elif 'room' in col_lower or 'venue' in col_lower:
-                column_mapping['room'] = idx
-                logger.info(f"📍 Found room column: '{col}' (index {idx})")
+        # Find where the routine data starts
+        start_index = 0
+        for i, line in enumerate(lines):
+            if 'SATURDAY' in line and '08:30-10:00' in line:
+                start_index = i
+                break
         
-        # If we found section, day, and course, extract data
-        if 'section' in column_mapping and 'day' in column_mapping and 'course' in column_mapping:
-            logger.info("✅ Found required columns, extracting data...")
+        logger.info(f"📍 Routine starts at line {start_index}")
+        
+        # Process each day's schedule
+        days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
+        current_day = None
+        time_slots = ['08:30-10:00', '10:00-11:30', '11:30-01:00', '01:00-02:30', '02:30-04:00', '04:00-05:30']
+        
+        # Skip header rows
+        i = start_index
+        
+        while i < len(lines):
+            line = lines[i].strip()
             
-            for idx, row in df.iterrows():
-                try:
-                    section = str(row.iloc[column_mapping['section']]).strip()
-                    if not section or section.lower() in ['nan', 'none', '']:
-                        continue
-                    
-                    # Clean section
-                    section = section.upper().replace(' ', '_')
-                    section = re.sub(r'[^A-Z0-9_]', '', section)
-                    
-                    if not section:
-                        continue
-                    
-                    # Get other fields
-                    day = str(row.iloc[column_mapping.get('day', 0)]).strip()
-                    time = str(row.iloc[column_mapping.get('time', 0)]).strip() if 'time' in column_mapping else ''
-                    course = str(row.iloc[column_mapping.get('course', 0)]).strip()
-                    teacher = str(row.iloc[column_mapping.get('teacher', 0)]).strip() if 'teacher' in column_mapping else ''
-                    room = str(row.iloc[column_mapping.get('room', 0)]).strip() if 'room' in column_mapping else ''
-                    
-                    # Skip if missing essential data
-                    if not day or not course:
-                        continue
-                    
-                    # Clean day
-                    day_map = {
-                        'sat': 'Saturday', 'saturday': 'Saturday',
-                        'sun': 'Sunday', 'sunday': 'Sunday',
-                        'mon': 'Monday', 'monday': 'Monday',
-                        'tue': 'Tuesday', 'tuesday': 'Tuesday',
-                        'wed': 'Wednesday', 'wednesday': 'Wednesday',
-                        'thu': 'Thursday', 'thursday': 'Thursday',
-                        'fri': 'Friday', 'friday': 'Friday'
-                    }
-                    day = day_map.get(day.lower(), day)
-                    
-                    # Determine type
-                    class_type = 'Theory'
-                    if 'lab' in course.lower() or 'practical' in course.lower():
-                        class_type = 'Lab'
-                    
-                    # Add to sections
+            # Check if this is a day header
+            for day in days:
+                if day in line.upper() and '08:30' in line:
+                    current_day = day.capitalize()
+                    logger.info(f"📅 Processing: {current_day}")
+                    i += 1
+                    break
+            
+            if not current_day:
+                i += 1
+                continue
+            
+            # Check for the end of routine
+            if 'SUNDAY' in line.upper() and current_day == 'Saturday':
+                # Found next day, we're done with Saturday
+                pass
+            
+            # Parse a line of routine data
+            # Format: Room Course Teacher (repeated for each time slot)
+            parts = line.split()
+            if len(parts) >= 3:
+                # Try to identify room, course, teacher patterns
+                entry = self.parse_routine_line(parts, current_day, time_slots)
+                if entry:
+                    section = entry.get('section', 'UNKNOWN')
                     if section not in sections:
                         sections[section] = []
-                    
                     sections[section].append({
-                        'day': day,
-                        'time': time if time else 'TBA',
-                        'course': course,
-                        'teacher': teacher if teacher else 'TBA',
-                        'room': room if room else 'TBA',
-                        'type': class_type
+                        'day': entry.get('day', ''),
+                        'time': entry.get('time', ''),
+                        'course': entry.get('course', ''),
+                        'teacher': entry.get('teacher', ''),
+                        'room': entry.get('room', ''),
+                        'type': entry.get('type', 'Theory')
                     })
-                    
-                except Exception as e:
-                    logger.warning(f"Error processing row {idx}: {e}")
-                    continue
             
-            logger.info(f"✅ Extracted {sum(len(entries) for entries in sections.values())} classes")
-        else:
-            logger.warning("❌ Could not find required columns")
-            logger.info(f"Available columns: {list(df.columns)}")
-            
-            # Try position-based extraction as fallback
-            logger.info("🔄 Trying position-based extraction...")
-            sections = self.extract_by_position(df)
+            i += 1
         
         return sections
     
-    def extract_by_position(self, df: pd.DataFrame) -> Dict[str, List[Dict]]:
-        """Fallback extraction by column position."""
-        sections = {}
-        
-        # Try to find header row
-        start_row = 0
-        for i in range(min(5, len(df))):
-            row = df.iloc[i]
-            row_text = ' '.join([str(val).lower() for val in row if pd.notna(val)])
-            if 'section' in row_text or 'day' in row_text:
-                start_row = i + 1
-                logger.info(f"Found header at row {i}, starting from row {start_row}")
-                break
-        
-        # Assume columns: section, day, time, course, teacher, room
-        for idx in range(start_row, len(df)):
-            try:
-                row = df.iloc[idx]
-                
-                # Get section (column 0)
-                section = str(row.iloc[0]).strip() if len(row) > 0 else ''
-                if not section or section.lower() in ['nan', 'none', '']:
-                    continue
-                
-                section = section.upper().replace(' ', '_')
-                section = re.sub(r'[^A-Z0-9_]', '', section)
-                
-                if not section:
-                    continue
-                
-                # Get other fields (adjust indices as needed)
-                day = str(row.iloc[1]).strip() if len(row) > 1 else ''
-                time = str(row.iloc[2]).strip() if len(row) > 2 else ''
-                course = str(row.iloc[3]).strip() if len(row) > 3 else ''
-                teacher = str(row.iloc[4]).strip() if len(row) > 4 else ''
-                room = str(row.iloc[5]).strip() if len(row) > 5 else ''
-                
-                if not day or not course:
-                    continue
-                
-                # Clean day
-                day_map = {
-                    'sat': 'Saturday', 'saturday': 'Saturday',
-                    'sun': 'Sunday', 'sunday': 'Sunday',
-                    'mon': 'Monday', 'monday': 'Monday',
-                    'tue': 'Tuesday', 'tuesday': 'Tuesday',
-                    'wed': 'Wednesday', 'wednesday': 'Wednesday',
-                    'thu': 'Thursday', 'thursday': 'Thursday',
-                    'fri': 'Friday', 'friday': 'Friday'
-                }
-                day = day_map.get(day.lower(), day)
-                
-                # Determine type
-                class_type = 'Theory'
-                if 'lab' in course.lower() or 'practical' in course.lower():
-                    class_type = 'Lab'
-                
-                if section not in sections:
-                    sections[section] = []
-                
-                sections[section].append({
-                    'day': day,
-                    'time': time if time else 'TBA',
-                    'course': course,
-                    'teacher': teacher if teacher else 'TBA',
-                    'room': room if room else 'TBA',
-                    'type': class_type
-                })
-                
-            except Exception as e:
-                continue
-        
-        return sections
+    def parse_routine_line(self, parts: List[str], day: str, time_slots: List[str]) -> Optional[Dict]:
+        """Parse a single line of routine data."""
+        try:
+            # Look for room number pattern (KT-XXX, G1-XXX, ANX1-XXX, etc.)
+            room_pattern = r'[A-Z0-9\-]+'
+            course_pattern = r'[A-Z]{3,4}\d{3,4}'
+            section_pattern = r'\([^)]+\)'
+            
+            text = ' '.join(parts)
+            
+            # Find room
+            room_match = re.search(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+|CTBA-\d+)\b', text)
+            room = room_match.group(0) if room_match else ''
+            
+            # Find course code
+            course_match = re.search(r'\b([A-Z]{3,4}\s*\d{3,4})\b', text)
+            course = course_match.group(0).replace(' ', '') if course_match else ''
+            
+            # Find section in parentheses
+            section_match = re.search(r'\(([^)]+)\)', text)
+            section = section_match.group(1).strip() if section_match else ''
+            
+            # Find teacher initials (pattern like "AS", "FNN", etc.)
+            # Teacher initials are usually 2-4 uppercase letters
+            # Remove room, course, section and find remaining uppercase patterns
+            clean_text = text
+            if room:
+                clean_text = clean_text.replace(room, '')
+            if course:
+                clean_text = clean_text.replace(course, '')
+            if section_match:
+                clean_text = clean_text.replace(section_match.group(0), '')
+            
+            # Extract teacher initials
+            teacher_match = re.search(r'\b([A-Z]{2,4})\b', clean_text)
+            teacher = teacher_match.group(0) if teacher_match else ''
+            
+            if not course or not section:
+                return None
+            
+            # Determine class type
+            class_type = 'Theory'
+            if 'LAB' in text.upper() or 'COM LAB' in text.upper():
+                class_type = 'Lab'
+            
+            # Clean section name
+            section = section.replace(' ', '_').upper()
+            section = re.sub(r'[^A-Z0-9_]', '', section)
+            
+            # Clean course code
+            course = course.replace(' ', '')
+            
+            return {
+                'section': section,
+                'day': day,
+                'time': 'TBA',  # Will be determined by position
+                'course': course,
+                'teacher': teacher if teacher else 'TBA',
+                'room': room if room else 'TBA',
+                'type': class_type
+            }
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Could not parse line: {' '.join(parts)[:50]}... Error: {e}")
+            return None
 
 
 def main():
