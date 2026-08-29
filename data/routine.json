@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T23:19:26.053593+00:00",
+  "updated_at": "2026-08-29T23:28:13.638926+00:00",
   "source": "https://webbackend.daffodilvarsity.edu.bd/download-file/4148",
   "version": "5",
   "sections": {
@@ -28,7 +28,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE315",
           "teacher": "AS",
@@ -38,7 +38,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "ROZ",
@@ -48,7 +48,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE321",
           "teacher": "AM",
@@ -58,7 +58,7 @@
           "section": "E"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "ROZCSE324",
@@ -114,7 +114,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "ARN",
@@ -124,7 +124,7 @@
           "section": "C"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE321",
           "teacher": "FNN",
@@ -134,7 +134,7 @@
           "section": "C"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE315",
           "teacher": "AS",
@@ -210,7 +210,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "ASM",
@@ -220,7 +220,7 @@
           "section": "A"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE315",
           "teacher": "AS",
@@ -230,7 +230,7 @@
           "section": "A"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE321",
           "teacher": "FNN",
@@ -240,7 +240,7 @@
           "section": "A"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "SZ",
@@ -276,7 +276,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE113",
           "teacher": "SRH",
@@ -286,7 +286,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG102",
           "teacher": "SMH",
@@ -296,7 +296,7 @@
           "section": "B"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY101",
           "teacher": "MAK",
@@ -342,7 +342,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "SNA",
@@ -352,7 +352,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "SNA",
@@ -408,7 +408,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT102",
           "teacher": "SSL",
@@ -474,7 +474,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE315",
           "teacher": "RAK",
@@ -484,7 +484,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "MSA",
@@ -530,7 +530,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "SMTS",
@@ -540,7 +540,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "SMTS",
@@ -596,7 +596,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "RIA",
@@ -606,7 +606,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE411",
           "teacher": "HMK",
@@ -662,7 +662,7 @@
           "section": "B"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE215",
           "teacher": "MSU",
@@ -820,7 +820,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "EHL",
@@ -830,7 +830,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE411",
           "teacher": "AAA",
@@ -840,7 +840,7 @@
           "section": "I"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "EHL",
@@ -886,7 +886,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE113",
           "teacher": "MSM",
@@ -896,7 +896,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG102",
           "teacher": "SMSH",
@@ -972,7 +972,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE221",
           "teacher": "SZ",
@@ -982,7 +982,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "AOL101",
           "teacher": "UH",
@@ -1104,7 +1104,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "LR",
@@ -1150,7 +1150,7 @@
           "section": "J"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "SMA",
@@ -1196,7 +1196,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "EHL",
@@ -1206,7 +1206,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE411",
           "teacher": "NJO",
@@ -1338,7 +1338,7 @@
           "section": "G"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "MHD",
@@ -1348,7 +1348,7 @@
           "section": "G"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "MIS",
@@ -1384,7 +1384,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "NTS",
@@ -1394,7 +1394,7 @@
           "section": "L"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "JHJ",
@@ -1404,7 +1404,7 @@
           "section": "L"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "MRI",
@@ -1470,7 +1470,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE321",
           "teacher": "FTJ",
@@ -1480,7 +1480,7 @@
           "section": "F"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "SZ",
@@ -1536,7 +1536,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ECO426",
           "teacher": "SMS",
@@ -1546,7 +1546,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE454",
           "teacher": "DAA",
@@ -1582,7 +1582,7 @@
           "section": "P"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "MSA",
@@ -1724,7 +1724,7 @@
           "section": "I"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE113",
           "teacher": "MA",
@@ -1892,7 +1892,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "ZS",
@@ -1902,7 +1902,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "MDS",
@@ -1948,7 +1948,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "MDS",
@@ -1958,7 +1958,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "CSA",
@@ -2080,7 +2080,7 @@
           "section": "P"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "TIS",
@@ -2090,7 +2090,7 @@
           "section": "P"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "LAR",
@@ -2100,7 +2100,7 @@
           "section": "P"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "LAR",
@@ -2115,6 +2115,26 @@
           "course": "BNS101",
           "teacher": "SHS",
           "room": "ANX1-103",
+          "type": "Theory",
+          "batch": "69",
+          "section": "P"
+        },
+        {
+          "day": "Tuesday",
+          "time": "08:30-10:00",
+          "course": "BNS101",
+          "teacher": "SHS",
+          "room": "ANX1-210",
+          "type": "Theory",
+          "batch": "69",
+          "section": "P"
+        },
+        {
+          "day": "Tuesday",
+          "time": "08:30-10:00",
+          "course": "MAT211",
+          "teacher": "MNM",
+          "room": "ANX1-210",
           "type": "Theory",
           "batch": "69",
           "section": "P"
@@ -2146,7 +2166,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT102",
           "teacher": "MNM",
@@ -2156,7 +2176,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY101",
           "teacher": "AEE",
@@ -2242,7 +2262,7 @@
           "section": "A"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "MUH",
@@ -2298,7 +2318,7 @@
           "section": "P"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "SMTS",
@@ -2364,7 +2384,7 @@
           "section": "B"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "ASM",
@@ -2448,6 +2468,16 @@
           "type": "Theory",
           "batch": "68",
           "section": "H"
+        },
+        {
+          "day": "Saturday",
+          "time": "08:30-10:00",
+          "course": "CSE221",
+          "teacher": "MRY",
+          "room": "KT-515",
+          "type": "Theory",
+          "batch": "68",
+          "section": "H"
         }
       ]
     },
@@ -2522,7 +2552,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT102",
           "teacher": "MNM",
@@ -2532,7 +2562,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY101",
           "teacher": "AEE",
@@ -2618,7 +2648,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE221",
           "teacher": "LAR",
@@ -2654,7 +2684,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE215",
           "teacher": "BM",
@@ -2710,7 +2740,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE411",
           "teacher": "FFN",
@@ -2894,7 +2924,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE221",
           "teacher": "SZ",
@@ -3026,7 +3056,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "IJN",
@@ -3036,7 +3066,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE226",
           "teacher": "SP",
@@ -3082,7 +3112,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE221",
           "teacher": "MIZ",
@@ -3092,7 +3122,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "AOL101",
           "teacher": "GR",
@@ -3270,7 +3300,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE113",
           "teacher": "FAF",
@@ -3280,7 +3310,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY101",
           "teacher": "SSK",
@@ -3356,7 +3386,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE215",
           "teacher": "NAB",
@@ -3382,7 +3412,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "ADK",
@@ -3392,7 +3422,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "IK",
@@ -3468,7 +3498,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "SNK",
@@ -3478,7 +3508,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ANR",
@@ -3544,7 +3574,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "PS",
@@ -3554,7 +3584,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MSH",
@@ -3564,7 +3594,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MSH",
@@ -3574,7 +3604,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "TAS",
@@ -3620,7 +3650,7 @@
           "section": "U"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "GR",
@@ -3630,7 +3660,7 @@
           "section": "U"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "AAK",
@@ -3686,7 +3716,7 @@
           "section": "V"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "AAK",
@@ -3696,7 +3726,7 @@
           "section": "V"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "GR",
@@ -3782,7 +3812,7 @@
           "section": "REA"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE315",
           "teacher": "ARK",
@@ -3792,7 +3822,7 @@
           "section": "REA"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "SHN",
@@ -3886,6 +3916,16 @@
           "type": "Theory",
           "batch": "Unknown",
           "section": "REAC"
+        },
+        {
+          "day": "Thursday",
+          "time": "08:30-10:00",
+          "course": "MAT211",
+          "teacher": "TBA",
+          "room": "ANX1-208",
+          "type": "Theory",
+          "batch": "Unknown",
+          "section": "REAC"
         }
       ]
     },
@@ -3914,7 +3954,7 @@
           "section": "REB"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "FRA",
@@ -3924,7 +3964,7 @@
           "section": "REB"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "RYH",
@@ -3990,7 +4030,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SMH",
@@ -4000,7 +4040,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MSH",
@@ -4112,7 +4152,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ASA",
@@ -4122,7 +4162,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AST",
@@ -4132,7 +4172,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AST",
@@ -4188,7 +4228,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "MSJ",
@@ -4198,7 +4238,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SMSH",
@@ -4208,7 +4248,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "MSJ",
@@ -4274,7 +4314,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SMH",
@@ -4284,7 +4324,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AMN",
@@ -4330,7 +4370,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ANR",
@@ -4340,7 +4380,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AST",
@@ -4350,7 +4390,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "ZMK",
@@ -4360,7 +4400,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "ZMK",
@@ -4416,7 +4456,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MRN",
@@ -4426,7 +4466,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ANR",
@@ -4436,7 +4476,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "AUA",
@@ -4482,7 +4522,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "IJN",
@@ -4492,7 +4532,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "FZA",
@@ -4502,7 +4542,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MSH",
@@ -4512,7 +4552,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ASA",
@@ -4568,7 +4608,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "PDS",
@@ -4578,7 +4618,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "TAB",
@@ -4588,7 +4628,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SMH",
@@ -4598,7 +4638,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AST",
@@ -4644,7 +4684,17 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
+          "time": "08:30-10:00",
+          "course": "CSE213",
+          "teacher": "AGT",
+          "room": "KT-515",
+          "type": "Theory",
+          "batch": "69",
+          "section": "M"
+        },
+        {
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "ARH",
@@ -4654,7 +4704,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "JS",
@@ -4720,7 +4770,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "SNK",
@@ -4730,7 +4780,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "DMR",
@@ -4786,7 +4836,7 @@
           "section": "A"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ECO426",
           "teacher": "MSR",
@@ -4822,7 +4872,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ECO426",
           "teacher": "SMS",
@@ -4884,7 +4934,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "SMAH",
@@ -4894,7 +4944,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "MPL",
@@ -4970,7 +5020,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "SRRS",
@@ -4980,7 +5030,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "RIA",
@@ -5056,7 +5106,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "MRIS",
@@ -5066,7 +5116,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "MAM",
@@ -5102,7 +5152,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "MSK",
@@ -5112,7 +5162,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "MUR",
@@ -5138,7 +5188,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY101",
           "teacher": "SSK",
@@ -5148,7 +5198,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY101",
           "teacher": "SSK",
@@ -5158,7 +5208,7 @@
           "section": "F"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG102",
           "teacher": "NAT",
@@ -5224,7 +5274,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "DAN",
@@ -5234,7 +5284,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "SMC",
@@ -5244,7 +5294,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "RIM",
@@ -5301,6 +5351,16 @@
           "course": "CSE121",
           "teacher": "MHK",
           "room": "KT-218",
+          "type": "Theory",
+          "batch": "70",
+          "section": "D"
+        },
+        {
+          "day": "Saturday",
+          "time": "08:30-10:00",
+          "course": "CSE123",
+          "teacher": "THT",
+          "room": "KT-515",
           "type": "Theory",
           "batch": "70",
           "section": "D"
@@ -5408,7 +5468,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "AAS",
@@ -5418,7 +5478,7 @@
           "section": "A"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "HH",
@@ -5464,7 +5524,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "RKR",
@@ -5474,7 +5534,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "ALK",
@@ -5484,7 +5544,7 @@
           "section": "L"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "JS",
@@ -5550,7 +5610,17 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
+          "time": "08:30-10:00",
+          "course": "CSE123",
+          "teacher": "THT",
+          "room": "KT-515",
+          "type": "Theory",
+          "batch": "70",
+          "section": "E"
+        },
+        {
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "MAM",
@@ -5560,7 +5630,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "THT",
@@ -5596,7 +5666,7 @@
           "section": "L"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE441",
           "teacher": "MHD",
@@ -5642,7 +5712,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "NTS",
@@ -5652,7 +5722,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "JHJ",
@@ -5662,7 +5732,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "ZA",
@@ -5698,7 +5768,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE411",
           "teacher": "AAA",
@@ -5708,7 +5778,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "SHD",
@@ -5718,7 +5788,7 @@
           "section": "G"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "SAL",
@@ -5784,7 +5854,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "ARH",
@@ -5794,7 +5864,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "JS",
@@ -5804,7 +5874,7 @@
           "section": "N"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "SHR",
@@ -5814,7 +5884,7 @@
           "section": "N"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "TI",
@@ -5829,6 +5899,16 @@
           "course": "BNS101",
           "teacher": "ARH",
           "room": "ANX1-201",
+          "type": "Theory",
+          "batch": "69",
+          "section": "N"
+        },
+        {
+          "day": "Tuesday",
+          "time": "08:30-10:00",
+          "course": "MAT211",
+          "teacher": "JS",
+          "room": "ANX1-210",
           "type": "Theory",
           "batch": "69",
           "section": "N"
@@ -5850,7 +5930,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG102",
           "teacher": "IMT",
@@ -5982,7 +6062,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "MFI",
@@ -5992,7 +6072,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "MTF",
@@ -6002,7 +6082,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "THT",
@@ -6048,7 +6128,7 @@
           "section": "K"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE441",
           "teacher": "MHD",
@@ -6058,7 +6138,7 @@
           "section": "K"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ECO426",
           "teacher": "MBB",
@@ -6084,7 +6164,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE321",
           "teacher": "STA",
@@ -6094,7 +6174,7 @@
           "section": "M"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "IK",
@@ -6160,7 +6240,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "NS",
@@ -6170,7 +6250,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "SHD",
@@ -6180,7 +6260,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE411",
           "teacher": "SFMA",
@@ -6190,7 +6270,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "NS",
@@ -6256,7 +6336,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "AKM",
@@ -6322,7 +6402,7 @@
           "section": "O"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "MFI",
@@ -6368,7 +6448,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "AKM",
@@ -6378,7 +6458,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "NS",
@@ -6388,7 +6468,7 @@
           "section": "E"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE414",
           "teacher": "DAN",
@@ -6434,7 +6514,7 @@
           "section": "K"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "MMB",
@@ -6470,7 +6550,17 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
+          "time": "08:30-10:00",
+          "course": "CSE226",
+          "teacher": "HMK",
+          "room": "KT-515",
+          "type": "Theory",
+          "batch": "67",
+          "section": "F"
+        },
+        {
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE311",
           "teacher": "SH",
@@ -6516,7 +6606,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "RKR",
@@ -6572,7 +6662,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE226",
           "teacher": "MSK",
@@ -6628,7 +6718,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "AHN",
@@ -6638,7 +6728,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "SI",
@@ -6760,7 +6850,7 @@
           "section": "H"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE315",
           "teacher": "SH",
@@ -6836,7 +6926,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ECO426",
           "teacher": "SMS",
@@ -6882,7 +6972,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "SMN",
@@ -6892,7 +6982,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "SAR",
@@ -6958,7 +7048,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "RKR",
@@ -6968,7 +7058,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "SAR",
@@ -6978,7 +7068,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "MAA",
@@ -7054,7 +7144,7 @@
           "section": "B"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "AEE",
@@ -7090,7 +7180,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "AHN",
@@ -7126,7 +7216,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "MNM",
@@ -7136,7 +7226,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "SMN",
@@ -7146,7 +7236,7 @@
           "section": "F"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "MUH",
@@ -7192,7 +7282,7 @@
       "section": "C",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "SMTS",
@@ -7202,7 +7292,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE226",
           "teacher": "FMA",
@@ -7212,7 +7302,7 @@
           "section": "C"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "SMTS",
@@ -7238,7 +7328,7 @@
       "section": "K",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "MMI",
@@ -7248,7 +7338,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "ALK",
@@ -7258,7 +7348,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "MPL",
@@ -7304,7 +7394,7 @@
       "section": "G",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "FMA",
@@ -7314,7 +7404,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "ARH",
@@ -7324,7 +7414,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "MNM",
@@ -7334,7 +7424,7 @@
           "section": "G"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "FMA",
@@ -7370,7 +7460,7 @@
       "section": "J",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT102",
           "teacher": "AKC",
@@ -7380,7 +7470,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG102",
           "teacher": "NAT",
@@ -7446,7 +7536,7 @@
       "section": "Q",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MRN",
@@ -7522,7 +7612,7 @@
       "section": "K",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MRN",
@@ -7532,7 +7622,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "TAB",
@@ -7542,7 +7632,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SMSH",
@@ -7552,7 +7642,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "MRN",
@@ -7598,7 +7688,7 @@
       "section": "D",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "DMR",
@@ -7608,7 +7698,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "IJN",
@@ -7618,7 +7708,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AMN",
@@ -7628,7 +7718,7 @@
           "section": "D"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ASA",
@@ -7674,7 +7764,7 @@
       "section": "O",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "NJO",
@@ -7750,7 +7840,7 @@
       "section": "E",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "SMN",
@@ -7760,7 +7850,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "SAR",
@@ -7770,7 +7860,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "MUH",
@@ -7780,7 +7870,7 @@
           "section": "E"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "DMR",
@@ -7808,6 +7898,16 @@
           "type": "Theory",
           "batch": "69",
           "section": "E"
+        },
+        {
+          "day": "Tuesday",
+          "time": "08:30-10:00",
+          "course": "BNS101",
+          "teacher": "SMN",
+          "room": "ANX1-210",
+          "type": "Theory",
+          "batch": "69",
+          "section": "E"
         }
       ]
     },
@@ -7816,7 +7916,7 @@
       "section": "H",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ANR",
@@ -7826,7 +7926,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AMN",
@@ -7836,7 +7936,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "MSJ",
@@ -7892,7 +7992,7 @@
       "section": "G",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "ASA",
@@ -7902,7 +8002,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "AMN",
@@ -7912,7 +8012,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "ZMK",
@@ -7968,7 +8068,7 @@
       "section": "I",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "BNS101",
           "teacher": "MAA",
@@ -7978,7 +8078,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "AHN",
@@ -7988,7 +8088,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "TAB",
@@ -7998,7 +8098,7 @@
           "section": "I"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT211",
           "teacher": "SAR",
@@ -8054,7 +8154,7 @@
       "section": "R",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SAS",
@@ -8064,7 +8164,7 @@
           "section": "R"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "FJ",
@@ -8074,7 +8174,7 @@
           "section": "R"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "HHP",
@@ -8084,7 +8184,7 @@
           "section": "R"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SAS",
@@ -8140,7 +8240,7 @@
       "section": "S",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SAS",
@@ -8150,7 +8250,7 @@
           "section": "S"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "MHS",
@@ -8160,7 +8260,7 @@
           "section": "S"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "NDS",
@@ -8170,7 +8270,7 @@
           "section": "S"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "LR",
@@ -8216,7 +8316,7 @@
       "section": "T",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE112",
           "teacher": "MHS",
@@ -8226,7 +8326,7 @@
           "section": "T"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "LR",
@@ -8236,7 +8336,7 @@
           "section": "T"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "SAS",
@@ -8292,7 +8392,7 @@
       "section": "P",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "MAT101",
           "teacher": "NDS",
@@ -8302,7 +8402,7 @@
           "section": "P"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ENG101",
           "teacher": "PS",
@@ -8312,7 +8412,7 @@
           "section": "P"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE115",
           "teacher": "NJO",
@@ -8368,7 +8468,7 @@
       "section": "G",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "ARN",
@@ -8378,7 +8478,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE321",
           "teacher": "AM",
@@ -8388,7 +8488,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "MRR",
@@ -8398,7 +8498,7 @@
           "section": "G"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE315",
           "teacher": "NS",
@@ -8408,7 +8508,7 @@
           "section": "G"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ACT327",
           "teacher": "ARN",
@@ -8444,7 +8544,7 @@
       "section": "E",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE465",
           "teacher": "NT_11",
@@ -8470,7 +8570,7 @@
       "section": "Q",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "MHI",
@@ -8480,7 +8580,7 @@
           "section": "Q"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "RIM",
@@ -8490,7 +8590,7 @@
           "section": "Q"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "TAK",
@@ -8500,7 +8600,7 @@
           "section": "Q"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "MHI",
@@ -8516,7 +8616,7 @@
       "section": "I",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE317",
           "teacher": "ADK",
@@ -8572,7 +8672,7 @@
       "section": "N",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "PPC",
@@ -8582,7 +8682,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "AEE",
@@ -8592,7 +8692,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "EHL",
@@ -8638,7 +8738,7 @@
       "section": "O",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "SRRS",
@@ -8648,7 +8748,7 @@
           "section": "O"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE411",
           "teacher": "PB",
@@ -8724,7 +8824,7 @@
       "section": "H",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ECO426",
           "teacher": "MBB",
@@ -8734,7 +8834,7 @@
           "section": "H"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE431",
           "teacher": "MIS",
@@ -8760,7 +8860,7 @@
       "section": "J",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE326",
           "teacher": "MMI",
@@ -8770,7 +8870,7 @@
           "section": "J"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE325",
           "teacher": "SMA",
@@ -8826,7 +8926,7 @@
       "section": "K",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "ZA",
@@ -8836,7 +8936,7 @@
           "section": "K"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "MJZ",
@@ -8892,7 +8992,7 @@
       "section": "F",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "ECO426",
           "teacher": "MSR",
@@ -8902,7 +9002,7 @@
           "section": "F"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE431",
           "teacher": "SN",
@@ -8938,7 +9038,7 @@
       "section": "O",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE213",
           "teacher": "NAE",
@@ -8948,7 +9048,7 @@
           "section": "O"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE212",
           "teacher": "MJZ",
@@ -9024,7 +9124,7 @@
       "section": "N",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "CSA",
@@ -9034,7 +9134,7 @@
           "section": "N"
         },
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE226",
           "teacher": "SP",
@@ -9070,7 +9170,7 @@
       "section": "G",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE431",
           "teacher": "SN",
@@ -9106,7 +9206,7 @@
       "section": "I",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "MMB",
@@ -9116,7 +9216,7 @@
           "section": "I"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE313",
           "teacher": "MMB",
@@ -9162,7 +9262,7 @@
       "section": "D",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE414",
           "teacher": "MMRN",
@@ -9218,7 +9318,7 @@
       "section": "I",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE465",
           "teacher": "NT_15",
@@ -9234,7 +9334,7 @@
       "section": "L",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE226",
           "teacher": "NRM",
@@ -9300,7 +9400,7 @@
       "section": "J",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE465",
           "teacher": "NT_16",
@@ -9316,7 +9416,7 @@
       "section": "F",
       "classes": [
         {
-          "day": "Sunday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE465",
           "teacher": "NT_19",
@@ -9332,7 +9432,7 @@
       "section": "R",
       "classes": [
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE121",
           "teacher": "MHI",
@@ -9342,7 +9442,7 @@
           "section": "R"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "PHY102",
           "teacher": "MRZ",
@@ -9352,7 +9452,7 @@
           "section": "R"
         },
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "08:30-10:00",
           "course": "CSE123",
           "teacher": "DRAR",
@@ -9398,7 +9498,7 @@
       "section": "REAC",
       "classes": [
         {
-          "day": "Monday",
+          "day": "Saturday",
           "time": "04:00-05:30",
           "course": "CSE324",
           "teacher": "IEA",
@@ -9606,6 +9706,38 @@
           "type": "Theory",
           "batch": "64",
           "section": "I"
+        }
+      ]
+    },
+    "RE_B3C": {
+      "batch": "Unknown",
+      "section": "REBC",
+      "classes": [
+        {
+          "day": "Thursday",
+          "time": "08:30-10:00",
+          "course": "MAT211",
+          "teacher": "TBA",
+          "room": "ANX1-208",
+          "type": "Theory",
+          "batch": "Unknown",
+          "section": "REBC"
+        }
+      ]
+    },
+    "RE_C3C": {
+      "batch": "Unknown",
+      "section": "RECC",
+      "classes": [
+        {
+          "day": "Thursday",
+          "time": "08:30-10:00",
+          "course": "MAT211",
+          "teacher": "TBA",
+          "room": "ANX1-208",
+          "type": "Theory",
+          "batch": "Unknown",
+          "section": "RECC"
         }
       ]
     }
