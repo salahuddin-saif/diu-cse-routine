@@ -5,44 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIU CSE Routine</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>DAFFODIL INTERNATIONAL UNIVERSITY</h1>
             <h2>DIU CSE Routine</h2>
-            <div class="status-banner">
-                <span id="statusIndicator" class="status-loading">● Loading</span>
-                <span id="lastUpdated" class="last-updated"></span>
+            <div id="statusBar">
+                <span id="status">● Loading</span>
+                <span id="lastUpdated"></span>
             </div>
         </header>
 
         <main>
             <div class="search-section">
+                <label for="sectionInput">Enter your section</label>
                 <div class="input-group">
-                    <label for="sectionInput">Enter your section</label>
-                    <div class="input-row">
-                        <input type="text" id="sectionInput" placeholder="e.g., 70_B71_B70_P" value="70_B71_B70_P">
-                        <button id="showRoutineBtn" class="btn-primary">Show Routine</button>
-                    </div>
+                    <input type="text" id="sectionInput" placeholder="e.g., 70_B71_B70_P">
+                    <button id="showRoutine">Show Routine</button>
                 </div>
-                <div class="action-row">
-                    <button id="clearSectionBtn" class="btn-secondary">Clear saved routine</button>
-                </div>
-                <div id="statusMessage" class="status-message"></div>
+                <button id="clearSection">Clear saved routine</button>
+                <div id="message"></div>
             </div>
 
-            <div id="routineContainer" class="routine-container">
+            <div id="routineContainer">
                 <div class="loading-state">
                     <div class="spinner"></div>
                     <p>Loading routine data...</p>
                 </div>
-            </div>
-
-            <div class="info-footer">
-                <p>Your selected section is saved on this device.</p>
-                <p>LocalStorage • No database • GitHub Actions</p>
             </div>
         </main>
     </div>
