@@ -139,17 +139,38 @@ function findMatchingSection(sections, input) {
 }
 
 function displayStudentRoutine(sectionKey, sectionData) {
-    if (!sectionData || !sectionData.classes || sectionData.classes.length === 0) {
+    // Handle both old and new data formats
+    let classes = [];
+    let batch = 'Unknown';
+    let section = sectionKey;
+    
+    // Check if it's the new format (with classes array)
+    if (sectionData && sectionData.classes && Array.isArray(sectionData.classes)) {
+        classes = sectionData.classes;
+        batch = sectionData.batch || 'Unknown';
+        section = sectionData.section || sectionKey;
+    } 
+    // Check if it's the old format (array of classes)
+    else if (Array.isArray(sectionData)) {
+        classes = sectionData;
+        // Try to extract batch from first class or section key
+        const match = sectionKey.match(/(\d+)_([A-Z])/);
+        if (match) {
+            batch = match[1];
+            section = match[2];
+        }
+    }
+    
+    if (!classes || classes.length === 0) {
         showNoRoutine('No Classes Found', `No classes found for section "${sectionKey}"`);
         return;
     }
     
-    const classes = sectionData.classes;
-    const batch = sectionData.batch || 'Unknown';
-    const section = sectionData.section || sectionKey;
-    
     // Build student profile
     let html = buildStudentProfile(batch, section, classes);
+    
+    // Add course list (like the picture)
+    html += buildCourseList(classes);
     
     // Add view tabs
     html += `
@@ -200,14 +221,15 @@ function buildStudentProfile(batch, section, classes) {
             <div class="profile-header">
                 <div class="profile-info">
                     <div class="student-name">
-                        <i class="fas fa-user-graduate" style="color: var(--primary-light);"></i>
+                        <i class="fas fa-user-graduate"></i>
                         Student
+                        <span class="badge">${escapeHtml(batch)}_${escapeHtml(section)}</span>
                     </div>
-                    <div class="student-details">
+                    <div class="profile-details">
                         <span><i class="fas fa-layer-group"></i> Batch: <strong>${escapeHtml(batch)}</strong></span>
                         <span><i class="fas fa-tag"></i> Section: <strong>${escapeHtml(section)}</strong></span>
                         <span><i class="fas fa-book"></i> Total Courses: <strong>${totalCourses}</strong></span>
-                        <span><i class="fas fa-code-branch"></i> Routine Version: <strong>v${escapeHtml(routineData?.version || '5.0')}</strong></span>
+                        <span><i class="fas fa-code-branch"></i> Version: <strong>v${escapeHtml(routineData?.version || '5.0')}</strong></span>
                         <span><i class="fas fa-calendar-alt"></i> Classes/Week: <strong>${classesPerWeek}</strong></span>
                     </div>
                 </div>
@@ -230,6 +252,50 @@ function buildStudentProfile(batch, section, classes) {
     `;
 }
 
+function buildCourseList(classes) {
+    // Get unique courses
+    const courseMap = {};
+    for (const cls of classes) {
+        const key = cls.course;
+        if (!courseMap[key]) {
+            courseMap[key] = {
+                course: cls.course,
+                teacher: cls.teacher || 'TBA',
+                type: cls.type || 'Theory'
+            };
+        }
+    }
+    
+    const courses = Object.values(courseMap);
+    
+    let html = `
+        <div class="course-list">
+            <div class="course-list-header">
+                <h4><i class="fas fa-list-ul"></i> Enrolled Courses</h4>
+                <span class="count">${courses.length} courses</span>
+            </div>
+            <div class="course-grid">
+    `;
+    
+    for (const course of courses) {
+        const typeClass = course.type === 'Lab' ? 'type-lab' : 'type-theory';
+        html += `
+            <div class="course-tag">
+                <span class="course-code">${escapeHtml(course.course)}</span>
+                <span class="course-teacher">${escapeHtml(course.teacher)}</span>
+                <span class="type-tag ${typeClass}">${escapeHtml(course.type)}</span>
+            </div>
+        `;
+    }
+    
+    html += `
+            </div>
+        </div>
+    `;
+    
+    return html;
+}
+
 function renderDayView(classes) {
     const container = document.getElementById('viewContent');
     if (!container) return;
@@ -246,21 +312,21 @@ function renderDayView(classes) {
     for (const day of days) {
         if (!grouped[day]) continue;
         
-        html += `
-            <div class="day-card">
-                <div class="day-card-header">
-                    <span>${day}</span>
-                    <span>${grouped[day].length} classes</span>
-                </div>
-                <div class="day-card-body">
-        `;
-        
         // Sort by time
         const sorted = grouped[day].sort((a, b) => {
             if (a.time === 'TBA') return 1;
             if (b.time === 'TBA') return -1;
             return a.time.localeCompare(b.time);
         });
+        
+        html += `
+            <div class="day-card">
+                <div class="day-card-header">
+                    <span class="day-name"><i class="fas fa-calendar-alt"></i> ${day}</span>
+                    <span class="class-count">${sorted.length} classes</span>
+                </div>
+                <div class="day-card-body">
+        `;
         
         for (const cls of sorted) {
             const typeClass = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
@@ -315,9 +381,9 @@ function renderWeekView(classes) {
                 for (const cls of matching) {
                     const typeClass = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
                     html += `<div style="margin-bottom: 4px;">
-                        <strong>${escapeHtml(cls.course)}</strong><br>
+                        <strong>${escapeHtml(cls.course)}</strong>
+                        <span class="type-tag ${typeClass}" style="font-size: 0.65rem;">${escapeHtml(cls.type)}</span><br>
                         <span style="font-size: 0.8rem; color: var(--gray-600);">${escapeHtml(cls.teacher)} • ${escapeHtml(cls.room)}</span>
-                        <span class="type-tag ${typeClass}" style="font-size: 0.65rem;">${escapeHtml(cls.type)}</span>
                     </div>`;
                 }
                 html += `</td>`;
