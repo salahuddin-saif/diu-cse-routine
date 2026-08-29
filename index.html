@@ -39,12 +39,14 @@
             <section class="search-section">
                 <div class="search-container">
                     <div class="input-group">
+                        <label for="sectionInput">
+                            <i class="fas fa-user-graduate"></i> Enter your section
+                        </label>
                         <div class="input-wrapper">
-                            <i class="fas fa-user-graduate input-icon"></i>
                             <input 
                                 type="text" 
                                 id="sectionInput" 
-                                placeholder="Enter your section (e.g., 70_N)"
+                                placeholder="e.g., 70_N, 71_B, 66_E"
                                 class="section-input"
                                 autocomplete="off"
                             >
@@ -59,7 +61,7 @@
                     </div>
                     <div class="action-row">
                         <button id="clearSectionBtn" class="btn-secondary">
-                            <i class="fas fa-undo"></i> Clear Saved
+                            <i class="fas fa-undo"></i> Clear saved routine
                         </button>
                         <div id="message" class="message"></div>
                     </div>
@@ -70,7 +72,7 @@
             <section id="routineContainer" class="routine-container">
                 <div class="loading-state">
                     <div class="spinner"></div>
-                    <p>Loading your routine...</p>
+                    <p>Loading routine data...</p>
                 </div>
             </section>
 
