@@ -1,4 +1,4 @@
-// DIU CSE Routine - Frontend JavaScript
+// DIU CSE Routine - Student View
 
 const ROUTINE_URL = './data/routine.json?t=' + Date.now();
 const STORAGE_KEY = 'diu_cse_section';
@@ -9,24 +9,23 @@ const showRoutineBtn = document.getElementById('showRoutineBtn');
 const clearSectionBtn = document.getElementById('clearSectionBtn');
 const routineContainer = document.getElementById('routineContainer');
 const statusBadge = document.getElementById('statusBadge');
+const versionBadge = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
 let routineData = null;
 let selectedSection = null;
+let currentView = 'day';
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    // Load saved section
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
         sectionInput.value = saved;
     }
     
-    // Load routine data
     loadRoutineData();
     
-    // Event listeners
     showRoutineBtn.addEventListener('click', handleShowRoutine);
     clearSectionBtn.addEventListener('click', handleClearSection);
     sectionInput.addEventListener('keypress', (e) => {
@@ -44,6 +43,11 @@ async function loadRoutineData() {
         const data = await response.json();
         routineData = data;
         
+        // Update version
+        if (data.version) {
+            versionBadge.textContent = data.version;
+        }
+        
         // Update last updated
         if (data.updated_at) {
             const date = new Date(data.updated_at);
@@ -58,26 +62,26 @@ async function loadRoutineData() {
         if (saved && data.sections) {
             const section = findMatchingSection(data.sections, saved);
             if (section) {
-                displayRoutine(data.sections[section], section);
+                displayStudentRoutine(section, data.sections[section]);
             }
         } else if (data.sections && Object.keys(data.sections).length > 0) {
             // Show first section
             const first = Object.keys(data.sections)[0];
-            displayRoutine(data.sections[first], first);
+            displayStudentRoutine(first, data.sections[first]);
         }
         
     } catch (error) {
         console.error('Failed to load routine:', error);
         setStatus('error', 'Error loading data');
         showMessage('Routine data is currently unavailable. Please try again later.', 'error');
-        showNoRoutine('Could not load routine data', 'The routine data could not be loaded. The GitHub Action may not have run yet.');
+        showNoRoutine('Could not load routine data', 'The routine data could not be loaded.');
     }
 }
 
 function handleShowRoutine() {
     const section = sectionInput.value.trim();
     if (!section) {
-        showMessage('Please enter a section.', 'error');
+        showMessage('Please enter your section (e.g., 70_N).', 'error');
         return;
     }
     
@@ -89,10 +93,10 @@ function handleShowRoutine() {
     const matched = findMatchingSection(routineData.sections, section);
     if (matched) {
         localStorage.setItem(STORAGE_KEY, section);
-        displayRoutine(routineData.sections[matched], matched);
+        displayStudentRoutine(matched, routineData.sections[matched]);
         showMessage(`Showing routine for ${matched}`, 'success');
     } else {
-        showMessage(`No routine found for "${section}". Please check your section name.`, 'error');
+        showMessage(`No routine found for "${section}". Please check your section.`, 'error');
         showNoRoutine('Section Not Found', `No routine data available for section "${section}"`);
     }
 }
@@ -102,11 +106,10 @@ function handleClearSection() {
     sectionInput.value = '';
     showMessage('Saved section cleared.', 'info');
     
-    // Show first section
     if (routineData && routineData.sections) {
         const sections = Object.keys(routineData.sections);
         if (sections.length > 0) {
-            displayRoutine(routineData.sections[sections[0]], sections[0]);
+            displayStudentRoutine(sections[0], routineData.sections[sections[0]]);
         }
     }
 }
@@ -118,6 +121,15 @@ function findMatchingSection(sections, input) {
     // Direct match
     if (keys.includes(normalized)) return normalized;
     
+    // Try with batch_section format
+    const parts = normalized.split('_');
+    if (parts.length === 2) {
+        const alternative = `${parts[0]}_${parts[1]}`;
+        for (const key of keys) {
+            if (key.toUpperCase() === alternative) return key;
+        }
+    }
+    
     // Case insensitive
     for (const key of keys) {
         if (key.toUpperCase() === normalized) return key;
@@ -126,60 +138,198 @@ function findMatchingSection(sections, input) {
     return null;
 }
 
-function displayRoutine(classes, sectionName) {
-    if (!classes || classes.length === 0) {
-        showNoRoutine('No Classes Found', `No classes found for section "${sectionName}"`);
+function displayStudentRoutine(sectionKey, sectionData) {
+    if (!sectionData || !sectionData.classes || sectionData.classes.length === 0) {
+        showNoRoutine('No Classes Found', `No classes found for section "${sectionKey}"`);
         return;
     }
     
-    // Group by day
-    const dayOrder = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+    const classes = sectionData.classes;
+    const batch = sectionData.batch || 'Unknown';
+    const section = sectionData.section || sectionKey;
+    
+    // Build student profile
+    let html = buildStudentProfile(batch, section, classes);
+    
+    // Add view tabs
+    html += `
+        <div class="view-tabs">
+            <button class="view-tab active" data-view="day">
+                <i class="fas fa-calendar-day"></i> Day View
+            </button>
+            <button class="view-tab" data-view="week">
+                <i class="fas fa-calendar-week"></i> Week View
+            </button>
+        </div>
+        <div id="viewContent"></div>
+    `;
+    
+    routineContainer.innerHTML = html;
+    
+    // Store data for view switching
+    window._currentClasses = classes;
+    window._currentSection = sectionKey;
+    
+    // Render initial view (day)
+    renderDayView(classes);
+    
+    // View switching
+    document.querySelectorAll('.view-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            const view = this.dataset.view;
+            if (view === 'day') {
+                renderDayView(classes);
+            } else {
+                renderWeekView(classes);
+            }
+        });
+    });
+}
+
+function buildStudentProfile(batch, section, classes) {
+    const totalCourses = classes.length;
+    const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+    const uniqueDays = [...new Set(classes.map(c => c.day))].filter(d => days.includes(d));
+    const classesPerWeek = uniqueDays.length;
+    
+    return `
+        <div class="student-profile">
+            <div class="profile-header">
+                <div class="profile-info">
+                    <div class="student-name">
+                        <i class="fas fa-user-graduate" style="color: var(--primary-light);"></i>
+                        Student
+                    </div>
+                    <div class="student-details">
+                        <span><i class="fas fa-layer-group"></i> Batch: <strong>${escapeHtml(batch)}</strong></span>
+                        <span><i class="fas fa-tag"></i> Section: <strong>${escapeHtml(section)}</strong></span>
+                        <span><i class="fas fa-book"></i> Total Courses: <strong>${totalCourses}</strong></span>
+                        <span><i class="fas fa-code-branch"></i> Routine Version: <strong>v${escapeHtml(routineData?.version || '5.0')}</strong></span>
+                        <span><i class="fas fa-calendar-alt"></i> Classes/Week: <strong>${classesPerWeek}</strong></span>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">${totalCourses}</div>
+                        <div class="stat-label">Courses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">${classesPerWeek}</div>
+                        <div class="stat-label">Days</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">${uniqueDays.length > 0 ? uniqueDays.map(d => d.substring(0, 3)).join(', ') : 'N/A'}</div>
+                        <div class="stat-label">Active Days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function renderDayView(classes) {
+    const container = document.getElementById('viewContent');
+    if (!container) return;
+    
+    const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
     const grouped = {};
     for (const cls of classes) {
         if (!grouped[cls.day]) grouped[cls.day] = [];
         grouped[cls.day].push(cls);
     }
     
-    // Build HTML
-    let html = `
-        <div class="routine-header">
-            <h3><i class="fas fa-calendar-alt"></i> Routine for ${escapeHtml(sectionName)}</h3>
-            <span class="count"><i class="fas fa-clock"></i> ${classes.length} classes</span>
-        </div>
-        <div class="table-wrapper">
-            <table class="routine-table">
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Course</th>
-                        <th>Teacher</th>
-                        <th>Room</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-    `;
+    let html = '<div class="day-view-grid">';
     
-    for (const day of dayOrder) {
+    for (const day of days) {
         if (!grouped[day]) continue;
-        for (const cls of grouped[day]) {
+        
+        html += `
+            <div class="day-card">
+                <div class="day-card-header">
+                    <span>${day}</span>
+                    <span>${grouped[day].length} classes</span>
+                </div>
+                <div class="day-card-body">
+        `;
+        
+        // Sort by time
+        const sorted = grouped[day].sort((a, b) => {
+            if (a.time === 'TBA') return 1;
+            if (b.time === 'TBA') return -1;
+            return a.time.localeCompare(b.time);
+        });
+        
+        for (const cls of sorted) {
             const typeClass = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
             html += `
-                <tr>
-                    <td class="day-cell">${escapeHtml(cls.day)}</td>
-                    <td>${escapeHtml(cls.time || 'TBA')}</td>
-                    <td><strong>${escapeHtml(cls.course)}</strong></td>
-                    <td>${escapeHtml(cls.teacher || 'TBA')}</td>
-                    <td>${escapeHtml(cls.room || 'TBA')}</td>
-                    <td><span class="type-tag ${typeClass}">${escapeHtml(cls.type)}</span></td>
-                </tr>
+                <div class="class-item">
+                    <div class="class-time"><i class="far fa-clock"></i> ${escapeHtml(cls.time || 'TBA')}</div>
+                    <div class="class-course">${escapeHtml(cls.course)}</div>
+                    <div class="class-details">
+                        <span><i class="fas fa-chalkboard-teacher"></i> ${escapeHtml(cls.teacher || 'TBA')}</span>
+                        <span><i class="fas fa-door-open"></i> ${escapeHtml(cls.room || 'TBA')}</span>
+                        <span><span class="type-tag ${typeClass}">${escapeHtml(cls.type)}</span></span>
+                    </div>
+                </div>
             `;
         }
+        
+        html += `</div></div>`;
+    }
+    
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+function renderWeekView(classes) {
+    const container = document.getElementById('viewContent');
+    if (!container) return;
+    
+    const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+    const grouped = {};
+    for (const cls of classes) {
+        if (!grouped[cls.day]) grouped[cls.day] = [];
+        grouped[cls.day].push(cls);
+    }
+    
+    // Get all unique times
+    const times = [...new Set(classes.map(c => c.time))].filter(t => t !== 'TBA').sort();
+    if (times.length === 0) times.push('TBA');
+    
+    let html = '<div class="week-view"><table class="week-table"><thead><tr><th>Time</th>';
+    for (const day of days) {
+        html += `<th>${day.substring(0, 3)}</th>`;
+    }
+    html += '</tr></thead><tbody>';
+    
+    for (const time of times) {
+        html += `<tr><td class="time-col">${escapeHtml(time)}</td>`;
+        for (const day of days) {
+            const dayClasses = grouped[day] || [];
+            const matching = dayClasses.filter(c => c.time === time || (c.time === 'TBA' && time === 'TBA'));
+            if (matching.length > 0) {
+                html += `<td>`;
+                for (const cls of matching) {
+                    const typeClass = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
+                    html += `<div style="margin-bottom: 4px;">
+                        <strong>${escapeHtml(cls.course)}</strong><br>
+                        <span style="font-size: 0.8rem; color: var(--gray-600);">${escapeHtml(cls.teacher)} • ${escapeHtml(cls.room)}</span>
+                        <span class="type-tag ${typeClass}" style="font-size: 0.65rem;">${escapeHtml(cls.type)}</span>
+                    </div>`;
+                }
+                html += `</td>`;
+            } else {
+                html += `<td style="color: var(--gray-200);">—</td>`;
+            }
+        }
+        html += '</tr>';
     }
     
     html += '</tbody></table></div>';
-    routineContainer.innerHTML = html;
+    container.innerHTML = html;
 }
 
 function showNoRoutine(title, messageText) {
