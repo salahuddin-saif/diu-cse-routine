@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper – TABLE-BASED WITH TIME SLOTS
+DIU CSE Routine Scraper – TABLE-BASED WITH TIME SLOTS (FIXED)
 """
 
 import json
 import re
+import sys
 from pathlib import Path
 from collections import defaultdict
 import requests
@@ -44,7 +45,7 @@ def main():
         SECTIONS_DIR.mkdir(exist_ok=True)
 
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER – TABLE WITH TIME SLOTS")
+        logger.info("DIU CSE ROUTINE SCRAPER – TABLE WITH TIME SLOTS (FIXED)")
         logger.info("=" * 60)
 
         result = find_latest_class_routine()
@@ -69,6 +70,7 @@ def main():
             sys.exit(1)
 
         total = sum(len(entries) for entries in sections.values())
+        from datetime import datetime, timezone
         output = {
             'updated_at': datetime.now(timezone.utc).isoformat(),
             'source': pdf_url,
@@ -166,30 +168,35 @@ def extract_tables(pdf_content):
                 # ---- Identify header row with time slots ----
                 header_row = None
                 header_index = -1
-                time_slots = []
+                raw_time_slots = []
+
+                # Search for a row that contains at least one time slot pattern
                 for idx, row in enumerate(table):
-                    # Check if row contains time slots like "08:30-10:00"
                     row_text = ' '.join([str(cell) if cell else '' for cell in row])
                     if re.search(r'\d{2}:\d{2}-\d{2}:\d{2}', row_text):
                         header_row = row
                         header_index = idx
-                        # Extract time slots from the cells
-                        time_slots = [cell.strip() if cell else '' for cell in row]
-                        logger.info(f"   Found header row with time slots: {time_slots}")
+                        raw_time_slots = [cell.strip() if cell else '' for cell in row]
+                        logger.info(f"   Found header row at index {idx} with time slots: {raw_time_slots}")
                         break
 
                 # If no header, skip this table
                 if not header_row:
                     logger.warning(f"   No time slot header found in table on page {page_num}")
-                    # Try to use the first row as header (maybe it's just the time slots without "Room" etc.)
-                    # We'll check if first row contains time slot patterns
-                    first_row_text = ' '.join([str(cell) if cell else '' for cell in table[0]])
-                    if re.search(r'\d{2}:\d{2}-\d{2}:\d{2}', first_row_text):
-                        time_slots = [cell.strip() if cell else '' for cell in table[0]]
-                        header_index = 0
-                        logger.info(f"   Using first row as header: {time_slots}")
-                    else:
-                        continue
+                    continue
+
+                # ---- Clean the header row to get time slots ----
+                # Propagate the last non-empty time slot to subsequent empty cells
+                time_slots = []
+                last_time = None
+                for cell in raw_time_slots:
+                    if cell.strip():
+                        last_time = cell.strip()
+                    time_slots.append(last_time if last_time else '')
+                # Remove trailing empty slots
+                while time_slots and not time_slots[-1]:
+                    time_slots.pop()
+                logger.info(f"   Cleaned time slots: {time_slots}")
 
                 # ---- Process data rows ----
                 for row_idx in range(header_index + 1, len(table)):
@@ -203,7 +210,7 @@ def extract_tables(pdf_content):
                         if col_idx >= len(time_slots):
                             break
                         time_slot = time_slots[col_idx]
-                        if not time_slot or time_slot.strip() == '':
+                        if not time_slot:
                             continue
 
                         cell_text = str(cell).strip() if cell else ''
@@ -270,5 +277,4 @@ def extract_tables(pdf_content):
 
 
 if __name__ == "__main__":
-    from datetime import datetime, timezone
     main()
