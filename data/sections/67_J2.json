@@ -1,0 +1,46 @@
+{
+  "section": "67_J2",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "SRS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "SRS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "SEA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "SEA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J"
+    }
+  ]
+}

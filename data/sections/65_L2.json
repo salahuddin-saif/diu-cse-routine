@@ -1,0 +1,26 @@
+{
+  "section": "65_L2",
+  "batch": "65",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE412",
+      "teacher": "NJO",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE412",
+      "teacher": "NJO",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "L"
+    }
+  ]
+}

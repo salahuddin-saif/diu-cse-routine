@@ -3,8 +3,38 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "AOL101",
+      "teacher": "MIN",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE215",
+      "teacher": "MBM",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "MIZ",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE221",
       "teacher": "MIZ",
       "room": "KT-216",
@@ -13,8 +43,8 @@
       "section": "E"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "MIN",
       "room": "KT-216",
@@ -23,8 +53,8 @@
       "section": "E"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE215",
       "teacher": "MBM",
       "room": "KT-219",

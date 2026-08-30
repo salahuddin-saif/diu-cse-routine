@@ -1,0 +1,46 @@
+{
+  "section": "67_B2",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MUM",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MUM",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "SFMA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "SFMA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    }
+  ]
+}

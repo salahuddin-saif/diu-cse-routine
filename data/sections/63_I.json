@@ -3,11 +3,91 @@
   "batch": "63",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE465",
       "teacher": "NT_15",
       "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE465",
+      "teacher": "KT",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "KT",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "KT",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE326",
+      "teacher": "KT",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "KT",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "KT",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE465",
+      "teacher": "NT_15",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE465",
+      "teacher": "NT_15",
+      "room": "TBA",
       "type": "Theory",
       "batch": "63",
       "section": "I"

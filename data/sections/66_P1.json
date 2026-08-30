@@ -1,0 +1,26 @@
+{
+  "section": "66_P1",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "TAA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "TAA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "P"
+    }
+  ]
+}

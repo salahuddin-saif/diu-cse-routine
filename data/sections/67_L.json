@@ -3,8 +3,8 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "NRM",
       "room": "KT-518",
@@ -13,8 +13,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "TAS",
       "room": "KT-219",
@@ -23,8 +23,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "NRM",
       "room": "KT-221",
@@ -33,8 +33,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "MSS",
       "room": "KT-222",
@@ -43,8 +43,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "MSS",
       "room": "KT-217",
@@ -53,8 +53,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "TAS",
       "room": "KT-515",

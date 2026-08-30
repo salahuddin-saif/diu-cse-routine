@@ -3,18 +3,88 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "NRM",
-      "room": "KT-306",
+      "room": "KT-304",
       "type": "Theory",
       "batch": "67",
       "section": "P"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE228",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE323",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "DP",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "SMTS",
       "room": "KT-516",
@@ -23,8 +93,28 @@
       "section": "P"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "NRM",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "DP",
       "room": "KT-208",

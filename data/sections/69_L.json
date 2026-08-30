@@ -3,8 +3,8 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "SHR",
       "room": "KT-218",
@@ -13,8 +13,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE212",
       "teacher": "RKR",
       "room": "KT-518",
@@ -23,8 +23,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "BNS101",
       "teacher": "ALK",
       "room": "ANX1-201",
@@ -33,8 +33,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT211",
       "teacher": "JS",
       "room": "ANX1-208",
@@ -43,8 +43,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "SHR",
       "room": "KT-514",
@@ -53,8 +53,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE212",
       "teacher": "RKR",
       "room": "KT-518",
@@ -63,8 +63,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "BNS101",
       "teacher": "ALK",
       "room": "ANX1-208",
@@ -73,8 +73,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT211",
       "teacher": "JS",
       "room": "ANX1-208",

@@ -1,0 +1,26 @@
+{
+  "section": "66_O1",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "ARK",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "ARK",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    }
+  ]
+}

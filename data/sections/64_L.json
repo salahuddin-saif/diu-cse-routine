@@ -3,8 +3,8 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "MBB",
       "room": "KT-220",
@@ -13,8 +13,68 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "KT",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "KT",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE123",
+      "teacher": "KT",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE411",
+      "teacher": "KT",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE212",
+      "teacher": "KT",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "KT",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE442",
       "teacher": "FFZ",
       "room": "KT-303",
@@ -23,8 +83,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE441",
       "teacher": "MHD",
       "room": "KT-217",
@@ -33,11 +93,81 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "MBB",
       "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE441",
+      "teacher": "MHD",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE442",
+      "teacher": "FFZ",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "L"

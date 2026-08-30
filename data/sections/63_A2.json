@@ -1,0 +1,26 @@
+{
+  "section": "63_A2",
+  "batch": "63",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE435",
+      "teacher": "NT_21",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "63",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE435",
+      "teacher": "NT_21",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "63",
+      "section": "A"
+    }
+  ]
+}

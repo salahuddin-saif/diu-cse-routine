@@ -3,8 +3,28 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "AOL101",
+      "teacher": "AAM",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "68",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE215",
+      "teacher": "MSU",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "68",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE221",
       "teacher": "AUA",
       "room": "KT-218",
@@ -13,8 +33,18 @@
       "section": "B"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "AUA",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "68",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE215",
       "teacher": "MSU",
       "room": "KT-217",
@@ -23,8 +53,8 @@
       "section": "B"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "AAM",
       "room": "G1-026",

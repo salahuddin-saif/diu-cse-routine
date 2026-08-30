@@ -3,8 +3,88 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE325",
+      "teacher": "MHH",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE326",
+      "teacher": "SAL",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE414",
+      "teacher": "DMAK",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE326",
+      "teacher": "KT",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE223",
+      "teacher": "KT",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "KT",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE414",
+      "teacher": "KT",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE414",
+      "teacher": "KT",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE326",
       "teacher": "SAL",
       "room": "KT-219",
@@ -13,8 +93,8 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE411",
       "teacher": "MSJ",
       "room": "KT-224",
@@ -23,11 +103,31 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE325",
+      "teacher": "MHH",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE414",
       "teacher": "DMAK",
       "room": "KT-304",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE411",
+      "teacher": "MSJ",
+      "room": "KT-318",
       "type": "Theory",
       "batch": "65",
       "section": "H"

@@ -3,18 +3,8 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
-      "course": "CSE115",
-      "teacher": "FTJ",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "72",
-      "section": "A"
-    },
-    {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "SMH",
       "room": "ANX1-201",
@@ -23,8 +13,8 @@
       "section": "A"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT101",
       "teacher": "MSH",
       "room": "ANX1-201",
@@ -33,11 +23,161 @@
       "section": "A"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "FTJ",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "MSH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "BNS101",
+      "teacher": "SMH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "MFH",
       "room": "KT-515",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE112",
+      "teacher": "MFH",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE115",
+      "teacher": "FTJ",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "A"

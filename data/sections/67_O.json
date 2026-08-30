@@ -3,8 +3,98 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "MDA",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "MMR",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE321",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "KT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "UH",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "UH",
       "room": "KT-303",
@@ -13,11 +103,21 @@
       "section": "O"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "MMR",
       "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "MDA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "67",
       "section": "O"

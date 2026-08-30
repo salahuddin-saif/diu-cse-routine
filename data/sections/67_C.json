@@ -3,18 +3,8 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
-      "course": "CSE226",
-      "teacher": "FMA",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "67",
-      "section": "C"
-    },
-    {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "SMTS",
       "room": "KT-516",
@@ -23,8 +13,168 @@
       "section": "C"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT102",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE4716",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "MUM",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "MUM",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "FMA",
       "room": "KT-217",

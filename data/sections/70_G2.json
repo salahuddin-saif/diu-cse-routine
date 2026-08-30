@@ -1,0 +1,66 @@
+{
+  "section": "70_G2",
+  "batch": "70",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "MRIS",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "MRIS",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "MHS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "MHS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "MAM",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "MAM",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "G"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "section": "68_N1",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "MTN",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "MTN",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE216",
+      "teacher": "BM",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "68",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE216",
+      "teacher": "BM",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "68",
+      "section": "N"
+    }
+  ]
+}

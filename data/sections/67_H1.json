@@ -1,0 +1,46 @@
+{
+  "section": "67_H1",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "SNA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "SNA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "MAH",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "MAH",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    }
+  ]
+}

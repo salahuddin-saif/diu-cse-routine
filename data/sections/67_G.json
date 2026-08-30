@@ -3,8 +3,38 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "MSK",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "67",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "MHD",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "67",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "MIS",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "67",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "MHD",
       "room": "KT-208",
@@ -13,8 +43,8 @@
       "section": "G"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "MIS",
       "room": "KT-216",
@@ -23,8 +53,8 @@
       "section": "G"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "MSK",
       "room": "KT-208",

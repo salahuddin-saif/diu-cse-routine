@@ -1,0 +1,46 @@
+{
+  "section": "67_G1",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MHD",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MHD",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "MIS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "MIS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "G"
+    }
+  ]
+}

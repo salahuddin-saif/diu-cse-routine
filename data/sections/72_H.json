@@ -3,8 +3,8 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "ANR",
       "room": "ANX1-203",
@@ -13,8 +13,8 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT101",
       "teacher": "AMN",
       "room": "ANX1-207",
@@ -23,8 +23,8 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE115",
       "teacher": "MSJ",
       "room": "ANX1-207",
@@ -33,8 +33,8 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT101",
       "teacher": "AMN",
       "room": "ANX1-203",
@@ -43,8 +43,8 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "ANR",
       "room": "ANX1-203",
@@ -53,8 +53,8 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "MB",
       "room": "ANX1-202",
@@ -63,11 +63,61 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE112",
+      "teacher": "IST",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "72",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "BNS101",
+      "teacher": "IST",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "72",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE411",
+      "teacher": "IST",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "72",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "IST",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "72",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE115",
       "teacher": "MSJ",
       "room": "ANX1-203",
+      "type": "Theory",
+      "batch": "72",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE112",
+      "teacher": "MB",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "H"

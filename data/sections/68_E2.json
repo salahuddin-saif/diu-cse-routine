@@ -1,0 +1,46 @@
+{
+  "section": "68_E2",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "SAL",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "SAL",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE216",
+      "teacher": "MBM",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE216",
+      "teacher": "MBM",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "68",
+      "section": "E"
+    }
+  ]
+}

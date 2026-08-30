@@ -1,0 +1,26 @@
+{
+  "section": "71_E2",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE114",
+      "teacher": "MAIT",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE114",
+      "teacher": "MAIT",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "E"
+    }
+  ]
+}

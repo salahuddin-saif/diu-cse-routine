@@ -3,8 +3,38 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "MDS",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "SEA",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "RYS",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE321",
       "teacher": "ARK",
       "room": "KT-304",
@@ -13,8 +43,8 @@
       "section": "O"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE315",
       "teacher": "SEA",
       "room": "KT-304",
@@ -23,8 +53,8 @@
       "section": "O"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE317",
       "teacher": "RYS",
       "room": "KT-516",
@@ -33,8 +63,28 @@
       "section": "O"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE321",
       "teacher": "ARK",
       "room": "KT-518",
@@ -43,8 +93,8 @@
       "section": "O"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ACT327",
       "teacher": "MDS",
       "room": "KT-518",

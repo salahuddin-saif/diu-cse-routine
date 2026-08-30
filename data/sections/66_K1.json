@@ -1,0 +1,26 @@
+{
+  "section": "66_K1",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "SMF",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "K"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "SMF",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "K"
+    }
+  ]
+}

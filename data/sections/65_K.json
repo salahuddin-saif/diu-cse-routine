@@ -3,8 +3,8 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE326",
       "teacher": "MMB",
       "room": "KT-303",
@@ -13,8 +13,28 @@
       "section": "K"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE411",
+      "teacher": "JLA",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE414",
+      "teacher": "MAH",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE326",
       "teacher": "MMB",
       "room": "KT-218",
@@ -23,11 +43,41 @@
       "section": "K"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE411",
       "teacher": "JLA",
       "room": "KT-514",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE414",
+      "teacher": "MAH",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE325",
+      "teacher": "SMA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE325",
+      "teacher": "SMA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "65",
       "section": "K"

@@ -3,8 +3,8 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "MB",
       "room": "KT-304",
@@ -13,8 +13,18 @@
       "section": "D"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "RKR",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "MB",
       "room": "KT-305",
@@ -23,8 +33,18 @@
       "section": "D"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "FMA",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "RKR",
       "room": "KT-518",
@@ -33,9 +53,59 @@
       "section": "D"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
+      "teacher": "FMA",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "FMA",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "FMA",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "FMA",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "FMA",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
       "teacher": "FMA",
       "room": "G1-027",
       "type": "Theory",

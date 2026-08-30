@@ -1,0 +1,46 @@
+{
+  "section": "67_P2",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "DP",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "DP",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "DP",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "DP",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    }
+  ]
+}

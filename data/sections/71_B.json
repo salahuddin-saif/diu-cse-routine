@@ -3,8 +3,88 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "MAK",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "KT",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "KT",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "KT",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "KT",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "KT",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "KT",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT102",
+      "teacher": "AKC",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE113",
       "teacher": "SRH",
       "room": "KT-201",
@@ -13,8 +93,48 @@
       "section": "B"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "KT",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "KT",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE123",
+      "teacher": "KT",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "KT",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG102",
       "teacher": "SMH",
       "room": "KT-305",
@@ -23,8 +143,8 @@
       "section": "B"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "PHY101",
       "teacher": "MAK",
       "room": "KT-216",
@@ -33,8 +153,8 @@
       "section": "B"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG102",
       "teacher": "SMH",
       "room": "KT-224",
@@ -43,11 +163,21 @@
       "section": "B"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE113",
       "teacher": "SRH",
       "room": "KT-201",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "AKC",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "B"

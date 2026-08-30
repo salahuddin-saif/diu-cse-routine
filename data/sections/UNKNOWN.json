@@ -1,0 +1,46 @@
+{
+  "section": "UNKNOWN",
+  "batch": "Unknown",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "TBA",
+      "room": "G1-004",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "UNKNOWN"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "TBA",
+      "room": "G1-018",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "UNKNOWN"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "TBA",
+      "room": "G1-006",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "UNKNOWN"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "TBA",
+      "room": "G1-007",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "UNKNOWN"
+    }
+  ]
+}

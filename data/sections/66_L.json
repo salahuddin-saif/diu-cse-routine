@@ -3,8 +3,28 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "MNB",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "66",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "MDS",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "66",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE317",
       "teacher": "ZS",
       "room": "KT-516",
@@ -13,8 +33,8 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ACT327",
       "teacher": "MDS",
       "room": "KT-516",
@@ -23,11 +43,41 @@
       "section": "L"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE317",
       "teacher": "ZS",
       "room": "KT-218",
+      "type": "Theory",
+      "batch": "66",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "MNB",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "66",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE321",
+      "teacher": "TAA",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "66",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE321",
+      "teacher": "TAA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "66",
       "section": "L"

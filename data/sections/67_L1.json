@@ -1,0 +1,46 @@
+{
+  "section": "67_L1",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MSS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MSS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "TAS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "TAS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "section": "66_N2",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "ADK",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE322",
+      "teacher": "ADK",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "N"
+    }
+  ]
+}

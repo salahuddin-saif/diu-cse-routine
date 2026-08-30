@@ -1,0 +1,66 @@
+{
+  "section": "70_J1",
+  "batch": "70",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "HHP",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "HHP",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "SMA",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "SMA",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "MRI",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "J"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "MRI",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "J"
+    }
+  ]
+}

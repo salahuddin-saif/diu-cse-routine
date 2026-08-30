@@ -3,8 +3,58 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "BNS101",
+      "teacher": "JS",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "BNS101",
+      "teacher": "ARH",
+      "room": "ANX1-210",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "AGT",
       "room": "KT-515",
@@ -13,8 +63,18 @@
       "section": "M"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE212",
+      "teacher": "MMI",
+      "room": "KT-517",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "BNS101",
       "teacher": "ARH",
       "room": "ANX1-202",
@@ -23,8 +83,8 @@
       "section": "M"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT211",
       "teacher": "JS",
       "room": "ANX1-202",
@@ -33,11 +93,21 @@
       "section": "M"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE212",
       "teacher": "MMI",
       "room": "KT-304",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "AGT",
+      "room": "KT-517",
       "type": "Theory",
       "batch": "69",
       "section": "M"

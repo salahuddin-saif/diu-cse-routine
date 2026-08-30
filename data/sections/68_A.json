@@ -3,8 +3,28 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "MAR",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "AOL101",
+      "teacher": "AAM",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE215",
       "teacher": "SHD",
       "room": "KT-216",
@@ -13,8 +33,8 @@
       "section": "A"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE221",
       "teacher": "MAR",
       "room": "KT-304",
@@ -23,8 +43,8 @@
       "section": "A"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "AAM",
       "room": "KT-304",
@@ -33,10 +53,60 @@
       "section": "A"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE215",
       "teacher": "SHD",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "AOL101",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE215",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "KT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "KT",
       "room": "KT-304",
       "type": "Theory",
       "batch": "68",

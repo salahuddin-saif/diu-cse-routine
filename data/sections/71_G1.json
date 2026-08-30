@@ -1,0 +1,26 @@
+{
+  "section": "71_G1",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE114",
+      "teacher": "FAF",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE114",
+      "teacher": "FAF",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "G"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "section": "69_O1",
+  "batch": "69",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE214",
+      "teacher": "NAE",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE214",
+      "teacher": "NAE",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "O"
+    }
+  ]
+}

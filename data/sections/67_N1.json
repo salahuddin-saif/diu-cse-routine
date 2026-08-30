@@ -1,0 +1,46 @@
+{
+  "section": "67_N1",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "CSA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "CSA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "SEA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "SEA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N"
+    }
+  ]
+}

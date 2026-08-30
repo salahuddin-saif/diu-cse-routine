@@ -1,0 +1,26 @@
+{
+  "section": "RE_A21C",
+  "batch": "21",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "21",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE412",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "21",
+      "section": "REAC"
+    }
+  ]
+}

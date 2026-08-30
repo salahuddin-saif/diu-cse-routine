@@ -1,0 +1,66 @@
+{
+  "section": "RE_C3C",
+  "batch": "Unknown",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "TBA",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "RECC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "TBA",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "RECC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "TBA",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "RECC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "TBA",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "RECC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "TBA",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "RECC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "TBA",
+      "room": "ANX1-208",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "RECC"
+    }
+  ]
+}

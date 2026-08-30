@@ -1,0 +1,46 @@
+{
+  "section": "68_G2",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "RYS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "RYS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE216",
+      "teacher": "SOM",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "68",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE216",
+      "teacher": "SOM",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "68",
+      "section": "G"
+    }
+  ]
+}

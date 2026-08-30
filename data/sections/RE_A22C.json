@@ -1,0 +1,66 @@
+{
+  "section": "RE_A22C",
+  "batch": "22",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE234",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "22",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE234",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "22",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE234",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "22",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "22",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "22",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "22",
+      "section": "REAC"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "section": "RE_A1C",
+  "batch": "Unknown",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE236",
+      "teacher": "TBA",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE334",
+      "teacher": "TBA",
+      "room": "KT-517",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "TBA",
+      "room": "ANX1-204",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "TBA",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE316",
+      "teacher": "TBA",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE413",
+      "teacher": "TBA",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE223",
+      "teacher": "TBA",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE223",
+      "teacher": "IJN",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "IJN",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "IJN",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "IJN",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE315",
+      "teacher": "TBA",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE332",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE232",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE135",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    }
+  ]
+}

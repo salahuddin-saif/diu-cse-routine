@@ -3,8 +3,28 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "SMSH",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "DMAT",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE113",
       "teacher": "MSM",
       "room": "KT-320",
@@ -13,8 +33,8 @@
       "section": "C"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG102",
       "teacher": "SMSH",
       "room": "KT-320",
@@ -23,8 +43,8 @@
       "section": "C"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE113",
       "teacher": "MSM",
       "room": "KT-320",
@@ -33,8 +53,8 @@
       "section": "C"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT102",
       "teacher": "SSL",
       "room": "KT-320",
@@ -43,8 +63,8 @@
       "section": "C"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "PHY101",
       "teacher": "DMAT",
       "room": "KT-307",
@@ -53,11 +73,61 @@
       "section": "C"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "KT",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "KT",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "KT",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "MAT102",
       "teacher": "SSL",
       "room": "KT-518",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE114",
+      "teacher": "SRH",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE114",
+      "teacher": "SRH",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "C"

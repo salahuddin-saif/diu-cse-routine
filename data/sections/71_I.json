@@ -3,8 +3,28 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "MA",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT102",
+      "teacher": "AKC",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG102",
       "teacher": "SAS",
       "room": "KT-320",
@@ -13,8 +33,8 @@
       "section": "I"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "PHY101",
       "teacher": "SSK",
       "room": "KT-514",
@@ -23,8 +43,8 @@
       "section": "I"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE113",
       "teacher": "MA",
       "room": "KT-218",
@@ -33,8 +53,18 @@
       "section": "I"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT102",
+      "teacher": "AKC",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ENG102",
       "teacher": "SAS",
       "room": "G1-026",
@@ -43,10 +73,70 @@
       "section": "I"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "PHY101",
       "teacher": "SSK",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "SAS",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "SAS",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "SAS",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "SAS",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "MAT102",
+      "teacher": "SAS",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE233",
+      "teacher": "SAS",
       "room": "G1-026",
       "type": "Theory",
       "batch": "71",

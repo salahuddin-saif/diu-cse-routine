@@ -3,11 +3,111 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "NRM",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "MUM",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "MUM",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "SMTS",
       "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE212",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "KT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "NRM",
+      "room": "TBA",
       "type": "Theory",
       "batch": "67",
       "section": "B"

@@ -3,8 +3,28 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "SP",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "SEA",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "CSA",
       "room": "KT-303",
@@ -13,8 +33,8 @@
       "section": "N"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "SP",
       "room": "KT-303",
@@ -23,8 +43,8 @@
       "section": "N"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "SEA",
       "room": "KT-224",
@@ -33,8 +53,8 @@
       "section": "N"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE313",
       "teacher": "CSA",
       "room": "KT-224",

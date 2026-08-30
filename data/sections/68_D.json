@@ -3,8 +3,18 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE215",
+      "teacher": "MSU",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE221",
       "teacher": "MIZ",
       "room": "KT-217",
@@ -13,8 +23,8 @@
       "section": "D"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "GR",
       "room": "KT-217",
@@ -23,11 +33,51 @@
       "section": "D"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "MIZ",
+      "room": "KT-517",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "AOL101",
+      "teacher": "GR",
+      "room": "KT-517",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE215",
       "teacher": "MSU",
       "room": "KT-320",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "MIZ",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "MIZ",
+      "room": "TBA",
       "type": "Theory",
       "batch": "68",
       "section": "D"

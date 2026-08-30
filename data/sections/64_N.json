@@ -3,8 +3,28 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE453",
+      "teacher": "MRR",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "SMS",
       "room": "KT-218",
@@ -13,11 +33,91 @@
       "section": "N"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "KT",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ACT327",
+      "teacher": "KT",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE411",
+      "teacher": "KT",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE325",
+      "teacher": "KT",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE325",
+      "teacher": "KT",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "KT",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE454",
       "teacher": "DAA",
       "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE454",
+      "teacher": "DAA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE453",
+      "teacher": "MRR",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "N"

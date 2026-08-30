@@ -3,8 +3,8 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "MBB",
       "room": "KT-221",
@@ -13,8 +13,68 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "KT",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE454",
+      "teacher": "KT",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE325",
+      "teacher": "KT",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE215",
+      "teacher": "KT",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "KT",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "KT",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "CSE431",
       "teacher": "MIS",
       "room": "KT-514",
@@ -23,11 +83,41 @@
       "section": "H"
     },
     {
-      "day": "Sunday",
-      "time": "TBA",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE432",
+      "teacher": "AHAK",
+      "room": "KT-318",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "MBB",
       "room": "G1-027",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE432",
+      "teacher": "AHAK",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE431",
+      "teacher": "MIS",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "H"

@@ -1,0 +1,46 @@
+{
+  "section": "67_C2",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "RAK",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE314",
+      "teacher": "RAK",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MDA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE312",
+      "teacher": "MDA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    }
+  ]
+}

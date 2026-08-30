@@ -1,0 +1,26 @@
+{
+  "section": "69_G2",
+  "batch": "69",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE214",
+      "teacher": "FMA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "G"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE214",
+      "teacher": "FMA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "G"
+    }
+  ]
+}

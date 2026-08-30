@@ -1,0 +1,26 @@
+{
+  "section": "65_F1",
+  "batch": "65",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE412",
+      "teacher": "SFMA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "F"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE412",
+      "teacher": "SFMA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "F"
+    }
+  ]
+}

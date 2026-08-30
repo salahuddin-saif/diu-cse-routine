@@ -1,0 +1,66 @@
+{
+  "section": "70_A1",
+  "batch": "70",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "AAS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "AAS",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "HH",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "HH",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "SMC",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "SMC",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "A"
+    }
+  ]
+}

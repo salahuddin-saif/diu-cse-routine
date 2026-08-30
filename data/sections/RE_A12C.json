@@ -1,0 +1,106 @@
+{
+  "section": "RE_A12C",
+  "batch": "12",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE234",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE234",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE234",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE324",
+      "teacher": "IEA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE324",
+      "teacher": "IEA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE222",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "REAC"
+    }
+  ]
+}

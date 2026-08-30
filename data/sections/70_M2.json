@@ -1,0 +1,66 @@
+{
+  "section": "70_M2",
+  "batch": "70",
+  "classes": [
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "MHH",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "CSE122",
+      "teacher": "MHH",
+      "room": "TBA",
+      "type": "Lab",
+      "batch": "70",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "ZA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M"
+    },
+    {
+      "day": "Unknown",
+      "time": "TBA",
+      "course": "PHY103",
+      "teacher": "ZA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M"
+    }
+  ]
+}
