@@ -1,8 +1,9 @@
-// DIU CSE Routine - Student View with Sub-Section Support
+// DIU CSE Routine - Student View with Per-Section JSON Loading
 
-const ROUTINE_URL = './data/routine.json?t=' + Date.now();
 const STORAGE_KEY = 'diu_cse_section';
+const SECTIONS_BASE = './data/sections/';
 
+// DOM Elements
 const sectionInput = document.getElementById('sectionInput');
 const showRoutineBtn = document.getElementById('showRoutineBtn');
 const clearSectionBtn = document.getElementById('clearSectionBtn');
@@ -13,57 +14,68 @@ const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
-let routineData = null;
+let currentSectionData = null;
+let currentSectionKey = null;
 
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) sectionInput.value = saved;
-    loadRoutineData();
+    if (saved) {
+        sectionInput.value = saved;
+        loadSection(saved);
+    } else {
+        // Show default message
+        showNoRoutine('Enter a section', 'Type your section (e.g., 70_N) and click "Show Routine".');
+    }
+
     showRoutineBtn.addEventListener('click', handleShowRoutine);
     clearSectionBtn.addEventListener('click', handleClearSection);
-    sectionInput.addEventListener('keypress', e => {
+    sectionInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handleShowRoutine();
     });
 });
 
-async function loadRoutineData() {
+// Load a specific section
+async function loadSection(sectionKey) {
     try {
         setStatus('loading', 'Loading...');
-        const url = './data/routine.json?t=' + Date.now();
+        const url = `${SECTIONS_BASE}${sectionKey}.json?t=${Date.now()}`;
         console.log('📡 Fetching:', url);
+
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        routineData = data;
-        if (data.version) versionNumber.textContent = data.version;
-        if (data.updated_at) {
-            const date = new Date(data.updated_at);
-            lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
+        if (!response.ok) {
+            if (response.status === 404) {
+                throw new Error(`Section "${sectionKey}" not found.`);
+            }
+            throw new Error(`HTTP ${response.status}`);
         }
+
+        const data = await response.json();
+        currentSectionData = data;
+        currentSectionKey = sectionKey;
+
+        // Update version badge (if available from main routine.json)
+        // We'll fetch the main file for version and updated_at
+        const mainResponse = await fetch('./data/routine.json?t=' + Date.now());
+        if (mainResponse.ok) {
+            const mainData = await mainResponse.json();
+            if (mainData.version) versionNumber.textContent = mainData.version;
+            if (mainData.updated_at) {
+                const date = new Date(mainData.updated_at);
+                lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
+            }
+        }
+
         setStatus('ready', 'Ready');
         hideMessage();
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved && data.sections) {
-            const section = findSection(data.sections, saved);
-            if (section) displayRoutine(section, data.sections[section]);
-            else showFirstSection(data.sections);
-        } else {
-            showFirstSection(data.sections);
-        }
-    } catch (error) {
-        console.error('❌ Failed to load routine:', error);
-        setStatus('error', 'Error');
-        showMessage('Routine data is currently unavailable.', 'error');
-        showNoRoutine('Could not load routine data', 'Please try again later.');
-    }
-}
+        displayRoutine(data);
+        localStorage.setItem(STORAGE_KEY, sectionKey);
 
-function showFirstSection(sections) {
-    if (sections && Object.keys(sections).length > 0) {
-        const first = Object.keys(sections)[0];
-        displayRoutine(first, sections[first]);
-    } else {
-        showNoRoutine('No Data Available', 'No routine data found.');
+    } catch (error) {
+        console.error('❌ Failed to load section:', error);
+        setStatus('error', 'Error');
+        showMessage(error.message, 'error');
+        showNoRoutine('Section Not Found', `No routine data available for "${sectionKey}". Please check your section name.`);
     }
 }
 
@@ -73,46 +85,31 @@ function handleShowRoutine() {
         showMessage('Please enter your section (e.g., 70_N).', 'error');
         return;
     }
-    if (!routineData || !routineData.sections) {
-        showMessage('Routine data is not loaded yet.', 'error');
-        return;
-    }
-    const matched = findSection(routineData.sections, section);
-    if (matched) {
-        localStorage.setItem(STORAGE_KEY, section);
-        displayRoutine(matched, routineData.sections[matched]);
-        showMessage('Showing routine for ' + matched, 'success');
-    } else {
-        showMessage('No routine found for "' + section + '".', 'error');
-        showNoRoutine('Section Not Found', 'No routine data for "' + section + '"');
-    }
+    // Normalize: uppercase and replace spaces with underscores
+    const normalized = section.toUpperCase().replace(/\s+/g, '_');
+    loadSection(normalized);
 }
 
 function handleClearSection() {
     localStorage.removeItem(STORAGE_KEY);
     sectionInput.value = '';
+    currentSectionData = null;
+    currentSectionKey = null;
     showMessage('Saved section cleared.', 'info');
-    showFirstSection(routineData?.sections);
+    showNoRoutine('Enter a section', 'Type your section and click "Show Routine".');
 }
 
-function findSection(sections, input) {
-    const normalized = input.trim().toUpperCase().replace(/\s+/g, '_');
-    const keys = Object.keys(sections);
-    if (keys.includes(normalized)) return normalized;
-    for (const key of keys) {
-        if (key.toUpperCase() === normalized) return key;
-    }
-    return null;
-}
-
-function displayRoutine(sectionKey, sectionData) {
-    let classes = sectionData.classes || sectionData;
+// Display routine data
+function displayRoutine(data) {
+    const classes = data.classes || [];
     if (!classes || classes.length === 0) {
-        showNoRoutine('No Classes Found', 'No classes for "' + sectionKey + '"');
+        showNoRoutine('No Classes Found', `No classes found for section "${data.section || currentSectionKey}".`);
         return;
     }
-    const batch = sectionData.batch || 'Unknown';
-    const section = sectionData.section || sectionKey;
+
+    const batch = data.batch || 'Unknown';
+    const section = data.section || currentSectionKey;
+
     let html = buildProfile(batch, section, classes);
     html += buildCourses(classes);
     html += `
@@ -122,8 +119,11 @@ function displayRoutine(sectionKey, sectionData) {
         </div>
         <div id="viewContent"></div>
     `;
+
     routineContainer.innerHTML = html;
     renderDayView(classes);
+
+    // View switching
     document.querySelectorAll('.view-tab').forEach(tab => {
         tab.addEventListener('click', function() {
             document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
@@ -134,24 +134,26 @@ function displayRoutine(sectionKey, sectionData) {
     });
 }
 
+// Build student profile
 function buildProfile(batch, section, classes) {
     const total = classes.length;
     const days = ['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday'];
     const uniqueDays = [...new Set(classes.map(c => c.day))].filter(d => days.includes(d));
     const perWeek = uniqueDays.length;
+
     return `
         <div class="student-profile">
             <div class="profile-top">
                 <div>
                     <div class="profile-name">
                         <i class="fas fa-user-graduate"></i> Student
-                        <span class="badge">${batch}_${section}</span>
+                        <span class="badge">${escapeHtml(batch)}_${escapeHtml(section)}</span>
                     </div>
                     <div class="profile-details">
-                        <span><i class="fas fa-layer-group"></i> Batch: <strong>${batch}</strong></span>
-                        <span><i class="fas fa-tag"></i> Section: <strong>${section}</strong></span>
+                        <span><i class="fas fa-layer-group"></i> Batch: <strong>${escapeHtml(batch)}</strong></span>
+                        <span><i class="fas fa-tag"></i> Section: <strong>${escapeHtml(section)}</strong></span>
                         <span><i class="fas fa-book"></i> Total Courses: <strong>${total}</strong></span>
-                        <span><i class="fas fa-code-branch"></i> Version: <strong>v${routineData?.version || '5.0'}</strong></span>
+                        <span><i class="fas fa-code-branch"></i> Version: <strong>v${escapeHtml(versionNumber.textContent || '5.0')}</strong></span>
                         <span><i class="fas fa-calendar-alt"></i> Classes/Week: <strong>${perWeek}</strong></span>
                     </div>
                 </div>
@@ -165,6 +167,7 @@ function buildProfile(batch, section, classes) {
     `;
 }
 
+// Build enrolled courses list
 function buildCourses(classes) {
     const courseMap = {};
     for (const cls of classes) {
@@ -189,6 +192,7 @@ function buildCourses(classes) {
     return html;
 }
 
+// Render Day View
 function renderDayView(classes) {
     const container = document.getElementById('viewContent');
     if (!container) return;
@@ -216,11 +220,12 @@ function renderDayView(classes) {
         `;
         for (const cls of sorted) {
             const tc = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
-            const subSection = cls.sub_section && cls.sub_section !== 'Main' ? `<span style="font-size:0.7rem;color:var(--gray-600);margin-left:6px;">(${escapeHtml(cls.sub_section)})</span>` : '';
+            // If there's a sub-section, display it
+            const subLabel = cls.sub_section && cls.sub_section !== 'Main' ? `<span class="sub-section">(${escapeHtml(cls.sub_section)})</span>` : '';
             html += `
                 <div class="class-item">
                     <div class="time"><i class="far fa-clock"></i> ${escapeHtml(cls.time || 'TBA')}</div>
-                    <div class="course">${escapeHtml(cls.course)}${subSection}</div>
+                    <div class="course">${escapeHtml(cls.course)} ${subLabel}</div>
                     <div class="details">
                         <span><i class="fas fa-chalkboard-teacher"></i> ${escapeHtml(cls.teacher || 'TBA')}</span>
                         <span><i class="fas fa-door-open"></i> ${escapeHtml(cls.room || 'TBA')}</span>
@@ -235,6 +240,7 @@ function renderDayView(classes) {
     container.innerHTML = html;
 }
 
+// Render Week View
 function renderWeekView(classes) {
     const container = document.getElementById('viewContent');
     if (!container) return;
@@ -258,9 +264,9 @@ function renderWeekView(classes) {
                 html += `<td>`;
                 for (const cls of matching) {
                     const tc = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
-                    const subSection = cls.sub_section && cls.sub_section !== 'Main' ? ` (${cls.sub_section})` : '';
+                    const subLabel = cls.sub_section && cls.sub_section !== 'Main' ? ` (${cls.sub_section})` : '';
                     html += `<div style="margin-bottom:4px;">
-                        <strong>${escapeHtml(cls.course)}</strong>${escapeHtml(subSection)}
+                        <strong>${escapeHtml(cls.course)}</strong>${escapeHtml(subLabel)}
                         <span class="type-tag ${tc}" style="font-size:0.65rem;">${escapeHtml(cls.type)}</span><br>
                         <span style="font-size:0.8rem;color:var(--gray-600);">${escapeHtml(cls.teacher)} • ${escapeHtml(cls.room)}</span>
                     </div>`;
@@ -276,10 +282,18 @@ function renderWeekView(classes) {
     container.innerHTML = html;
 }
 
+// Show "No Routine" message
 function showNoRoutine(title, msg) {
-    routineContainer.innerHTML = `<div class="no-routine"><div class="icon">📅</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(msg)}</p></div>`;
+    routineContainer.innerHTML = `
+        <div class="no-routine">
+            <div class="icon">📅</div>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(msg)}</p>
+        </div>
+    `;
 }
 
+// Status helpers
 function setStatus(type, text) {
     statusBadge.className = 'status ' + type;
     statusText.textContent = text;
@@ -293,13 +307,10 @@ function showMessage(text, type) {
 
 function hideMessage() { message.className = ''; }
 
+// Escape HTML
 function escapeHtml(text) {
     if (!text) return '-';
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
-
-setInterval(() => {
-    if (!document.hidden) loadRoutineData();
-}, 5 * 60 * 1000);
