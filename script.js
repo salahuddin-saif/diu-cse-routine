@@ -1,11 +1,11 @@
-// DIU CSE Routine – Fixed Search & UI Refresh
+// DIU CSE Routine – Search Icon + Enter Fixed
 
 const STORAGE_KEY = 'diu_cse_section';
 const COMBINED_URL = './data/routine.json?t=' + Date.now();
 const SECTIONS_BASE = './data/sections/';
 
 const sectionInput = document.getElementById('sectionInput');
-const showRoutineBtn = document.getElementById('showRoutineBtn');
+const showRoutineBtn = document.getElementById('showRoutineBtn'); // hidden button
 const clearSectionBtn = document.getElementById('clearSectionBtn');
 const savedChip = document.getElementById('savedChip');
 const savedSectionSpan = document.getElementById('savedSection');
@@ -16,7 +16,9 @@ const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
-// Global data cache
+// Get the search icon (inside .search-input-wrap)
+const searchIcon = document.querySelector('.search-input-wrap i');
+
 let routineData = null;      // combined JSON (fallback)
 let currentSection = null;
 let currentClasses = [];
@@ -35,12 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
         savedChip.style.display = 'none';
     }
 
-    // Load initial data (saved or first available)
+    // Load initial data
     loadRoutineData();
 
-    // Event listeners
+    // Event: Search icon click
+    if (searchIcon) {
+        searchIcon.style.cursor = 'pointer';
+        searchIcon.addEventListener('click', handleShowRoutine);
+    }
+
+    // Event: Hidden button click (if any)
     showRoutineBtn.addEventListener('click', handleShowRoutine);
+
+    // Event: Clear button
     clearSectionBtn.addEventListener('click', handleClearSection);
+
+    // Event: Enter key on input
     sectionInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
@@ -77,7 +89,6 @@ async function loadRoutineData() {
         const keys = Object.keys(sections);
         if (keys.length > 0) {
             const first = keys[0];
-            // Display from combined data (no per-section file needed)
             displaySection(first, sections[first]);
             sectionInput.value = first;
             savedSectionSpan.textContent = first;
@@ -116,8 +127,12 @@ async function loadSection(sectionKey) {
                 data = await resp.json();
                 found = true;
                 console.log('✅ Found per‑section file:', normalized);
+            } else {
+                console.log('ℹ️ Per‑section file not found, trying combined...');
             }
-        } catch (e) { /* ignore */ }
+        } catch (e) {
+            console.log('ℹ️ Per‑section fetch failed, trying combined...');
+        }
 
         // 2. If not found, try combined JSON
         if (!found) {
@@ -142,6 +157,20 @@ async function loadSection(sectionKey) {
                 };
                 found = true;
                 console.log('✅ Found in combined data:', normalized);
+            } else {
+                // Try to find by partial match (e.g., "70_N" vs "70_N1")
+                const keys = Object.keys(sections);
+                const matchedKey = keys.find(k => k.startsWith(normalized) || normalized.startsWith(k));
+                if (matchedKey) {
+                    const sec = sections[matchedKey];
+                    data = {
+                        section: matchedKey,
+                        batch: sec.batch || 'Unknown',
+                        classes: sec.classes || []
+                    };
+                    found = true;
+                    console.log('✅ Found by partial match:', matchedKey);
+                }
             }
         }
 
@@ -150,9 +179,9 @@ async function loadSection(sectionKey) {
         }
 
         // Display the section
-        displaySection(normalized, data);
-        localStorage.setItem(STORAGE_KEY, normalized);
-        savedSectionSpan.textContent = normalized;
+        displaySection(data.section || normalized, data);
+        localStorage.setItem(STORAGE_KEY, data.section || normalized);
+        savedSectionSpan.textContent = data.section || normalized;
         savedChip.style.display = 'inline-flex';
         setStatus('ready', 'Ready');
         hideMessage();
