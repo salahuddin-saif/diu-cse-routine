@@ -3,51 +3,51 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Unknown",
       "time": "11:30-01:00",
       "course": "CSE121",
-      "teacher": "SMC",
-      "room": "KT-217",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "A"
     },
     {
-      "day": "Sunday",
+      "day": "Unknown",
       "time": "01:00-02:30",
-      "course": "PHY102",
-      "teacher": "AAS",
-      "room": "KT-518",
+      "course": "CSE123",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "A"
     },
     {
-      "day": "Monday",
+      "day": "Unknown",
+      "time": "02:30-04:00",
+      "course": "PHY102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
+      "time": "10:00-11:30",
+      "course": "CSE121",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A"
+    },
+    {
+      "day": "Unknown",
       "time": "11:30-01:00",
       "course": "CSE123",
-      "teacher": "HH",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "70",
-      "section": "A"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "SMC",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "70",
-      "section": "A"
-    },
-    {
-      "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "CSE123",
-      "teacher": "HH",
-      "room": "KT-216",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "A"

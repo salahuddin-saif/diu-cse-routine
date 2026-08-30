@@ -3,61 +3,51 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Saturday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "CSE226",
-      "teacher": "NRM",
-      "room": "KT-304",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "67",
       "section": "P"
     },
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "DP",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "67",
-      "section": "P"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE313",
-      "teacher": "SMTS",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "67",
-      "section": "P"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "NRM",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "67",
-      "section": "P"
-    },
-    {
-      "day": "Wednesday",
-      "time": "01:00-02:30",
-      "course": "CSE313",
-      "teacher": "SMTS",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "67",
-      "section": "P"
-    },
-    {
-      "day": "Thursday",
+      "day": "Unknown",
       "time": "10:00-11:30",
       "course": "CSE311",
-      "teacher": "DP",
-      "room": "KT-208",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "10:00-11:30",
+      "course": "CSE226",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "01:00-02:30",
+      "course": "CSE313",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Unknown",
+      "time": "10:00-11:30",
+      "course": "CSE311",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "67",
       "section": "P"

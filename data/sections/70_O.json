@@ -3,61 +3,41 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "PHY102",
-      "teacher": "MFI",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE121",
-      "teacher": "MSU",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Sunday",
+      "day": "Unknown",
       "time": "11:30-01:00",
       "course": "CSE123",
-      "teacher": "PPC",
-      "room": "KT-224",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "O"
     },
     {
-      "day": "Monday",
+      "day": "Unknown",
+      "time": "10:00-11:30",
+      "course": "CSE121",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O"
+    },
+    {
+      "day": "Unknown",
       "time": "11:30-01:00",
       "course": "PHY102",
-      "teacher": "MFI",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "MSU",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE123",
-      "teacher": "PPC",
-      "room": "KT-224",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "O"

@@ -3,31 +3,51 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "ECO426",
-      "teacher": "MBB",
-      "room": "KT-221",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "H"
     },
     {
-      "day": "Monday",
+      "day": "Unknown",
       "time": "02:30-04:00",
       "course": "CSE431",
-      "teacher": "MIS",
-      "room": "KT-514",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "H"
     },
     {
-      "day": "Wednesday",
+      "day": "Unknown",
+      "time": "11:30-01:00",
+      "course": "CSE432",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
+      "time": "01:00-02:30",
+      "course": "CSE432",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Unknown",
       "time": "10:00-11:30",
       "course": "ECO426",
-      "teacher": "MBB",
-      "room": "G1-027",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "H"

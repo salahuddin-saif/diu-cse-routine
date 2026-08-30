@@ -3,81 +3,51 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Saturday",
+      "day": "Unknown",
+      "time": "11:30-01:00",
+      "course": "PHY101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
       "time": "10:00-11:30",
       "course": "ENG102",
-      "teacher": "SMSH",
-      "room": "KT-304",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "D"
     },
     {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "PHY101",
-      "teacher": "MAK",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "71",
-      "section": "D"
-    },
-    {
-      "day": "Monday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "MAT102",
-      "teacher": "SSL",
-      "room": "KT-307",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "D"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "PHY101",
-      "teacher": "MAK",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "71",
-      "section": "D"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "SI",
-      "room": "MUR",
-      "type": "Theory",
-      "batch": "71",
-      "section": "D"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "SI",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "71",
-      "section": "D"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "SMSH",
-      "room": "18",
-      "type": "Theory",
-      "batch": "71",
-      "section": "D"
-    },
-    {
-      "day": "Wednesday",
+      "day": "Unknown",
       "time": "11:30-01:00",
       "course": "MAT102",
-      "teacher": "SSL",
-      "room": "KT-223",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "D"

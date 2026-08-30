@@ -3,51 +3,31 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Unknown",
       "time": "01:00-02:30",
       "course": "CSE311",
-      "teacher": "MB",
-      "room": "KT-304",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "67",
       "section": "D"
     },
     {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE313",
-      "teacher": "RKR",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "67",
-      "section": "D"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE311",
-      "teacher": "MB",
-      "room": "KT-305",
-      "type": "Theory",
-      "batch": "67",
-      "section": "D"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "FMA",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "67",
-      "section": "D"
-    },
-    {
-      "day": "Wednesday",
+      "day": "Unknown",
       "time": "10:00-11:30",
       "course": "CSE313",
-      "teacher": "RKR",
-      "room": "KT-518",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "D"
+    },
+    {
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "67",
       "section": "D"

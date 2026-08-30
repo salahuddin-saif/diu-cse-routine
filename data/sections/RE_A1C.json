@@ -4,10 +4,10 @@
   "classes": [
     {
       "day": "Unknown",
-      "time": "08:30-10:00",
+      "time": "04:00-05:30",
       "course": "CSE236",
       "teacher": "TBA",
-      "room": "KT-305",
+      "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
       "section": "REAC"
@@ -17,124 +17,24 @@
       "time": "08:30-10:00",
       "course": "CSE334",
       "teacher": "TBA",
-      "room": "KT-517",
+      "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
       "section": "REAC"
     },
     {
       "day": "Unknown",
-      "time": "08:30-10:00",
+      "time": "01:00-02:30",
       "course": "CSE226",
       "teacher": "TBA",
-      "room": "ANX1-204",
+      "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
       "section": "REAC"
     },
     {
       "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE221",
-      "teacher": "TBA",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE316",
-      "teacher": "TBA",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "KT-224",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE223",
-      "teacher": "TBA",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE223",
-      "teacher": "IJN",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "IJN",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "IJN",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "IJN",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "TBA",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "TBA",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "time": "11:30-01:00",
       "course": "CSE332",
       "teacher": "TBA",
       "room": "TBA",
@@ -144,7 +44,7 @@
     },
     {
       "day": "Unknown",
-      "time": "TBA",
+      "time": "02:30-04:00",
       "course": "CSE232",
       "teacher": "TBA",
       "room": "TBA",
@@ -154,8 +54,8 @@
     },
     {
       "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE326",
+      "time": "04:00-05:30",
+      "course": "CSE221",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
@@ -164,7 +64,27 @@
     },
     {
       "day": "Unknown",
-      "time": "TBA",
+      "time": "04:00-05:30",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "04:00-05:30",
+      "course": "CSE315",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REAC"
+    },
+    {
+      "day": "Unknown",
+      "time": "01:00-02:30",
       "course": "CSE135",
       "teacher": "TBA",
       "room": "TBA",

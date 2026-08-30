@@ -3,41 +3,41 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE432",
-      "teacher": "SR",
-      "room": "MRC",
-      "type": "Theory",
-      "batch": "64",
-      "section": "E"
-    },
-    {
-      "day": "Saturday",
+      "day": "Unknown",
       "time": "02:30-04:00",
       "course": "CSE431",
-      "teacher": "FH",
-      "room": "KT-320",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "E"
     },
     {
-      "day": "Wednesday",
+      "day": "Unknown",
       "time": "10:00-11:30",
-      "course": "CSE431",
-      "teacher": "FH",
-      "room": "MMRN",
+      "course": "ECO426",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "E"
     },
     {
-      "day": "Thursday",
-      "time": "10:00-11:30",
+      "day": "Unknown",
+      "time": "11:30-01:00",
       "course": "CSE432",
-      "teacher": "SR",
-      "room": "KT-303",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "E"
+    },
+    {
+      "day": "Unknown",
+      "time": "11:30-01:00",
+      "course": "CSE432",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "E"

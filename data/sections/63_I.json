@@ -3,31 +3,11 @@
   "batch": "63",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "CSE465",
-      "teacher": "NT_15",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "63",
-      "section": "I"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE465",
-      "teacher": "NT_15",
-      "room": "21",
-      "type": "Theory",
-      "batch": "63",
-      "section": "I"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE465",
-      "teacher": "NT_15",
-      "room": "HH",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "63",
       "section": "I"

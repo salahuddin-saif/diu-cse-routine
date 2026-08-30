@@ -4,19 +4,9 @@
   "classes": [
     {
       "day": "Unknown",
-      "time": "TBA",
+      "time": "08:30-10:00",
       "course": "CSE465",
-      "teacher": "NT_18",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "63",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE465",
-      "teacher": "NT_18",
+      "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "63",

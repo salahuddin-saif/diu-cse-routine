@@ -4,60 +4,20 @@
   "classes": [
     {
       "day": "Unknown",
+      "time": "04:00-05:30",
+      "course": "CSE233",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REBC"
+    },
+    {
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "CSE233",
       "teacher": "TBA",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REBC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE233",
-      "teacher": "TBA",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REBC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE233",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REBC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE233",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REBC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REBC"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO237",
-      "teacher": "KT",
-      "room": "KT-217",
+      "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
       "section": "REBC"

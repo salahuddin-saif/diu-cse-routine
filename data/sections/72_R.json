@@ -3,81 +3,41 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE112",
-      "teacher": "FJ",
-      "room": "ANX1-209",
+      "day": "Unknown",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "R"
     },
     {
-      "day": "Sunday",
+      "day": "Unknown",
+      "time": "10:00-11:30",
+      "course": "ENG101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "R"
+    },
+    {
+      "day": "Unknown",
+      "time": "11:30-01:00",
+      "course": "MAT101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "R"
+    },
+    {
+      "day": "Unknown",
       "time": "01:00-02:30",
-      "course": "ENG101",
-      "teacher": "SAS",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "72",
-      "section": "R"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
       "course": "CSE115",
-      "teacher": "HHP",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "R"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "ENG101",
-      "teacher": "SAS",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "72",
-      "section": "R"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "MAT101",
-      "teacher": "MRN",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "72",
-      "section": "R"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE112",
-      "teacher": "FJ",
-      "room": "ANX1-207",
-      "type": "Theory",
-      "batch": "72",
-      "section": "R"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "MAT101",
-      "teacher": "MRN",
-      "room": "ANX1-101",
-      "type": "Theory",
-      "batch": "72",
-      "section": "R"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE115",
-      "teacher": "HHP",
-      "room": "ANX1-101",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "R"

@@ -3,81 +3,31 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "MAT102",
-      "teacher": "AKC",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "71",
-      "section": "J"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "ENG102",
-      "teacher": "NAT",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "71",
-      "section": "J"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE113",
-      "teacher": "JRY",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "71",
-      "section": "J"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "PHY101",
-      "teacher": "SSK",
-      "room": "SMS",
-      "type": "Theory",
-      "batch": "71",
-      "section": "J"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "ENG102",
-      "teacher": "NAT",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "71",
-      "section": "J"
-    },
-    {
-      "day": "Wednesday",
+      "day": "Unknown",
       "time": "01:00-02:30",
       "course": "PHY101",
-      "teacher": "SSK",
-      "room": "KT-514",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "J"
     },
     {
-      "day": "Wednesday",
+      "day": "Unknown",
       "time": "02:30-04:00",
       "course": "MAT102",
-      "teacher": "AKC",
-      "room": "G1-026",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "J"
     },
     {
-      "day": "Thursday",
-      "time": "11:30-01:00",
+      "day": "Unknown",
+      "time": "02:30-04:00",
       "course": "CSE113",
-      "teacher": "JRY",
-      "room": "KT-307",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "71",
       "section": "J"

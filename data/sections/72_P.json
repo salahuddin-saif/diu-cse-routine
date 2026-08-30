@@ -3,71 +3,41 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "MAT101",
-      "teacher": "NDS",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "72",
-      "section": "P"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "ENG101",
-      "teacher": "PS",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "72",
-      "section": "P"
-    },
-    {
-      "day": "Monday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "CSE115",
-      "teacher": "NJO",
-      "room": "ANX1-208",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "P"
     },
     {
-      "day": "Tuesday",
+      "day": "Unknown",
       "time": "11:30-01:00",
-      "course": "MAT101",
-      "teacher": "NDS",
-      "room": "ANX1-101",
-      "type": "Theory",
-      "batch": "72",
-      "section": "P"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
       "course": "CSE112",
-      "teacher": "TAK",
-      "room": "ANX1-101",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "P"
     },
     {
-      "day": "Wednesday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "CSE115",
-      "teacher": "NJO",
-      "room": "ANX1-209",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "P"
     },
     {
-      "day": "Wednesday",
+      "day": "Unknown",
       "time": "10:00-11:30",
       "course": "ENG101",
-      "teacher": "PS",
-      "room": "ANX1-209",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "P"

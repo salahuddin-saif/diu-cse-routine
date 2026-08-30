@@ -4,7 +4,7 @@
   "classes": [
     {
       "day": "Unknown",
-      "time": "TBA",
+      "time": "08:30-10:00",
       "course": "CSE114",
       "teacher": "TBA",
       "room": "TBA",
@@ -14,38 +14,8 @@
     },
     {
       "day": "Unknown",
-      "time": "TBA",
+      "time": "10:00-11:30",
       "course": "CSE114",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "21",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE214",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "21",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE214",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "21",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",

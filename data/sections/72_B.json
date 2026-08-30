@@ -3,81 +3,41 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "FZA",
-      "room": "MSR",
+      "day": "Unknown",
+      "time": "02:30-04:00",
+      "course": "MAT101",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "B"
     },
     {
-      "day": "Saturday",
+      "day": "Unknown",
+      "time": "11:30-01:00",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "B"
+    },
+    {
+      "day": "Unknown",
       "time": "11:30-01:00",
       "course": "MAT101",
-      "teacher": "MSH",
-      "room": "ANX1-204",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "B"
     },
     {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "FZA",
-      "room": "ANX1-103",
-      "type": "Theory",
-      "batch": "72",
-      "section": "B"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE115",
-      "teacher": "IJN",
-      "room": "ANX1-101",
-      "type": "Theory",
-      "batch": "72",
-      "section": "B"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "MAT101",
-      "teacher": "MSH",
-      "room": "ANX1-103",
-      "type": "Theory",
-      "batch": "72",
-      "section": "B"
-    },
-    {
-      "day": "Monday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "ENG101",
-      "teacher": "ASA",
-      "room": "ANX1-203",
-      "type": "Theory",
-      "batch": "72",
-      "section": "B"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ASA",
-      "room": "ANX1-203",
-      "type": "Theory",
-      "batch": "72",
-      "section": "B"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE115",
-      "teacher": "IJN",
-      "room": "ANX1-203",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "B"

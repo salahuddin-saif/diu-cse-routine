@@ -3,71 +3,31 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "NS",
-      "room": "AGT",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE321",
-      "teacher": "TI",
-      "room": "MFH",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I"
-    },
-    {
-      "day": "Monday",
+      "day": "Unknown",
       "time": "04:00-05:30",
       "course": "CSE317",
-      "teacher": "ADK",
-      "room": "KT-218",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "66",
       "section": "I"
     },
     {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "ACT327",
-      "teacher": "IK",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I"
-    },
-    {
-      "day": "Tuesday",
-      "time": "04:00-05:30",
-      "course": "CSE321",
-      "teacher": "TI",
-      "room": "KT-305",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I"
-    },
-    {
-      "day": "Thursday",
+      "day": "Unknown",
       "time": "08:30-10:00",
       "course": "ACT327",
-      "teacher": "IK",
-      "room": "KT-514",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "66",
       "section": "I"
     },
     {
-      "day": "Thursday",
+      "day": "Unknown",
       "time": "10:00-11:30",
       "course": "CSE315",
-      "teacher": "NS",
-      "room": "KT-514",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "66",
       "section": "I"
