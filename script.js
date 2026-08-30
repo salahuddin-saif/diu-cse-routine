@@ -1,4 +1,4 @@
-// DIU CSE Routine - Student View
+// DIU CSE Routine - Student View with Sub-Section Support
 
 const ROUTINE_URL = './data/routine.json?t=' + Date.now();
 const STORAGE_KEY = 'diu_cse_section';
@@ -29,33 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadRoutineData() {
     try {
         setStatus('loading', 'Loading...');
-        
-        // Try to fetch with cache-busting
         const url = './data/routine.json?t=' + Date.now();
         console.log('📡 Fetching:', url);
-        
         const response = await fetch(url);
-        console.log('📡 Response status:', response.status);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
-        console.log('📊 Data loaded:', Object.keys(data));
-        console.log('📊 Sections:', Object.keys(data.sections || {}).length);
-        
         routineData = data;
-        
         if (data.version) versionNumber.textContent = data.version;
         if (data.updated_at) {
             const date = new Date(data.updated_at);
             lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
         }
-        
         setStatus('ready', 'Ready');
         hideMessage();
-        
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && data.sections) {
             const section = findSection(data.sections, saved);
@@ -64,12 +50,11 @@ async function loadRoutineData() {
         } else {
             showFirstSection(data.sections);
         }
-        
     } catch (error) {
         console.error('❌ Failed to load routine:', error);
         setStatus('error', 'Error');
-        showMessage('Routine data is currently unavailable. Please try again later.', 'error');
-        showNoRoutine('Could not load routine data', 'The routine data could not be loaded. Please check your connection and try again.');
+        showMessage('Routine data is currently unavailable.', 'error');
+        showNoRoutine('Could not load routine data', 'Please try again later.');
     }
 }
 
@@ -78,7 +63,7 @@ function showFirstSection(sections) {
         const first = Object.keys(sections)[0];
         displayRoutine(first, sections[first]);
     } else {
-        showNoRoutine('No Data Available', 'No routine data found. The scraper may not have run yet.');
+        showNoRoutine('No Data Available', 'No routine data found.');
     }
 }
 
@@ -88,20 +73,18 @@ function handleShowRoutine() {
         showMessage('Please enter your section (e.g., 70_N).', 'error');
         return;
     }
-    
     if (!routineData || !routineData.sections) {
         showMessage('Routine data is not loaded yet.', 'error');
         return;
     }
-    
     const matched = findSection(routineData.sections, section);
     if (matched) {
         localStorage.setItem(STORAGE_KEY, section);
         displayRoutine(matched, routineData.sections[matched]);
         showMessage('Showing routine for ' + matched, 'success');
     } else {
-        showMessage('No routine found for "' + section + '". Please check your section.', 'error');
-        showNoRoutine('Section Not Found', 'No routine data available for section "' + section + '"');
+        showMessage('No routine found for "' + section + '".', 'error');
+        showNoRoutine('Section Not Found', 'No routine data for "' + section + '"');
     }
 }
 
@@ -128,10 +111,8 @@ function displayRoutine(sectionKey, sectionData) {
         showNoRoutine('No Classes Found', 'No classes for "' + sectionKey + '"');
         return;
     }
-    
     const batch = sectionData.batch || 'Unknown';
     const section = sectionData.section || sectionKey;
-    
     let html = buildProfile(batch, section, classes);
     html += buildCourses(classes);
     html += `
@@ -141,10 +122,8 @@ function displayRoutine(sectionKey, sectionData) {
         </div>
         <div id="viewContent"></div>
     `;
-    
     routineContainer.innerHTML = html;
     renderDayView(classes);
-    
     document.querySelectorAll('.view-tab').forEach(tab => {
         tab.addEventListener('click', function() {
             document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
@@ -160,7 +139,6 @@ function buildProfile(batch, section, classes) {
     const days = ['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday'];
     const uniqueDays = [...new Set(classes.map(c => c.day))].filter(d => days.includes(d));
     const perWeek = uniqueDays.length;
-    
     return `
         <div class="student-profile">
             <div class="profile-top">
@@ -238,10 +216,11 @@ function renderDayView(classes) {
         `;
         for (const cls of sorted) {
             const tc = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
+            const subSection = cls.sub_section && cls.sub_section !== 'Main' ? `<span style="font-size:0.7rem;color:var(--gray-600);margin-left:6px;">(${escapeHtml(cls.sub_section)})</span>` : '';
             html += `
                 <div class="class-item">
                     <div class="time"><i class="far fa-clock"></i> ${escapeHtml(cls.time || 'TBA')}</div>
-                    <div class="course">${escapeHtml(cls.course)}</div>
+                    <div class="course">${escapeHtml(cls.course)}${subSection}</div>
                     <div class="details">
                         <span><i class="fas fa-chalkboard-teacher"></i> ${escapeHtml(cls.teacher || 'TBA')}</span>
                         <span><i class="fas fa-door-open"></i> ${escapeHtml(cls.room || 'TBA')}</span>
@@ -279,7 +258,12 @@ function renderWeekView(classes) {
                 html += `<td>`;
                 for (const cls of matching) {
                     const tc = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
-                    html += `<div style="margin-bottom:4px;"><strong>${escapeHtml(cls.course)}</strong><span class="type-tag ${tc}" style="font-size:0.65rem;">${escapeHtml(cls.type)}</span><br><span style="font-size:0.8rem;color:var(--gray-600);">${escapeHtml(cls.teacher)} • ${escapeHtml(cls.room)}</span></div>`;
+                    const subSection = cls.sub_section && cls.sub_section !== 'Main' ? ` (${cls.sub_section})` : '';
+                    html += `<div style="margin-bottom:4px;">
+                        <strong>${escapeHtml(cls.course)}</strong>${escapeHtml(subSection)}
+                        <span class="type-tag ${tc}" style="font-size:0.65rem;">${escapeHtml(cls.type)}</span><br>
+                        <span style="font-size:0.8rem;color:var(--gray-600);">${escapeHtml(cls.teacher)} • ${escapeHtml(cls.room)}</span>
+                    </div>`;
                 }
                 html += `</td>`;
             } else {
@@ -316,7 +300,6 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-// Refresh every 5 minutes
 setInterval(() => {
     if (!document.hidden) loadRoutineData();
 }, 5 * 60 * 1000);
