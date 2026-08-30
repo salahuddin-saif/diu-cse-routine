@@ -3,21 +3,21 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE124",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "JHJ",
+      "room": "JHJ",
       "type": "Theory",
       "batch": "70",
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "10:00-11:30",
-      "course": "CSE124",
-      "teacher": "TBA",
-      "room": "TBA",
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MRI",
+      "room": "MRI",
       "type": "Theory",
       "batch": "70",
       "section": "L"

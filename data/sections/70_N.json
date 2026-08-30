@@ -3,31 +3,61 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "10:00-11:30",
-      "course": "CSE123",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "PHY102",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "AEE",
+      "room": "KT-222",
       "type": "Theory",
       "batch": "70",
       "section": "N"
     },
     {
-      "day": "Unknown",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE123",
+      "teacher": "PPC",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N"
+    },
+    {
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE121",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "EHL",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE123",
+      "teacher": "PPC",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE121",
+      "teacher": "EHL",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "PHY102",
+      "teacher": "AEE",
+      "room": "KT-222",
       "type": "Theory",
       "batch": "70",
       "section": "N"

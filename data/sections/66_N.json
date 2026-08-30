@@ -3,81 +3,61 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE317",
+      "teacher": "MSA",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "66",
+      "section": "N"
+    },
+    {
+      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "ACT327",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "IK",
+      "room": "KT-208",
       "type": "Theory",
       "batch": "66",
       "section": "N"
     },
     {
-      "day": "Unknown",
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE315",
+      "teacher": "RAK",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "66",
+      "section": "N"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE317",
+      "teacher": "MSA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "66",
+      "section": "N"
+    },
+    {
+      "day": "Wednesday",
       "time": "11:30-01:00",
-      "course": "CSE317",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "02:30-04:00",
-      "course": "CSE315",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "04:00-05:30",
-      "course": "CSE317",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "02:30-04:00",
       "course": "CSE321",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "ADK",
+      "room": "KT-305",
       "type": "Theory",
       "batch": "66",
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "04:00-05:30",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "ACT327",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "10:00-11:30",
-      "course": "CSE321",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "IK",
+      "room": "KT-305",
       "type": "Theory",
       "batch": "66",
       "section": "N"

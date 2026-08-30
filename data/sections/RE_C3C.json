@@ -3,51 +3,11 @@
   "batch": "Unknown",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "04:00-05:30",
-      "course": "MAT101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "RECC"
-    },
-    {
-      "day": "Unknown",
-      "time": "01:00-02:30",
+      "day": "Thursday",
+      "time": "11:30-01:00",
       "course": "MAT211",
       "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "RECC"
-    },
-    {
-      "day": "Unknown",
-      "time": "04:00-05:30",
-      "course": "CSE113",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "RECC"
-    },
-    {
-      "day": "Unknown",
-      "time": "04:00-05:30",
-      "course": "CSE113",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "RECC"
-    },
-    {
-      "day": "Unknown",
-      "time": "02:30-04:00",
-      "course": "MAT211",
-      "teacher": "TBA",
-      "room": "TBA",
+      "room": "ANX1-208",
       "type": "Theory",
       "batch": "Unknown",
       "section": "RECC"

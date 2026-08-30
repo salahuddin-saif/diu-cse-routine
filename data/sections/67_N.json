@@ -3,61 +3,41 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "02:30-04:00",
-      "course": "CSE226",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "04:00-05:30",
-      "course": "CSE311",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE313",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "CSA",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "67",
       "section": "N"
     },
     {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE226",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "SP",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "67",
       "section": "N"
     },
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "02:30-04:00",
       "course": "CSE311",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "SEA",
+      "room": "KT-224",
       "type": "Theory",
       "batch": "67",
       "section": "N"
     },
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "04:00-05:30",
       "course": "CSE313",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "CSA",
+      "room": "KT-224",
       "type": "Theory",
       "batch": "67",
       "section": "N"

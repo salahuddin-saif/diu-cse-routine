@@ -3,21 +3,11 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "11:30-01:00",
+      "day": "Thursday",
+      "time": "08:30-10:00",
       "course": "CSE222",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "01:00-02:30",
-      "course": "CSE222",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "IST",
+      "room": "IST",
       "type": "Theory",
       "batch": "68",
       "section": "O"

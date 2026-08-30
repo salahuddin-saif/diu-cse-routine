@@ -3,21 +3,21 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE314",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "RKR",
+      "room": "RKR",
       "type": "Theory",
       "batch": "67",
       "section": "D"
     },
     {
-      "day": "Unknown",
-      "time": "10:00-11:30",
-      "course": "CSE314",
-      "teacher": "TBA",
-      "room": "TBA",
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE312",
+      "teacher": "MB",
+      "room": "MB",
       "type": "Theory",
       "batch": "67",
       "section": "D"

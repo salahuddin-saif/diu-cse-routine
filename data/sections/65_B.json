@@ -3,61 +3,61 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "02:30-04:00",
-      "course": "CSE411",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
-      "time": "01:00-02:30",
-      "course": "CSE325",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
-      "time": "02:30-04:00",
-      "course": "CSE411",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "11:30-01:00",
-      "course": "CSE414",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
-      "time": "01:00-02:30",
       "course": "CSE325",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MAI",
+      "room": "KT-514",
       "type": "Theory",
       "batch": "65",
       "section": "B"
     },
     {
-      "day": "Unknown",
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE411",
+      "teacher": "FFN",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE411",
+      "teacher": "FFN",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    },
+    {
+      "day": "Tuesday",
       "time": "02:30-04:00",
       "course": "CSE326",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MNB",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "CSE325",
+      "teacher": "MAI",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE326",
+      "teacher": "MNB",
+      "room": "KT-518",
       "type": "Theory",
       "batch": "65",
       "section": "B"

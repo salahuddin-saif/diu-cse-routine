@@ -3,41 +3,71 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "11:30-01:00",
+      "day": "Saturday",
+      "time": "08:30-10:00",
       "course": "MAT101",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "AST",
+      "room": "ANX1-207",
       "type": "Theory",
       "batch": "72",
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "01:00-02:30",
-      "course": "ENG101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "72",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "ENG101",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "SMH",
+      "room": "ANX1-207",
       "type": "Theory",
       "batch": "72",
       "section": "E"
     },
     {
-      "day": "Unknown",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE115",
+      "teacher": "PDS",
+      "room": "ANX1-203",
+      "type": "Theory",
+      "batch": "72",
+      "section": "E"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE112",
+      "teacher": "TAB",
+      "room": "ANX1-203",
+      "type": "Theory",
+      "batch": "72",
+      "section": "E"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-203",
+      "type": "Theory",
+      "batch": "72",
+      "section": "E"
+    },
+    {
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "MAT101",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "AST",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "72",
+      "section": "E"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE115",
+      "teacher": "PDS",
+      "room": "ANX1-204",
       "type": "Theory",
       "batch": "72",
       "section": "E"

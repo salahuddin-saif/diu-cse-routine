@@ -3,51 +3,71 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "02:30-04:00",
+      "day": "Saturday",
+      "time": "01:00-02:30",
       "course": "CSE414",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "DMAK",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "65",
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "11:30-01:00",
-      "course": "CSE325",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "02:30-04:00",
-      "course": "CSE326",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE411",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "NNM",
+      "room": "KT-307",
       "type": "Theory",
       "batch": "65",
       "section": "A"
     },
     {
-      "day": "Unknown",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE325",
+      "teacher": "MAI",
+      "room": "FH",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE326",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MUH",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE411",
+      "teacher": "NNM",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE414",
+      "teacher": "DMAK",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE326",
+      "teacher": "MUH",
+      "room": "KT-217",
       "type": "Theory",
       "batch": "65",
       "section": "A"

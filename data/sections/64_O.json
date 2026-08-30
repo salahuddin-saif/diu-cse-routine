@@ -3,21 +3,31 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "01:00-02:30",
-      "course": "ECO426",
-      "teacher": "TBA",
-      "room": "TBA",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "MIS",
+      "room": "KT-514",
       "type": "Theory",
       "batch": "64",
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "ECO426",
+      "teacher": "MBB",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "64",
+      "section": "O"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE431",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MIS",
+      "room": "FAF",
       "type": "Theory",
       "batch": "64",
       "section": "O"

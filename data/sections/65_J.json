@@ -3,51 +3,61 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "01:00-02:30",
-      "course": "CSE325",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE326",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MMI",
+      "room": "KT-222",
       "type": "Theory",
       "batch": "65",
       "section": "J"
     },
     {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE325",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "SMA",
+      "room": "KT-222",
       "type": "Theory",
       "batch": "65",
       "section": "J"
     },
     {
-      "day": "Unknown",
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE414",
+      "teacher": "MAH",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "65",
+      "section": "J"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE326",
+      "teacher": "MMI",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "65",
+      "section": "J"
+    },
+    {
+      "day": "Wednesday",
       "time": "10:00-11:30",
       "course": "CSE411",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "ZS",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "65",
       "section": "J"
     },
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE414",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MAH",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "65",
       "section": "J"
