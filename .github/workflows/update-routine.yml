@@ -47,5 +47,6 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add data/
           git commit -m "Update routine data [skip ci]"
-          git pull origin main --rebase --autostash
+          # Pull with merge strategy 'ours' to keep our changes in case of conflict
+          git pull origin main --no-rebase --strategy-option=ours
           git push origin main
