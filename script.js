@@ -29,44 +29,79 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadRoutineData() {
     try {
         setStatus('loading', 'Loading...');
-        const response = await fetch(ROUTINE_URL);
-        if (!response.ok) throw new Error('Failed to load');
+        
+        // Try to fetch with cache-busting
+        const url = './data/routine.json?t=' + Date.now();
+        console.log('📡 Fetching:', url);
+        
+        const response = await fetch(url);
+        console.log('📡 Response status:', response.status);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
         const data = await response.json();
+        console.log('📊 Data loaded:', Object.keys(data));
+        console.log('📊 Sections:', Object.keys(data.sections || {}).length);
+        
         routineData = data;
+        
         if (data.version) versionNumber.textContent = data.version;
         if (data.updated_at) {
             const date = new Date(data.updated_at);
             lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
         }
+        
         setStatus('ready', 'Ready');
         hideMessage();
+        
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && data.sections) {
             const section = findSection(data.sections, saved);
             if (section) displayRoutine(section, data.sections[section]);
-        } else if (data.sections && Object.keys(data.sections).length > 0) {
-            const first = Object.keys(data.sections)[0];
-            displayRoutine(first, data.sections[first]);
+            else showFirstSection(data.sections);
+        } else {
+            showFirstSection(data.sections);
         }
+        
     } catch (error) {
+        console.error('❌ Failed to load routine:', error);
         setStatus('error', 'Error');
-        showMessage('Routine data is currently unavailable.', 'error');
-        showNoRoutine('Could not load routine data', 'Please try again later.');
+        showMessage('Routine data is currently unavailable. Please try again later.', 'error');
+        showNoRoutine('Could not load routine data', 'The routine data could not be loaded. Please check your connection and try again.');
+    }
+}
+
+function showFirstSection(sections) {
+    if (sections && Object.keys(sections).length > 0) {
+        const first = Object.keys(sections)[0];
+        displayRoutine(first, sections[first]);
+    } else {
+        showNoRoutine('No Data Available', 'No routine data found. The scraper may not have run yet.');
     }
 }
 
 function handleShowRoutine() {
     const section = sectionInput.value.trim();
-    if (!section) { showMessage('Please enter your section.', 'error'); return; }
-    if (!routineData || !routineData.sections) { showMessage('Routine data not loaded.', 'error'); return; }
+    if (!section) {
+        showMessage('Please enter your section (e.g., 70_N).', 'error');
+        return;
+    }
+    
+    if (!routineData || !routineData.sections) {
+        showMessage('Routine data is not loaded yet.', 'error');
+        return;
+    }
+    
     const matched = findSection(routineData.sections, section);
     if (matched) {
         localStorage.setItem(STORAGE_KEY, section);
         displayRoutine(matched, routineData.sections[matched]);
         showMessage('Showing routine for ' + matched, 'success');
     } else {
-        showMessage('No routine found for "' + section + '"', 'error');
-        showNoRoutine('Section Not Found', 'No routine data for "' + section + '"');
+        showMessage('No routine found for "' + section + '". Please check your section.', 'error');
+        showNoRoutine('Section Not Found', 'No routine data available for section "' + section + '"');
     }
 }
 
@@ -74,10 +109,7 @@ function handleClearSection() {
     localStorage.removeItem(STORAGE_KEY);
     sectionInput.value = '';
     showMessage('Saved section cleared.', 'info');
-    if (routineData && routineData.sections) {
-        const keys = Object.keys(routineData.sections);
-        if (keys.length > 0) displayRoutine(keys[0], routineData.sections[keys[0]]);
-    }
+    showFirstSection(routineData?.sections);
 }
 
 function findSection(sections, input) {
@@ -284,6 +316,7 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+// Refresh every 5 minutes
 setInterval(() => {
     if (!document.hidden) loadRoutineData();
 }, 5 * 60 * 1000);
