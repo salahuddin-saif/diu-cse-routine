@@ -1,0 +1,26 @@
+{
+  "section": "67_O",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "UH",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "MMR",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    }
+  ]
+}

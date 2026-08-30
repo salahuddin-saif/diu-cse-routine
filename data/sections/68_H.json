@@ -1,0 +1,16 @@
+{
+  "section": "68_H",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE221",
+      "teacher": "MRY",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "68",
+      "section": "H"
+    }
+  ]
+}

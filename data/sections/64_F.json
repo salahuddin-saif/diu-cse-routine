@@ -1,0 +1,46 @@
+{
+  "section": "64_F",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MSR",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "64",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE431",
+      "teacher": "SN",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "64",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MSR",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "64",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE432",
+      "teacher": "FH",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "64",
+      "section": "F"
+    }
+  ]
+}

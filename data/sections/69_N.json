@@ -1,0 +1,86 @@
+{
+  "section": "69_N",
+  "batch": "69",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE212",
+      "teacher": "TI",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE213",
+      "teacher": "SHR",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "BNS101",
+      "teacher": "ARH",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-208",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE213",
+      "teacher": "SHR",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE212",
+      "teacher": "TI",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "BNS101",
+      "teacher": "ARH",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-210",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    }
+  ]
+}

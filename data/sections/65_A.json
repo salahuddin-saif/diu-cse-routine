@@ -1,0 +1,56 @@
+{
+  "section": "65_A",
+  "batch": "65",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "MUH",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE411",
+      "teacher": "NNM",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "MUH",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE414",
+      "teacher": "DMAK",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE411",
+      "teacher": "NNM",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    }
+  ]
+}

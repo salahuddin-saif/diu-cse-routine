@@ -1,0 +1,36 @@
+{
+  "section": "68_D",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE221",
+      "teacher": "MIZ",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "AOL101",
+      "teacher": "GR",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE215",
+      "teacher": "MSU",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "68",
+      "section": "D"
+    }
+  ]
+}

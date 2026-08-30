@@ -1,0 +1,46 @@
+{
+  "section": "67_E",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "MSK",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "MSK",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E"
+    }
+  ]
+}

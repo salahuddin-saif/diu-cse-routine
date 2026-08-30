@@ -1,0 +1,66 @@
+{
+  "section": "70_P",
+  "batch": "70",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE123",
+      "teacher": "RIA",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY102",
+      "teacher": "MAM",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE121",
+      "teacher": "MHI",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY102",
+      "teacher": "MAM",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE121",
+      "teacher": "MHI",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE123",
+      "teacher": "RIA",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "section": "65_N",
+  "batch": "65",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "RIA",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE411",
+      "teacher": "MSA",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE325",
+      "teacher": "SRRS",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "RIA",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE411",
+      "teacher": "MSA",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE414",
+      "teacher": "MMRN",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE325",
+      "teacher": "SRRS",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N"
+    }
+  ]
+}

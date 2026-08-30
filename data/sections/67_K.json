@@ -1,0 +1,26 @@
+{
+  "section": "67_K",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "LR",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "67",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "NRM",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "67",
+      "section": "K"
+    }
+  ]
+}

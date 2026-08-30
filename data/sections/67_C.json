@@ -1,0 +1,36 @@
+{
+  "section": "67_C",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "FMA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "FMA",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C"
+    }
+  ]
+}

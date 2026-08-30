@@ -1,0 +1,46 @@
+{
+  "section": "71_D",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "SSL",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "MAK",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "71",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "SSL",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "71",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "SI",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "71",
+      "section": "D"
+    }
+  ]
+}

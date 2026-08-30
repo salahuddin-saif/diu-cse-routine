@@ -1,0 +1,36 @@
+{
+  "section": "65_K",
+  "batch": "65",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "MMB",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "MMB",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE411",
+      "teacher": "JLA",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "65",
+      "section": "K"
+    }
+  ]
+}

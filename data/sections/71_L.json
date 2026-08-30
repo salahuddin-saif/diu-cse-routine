@@ -1,0 +1,66 @@
+{
+  "section": "71_L",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "MNM",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "AEE",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "MAIT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG102",
+      "teacher": "IMT",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "MAIT",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG102",
+      "teacher": "IMT",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "section": "64_O",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MBB",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "64",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE431",
+      "teacher": "MIS",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "64",
+      "section": "O"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "section": "67_M",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "IJN",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "67",
+      "section": "M"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "SP",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "67",
+      "section": "M"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "RAK",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "67",
+      "section": "M"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "RAK",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "67",
+      "section": "M"
+    }
+  ]
+}

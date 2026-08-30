@@ -1,0 +1,26 @@
+{
+  "section": "63_E",
+  "batch": "63",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE465",
+      "teacher": "NT_11",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "63",
+      "section": "E"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE465",
+      "teacher": "NT_17",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "63",
+      "section": "E"
+    }
+  ]
+}

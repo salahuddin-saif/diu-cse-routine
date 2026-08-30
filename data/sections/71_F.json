@@ -1,0 +1,66 @@
+{
+  "section": "71_F",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "SSL",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG102",
+      "teacher": "NAT",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "SSL",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG102",
+      "teacher": "NAT",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "section": "64_I",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "64",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "64",
+      "section": "I"
+    }
+  ]
+}

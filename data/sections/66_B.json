@@ -1,0 +1,56 @@
+{
+  "section": "66_B",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ACT327",
+      "teacher": "ASM",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "66",
+      "section": "B"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE321",
+      "teacher": "FNN",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "66",
+      "section": "B"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE321",
+      "teacher": "FNN",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "66",
+      "section": "B"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE317",
+      "teacher": "ROZ",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "66",
+      "section": "B"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ACT327",
+      "teacher": "ASM",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "66",
+      "section": "B"
+    }
+  ]
+}

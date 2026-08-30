@@ -1,0 +1,26 @@
+{
+  "section": "64_N",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE454",
+      "teacher": "DAA",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "N"
+    }
+  ]
+}

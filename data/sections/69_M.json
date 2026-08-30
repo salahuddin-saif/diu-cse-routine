@@ -1,0 +1,46 @@
+{
+  "section": "69_M",
+  "batch": "69",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE213",
+      "teacher": "AGT",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "BNS101",
+      "teacher": "ARH",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE212",
+      "teacher": "MMI",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "69",
+      "section": "M"
+    }
+  ]
+}

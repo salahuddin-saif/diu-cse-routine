@@ -1,0 +1,106 @@
+{
+  "section": "RE_A",
+  "batch": "Unknown",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "STA227",
+      "teacher": "MKH",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE315",
+      "teacher": "ARK",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY102",
+      "teacher": "SHN",
+      "room": "ANX1-204",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "MHB",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "STA227",
+      "teacher": "MKH",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE215",
+      "teacher": "MSAR",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE215",
+      "teacher": "MSAR",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "MHB",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "REA"
+    }
+  ]
+}

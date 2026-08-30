@@ -1,0 +1,36 @@
+{
+  "section": "64_G",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE431",
+      "teacher": "SN",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "64",
+      "section": "G"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MBB",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "64",
+      "section": "G"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE432",
+      "teacher": "AHAK",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "64",
+      "section": "G"
+    }
+  ]
+}

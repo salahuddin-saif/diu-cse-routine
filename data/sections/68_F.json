@@ -1,0 +1,46 @@
+{
+  "section": "68_F",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE221",
+      "teacher": "SZ",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "68",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE221",
+      "teacher": "SZ",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "68",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "AOL101",
+      "teacher": "NNT",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "68",
+      "section": "F"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE215",
+      "teacher": "NAB",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "68",
+      "section": "F"
+    }
+  ]
+}

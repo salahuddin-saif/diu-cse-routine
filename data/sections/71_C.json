@@ -1,0 +1,66 @@
+{
+  "section": "71_C",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "MSM",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG102",
+      "teacher": "SMSH",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "MSM",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "SSL",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "DMAT",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "SSL",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "71",
+      "section": "C"
+    }
+  ]
+}

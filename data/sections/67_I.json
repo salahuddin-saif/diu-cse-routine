@@ -1,0 +1,56 @@
+{
+  "section": "67_I",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "MMB",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "67",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "MMB",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "67",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "SH",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "SH",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "67",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "MMR",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "67",
+      "section": "I"
+    }
+  ]
+}

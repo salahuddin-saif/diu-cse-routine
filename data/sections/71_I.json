@@ -1,0 +1,56 @@
+{
+  "section": "71_I",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG102",
+      "teacher": "SAS",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "MA",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG102",
+      "teacher": "SAS",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I"
+    }
+  ]
+}

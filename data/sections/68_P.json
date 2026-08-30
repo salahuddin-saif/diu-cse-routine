@@ -1,0 +1,36 @@
+{
+  "section": "68_P",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE221",
+      "teacher": "MRM",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "68",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "AOL101",
+      "teacher": "TRN",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "68",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE215",
+      "teacher": "LRA",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "68",
+      "section": "P"
+    }
+  ]
+}

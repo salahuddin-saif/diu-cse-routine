@@ -1,0 +1,36 @@
+{
+  "section": "66_K",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ACT327",
+      "teacher": "MDS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "66",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE317",
+      "teacher": "CSA",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "66",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE315",
+      "teacher": "MNB",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "66",
+      "section": "K"
+    }
+  ]
+}

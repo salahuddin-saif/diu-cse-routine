@@ -1,0 +1,56 @@
+{
+  "section": "66_O",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE321",
+      "teacher": "ARK",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE315",
+      "teacher": "SEA",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE317",
+      "teacher": "RYS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE321",
+      "teacher": "ARK",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ACT327",
+      "teacher": "MDS",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O"
+    }
+  ]
+}

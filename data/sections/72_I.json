@@ -1,0 +1,66 @@
+{
+  "section": "72_I",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG101",
+      "teacher": "ANR",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT101",
+      "teacher": "AST",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE115",
+      "teacher": "ZMK",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE115",
+      "teacher": "ZMK",
+      "room": "ANX1-210",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT101",
+      "teacher": "AST",
+      "room": "ANX1-103",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ENG101",
+      "teacher": "ANR",
+      "room": "ANX1-210",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I"
+    }
+  ]
+}

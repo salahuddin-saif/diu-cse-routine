@@ -1,0 +1,46 @@
+{
+  "section": "65_I",
+  "batch": "65",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE325",
+      "teacher": "EHL",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "65",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE411",
+      "teacher": "AAA",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "65",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE325",
+      "teacher": "EHL",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "65",
+      "section": "I"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE414",
+      "teacher": "MA",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "65",
+      "section": "I"
+    }
+  ]
+}

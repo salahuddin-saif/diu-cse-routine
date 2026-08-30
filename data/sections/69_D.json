@@ -1,0 +1,46 @@
+{
+  "section": "69_D",
+  "batch": "69",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE212",
+      "teacher": "AHN",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "69",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE213",
+      "teacher": "SS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "69",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT211",
+      "teacher": "MPL",
+      "room": "ANX1-204",
+      "type": "Theory",
+      "batch": "69",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "BNS101",
+      "teacher": "MAA",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "69",
+      "section": "D"
+    }
+  ]
+}

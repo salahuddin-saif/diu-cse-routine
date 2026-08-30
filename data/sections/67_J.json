@@ -1,0 +1,36 @@
+{
+  "section": "67_J",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "AHN",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "AHN",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "MMR",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "section": "71_G",
+  "batch": "71",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "FAF",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "71",
+      "section": "G"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "71",
+      "section": "G"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "MAT102",
+      "teacher": "SP",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "71",
+      "section": "G"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE113",
+      "teacher": "FAF",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "71",
+      "section": "G"
+    }
+  ]
+}

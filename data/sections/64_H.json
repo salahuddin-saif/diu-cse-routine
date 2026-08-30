@@ -1,0 +1,36 @@
+{
+  "section": "64_H",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MBB",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE431",
+      "teacher": "MIS",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MBB",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "64",
+      "section": "H"
+    }
+  ]
+}

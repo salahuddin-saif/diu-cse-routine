@@ -1,0 +1,36 @@
+{
+  "section": "68_J",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE221",
+      "teacher": "SRS",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "68",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "AOL101",
+      "teacher": "DRAR",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "68",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE215",
+      "teacher": "SOM",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "68",
+      "section": "J"
+    }
+  ]
+}

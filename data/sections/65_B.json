@@ -1,0 +1,46 @@
+{
+  "section": "65_B",
+  "batch": "65",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE411",
+      "teacher": "FFN",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "MNB",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE325",
+      "teacher": "MAI",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE326",
+      "teacher": "MNB",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "65",
+      "section": "B"
+    }
+  ]
+}

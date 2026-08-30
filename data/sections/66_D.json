@@ -1,0 +1,46 @@
+{
+  "section": "66_D",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE321",
+      "teacher": "AM",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "66",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE315",
+      "teacher": "MM",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "66",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE321",
+      "teacher": "AM",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "66",
+      "section": "D"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ACT327",
+      "teacher": "ARN",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "66",
+      "section": "D"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "section": "66_J",
+  "batch": "66",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE317",
+      "teacher": "ADK",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "66",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ACT327",
+      "teacher": "IK",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "66",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE315",
+      "teacher": "SNA",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "66",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ACT327",
+      "teacher": "IK",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "66",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE315",
+      "teacher": "SNA",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "66",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE317",
+      "teacher": "ADK",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "66",
+      "section": "J"
+    }
+  ]
+}

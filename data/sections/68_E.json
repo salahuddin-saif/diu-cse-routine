@@ -1,0 +1,36 @@
+{
+  "section": "68_E",
+  "batch": "68",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE221",
+      "teacher": "MIZ",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "AOL101",
+      "teacher": "MIN",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE215",
+      "teacher": "MBM",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "68",
+      "section": "E"
+    }
+  ]
+}

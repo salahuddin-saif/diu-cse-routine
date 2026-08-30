@@ -1,0 +1,36 @@
+{
+  "section": "67_P",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "NRM",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "DP",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P"
+    }
+  ]
+}

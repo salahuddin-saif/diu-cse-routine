@@ -1,0 +1,26 @@
+{
+  "section": "70_J",
+  "batch": "70",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE121",
+      "teacher": "SMA",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "70",
+      "section": "J"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE121",
+      "teacher": "SMA",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "70",
+      "section": "J"
+    }
+  ]
+}

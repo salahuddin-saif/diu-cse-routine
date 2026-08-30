@@ -1,0 +1,16 @@
+{
+  "section": "64_P",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE472",
+      "teacher": "RDR",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "64",
+      "section": "P"
+    }
+  ]
+}

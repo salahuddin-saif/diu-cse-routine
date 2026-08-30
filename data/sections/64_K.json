@@ -1,0 +1,46 @@
+{
+  "section": "64_K",
+  "batch": "64",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE442",
+      "teacher": "FFZ",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MBB",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "64",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE441",
+      "teacher": "MHD",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "64",
+      "section": "K"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "ECO426",
+      "teacher": "MBB",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "K"
+    }
+  ]
+}

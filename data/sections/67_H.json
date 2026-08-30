@@ -1,0 +1,46 @@
+{
+  "section": "67_H",
+  "batch": "67",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "SNA",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE311",
+      "teacher": "SNA",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE226",
+      "teacher": "HMK",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    },
+    {
+      "day": "Sunday",
+      "time": "TBA",
+      "course": "CSE313",
+      "teacher": "MAH",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H"
+    }
+  ]
+}
