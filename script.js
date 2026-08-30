@@ -1,4 +1,4 @@
-// DIU CSE Routine – Search Fixed
+// DIU CSE Routine – Fixed Search & UI Refresh
 
 const STORAGE_KEY = 'diu_cse_section';
 const COMBINED_URL = './data/routine.json?t=' + Date.now();
@@ -16,7 +16,8 @@ const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
-let routineData = null;      // combined data (for fallback)
+// Global data cache
+let routineData = null;      // combined JSON (fallback)
 let currentSection = null;
 let currentClasses = [];
 
@@ -33,13 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         savedChip.style.display = 'none';
     }
+
+    // Load initial data (saved or first available)
     loadRoutineData();
 
-    // Search button click
+    // Event listeners
     showRoutineBtn.addEventListener('click', handleShowRoutine);
-    // Clear button
     clearSectionBtn.addEventListener('click', handleClearSection);
-    // Enter key on input
     sectionInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
-// LOAD ROUTINE DATA (combined JSON for fallback)
+// LOAD ROUTINE DATA (loads combined JSON once)
 // ============================================================
 
 async function loadRoutineData() {
@@ -61,7 +62,7 @@ async function loadRoutineData() {
             return;
         }
 
-        // No saved section → load combined and show first
+        // No saved section – load combined and show first
         const response = await fetch(COMBINED_URL);
         if (!response.ok) throw new Error('Failed to load combined data');
         const data = await response.json();
@@ -71,12 +72,12 @@ async function loadRoutineData() {
             const date = new Date(data.updated_at);
             lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
         }
+
         const sections = data.sections || {};
         const keys = Object.keys(sections);
         if (keys.length > 0) {
             const first = keys[0];
-            // We have combined data, but we don't have a per-section file for it.
-            // We'll still display it using the combined data.
+            // Display from combined data (no per-section file needed)
             displaySection(first, sections[first]);
             sectionInput.value = first;
             savedSectionSpan.textContent = first;
@@ -104,11 +105,11 @@ async function loadSection(sectionKey) {
         const normalized = sectionKey.toUpperCase().replace(/\s+/g, '_');
         console.log('🔍 Searching for section:', normalized);
 
-        // 1. Try per‑section file
-        const perSectionUrl = `${SECTIONS_BASE}${normalized}.json?t=${Date.now()}`;
         let data = null;
         let found = false;
 
+        // 1. Try per‑section file
+        const perSectionUrl = `${SECTIONS_BASE}${normalized}.json?t=${Date.now()}`;
         try {
             const resp = await fetch(perSectionUrl);
             if (resp.ok) {
@@ -120,7 +121,7 @@ async function loadSection(sectionKey) {
 
         // 2. If not found, try combined JSON
         if (!found) {
-            // Ensure routineData is loaded
+            // Ensure combined data is loaded
             if (!routineData) {
                 const resp = await fetch(COMBINED_URL);
                 if (!resp.ok) throw new Error('Combined data not found');
@@ -165,19 +166,21 @@ async function loadSection(sectionKey) {
 }
 
 // ============================================================
-// DISPLAY SECTION (UI rendering)
+// DISPLAY SECTION (clears and rebuilds UI)
 // ============================================================
 
 function displaySection(sectionKey, sectionData) {
-    currentSection = sectionKey;
-    const classes = sectionData.classes || [];
-    currentClasses = classes;
+    // Clear container
+    routineContainer.innerHTML = '';
 
+    const classes = sectionData.classes || [];
     if (classes.length === 0) {
         showNoRoutine('No Classes', `No classes for section "${sectionKey}".`);
         return;
     }
 
+    currentSection = sectionKey;
+    currentClasses = classes;
     const batch = sectionData.batch || 'Unknown';
     const total = classes.length;
     const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
