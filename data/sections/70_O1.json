@@ -3,61 +3,21 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "PHY103",
       "teacher": "MFI",
-      "room": "TBA",
+      "room": "MFI",
       "type": "Theory",
       "batch": "70",
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "PHY103",
-      "teacher": "MFI",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MAI",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MAI",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Thursday",
+      "time": "10:00-11:30",
       "course": "CSE124",
       "teacher": "PPC",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
-      "teacher": "PPC",
-      "room": "TBA",
+      "room": "PPC",
       "type": "Theory",
       "batch": "70",
       "section": "O"

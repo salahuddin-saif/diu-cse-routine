@@ -3,70 +3,10 @@
   "batch": "63",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE465",
       "teacher": "NT_16",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "63",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE465",
-      "teacher": "MNM",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "63",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT102",
-      "teacher": "MNM",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "63",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY101",
-      "teacher": "MNM",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "63",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "MNM",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "63",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "MNM",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "63",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "MNM",
       "room": "G1-026",
       "type": "Theory",
       "batch": "63",

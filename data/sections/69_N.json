@@ -3,8 +3,8 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "02:30-04:00",
       "course": "CSE212",
       "teacher": "TI",
       "room": "KT-220",
@@ -13,8 +13,8 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "04:00-05:30",
       "course": "CSE213",
       "teacher": "SHR",
       "room": "KT-306",
@@ -23,8 +23,8 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "BNS101",
       "teacher": "ARH",
       "room": "ANX1-202",
@@ -33,8 +33,8 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "MAT211",
       "teacher": "JS",
       "room": "ANX1-208",
@@ -43,18 +43,8 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "SHR",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "69",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "01:00-02:30",
       "course": "CSE212",
       "teacher": "TI",
       "room": "KT-217",
@@ -63,21 +53,31 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "ARH",
-      "room": "ANX1-201",
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "CSE213",
+      "teacher": "SHR",
+      "room": "KT-208",
       "type": "Theory",
       "batch": "69",
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "MAT211",
       "teacher": "JS",
       "room": "ANX1-210",
+      "type": "Theory",
+      "batch": "69",
+      "section": "N"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "BNS101",
+      "teacher": "ARH",
+      "room": "ANX1-201",
       "type": "Theory",
       "batch": "69",
       "section": "N"

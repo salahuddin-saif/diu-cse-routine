@@ -3,8 +3,8 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "CSE325",
       "teacher": "SRRS",
       "room": "KT-220",
@@ -13,8 +13,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "CSE411",
       "teacher": "PB",
       "room": "KT-306",
@@ -23,18 +23,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "SFMA",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "02:30-04:00",
       "course": "CSE414",
       "teacher": "MMRN",
       "room": "KT-518",
@@ -43,18 +33,18 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "MMRN",
-      "room": "KT-223",
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "CSE326",
+      "teacher": "SFMA",
+      "room": "KT-306",
       "type": "Theory",
       "batch": "65",
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "CSE325",
       "teacher": "SRRS",
       "room": "KT-306",
@@ -63,8 +53,18 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "04:00-05:30",
+      "course": "CSE414",
+      "teacher": "MMRN",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "65",
+      "section": "O"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
       "course": "CSE411",
       "teacher": "PB",
       "room": "KT-223",
@@ -73,8 +73,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Thursday",
+      "time": "11:30-01:00",
       "course": "CSE326",
       "teacher": "SFMA",
       "room": "KT-223",

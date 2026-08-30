@@ -3,61 +3,21 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Tuesday",
+      "time": "11:30-01:00",
       "course": "CSE124",
       "teacher": "JHJ",
-      "room": "TBA",
+      "room": "JHJ",
       "type": "Theory",
       "batch": "70",
       "section": "M"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MHH",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MHH",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Thursday",
+      "time": "08:30-10:00",
       "course": "PHY103",
       "teacher": "ZA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "PHY103",
-      "teacher": "ZA",
-      "room": "TBA",
+      "room": "ZA",
       "type": "Theory",
       "batch": "70",
       "section": "M"

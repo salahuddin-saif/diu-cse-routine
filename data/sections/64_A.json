@@ -3,8 +3,18 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "MSR",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "64",
+      "section": "A"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
       "course": "CSE431",
       "teacher": "ZH",
       "room": "KT-201",
@@ -13,67 +23,17 @@
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "MSR",
-      "room": "KT-222",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE432",
+      "teacher": "SR",
+      "room": "ACC",
       "type": "Theory",
       "batch": "64",
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY102",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY102",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE442",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "MSR",
@@ -83,91 +43,21 @@
       "section": "A"
     },
     {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "KT",
-      "room": "KT-217",
+      "course": "CSE431",
+      "teacher": "ZH",
+      "room": "DMR",
       "type": "Theory",
       "batch": "64",
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE441",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "11:30-01:00",
       "course": "CSE432",
       "teacher": "SR",
       "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE432",
-      "teacher": "SR",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE431",
-      "teacher": "ZH",
-      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "A"

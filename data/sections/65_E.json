@@ -3,7 +3,7 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE411",
       "teacher": "MIN",
@@ -13,88 +13,8 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE442",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "NS",
-      "room": "KT-517",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE325",
-      "teacher": "AKM",
-      "room": "KT-224",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "CSE326",
       "teacher": "NS",
       "room": "KT-514",
@@ -103,8 +23,18 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE325",
+      "teacher": "AKM",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "65",
+      "section": "E"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE414",
       "teacher": "DAN",
       "room": "KT-216",
@@ -113,8 +43,8 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "10:00-11:30",
       "course": "CSE414",
       "teacher": "DAN",
       "room": "KT-218",
@@ -123,21 +53,11 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "CSE411",
       "teacher": "MIN",
       "room": "KT-224",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE325",
-      "teacher": "AKM",
-      "room": "TBA",
       "type": "Theory",
       "batch": "65",
       "section": "E"

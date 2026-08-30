@@ -3,61 +3,21 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "11:30-01:00",
       "course": "CSE124",
       "teacher": "HHP",
-      "room": "TBA",
+      "room": "HHP",
       "type": "Theory",
       "batch": "70",
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
-      "teacher": "HHP",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "SMA",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "SMA",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Sunday",
+      "time": "08:30-10:00",
       "course": "PHY103",
       "teacher": "MRI",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "PHY103",
-      "teacher": "MRI",
-      "room": "TBA",
+      "room": "MRI",
       "type": "Theory",
       "batch": "70",
       "section": "J"

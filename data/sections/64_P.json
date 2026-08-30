@@ -3,17 +3,7 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE472",
-      "teacher": "RDR",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P"
-    },
-    {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE471",
       "teacher": "GR",
@@ -23,68 +13,18 @@
       "section": "P"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE471",
-      "teacher": "KT",
-      "room": "KT-516",
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE472",
+      "teacher": "RDR",
+      "room": "KT-320",
       "type": "Theory",
       "batch": "64",
       "section": "P"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE221",
-      "teacher": "KT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT102",
-      "teacher": "KT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "KT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "KT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE227",
-      "teacher": "KT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "CSE472",
       "teacher": "RDR",
       "room": "KT-307",

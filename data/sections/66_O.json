@@ -3,18 +3,8 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ACT327",
-      "teacher": "MDS",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "66",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "CSE315",
       "teacher": "SEA",
       "room": "KT-306",
@@ -23,18 +13,18 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "RYS",
-      "room": "KT-318",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "ACT327",
+      "teacher": "MDS",
+      "room": "KT-221",
       "type": "Theory",
       "batch": "66",
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "CSE321",
       "teacher": "ARK",
       "room": "KT-304",
@@ -43,8 +33,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "02:30-04:00",
       "course": "CSE315",
       "teacher": "SEA",
       "room": "KT-304",
@@ -53,7 +43,7 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
+      "day": "Thursday",
       "time": "08:30-10:00",
       "course": "CSE317",
       "teacher": "RYS",
@@ -63,28 +53,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "KT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "66",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE431",
-      "teacher": "KT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "66",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Thursday",
+      "time": "11:30-01:00",
       "course": "CSE321",
       "teacher": "ARK",
       "room": "KT-518",
@@ -93,8 +63,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Thursday",
+      "time": "01:00-02:30",
       "course": "ACT327",
       "teacher": "MDS",
       "room": "KT-518",

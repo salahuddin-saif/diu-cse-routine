@@ -3,8 +3,8 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "04:00-05:30",
       "course": "CSE313",
       "teacher": "MMB",
       "room": "KT-305",
@@ -13,28 +13,8 @@
       "section": "I"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "MMR",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "67",
-      "section": "I"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "MMB",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "67",
-      "section": "I"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE311",
       "teacher": "SH",
       "room": "KT-304",
@@ -43,7 +23,17 @@
       "section": "I"
     },
     {
-      "day": "Unknown",
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE313",
+      "teacher": "MMB",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "67",
+      "section": "I"
+    },
+    {
+      "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "SH",
@@ -53,48 +43,8 @@
       "section": "I"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "KT",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "67",
-      "section": "I"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "KT",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "67",
-      "section": "I"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE221",
-      "teacher": "KT",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "67",
-      "section": "I"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "KT",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "67",
-      "section": "I"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "CSE226",
       "teacher": "MMR",
       "room": "KT-219",

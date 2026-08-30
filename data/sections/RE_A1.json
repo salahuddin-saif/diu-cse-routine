@@ -3,42 +3,12 @@
   "batch": "Unknown",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "PHY103",
       "teacher": "SHN",
-      "room": "TBA",
+      "room": "SHN",
       "type": "Theory",
-      "batch": "Unknown",
-      "section": "REA"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "PHY103",
-      "teacher": "SHN",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "REA"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE216",
-      "teacher": "MSAR",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "Unknown",
-      "section": "REA"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE216",
-      "teacher": "MSAR",
-      "room": "TBA",
-      "type": "Lab",
       "batch": "Unknown",
       "section": "REA"
     }

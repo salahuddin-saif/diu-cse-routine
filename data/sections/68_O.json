@@ -3,8 +3,8 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "02:30-04:00",
       "course": "AOL101",
       "teacher": "NNT",
       "room": "KT-216",
@@ -13,8 +13,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "02:30-04:00",
       "course": "CSE215",
       "teacher": "MNS",
       "room": "KT-516",
@@ -23,8 +23,18 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "IST",
+      "room": "ARN",
+      "type": "Theory",
+      "batch": "68",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "CSE215",
       "teacher": "MNS",
       "room": "KT-221",
@@ -33,7 +43,7 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
+      "day": "Thursday",
       "time": "08:30-10:00",
       "course": "CSE221",
       "teacher": "IST",
@@ -43,101 +53,11 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE221",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
+      "day": "Thursday",
       "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "NNT",
       "room": "KT-219",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE221",
-      "teacher": "IST",
-      "room": "TBA",
       "type": "Theory",
       "batch": "68",
       "section": "O"

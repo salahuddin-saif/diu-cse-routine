@@ -3,7 +3,7 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "AHAK",
@@ -13,68 +13,8 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "10:00-11:30",
       "course": "CSE212",
       "teacher": "RKR",
       "room": "KT-518",
@@ -83,7 +23,7 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "MAT211",
       "teacher": "SAR",
@@ -93,8 +33,8 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "BNS101",
       "teacher": "MAA",
       "room": "ANX1-204",
@@ -103,58 +43,18 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "SAR",
-      "room": "ANX1-204",
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
       "type": "Theory",
       "batch": "69",
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "SAR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "SAR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "SAR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "SAR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "02:30-04:00",
       "course": "CSE213",
       "teacher": "AHAK",
       "room": "KT-303",
@@ -163,18 +63,8 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "RKR",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "10:00-11:30",
       "course": "BNS101",
       "teacher": "MAA",
       "room": "ANX1-207",
@@ -183,8 +73,8 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "MAT211",
       "teacher": "SAR",
       "room": "ANX1-207",

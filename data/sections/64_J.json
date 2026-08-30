@@ -3,8 +3,28 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "64",
+      "section": "J"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "MSS",
+      "room": "AKM",
+      "type": "Theory",
+      "batch": "64",
+      "section": "J"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
       "course": "CSE432",
       "teacher": "MAR",
       "room": "KT-223",
@@ -13,77 +33,7 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "SMS",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT102",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
+      "day": "Thursday",
       "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "SMS",
@@ -93,61 +43,21 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
+      "day": "Thursday",
       "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "KT",
-      "room": "KT-515",
+      "course": "CSE432",
+      "teacher": "MAR",
+      "room": "MSS",
       "type": "Theory",
       "batch": "64",
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "KT",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "KT",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Thursday",
+      "time": "10:00-11:30",
       "course": "CSE431",
       "teacher": "MSS",
       "room": "KT-516",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE431",
-      "teacher": "MSS",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE432",
-      "teacher": "MAR",
-      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "J"

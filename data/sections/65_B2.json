@@ -3,21 +3,11 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Sunday",
+      "time": "08:30-10:00",
       "course": "CSE412",
       "teacher": "FFN",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE412",
-      "teacher": "FFN",
-      "room": "TBA",
+      "room": "LAR",
       "type": "Theory",
       "batch": "65",
       "section": "B"

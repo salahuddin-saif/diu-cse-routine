@@ -3,21 +3,11 @@
   "batch": "15",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "08:30-10:00",
       "course": "CSE324",
       "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "15",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE324",
-      "teacher": "TBA",
-      "room": "TBA",
+      "room": "MTN",
       "type": "Theory",
       "batch": "15",
       "section": "REAC"

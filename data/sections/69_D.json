@@ -3,7 +3,7 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "BNS101",
       "teacher": "MAA",
@@ -13,8 +13,8 @@
       "section": "D"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "MAT211",
       "teacher": "MPL",
       "room": "ANX1-202",
@@ -23,78 +23,8 @@
       "section": "D"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "MAA",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "69",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "MAA",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "69",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "MAA",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "69",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "MAA",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "69",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "MAA",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "69",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "AHN",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "69",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "SS",
-      "room": "KT-517",
-      "type": "Theory",
-      "batch": "69",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE212",
       "teacher": "AHN",
       "room": "KT-320",
@@ -103,8 +33,8 @@
       "section": "D"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "01:00-02:30",
       "course": "CSE213",
       "teacher": "SS",
       "room": "KT-516",
@@ -113,8 +43,8 @@
       "section": "D"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "MAT211",
       "teacher": "MPL",
       "room": "ANX1-204",
@@ -123,8 +53,8 @@
       "section": "D"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "BNS101",
       "teacher": "MAA",
       "room": "ANX1-209",

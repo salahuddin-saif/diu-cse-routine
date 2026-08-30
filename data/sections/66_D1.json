@@ -3,21 +3,11 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "CSE322",
       "teacher": "PDS",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE322",
-      "teacher": "PDS",
-      "room": "TBA",
+      "room": "PDS",
       "type": "Theory",
       "batch": "66",
       "section": "D"

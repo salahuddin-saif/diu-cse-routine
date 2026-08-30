@@ -3,61 +3,21 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "08:30-10:00",
       "course": "PHY103",
       "teacher": "RIM",
-      "room": "TBA",
+      "room": "RIM",
       "type": "Theory",
       "batch": "70",
       "section": "D"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "PHY103",
-      "teacher": "RIM",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MHK",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MHK",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Tuesday",
+      "time": "08:30-10:00",
       "course": "CSE124",
       "teacher": "THT",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "D"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
-      "teacher": "THT",
-      "room": "TBA",
+      "room": "THT",
       "type": "Theory",
       "batch": "70",
       "section": "D"

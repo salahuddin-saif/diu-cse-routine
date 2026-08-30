@@ -3,8 +3,8 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "11:30-01:00",
       "course": "CSE112",
       "teacher": "ACC",
       "room": "ANX1-202",
@@ -13,8 +13,8 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "01:00-02:30",
       "course": "CSE115",
       "teacher": "PDS",
       "room": "ANX1-202",
@@ -23,7 +23,7 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "ASA",
@@ -33,57 +33,7 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ASA",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE235",
-      "teacher": "ASA",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "ASA",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "ASA",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY102",
-      "teacher": "ASA",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "MAT101",
       "teacher": "AST",
@@ -93,8 +43,8 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "MAT101",
       "teacher": "AST",
       "room": "ANX1-103",
@@ -103,8 +53,8 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "CSE115",
       "teacher": "PDS",
       "room": "ANX1-103",
@@ -113,21 +63,11 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "02:30-04:00",
       "course": "ENG101",
       "teacher": "ASA",
       "room": "ANX1-203",
-      "type": "Theory",
-      "batch": "72",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE112",
-      "teacher": "ACC",
-      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "F"

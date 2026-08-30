@@ -3,11 +3,11 @@
   "batch": "63",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Wednesday",
+      "time": "10:00-11:30",
       "course": "CSE465",
       "teacher": "NT_13",
-      "room": "TBA",
+      "room": "SN",
       "type": "Theory",
       "batch": "63",
       "section": "G"

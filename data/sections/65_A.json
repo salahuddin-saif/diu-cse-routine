@@ -3,8 +3,8 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "01:00-02:30",
       "course": "CSE414",
       "teacher": "DMAK",
       "room": "KT-303",
@@ -13,27 +13,7 @@
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE325",
-      "teacher": "MAI",
-      "room": "KT-517",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "MUH",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE411",
       "teacher": "NNM",
@@ -43,78 +23,38 @@
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "KT",
-      "room": "KT-307",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE325",
+      "teacher": "MAI",
+      "room": "FH",
       "type": "Theory",
       "batch": "65",
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "02:30-04:00",
       "course": "CSE326",
       "teacher": "MUH",
-      "room": "KT-217",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "65",
       "section": "A"
     },
     {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
+      "course": "CSE411",
+      "teacher": "NNM",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "65",
+      "section": "A"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
       "course": "CSE414",
       "teacher": "DMAK",
       "room": "KT-304",
@@ -123,81 +63,11 @@
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "NNM",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT102",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE465",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE431",
-      "teacher": "KT",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE325",
-      "teacher": "MAI",
-      "room": "TBA",
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE326",
+      "teacher": "MUH",
+      "room": "KT-217",
       "type": "Theory",
       "batch": "65",
       "section": "A"

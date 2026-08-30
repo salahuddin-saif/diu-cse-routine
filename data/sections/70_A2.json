@@ -3,62 +3,22 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
-      "teacher": "HH",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
-      "teacher": "HH",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Monday",
+      "time": "08:30-10:00",
       "course": "PHY103",
       "teacher": "AAS",
-      "room": "TBA",
+      "room": "AAS",
       "type": "Theory",
       "batch": "70",
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "PHY103",
-      "teacher": "AAS",
-      "room": "TBA",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE124",
+      "teacher": "HH",
+      "room": "MAH",
       "type": "Theory",
-      "batch": "70",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "SMC",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "SMC",
-      "room": "TBA",
-      "type": "Lab",
       "batch": "70",
       "section": "A"
     }

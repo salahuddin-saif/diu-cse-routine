@@ -3,41 +3,21 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "08:30-10:00",
       "course": "CSE312",
       "teacher": "MHD",
-      "room": "TBA",
+      "room": "MHD",
       "type": "Theory",
       "batch": "67",
       "section": "G"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE312",
-      "teacher": "MHD",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "G"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Wednesday",
+      "time": "08:30-10:00",
       "course": "CSE314",
       "teacher": "MIS",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "G"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE314",
-      "teacher": "MIS",
-      "room": "TBA",
+      "room": "IEA",
       "type": "Theory",
       "batch": "67",
       "section": "G"

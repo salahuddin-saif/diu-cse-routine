@@ -3,7 +3,7 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE311",
       "teacher": "MDA",
@@ -13,8 +13,8 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "11:30-01:00",
       "course": "CSE226",
       "teacher": "MMR",
       "room": "KT-222",
@@ -23,101 +23,31 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ACT327",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "UH",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "UH",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "MMR",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
       "course": "CSE311",
       "teacher": "MDA",
-      "room": "TBA",
+      "room": "19",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "CSE313",
+      "teacher": "UH",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE226",
+      "teacher": "MMR",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "67",
       "section": "O"

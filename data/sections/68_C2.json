@@ -3,42 +3,12 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "08:30-10:00",
       "course": "CSE222",
       "teacher": "MRM",
-      "room": "TBA",
+      "room": "MRM",
       "type": "Theory",
-      "batch": "68",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE222",
-      "teacher": "MRM",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "68",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "TBA",
-      "type": "Lab",
       "batch": "68",
       "section": "C"
     }

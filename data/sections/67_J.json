@@ -3,8 +3,8 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "CSE313",
       "teacher": "AHN",
       "room": "KT-320",
@@ -13,8 +13,8 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "CSE313",
       "teacher": "AHN",
       "room": "KT-307",
@@ -23,101 +23,11 @@
       "section": "J"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "MJA",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE226",
       "teacher": "MMR",
       "room": "KT-320",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE221",
-      "teacher": "KT",
-      "room": "KT-320",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "MMR",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "67",
-      "section": "J"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "MJA",
-      "room": "KT-318",
       "type": "Theory",
       "batch": "67",
       "section": "J"

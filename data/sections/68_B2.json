@@ -3,41 +3,11 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE216",
-      "teacher": "MSU",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "68",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE216",
-      "teacher": "MSU",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "68",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "CSE222",
       "teacher": "AUA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "B"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE222",
-      "teacher": "AUA",
-      "room": "TBA",
+      "room": "AUA",
       "type": "Theory",
       "batch": "68",
       "section": "B"

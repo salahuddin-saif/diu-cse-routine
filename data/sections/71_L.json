@@ -3,8 +3,8 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "MAT102",
       "teacher": "MNM",
       "room": "KT-224",
@@ -13,8 +13,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "11:30-01:00",
       "course": "PHY101",
       "teacher": "AEE",
       "room": "KT-224",
@@ -23,8 +23,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "MAT102",
       "teacher": "MNM",
       "room": "G1-026",
@@ -33,8 +33,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "PHY101",
       "teacher": "AEE",
       "room": "G1-027",
@@ -43,18 +43,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "MAIT",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "01:00-02:30",
       "course": "ENG102",
       "teacher": "IMT",
       "room": "KT-518",
@@ -63,8 +53,18 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE113",
+      "teacher": "MAIT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "CSE113",
       "teacher": "MAIT",
       "room": "G1-027",
@@ -73,8 +73,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "02:30-04:00",
       "course": "ENG102",
       "teacher": "IMT",
       "room": "G1-027",

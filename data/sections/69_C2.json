@@ -3,21 +3,11 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Saturday",
+      "time": "08:30-10:00",
       "course": "CSE214",
       "teacher": "TIS",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE214",
-      "teacher": "TIS",
-      "room": "TBA",
+      "room": "MDA",
       "type": "Theory",
       "batch": "69",
       "section": "C"

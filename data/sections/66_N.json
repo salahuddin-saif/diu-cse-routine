@@ -3,18 +3,8 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ACT327",
-      "teacher": "IK",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "CSE317",
       "teacher": "MSA",
       "room": "KT-303",
@@ -23,8 +13,18 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "ACT327",
+      "teacher": "IK",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "66",
+      "section": "N"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "CSE315",
       "teacher": "RAK",
       "room": "G1-026",
@@ -33,8 +33,8 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "04:00-05:30",
       "course": "CSE317",
       "teacher": "MSA",
       "room": "G1-026",
@@ -43,8 +43,8 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "CSE321",
       "teacher": "ADK",
       "room": "KT-305",
@@ -53,31 +53,11 @@
       "section": "N"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "ACT327",
       "teacher": "IK",
       "room": "KT-305",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "RAK",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "66",
-      "section": "N"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "ADK",
-      "room": "KT-318",
       "type": "Theory",
       "batch": "66",
       "section": "N"

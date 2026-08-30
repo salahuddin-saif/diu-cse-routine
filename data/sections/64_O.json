@@ -3,8 +3,18 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "MIS",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "64",
+      "section": "O"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "ECO426",
       "teacher": "MBB",
       "room": "KT-216",
@@ -13,111 +23,11 @@
       "section": "O"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE431",
       "teacher": "MIS",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE431",
-      "teacher": "KT",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY101",
-      "teacher": "KT",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "KT",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE432",
-      "teacher": "PB",
-      "room": "KT-517",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "MBB",
-      "room": "KT-318",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE431",
-      "teacher": "MIS",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE432",
-      "teacher": "PB",
-      "room": "TBA",
+      "room": "FAF",
       "type": "Theory",
       "batch": "64",
       "section": "O"

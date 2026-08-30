@@ -3,61 +3,21 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MHI",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "Q"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE122",
-      "teacher": "MHI",
-      "room": "TBA",
-      "type": "Lab",
-      "batch": "70",
-      "section": "Q"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "PHY103",
       "teacher": "MRZ",
-      "room": "TBA",
+      "room": "MRZ",
       "type": "Theory",
       "batch": "70",
       "section": "Q"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "PHY103",
-      "teacher": "MRZ",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "Q"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Wednesday",
+      "time": "10:00-11:30",
       "course": "CSE124",
       "teacher": "TAK",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "Q"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE124",
-      "teacher": "TAK",
-      "room": "TBA",
+      "room": "TAK",
       "type": "Theory",
       "batch": "70",
       "section": "Q"

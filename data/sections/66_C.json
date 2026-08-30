@@ -3,8 +3,8 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "CSE321",
       "teacher": "FNN",
       "room": "KT-201",
@@ -13,8 +13,8 @@
       "section": "C"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "01:00-02:30",
       "course": "CSE317",
       "teacher": "MRR",
       "room": "KT-220",
@@ -23,7 +23,7 @@
       "section": "C"
     },
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE315",
       "teacher": "AS",
@@ -33,68 +33,8 @@
       "section": "C"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "KT",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "KT",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "KT",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE432",
-      "teacher": "KT",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "KT",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "ACT327",
       "teacher": "ARN",
       "room": "G1-027",
@@ -103,17 +43,7 @@
       "section": "C"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "FNN",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE315",
       "teacher": "AS",
@@ -123,58 +53,18 @@
       "section": "C"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "KT",
-      "room": "KT-218",
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE321",
+      "teacher": "FNN",
+      "room": "KT-201",
       "type": "Theory",
       "batch": "66",
       "section": "C"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "66",
-      "section": "C"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "04:00-05:30",
       "course": "CSE317",
       "teacher": "MRR",
       "room": "KT-515",
@@ -183,8 +73,8 @@
       "section": "C"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Thursday",
+      "time": "11:30-01:00",
       "course": "ACT327",
       "teacher": "ARN",
       "room": "KT-208",

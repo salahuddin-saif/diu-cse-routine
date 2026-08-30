@@ -3,61 +3,31 @@
   "batch": "22",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "CSE234",
       "teacher": "TBA",
-      "room": "TBA",
+      "room": "SRRS",
       "type": "Theory",
       "batch": "22",
       "section": "REAC"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "CSE234",
       "teacher": "TBA",
-      "room": "TBA",
+      "room": "SRRS",
       "type": "Theory",
       "batch": "22",
       "section": "REAC"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Sunday",
+      "time": "02:30-04:00",
       "course": "CSE234",
       "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "22",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE422",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "22",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE422",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "22",
-      "section": "REAC"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE422",
-      "teacher": "TBA",
-      "room": "TBA",
+      "room": "SRRS",
       "type": "Theory",
       "batch": "22",
       "section": "REAC"

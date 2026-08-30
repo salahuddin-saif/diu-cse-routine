@@ -3,8 +3,8 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "10:00-11:30",
       "course": "PHY102",
       "teacher": "ZA",
       "room": "KT-220",
@@ -13,8 +13,8 @@
       "section": "M"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "CSE123",
       "teacher": "JHJ",
       "room": "KT-220",
@@ -23,7 +23,7 @@
       "section": "M"
     },
     {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE121",
       "teacher": "NTS",
@@ -33,78 +33,8 @@
       "section": "M"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE325",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ACT327",
-      "teacher": "KT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "JHJ",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "70",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "PHY102",
       "teacher": "ZA",
       "room": "KT-222",
@@ -113,11 +43,11 @@
       "section": "M"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE121",
-      "teacher": "NTS",
-      "room": "TBA",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE123",
+      "teacher": "JHJ",
+      "room": "KT-220",
       "type": "Theory",
       "batch": "70",
       "section": "M"

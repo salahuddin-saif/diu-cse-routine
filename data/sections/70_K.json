@@ -3,8 +3,18 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "08:30-10:00",
+      "course": "CSE123",
+      "teacher": "MJZ",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "70",
+      "section": "K"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "PHY102",
       "teacher": "ZA",
       "room": "KT-223",
@@ -13,78 +23,8 @@
       "section": "K"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "MJZ",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE431",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE431",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "KT",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "11:30-01:00",
       "course": "CSE121",
       "teacher": "MTF",
       "room": "KT-303",
@@ -93,7 +33,7 @@
       "section": "K"
     },
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE123",
       "teacher": "MJZ",
@@ -103,8 +43,8 @@
       "section": "K"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "10:00-11:30",
       "course": "PHY102",
       "teacher": "ZA",
       "room": "KT-221",
@@ -113,68 +53,8 @@
       "section": "K"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "KT",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY102",
-      "teacher": "KT",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "KT",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "KT",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "KT",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ACT327",
-      "teacher": "KT",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "70",
-      "section": "K"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "CSE121",
       "teacher": "MTF",
       "room": "KT-222",

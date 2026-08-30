@@ -3,8 +3,8 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "11:30-01:00",
       "course": "MAT102",
       "teacher": "AKC",
       "room": "KT-223",
@@ -13,18 +13,8 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "NAT",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "02:30-04:00",
       "course": "CSE113",
       "teacher": "SI",
       "room": "KT-514",
@@ -33,17 +23,17 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY101",
-      "teacher": "AAS",
-      "room": "KT-306",
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "ENG102",
+      "teacher": "NAT",
+      "room": "KT-220",
       "type": "Theory",
       "batch": "71",
       "section": "E"
     },
     {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE113",
       "teacher": "SI",
@@ -53,77 +43,17 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE113",
-      "teacher": "KT",
-      "room": "KT-518",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "PHY101",
+      "teacher": "AAS",
+      "room": "KT-306",
       "type": "Theory",
       "batch": "71",
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "KT",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "KT",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT102",
-      "teacher": "AKC",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "ENG102",
       "teacher": "NAT",
@@ -133,71 +63,11 @@
       "section": "E"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "KT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE121",
-      "teacher": "KT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "MAT102",
-      "teacher": "KT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "KT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "KT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "71",
-      "section": "E"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY101",
-      "teacher": "AAS",
-      "room": "KT-517",
+      "teacher": "AKC",
+      "room": "KT-216",
       "type": "Theory",
       "batch": "71",
       "section": "E"

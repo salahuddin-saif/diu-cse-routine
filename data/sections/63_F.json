@@ -3,8 +3,8 @@
   "batch": "63",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "04:00-05:30",
       "course": "CSE465",
       "teacher": "NT_19",
       "room": "G1-027",

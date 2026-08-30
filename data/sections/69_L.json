@@ -3,8 +3,18 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "69",
+      "section": "L"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "CSE213",
       "teacher": "SHR",
       "room": "KT-218",
@@ -13,28 +23,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "RKR",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "69",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "ALK",
-      "room": "ANX1-201",
-      "type": "Theory",
-      "batch": "69",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "01:00-02:30",
       "course": "MAT211",
       "teacher": "JS",
       "room": "ANX1-208",
@@ -43,18 +33,18 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "SHR",
-      "room": "KT-514",
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "BNS101",
+      "teacher": "ALK",
+      "room": "ANX1-201",
       "type": "Theory",
       "batch": "69",
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE212",
       "teacher": "RKR",
       "room": "KT-518",
@@ -63,8 +53,18 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE213",
+      "teacher": "SHR",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "69",
+      "section": "L"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "BNS101",
       "teacher": "ALK",
       "room": "ANX1-208",
@@ -73,8 +73,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "02:30-04:00",
       "course": "MAT211",
       "teacher": "JS",
       "room": "ANX1-208",

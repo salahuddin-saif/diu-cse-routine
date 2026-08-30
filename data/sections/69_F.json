@@ -3,18 +3,8 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE212",
-      "teacher": "SR",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "69",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "10:00-11:30",
       "course": "MAT211",
       "teacher": "MNM",
       "room": "ANX1-103",
@@ -23,18 +13,18 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "MUH",
-      "room": "KT-517",
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE212",
+      "teacher": "SR",
+      "room": "KT-514",
       "type": "Theory",
       "batch": "69",
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "BNS101",
       "teacher": "SMN",
       "room": "ANX1-101",
@@ -43,7 +33,7 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "MUH",
@@ -53,68 +43,8 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "KT",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "PHY101",
-      "teacher": "KT",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE325",
-      "teacher": "KT",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE441",
-      "teacher": "KT",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "KT",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "F"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE212",
       "teacher": "SR",
       "room": "KT-305",
@@ -123,8 +53,8 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "10:00-11:30",
       "course": "BNS101",
       "teacher": "SMN",
       "room": "ANX1-202",
@@ -133,8 +63,8 @@
       "section": "F"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "MAT211",
       "teacher": "MNM",
       "room": "ANX1-203",

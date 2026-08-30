@@ -3,41 +3,21 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "CSE314",
       "teacher": "MUR",
-      "room": "TBA",
+      "room": "MUR",
       "type": "Theory",
       "batch": "67",
       "section": "A"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE314",
-      "teacher": "MUR",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE312",
       "teacher": "MSK",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "A"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE312",
-      "teacher": "MSK",
-      "room": "TBA",
+      "room": "MSK",
       "type": "Theory",
       "batch": "67",
       "section": "A"

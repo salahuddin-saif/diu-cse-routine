@@ -3,7 +3,7 @@
   "batch": "72",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "FFN",
@@ -13,8 +13,8 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "MAT101",
       "teacher": "MRN",
       "room": "ANX1-204",
@@ -23,48 +23,18 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "FFN",
-      "room": "ANX1-204",
+      "course": "ENG101",
+      "teacher": "ANR",
+      "room": "ANX1-202",
       "type": "Theory",
       "batch": "72",
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT101",
-      "teacher": "FFN",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "FFN",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT101",
-      "teacher": "FFN",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "10:00-11:30",
       "course": "MAT101",
       "teacher": "MRN",
       "room": "ANX1-201",
@@ -73,77 +43,7 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ANR",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ANR",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "ANR",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ANR",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT101",
-      "teacher": "ANR",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT102",
-      "teacher": "ANR",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT101",
-      "teacher": "ANR",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE115",
       "teacher": "AUA",
@@ -153,47 +53,7 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "AUA",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "AUA",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "AUA",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE415",
-      "teacher": "AUA",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "ANR",
@@ -203,61 +63,11 @@
       "section": "L"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
       "course": "CSE115",
       "teacher": "AUA",
       "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ANR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "ANR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "ANR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "ANR",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "72",
-      "section": "L"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE112",
-      "teacher": "FFN",
-      "room": "TBA",
       "type": "Theory",
       "batch": "72",
       "section": "L"

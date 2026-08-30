@@ -3,41 +3,21 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Sunday",
+      "time": "10:00-11:30",
       "course": "CSE314",
       "teacher": "MAH",
-      "room": "TBA",
+      "room": "MAH",
       "type": "Theory",
       "batch": "67",
       "section": "H"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE314",
-      "teacher": "MAH",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "H"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "CSE312",
       "teacher": "SNA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "H"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE312",
-      "teacher": "SNA",
-      "room": "TBA",
+      "room": "SNA",
       "type": "Theory",
       "batch": "67",
       "section": "H"

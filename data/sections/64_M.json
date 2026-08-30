@@ -3,8 +3,18 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "08:30-10:00",
+      "course": "CSE441",
+      "teacher": "SMF",
+      "room": "SMF",
+      "type": "Theory",
+      "batch": "64",
+      "section": "M"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "ECO426",
       "teacher": "MSR",
       "room": "KT-305",
@@ -13,7 +23,7 @@
       "section": "M"
     },
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "MSR",
@@ -23,68 +33,8 @@
       "section": "M"
     },
     {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE411",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE414",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "KT",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
-      "course": "CSE441",
-      "teacher": "SMF",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "64",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "08:30-10:00",
+      "day": "Wednesday",
+      "time": "11:30-01:00",
       "course": "CSE442",
       "teacher": "FFZ",
       "room": "KT-516",
@@ -93,21 +43,11 @@
       "section": "M"
     },
     {
-      "day": "Unknown",
-      "time": "TBA",
-      "course": "CSE442",
-      "teacher": "FFZ",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "M"
-    },
-    {
-      "day": "Unknown",
-      "time": "TBA",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "CSE441",
       "teacher": "SMF",
-      "room": "TBA",
+      "room": "KT-515",
       "type": "Theory",
       "batch": "64",
       "section": "M"
