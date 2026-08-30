@@ -10,7 +10,19 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "63",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "NT_27",
+      "room": "27",
+      "type": "Theory",
+      "batch": "63",
+      "section": "E",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",
@@ -20,7 +32,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "63",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     }
   ]
 }

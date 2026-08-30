@@ -10,7 +10,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "65",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "65",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -30,7 +32,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "65",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -40,7 +43,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "65",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -50,7 +54,30 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "65",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE412",
+      "teacher": "MSJ",
+      "room": "MSJ",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H",
+      "sub_section": "1"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE412",
+      "teacher": "MSJ",
+      "room": "MSJ",
+      "type": "Theory",
+      "batch": "65",
+      "section": "H",
+      "sub_section": "2"
     },
     {
       "day": "Tuesday",
@@ -60,7 +87,8 @@
       "room": "KT-304",
       "type": "Theory",
       "batch": "65",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     }
   ]
 }

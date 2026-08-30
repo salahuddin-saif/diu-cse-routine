@@ -10,7 +10,8 @@
       "room": "TIS",
       "type": "Theory",
       "batch": "68",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "68",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +32,8 @@
       "room": "KT-217",
       "type": "Theory",
       "batch": "68",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +43,8 @@
       "room": "KT-217",
       "type": "Theory",
       "batch": "68",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -50,7 +54,8 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "68",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     }
   ]
 }

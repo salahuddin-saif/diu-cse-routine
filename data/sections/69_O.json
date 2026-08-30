@@ -3,6 +3,28 @@
   "batch": "69",
   "classes": [
     {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "NAE",
+      "room": "NAE",
+      "type": "Theory",
+      "batch": "69",
+      "section": "O",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "NAE",
+      "room": "NAE",
+      "type": "Theory",
+      "batch": "69",
+      "section": "O",
+      "sub_section": "2"
+    },
+    {
       "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE213",
@@ -10,7 +32,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -20,7 +43,8 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +54,8 @@
       "room": "ANX1-210",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +65,8 @@
       "room": "ANX1-210",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -50,7 +76,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +87,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -70,7 +98,8 @@
       "room": "ANX1-202",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -80,7 +109,8 @@
       "room": "ANX1-202",
       "type": "Theory",
       "batch": "69",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     }
   ]
 }

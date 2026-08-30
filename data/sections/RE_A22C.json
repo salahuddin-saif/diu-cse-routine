@@ -10,7 +10,8 @@
       "room": "SRRS",
       "type": "Theory",
       "batch": "22",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "SRRS",
       "type": "Theory",
       "batch": "22",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -30,7 +32,8 @@
       "room": "SRRS",
       "type": "Theory",
       "batch": "22",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     }
   ]
 }

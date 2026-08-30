@@ -3,6 +3,50 @@
   "batch": "70",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "PHY103",
+      "teacher": "MRZ",
+      "room": "MRZ",
+      "type": "Theory",
+      "batch": "70",
+      "section": "R",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE124",
+      "teacher": "DRAR",
+      "room": "DRAR",
+      "type": "Theory",
+      "batch": "70",
+      "section": "R",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "PHY103",
+      "teacher": "MRZ",
+      "room": "MRZ",
+      "type": "Theory",
+      "batch": "70",
+      "section": "R",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "DRAR",
+      "room": "DRAR",
+      "type": "Theory",
+      "batch": "70",
+      "section": "R",
+      "sub_section": "1"
+    },
+    {
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE121",
@@ -10,7 +54,8 @@
       "room": "KT-201",
       "type": "Theory",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -20,7 +65,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +76,8 @@
       "room": "KT-220",
       "type": "Theory",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -40,7 +87,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -50,7 +98,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +109,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "Main"
     }
   ]
 }

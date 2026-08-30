@@ -3,6 +3,17 @@
   "batch": "71",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE114",
+      "teacher": "MHN",
+      "room": "MHN",
+      "type": "Theory",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "ENG102",
@@ -10,7 +21,19 @@
       "room": "G1-026",
       "type": "Theory",
       "batch": "71",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE114",
+      "teacher": "MHN",
+      "room": "MHN",
+      "type": "Theory",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "1"
     },
     {
       "day": "Sunday",
@@ -20,7 +43,8 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "71",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +54,8 @@
       "room": "KT-306",
       "type": "Theory",
       "batch": "71",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +65,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "71",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -50,7 +76,8 @@
       "room": "KT-514",
       "type": "Theory",
       "batch": "71",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +87,8 @@
       "room": "G1-026",
       "type": "Theory",
       "batch": "71",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     }
   ]
 }

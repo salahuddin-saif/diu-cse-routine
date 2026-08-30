@@ -10,7 +10,8 @@
       "room": "KT-222",
       "type": "Theory",
       "batch": "64",
-      "section": "A"
+      "section": "A",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "KT-201",
       "type": "Theory",
       "batch": "64",
-      "section": "A"
+      "section": "A",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -30,7 +32,8 @@
       "room": "ACC",
       "type": "Theory",
       "batch": "64",
-      "section": "A"
+      "section": "A",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +43,8 @@
       "room": "KT-217",
       "type": "Theory",
       "batch": "64",
-      "section": "A"
+      "section": "A",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +54,8 @@
       "room": "DMR",
       "type": "Theory",
       "batch": "64",
-      "section": "A"
+      "section": "A",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +65,8 @@
       "room": "KT-514",
       "type": "Theory",
       "batch": "64",
-      "section": "A"
+      "section": "A",
+      "sub_section": "Main"
     }
   ]
 }

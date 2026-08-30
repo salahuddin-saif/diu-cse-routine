@@ -10,7 +10,8 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "64",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "64",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -30,7 +32,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "64",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
     }
   ]
 }

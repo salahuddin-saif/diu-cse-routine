@@ -10,7 +10,8 @@
       "room": "G1-026",
       "type": "Theory",
       "batch": "67",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,19 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "67",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE314",
+      "teacher": "RAK",
+      "room": "RAK",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C",
+      "sub_section": "1"
     },
     {
       "day": "Monday",
@@ -30,7 +43,30 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "67",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE314",
+      "teacher": "RAK",
+      "room": "RAK",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE312",
+      "teacher": "MDA",
+      "room": "MDA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",
@@ -40,7 +76,19 @@
       "room": "KT-217",
       "type": "Theory",
       "batch": "67",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "MDA",
+      "room": "MDA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C",
+      "sub_section": "2"
     }
   ]
 }

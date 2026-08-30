@@ -10,7 +10,8 @@
       "room": "SMAH",
       "type": "Theory",
       "batch": "64",
-      "section": "G"
+      "section": "G",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -20,7 +21,8 @@
       "room": "KT-304",
       "type": "Theory",
       "batch": "64",
-      "section": "G"
+      "section": "G",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -30,7 +32,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "64",
-      "section": "G"
+      "section": "G",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -40,7 +43,8 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "64",
-      "section": "G"
+      "section": "G",
+      "sub_section": "Main"
     }
   ]
 }

@@ -10,7 +10,8 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "68",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "68",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -30,7 +32,30 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "68",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "SRS",
+      "room": "SRS",
+      "type": "Theory",
+      "batch": "68",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "SRS",
+      "room": "SRS",
+      "type": "Theory",
+      "batch": "68",
+      "section": "J",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",
@@ -40,7 +65,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "68",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -50,7 +76,8 @@
       "room": "KT-218",
       "type": "Theory",
       "batch": "68",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -60,7 +87,8 @@
       "room": "KT-218",
       "type": "Theory",
       "batch": "68",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     }
   ]
 }

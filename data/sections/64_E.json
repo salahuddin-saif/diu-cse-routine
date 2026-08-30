@@ -10,7 +10,8 @@
       "room": "MRC",
       "type": "Theory",
       "batch": "64",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "64",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -30,7 +32,8 @@
       "room": "MMRN",
       "type": "Theory",
       "batch": "64",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -40,7 +43,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "64",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     }
   ]
 }

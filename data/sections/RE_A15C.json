@@ -10,7 +10,8 @@
       "room": "MTN",
       "type": "Theory",
       "batch": "15",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     }
   ]
 }

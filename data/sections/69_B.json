@@ -10,7 +10,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +32,8 @@
       "room": "ANX1-102",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +43,8 @@
       "room": "ANX1-209",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +54,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +65,30 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "FJ",
+      "room": "FJ",
+      "type": "Theory",
+      "batch": "69",
+      "section": "B",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "FJ",
+      "room": "FJ",
+      "type": "Theory",
+      "batch": "69",
+      "section": "B",
+      "sub_section": "2"
     },
     {
       "day": "Thursday",
@@ -70,7 +98,8 @@
       "room": "ANX1-204",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -80,7 +109,8 @@
       "room": "ANX1-204",
       "type": "Theory",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     }
   ]
 }

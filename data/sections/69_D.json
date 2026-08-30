@@ -10,7 +10,8 @@
       "room": "ANX1-202",
       "type": "Theory",
       "batch": "69",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,30 @@
       "room": "ANX1-202",
       "type": "Theory",
       "batch": "69",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "SS",
+      "room": "SS",
+      "type": "Theory",
+      "batch": "69",
+      "section": "D",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "SS",
+      "room": "TAK",
+      "type": "Theory",
+      "batch": "69",
+      "section": "D",
+      "sub_section": "2"
     },
     {
       "day": "Tuesday",
@@ -30,7 +54,8 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "69",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +65,8 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "69",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -50,7 +76,8 @@
       "room": "ANX1-204",
       "type": "Theory",
       "batch": "69",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +87,8 @@
       "room": "ANX1-209",
       "type": "Theory",
       "batch": "69",
-      "section": "D"
+      "section": "D",
+      "sub_section": "Main"
     }
   ]
 }

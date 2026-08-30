@@ -10,7 +10,8 @@
       "room": "ANX1-209",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "ANX1-209",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -30,7 +32,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -40,7 +43,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -50,7 +54,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -60,7 +65,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -70,7 +76,8 @@
       "room": "ANX1-207",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -80,7 +87,30 @@
       "room": "ANX1-204",
       "type": "Theory",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "SNK",
+      "type": "Theory",
+      "batch": "69",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "SNK",
+      "type": "Theory",
+      "batch": "69",
+      "section": "H",
+      "sub_section": "1"
     }
   ]
 }

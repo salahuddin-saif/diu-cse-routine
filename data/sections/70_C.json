@@ -3,6 +3,28 @@
   "batch": "70",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "PHY103",
+      "teacher": "SSK",
+      "room": "SSK",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "PHY103",
+      "teacher": "SSK",
+      "room": "SSK",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "PHY102",
@@ -10,7 +32,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "70",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +43,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "70",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -30,7 +54,8 @@
       "room": "KT-217",
       "type": "Theory",
       "batch": "70",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +65,8 @@
       "room": "KT-306",
       "type": "Theory",
       "batch": "70",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -50,7 +76,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "70",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -60,7 +87,30 @@
       "room": "KT-208",
       "type": "Theory",
       "batch": "70",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "JLA",
+      "room": "JLA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "JLA",
+      "room": "MTN",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "2"
     }
   ]
 }

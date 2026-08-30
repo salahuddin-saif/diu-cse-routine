@@ -10,7 +10,8 @@
       "room": "KT-304",
       "type": "Theory",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -30,7 +32,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +43,19 @@
       "room": "KT-223",
       "type": "Theory",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MFI",
+      "room": "MFI",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O",
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",
@@ -50,7 +65,8 @@
       "room": "KT-223",
       "type": "Theory",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +76,41 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE124",
+      "teacher": "PPC",
+      "room": "PPC",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O",
+      "sub_section": "2"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "CSE124",
+      "teacher": "PPC",
+      "room": "PPC",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O",
+      "sub_section": "1"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MFI",
+      "room": "MFI",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O",
+      "sub_section": "2"
     }
   ]
 }

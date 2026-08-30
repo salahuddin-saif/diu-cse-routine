@@ -10,7 +10,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "68",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "KT-514",
       "type": "Theory",
       "batch": "68",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -30,7 +32,19 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "68",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE222",
+      "teacher": "MRY",
+      "room": "MRY",
+      "type": "Theory",
+      "batch": "68",
+      "section": "H",
+      "sub_section": "2"
     },
     {
       "day": "Sunday",
@@ -40,7 +54,19 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "68",
-      "section": "H"
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "MRY",
+      "room": "MRY",
+      "type": "Theory",
+      "batch": "68",
+      "section": "H",
+      "sub_section": "1"
     }
   ]
 }

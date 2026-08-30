@@ -3,6 +3,39 @@
   "batch": "67",
   "classes": [
     {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE312",
+      "teacher": "MSS",
+      "room": "MSS",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE312",
+      "teacher": "MSS",
+      "room": "MSS",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "TAS",
+      "room": "TAS",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
       "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE226",
@@ -10,7 +43,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -20,7 +54,8 @@
       "room": "KT-222",
       "type": "Theory",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -30,7 +65,8 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -40,7 +76,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -50,7 +87,19 @@
       "room": "KT-217",
       "type": "Theory",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "TAS",
+      "room": "TAS",
+      "type": "Theory",
+      "batch": "67",
+      "section": "L",
+      "sub_section": "2"
     },
     {
       "day": "Thursday",
@@ -60,7 +109,8 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     }
   ]
 }

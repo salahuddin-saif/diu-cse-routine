@@ -3,6 +3,17 @@
   "batch": "70",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "PHY103",
+      "teacher": "MMH",
+      "room": "MMH",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "2"
+    },
+    {
       "day": "Monday",
       "time": "08:30-10:00",
       "course": "PHY102",
@@ -10,7 +21,8 @@
       "room": "KT-222",
       "type": "Theory",
       "batch": "70",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -20,7 +32,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "70",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +43,8 @@
       "room": "KT-222",
       "type": "Theory",
       "batch": "70",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +54,8 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "70",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +65,8 @@
       "room": "KT-222",
       "type": "Theory",
       "batch": "70",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +76,41 @@
       "room": "KT-222",
       "type": "Theory",
       "batch": "70",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "PPC",
+      "room": "PPC",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "2"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MMH",
+      "room": "MMH",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "1"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "PPC",
+      "room": "PPC",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "1"
     }
   ]
 }

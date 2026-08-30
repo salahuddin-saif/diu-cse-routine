@@ -10,7 +10,8 @@
       "room": "SRRS",
       "type": "Theory",
       "batch": "12",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "SRRS",
       "type": "Theory",
       "batch": "12",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +32,8 @@
       "room": "IEA",
       "type": "Theory",
       "batch": "12",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -40,7 +43,8 @@
       "room": "RYS",
       "type": "Theory",
       "batch": "12",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -50,7 +54,8 @@
       "room": "RYS",
       "type": "Theory",
       "batch": "12",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     }
   ]
 }

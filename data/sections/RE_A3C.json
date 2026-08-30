@@ -10,7 +10,8 @@
       "room": "ANX1-103",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "2",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -30,7 +32,8 @@
       "room": "KT-503",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -40,7 +43,8 @@
       "room": "ANX1-208",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     }
   ]
 }

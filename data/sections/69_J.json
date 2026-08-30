@@ -3,6 +3,28 @@
   "batch": "69",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "AHAK",
+      "room": "AHAK",
+      "type": "Theory",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "AHAK",
+      "room": "AHAK",
+      "type": "Theory",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE213",
@@ -10,7 +32,8 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +43,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +54,8 @@
       "room": "ANX1-204",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +65,8 @@
       "room": "ANX1-204",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +76,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +87,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -70,7 +98,8 @@
       "room": "ANX1-207",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -80,7 +109,8 @@
       "room": "ANX1-207",
       "type": "Theory",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     }
   ]
 }

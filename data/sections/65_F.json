@@ -10,7 +10,8 @@
       "room": "KT-223",
       "type": "Theory",
       "batch": "65",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "65",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +32,8 @@
       "room": "KT-223",
       "type": "Theory",
       "batch": "65",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +43,8 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "65",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -50,7 +54,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "65",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +65,8 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "65",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -70,7 +76,30 @@
       "room": "KT-306",
       "type": "Theory",
       "batch": "65",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE412",
+      "teacher": "SFMA",
+      "room": "SFMA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE412",
+      "teacher": "SFMA",
+      "room": "SFMA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "F",
+      "sub_section": "2"
     }
   ]
 }

@@ -10,7 +10,8 @@
       "room": "MHIM",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "MHIM",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -30,7 +32,8 @@
       "room": "NUM",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -40,7 +43,8 @@
       "room": "NUM",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -50,7 +54,8 @@
       "room": "NUM",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -60,7 +65,8 @@
       "room": "11",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -70,7 +76,8 @@
       "room": "11",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -80,7 +87,8 @@
       "room": "MHIM",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -90,7 +98,8 @@
       "room": "IEA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -100,7 +109,8 @@
       "room": "MHIM",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Thursday",
@@ -110,7 +120,8 @@
       "room": "IEA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     }
   ]
 }

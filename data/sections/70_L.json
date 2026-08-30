@@ -4,13 +4,36 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "JHJ",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "PHY102",
       "teacher": "MRI",
       "room": "KT-219",
       "type": "Theory",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "DP",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "2"
     },
     {
       "day": "Monday",
@@ -20,7 +43,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +54,8 @@
       "room": "KT-220",
       "type": "Theory",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +65,19 @@
       "room": "KT-220",
       "type": "Theory",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MRI",
+      "room": "MRI",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",
@@ -50,7 +87,8 @@
       "room": "KT-222",
       "type": "Theory",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +98,19 @@
       "room": "KT-223",
       "type": "Theory",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MRI",
+      "room": "MRI",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "2"
     }
   ]
 }

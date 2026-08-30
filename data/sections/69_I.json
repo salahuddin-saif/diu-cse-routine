@@ -3,6 +3,28 @@
   "batch": "69",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "TAB",
+      "room": "TAB",
+      "type": "Theory",
+      "batch": "69",
+      "section": "I",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "TAB",
+      "room": "TAB",
+      "type": "Theory",
+      "batch": "69",
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "BNS101",
@@ -10,7 +32,8 @@
       "room": "ANX1-208",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -20,7 +43,8 @@
       "room": "KT-304",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +54,8 @@
       "room": "G1-026",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +65,8 @@
       "room": "ANX1-201",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +76,8 @@
       "room": "KT-514",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +87,8 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -70,7 +98,8 @@
       "room": "ANX1-202",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -80,7 +109,8 @@
       "room": "ANX1-208",
       "type": "Theory",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "Main"
     }
   ]
 }

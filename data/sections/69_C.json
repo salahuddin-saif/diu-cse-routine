@@ -3,6 +3,17 @@
   "batch": "69",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "MDA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE212",
@@ -10,7 +21,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +32,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +43,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +54,8 @@
       "room": "KT-518",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +65,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +76,19 @@
       "room": "ANX1-101",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "SI",
+      "room": "TI",
+      "type": "Theory",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",
@@ -70,7 +98,8 @@
       "room": "ANX1-209",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -80,7 +109,8 @@
       "room": "KT-514",
       "type": "Theory",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "Main"
     }
   ]
 }

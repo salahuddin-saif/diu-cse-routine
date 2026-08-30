@@ -3,6 +3,28 @@
   "batch": "69",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "LAR",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "SNK",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "MAT211",
@@ -10,7 +32,8 @@
       "room": "ANX1-103",
       "type": "Theory",
       "batch": "69",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +43,8 @@
       "room": "KT-514",
       "type": "Theory",
       "batch": "69",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +54,8 @@
       "room": "ANX1-101",
       "type": "Theory",
       "batch": "69",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +65,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "69",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +76,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "69",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +87,8 @@
       "room": "ANX1-202",
       "type": "Theory",
       "batch": "69",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -70,7 +98,8 @@
       "room": "ANX1-203",
       "type": "Theory",
       "batch": "69",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     }
   ]
 }

@@ -10,7 +10,30 @@
       "room": "G1-027",
       "type": "Theory",
       "batch": "63",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "NT_23",
+      "room": "23",
+      "type": "Theory",
+      "batch": "63",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE431",
+      "teacher": "NT_23",
+      "room": "23",
+      "type": "Theory",
+      "batch": "63",
+      "section": "F",
+      "sub_section": "2"
     }
   ]
 }

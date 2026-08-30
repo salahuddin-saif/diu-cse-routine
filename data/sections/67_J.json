@@ -4,13 +4,58 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE312",
+      "teacher": "SEA",
+      "room": "SEA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "SRS",
+      "room": "SRS",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE313",
       "teacher": "AHN",
       "room": "KT-320",
       "type": "Theory",
       "batch": "67",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "SEA",
+      "room": "SEA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE314",
+      "teacher": "SRS",
+      "room": "SRS",
+      "type": "Theory",
+      "batch": "67",
+      "section": "J",
+      "sub_section": "1"
     },
     {
       "day": "Monday",
@@ -20,7 +65,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "67",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +76,8 @@
       "room": "KT-320",
       "type": "Theory",
       "batch": "67",
-      "section": "J"
+      "section": "J",
+      "sub_section": "Main"
     }
   ]
 }

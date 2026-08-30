@@ -10,7 +10,19 @@
       "room": "KT-201",
       "type": "Theory",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "PDS",
+      "room": "PDS",
+      "type": "Theory",
+      "batch": "66",
+      "section": "E",
+      "sub_section": "1"
     },
     {
       "day": "Sunday",
@@ -20,7 +32,8 @@
       "room": "KT-201",
       "type": "Theory",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +43,8 @@
       "room": "KT-201",
       "type": "Theory",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +54,8 @@
       "room": "KT-306",
       "type": "Theory",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -50,7 +65,19 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "PDS",
+      "room": "PDS",
+      "type": "Theory",
+      "batch": "66",
+      "section": "E",
+      "sub_section": "2"
     },
     {
       "day": "Tuesday",
@@ -60,7 +87,8 @@
       "room": "KT-515",
       "type": "Theory",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -70,7 +98,8 @@
       "room": "KT-220",
       "type": "Theory",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     }
   ]
 }

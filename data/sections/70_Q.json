@@ -3,6 +3,17 @@
   "batch": "70",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MRZ",
+      "room": "MRZ",
+      "type": "Theory",
+      "batch": "70",
+      "section": "Q",
+      "sub_section": "1"
+    },
+    {
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "PHY102",
@@ -10,7 +21,19 @@
       "room": "SRH",
       "type": "Theory",
       "batch": "70",
-      "section": "Q"
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MRZ",
+      "room": "MRZ",
+      "type": "Theory",
+      "batch": "70",
+      "section": "Q",
+      "sub_section": "2"
     },
     {
       "day": "Monday",
@@ -20,7 +43,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "70",
-      "section": "Q"
+      "section": "Q",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +54,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "70",
-      "section": "Q"
+      "section": "Q",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +65,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "70",
-      "section": "Q"
+      "section": "Q",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +76,30 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "70",
-      "section": "Q"
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "TAK",
+      "room": "TAK",
+      "type": "Theory",
+      "batch": "70",
+      "section": "Q",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE124",
+      "teacher": "TAK",
+      "room": "TAK",
+      "type": "Theory",
+      "batch": "70",
+      "section": "Q",
+      "sub_section": "2"
     }
   ]
 }

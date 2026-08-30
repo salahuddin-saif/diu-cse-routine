@@ -10,7 +10,8 @@
       "room": "ANX1-203",
       "type": "Theory",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "ANX1-208",
       "type": "Theory",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +32,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +43,8 @@
       "room": "KT-305",
       "type": "Theory",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +54,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +65,8 @@
       "room": "ANX1-204",
       "type": "Theory",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -70,7 +76,30 @@
       "room": "ANX1-210",
       "type": "Theory",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "MUH",
+      "room": "MUH",
+      "type": "Theory",
+      "batch": "69",
+      "section": "E",
+      "sub_section": "1"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "MUH",
+      "room": "MUH",
+      "type": "Theory",
+      "batch": "69",
+      "section": "E",
+      "sub_section": "2"
     }
   ]
 }

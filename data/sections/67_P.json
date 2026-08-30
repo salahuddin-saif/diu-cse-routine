@@ -10,7 +10,8 @@
       "room": "KT-304",
       "type": "Theory",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -20,7 +21,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -30,7 +32,8 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -40,7 +43,30 @@
       "room": "KT-306",
       "type": "Theory",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE314",
+      "teacher": "MRC",
+      "room": "MRC",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE312",
+      "teacher": "DP",
+      "room": "DP",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P",
+      "sub_section": "2"
     },
     {
       "day": "Wednesday",
@@ -50,7 +76,19 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "MRC",
+      "room": "MRC",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P",
+      "sub_section": "1"
     },
     {
       "day": "Thursday",
@@ -60,7 +98,19 @@
       "room": "KT-208",
       "type": "Theory",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "DP",
+      "room": "DP",
+      "type": "Theory",
+      "batch": "67",
+      "section": "P",
+      "sub_section": "2"
     }
   ]
 }

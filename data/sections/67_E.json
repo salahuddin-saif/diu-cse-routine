@@ -4,13 +4,36 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "MJA",
+      "room": "MJA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE226",
       "teacher": "MSK",
       "room": "KT-304",
       "type": "Theory",
       "batch": "67",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "MJA",
+      "room": "MJA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "1"
     },
     {
       "day": "Monday",
@@ -20,7 +43,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "67",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +54,19 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "67",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE314",
+      "teacher": "CSA",
+      "room": "CSA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",
@@ -40,7 +76,19 @@
       "room": "KT-516",
       "type": "Theory",
       "batch": "67",
-      "section": "E"
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE314",
+      "teacher": "CSA",
+      "room": "CSA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "2"
     }
   ]
 }

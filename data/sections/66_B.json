@@ -4,13 +4,36 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "AAM",
+      "room": "AAM",
+      "type": "Theory",
+      "batch": "66",
+      "section": "B",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE315",
       "teacher": "MHR",
       "room": "KT-304",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE322",
+      "teacher": "AAM",
+      "room": "AAM",
+      "type": "Theory",
+      "batch": "66",
+      "section": "B",
+      "sub_section": "2"
     },
     {
       "day": "Saturday",
@@ -20,7 +43,8 @@
       "room": "KT-304",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -30,7 +54,8 @@
       "room": "KT-306",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -40,7 +65,8 @@
       "room": "FTJ",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +76,8 @@
       "room": "KT-220",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -60,7 +87,8 @@
       "room": "KT-201",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -70,7 +98,8 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -80,7 +109,8 @@
       "room": "KT-221",
       "type": "Theory",
       "batch": "66",
-      "section": "B"
+      "section": "B",
+      "sub_section": "Main"
     }
   ]
 }

@@ -10,7 +10,8 @@
       "room": "KT-208",
       "type": "Theory",
       "batch": "65",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "65",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +32,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "65",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -40,7 +43,8 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "65",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +54,8 @@
       "room": "KT-224",
       "type": "Theory",
       "batch": "65",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -60,7 +65,19 @@
       "room": "KT-303",
       "type": "Theory",
       "batch": "65",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE412",
+      "teacher": "MSA",
+      "room": "MSA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",
@@ -70,7 +87,19 @@
       "room": "KT-208",
       "type": "Theory",
       "batch": "65",
-      "section": "N"
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE412",
+      "teacher": "MSA",
+      "room": "MSA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "2"
     }
   ]
 }

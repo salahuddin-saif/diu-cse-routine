@@ -10,7 +10,8 @@
       "room": "KT-216",
       "type": "Theory",
       "batch": "71",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Sunday",
@@ -20,7 +21,8 @@
       "room": "G1-027",
       "type": "Theory",
       "batch": "71",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -30,7 +32,19 @@
       "room": "G1-026",
       "type": "Theory",
       "batch": "71",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE114",
+      "teacher": "FAF",
+      "room": "FAF",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",
@@ -40,7 +54,8 @@
       "room": "KT-307",
       "type": "Theory",
       "batch": "71",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -50,7 +65,19 @@
       "room": "KT-219",
       "type": "Theory",
       "batch": "71",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE114",
+      "teacher": "FAF",
+      "room": "IST",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "2"
     },
     {
       "day": "Wednesday",
@@ -60,7 +87,8 @@
       "room": "KT-304",
       "type": "Theory",
       "batch": "71",
-      "section": "F"
+      "section": "F",
+      "sub_section": "Main"
     }
   ]
 }
