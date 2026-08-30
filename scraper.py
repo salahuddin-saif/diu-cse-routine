@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper – TEXT-BASED WITH SUB-SECTION SUPPORT
+DIU CSE Routine Scraper – IMPROVED WITH LAB MERGING
 """
 
 import json
@@ -46,7 +46,7 @@ def main():
         SECTIONS_DIR.mkdir(exist_ok=True)
 
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER – SUB-SECTION SUPPORT")
+        logger.info("DIU CSE ROUTINE SCRAPER – IMPROVED LAB MERGING")
         logger.info("=" * 60)
 
         result = find_latest_class_routine()
@@ -80,6 +80,9 @@ def main():
             sys.exit(1)
 
         logger.info(f"📊 Extracted {len(all_classes)} raw class records")
+
+        # Merge lab classes that span two slots
+        all_classes = merge_lab_classes(all_classes)
 
         sections = group_and_verify(all_classes)
 
@@ -174,7 +177,7 @@ def extract_text(pdf_content):
 
 
 def extract_classes_from_text(text):
-    """Extract classes using regex with day detection."""
+    """Extract classes using regex with improved day detection."""
     all_classes = []
     lines = text.split('\n')
 
@@ -199,11 +202,12 @@ def extract_classes_from_text(text):
 
         upper = stripped.upper()
 
-        # ---- Day Detection ----
+        # ---- Day Detection (improved) ----
         day_found = None
         for day in days:
             if day in upper:
-                if len(stripped) < 30 or not any(slot in upper for slot in time_slots):
+                # If the line contains a time slot or is short, treat as day header
+                if any(slot in upper for slot in time_slots) or len(stripped) < 50:
                     day_found = day.capitalize()
                     break
 
@@ -237,29 +241,18 @@ def extract_classes_from_text(text):
 
         # Process each match
         for idx, (room, course, section, teacher) in enumerate(matches):
-            # Clean section: remove special chars, uppercase, replace spaces with underscore
             section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
             if not section_clean:
                 continue
 
             # ---- Extract main section and sub-section ----
-            # Example: "70_N1" -> main "70_N", sub "N1"
-            # Example: "70_N" -> main "70_N", sub "Main" (or None)
-            # We'll use regex to split: main is the part up to the last digit (if any)
-            # But sometimes section like "66_E" has no digit after letter
-            # So we check if the string ends with a digit after an underscore
-            # Pattern: (batch_section)(\d+)?  e.g., 70_N1 -> group1=70_N, group2=1
             sub_section = ''
             main_section = section_clean
-            # Check if there's a digit at the end (like N1, N2, etc.)
-            # But we must ensure it's a lab sub-section, not part of the batch (batch is two digits)
-            # We'll look for pattern: _[A-Z]\d+$  (underscore, letter, then digits)
             match_sub = re.search(r'(_[A-Z])(\d+)$', section_clean)
             if match_sub:
-                main_section = section_clean[:match_sub.start()] + match_sub.group(1)  # e.g., 70_N
-                sub_section = match_sub.group(2)  # e.g., 1 or 2
+                main_section = section_clean[:match_sub.start()] + match_sub.group(1)
+                sub_section = match_sub.group(2)
             else:
-                # If no sub-section, set as empty or "Main"
                 sub_section = 'Main'
 
             # Assign time slot based on order
@@ -274,10 +267,9 @@ def extract_classes_from_text(text):
             batch = batch_match.group(1) if batch_match else 'Unknown'
             section_letter = re.sub(r'[^A-Z]', '', main_section.split('_')[-1] if '_' in main_section else '')
 
-            # Store with main_section as the key
             all_classes.append({
-                'main_section': main_section,   # Used for grouping
-                'sub_section': sub_section,     # Store as comment
+                'main_section': main_section,
+                'sub_section': sub_section,
                 'day': current_day,
                 'time': time_slot,
                 'course': course,
@@ -291,6 +283,48 @@ def extract_classes_from_text(text):
 
     logger.info(f"📊 Extracted {class_count} classes")
     return all_classes
+
+
+def merge_lab_classes(classes):
+    """
+    Merge lab classes that span two consecutive time slots.
+    For example, if a lab appears at 08:30-10:00 and also at 10:00-11:30,
+    merge into one entry with time 08:30-11:30.
+    """
+    merged = []
+    # Group by (main_section, day, course, teacher, room, type)
+    # We'll process each group separately
+    groups = defaultdict(list)
+    for cls in classes:
+        key = (cls['main_section'], cls['day'], cls['course'], cls['teacher'], cls['room'], cls['type'])
+        groups[key].append(cls)
+
+    for key, items in groups.items():
+        # Sort by time slot index
+        time_slots = [
+            '08:30-10:00', '10:00-11:30', '11:30-01:00',
+            '01:00-02:30', '02:30-04:00', '04:00-05:30'
+        ]
+        items.sort(key=lambda x: time_slots.index(x['time']) if x['time'] in time_slots else 999)
+
+        # If it's a lab and there are two consecutive slots, merge
+        if key[5] == 'Lab' and len(items) >= 2:
+            # Check if they are consecutive
+            merged_item = items[0].copy()
+            time_indices = [time_slots.index(item['time']) for item in items if item['time'] in time_slots]
+            if len(time_indices) >= 2 and time_indices[1] == time_indices[0] + 1:
+                # Merge: combine times
+                start_time = time_slots[time_indices[0]]
+                end_time = time_slots[time_indices[1]].split('-')[1]
+                merged_item['time'] = f"{start_time.split('-')[0]}-{end_time}"
+                merged_item['sub_section'] = items[0]['sub_section']  # keep sub-section info
+                merged.append(merged_item)
+                # Skip the rest
+                continue
+        # If not merged, keep all
+        merged.extend(items)
+
+    return merged
 
 
 def group_and_verify(all_classes):
@@ -309,7 +343,7 @@ def group_and_verify(all_classes):
             'type': cls['type'],
             'batch': cls.get('batch', 'Unknown'),
             'section': cls.get('section', ''),
-            'sub_section': cls.get('sub_section', 'Main')  # Add sub-section info
+            'sub_section': cls.get('sub_section', 'Main')
         }
         sections[key]['classes'].append(entry)
 
