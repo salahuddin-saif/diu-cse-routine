@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - FINAL FIX
+DIU CSE Routine Scraper - DEBUGGING
 """
 
 import json
@@ -27,6 +27,7 @@ NOTICE_URL = "https://webbackend.daffodilvarsity.edu.bd/department/cse/notice"
 
 DATA_DIR = Path("data")
 OUTPUT_FILE = DATA_DIR / "routine.json"
+DEBUG_FILE = DATA_DIR / "debug_raw_text.txt"
 
 # ============================================================
 # LOGGING
@@ -43,7 +44,7 @@ def main():
     try:
         DATA_DIR.mkdir(exist_ok=True)
         logger.info("="*60)
-        logger.info("DIU CSE ROUTINE SCRAPER - FINAL")
+        logger.info("DIU CSE ROUTINE SCRAPER - DEBUG")
         logger.info("="*60)
 
         result = find_latest_class_routine()
@@ -60,7 +61,7 @@ def main():
         logger.info(f"✅ Downloaded {len(response.content)} bytes")
 
         logger.info("📖 Parsing PDF...")
-        sections = parse_pdf_final(response.content)
+        sections = parse_pdf_debug(response.content)
 
         if not sections:
             logger.error("❌ No data extracted")
@@ -119,58 +120,87 @@ def find_latest_class_routine():
         return None
 
 
-def parse_pdf_final(content):
-    """Final parser: extract all classes with proper day and time assignment."""
+def parse_pdf_debug(content):
     all_classes = []
 
     try:
         pdf_reader = PyPDF2.PdfReader(BytesIO(content))
         logger.info(f"📄 PDF has {len(pdf_reader.pages)} pages")
 
-        # Extract text from all pages
-        raw_text = ""
+        raw_text_lines = []
         for page_num, page in enumerate(pdf_reader.pages):
             text = page.extract_text()
             if text:
-                raw_text += text + "\n"
-                logger.info(f"📝 Page {page_num + 1}: {len(text)} chars")
+                lines = text.split('\n')
+                raw_text_lines.extend(lines)
+                logger.info(f"📝 Page {page_num + 1}: {len(text)} chars, {len(lines)} lines")
 
-        if not raw_text:
+        if not raw_text_lines:
             return {}
 
-        # Preprocess: remove page numbers and table markers
-        lines = raw_text.split('\n')
-        cleaned = []
-        for line in lines:
+        # Save raw text for debugging
+        with open(DEBUG_FILE, 'w', encoding='utf-8') as f:
+            for line in raw_text_lines:
+                f.write(line + '\n')
+        logger.info(f"💾 Saved raw text to {DEBUG_FILE}")
+
+        # Print first 50 lines to log for inspection
+        logger.info("📄 First 50 lines of raw text:")
+        for idx, line in enumerate(raw_text_lines[:50]):
+            logger.info(f"  {idx:3d}: {line}")
+
+        # Clean: remove empty lines and obvious page numbers
+        cleaned_lines = []
+        for line in raw_text_lines:
             line = line.strip()
             if not line:
                 continue
             if re.match(r'^\s*\d+\s*$', line):
                 continue
-            if 'TABLE' in line.upper() and len(line) < 20:
+            if 'TABLE' in line.upper() and len(line) < 30:
                 continue
-            cleaned.append(line)
+            cleaned_lines.append(line)
+
+        logger.info(f"🧹 Cleaned lines: {len(cleaned_lines)}")
+
+        # Print first 50 cleaned lines
+        logger.info("📄 First 50 cleaned lines:")
+        for idx, line in enumerate(cleaned_lines[:50]):
+            logger.info(f"  {idx:3d}: {line}")
 
         # Time slots
         time_slots = [
             '08:30-10:00', '10:00-11:30', '11:30-01:00',
             '01:00-02:30', '02:30-04:00', '04:00-05:30'
         ]
-        # Compile patterns
+
+        # Patterns
         course_section_pattern = re.compile(r'([A-Z]{3,4}\d{3,4})\s*\(([^)]+)\)')
         room_pattern = re.compile(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+|CTBA-\d+)\b')
         teacher_pattern = re.compile(r'\b([A-Z]{2,4})\b')
 
+        # Day detection: find lines that contain a day name and no course code (or we can just use the first occurrence)
+        day_names = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
+
         current_day = None
         i = 0
-        while i < len(cleaned):
-            line = cleaned[i]
-            # Check for day header
-            # A day header contains a day name and at least one time slot
-            day_match = re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', line.upper())
-            if day_match and any(slot in line for slot in time_slots):
-                current_day = day_match.group(1).capitalize()
-                logger.info(f"📅 Found day: {current_day}")
+        while i < len(cleaned_lines):
+            line = cleaned_lines[i]
+            upper_line = line.upper()
+
+            # Check for day name
+            day_found = None
+            for day in day_names:
+                if day in upper_line:
+                    # If the line has the day name and it's not part of a course code, treat as day header
+                    # We'll check if there's a course code in this line; if not, it's a header
+                    if not re.search(r'[A-Z]{3,4}\d{3,4}', line):
+                        day_found = day.capitalize()
+                        break
+
+            if day_found:
+                current_day = day_found
+                logger.info(f"📅 Found day: {current_day} at line {i}")
                 i += 1
                 continue
 
@@ -178,14 +208,14 @@ def parse_pdf_final(content):
                 i += 1
                 continue
 
-            # Check for lab line
+            # Check for lab
             is_lab = False
-            if 'LAB' in line.upper() or 'COM LAB' in line.upper():
+            if 'LAB' in upper_line or 'COM LAB' in upper_line:
                 is_lab = True
-                # Merge with following line if it seems to be a continuation
-                if i + 1 < len(cleaned):
-                    next_line = cleaned[i+1]
-                    if next_line and not re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', next_line.upper()):
+                # Merge with next line if it continues
+                if i + 1 < len(cleaned_lines):
+                    next_line = cleaned_lines[i+1]
+                    if not any(day in next_line.upper() for day in day_names):
                         line = line + " " + next_line
                         i += 1
 
@@ -201,20 +231,18 @@ def parse_pdf_final(content):
                 section = match.group(2)
                 start = match.start()
 
-                # Find room: look for room pattern in the whole line
+                # Find room
                 room = 'TBA'
                 room_match = room_pattern.search(line)
                 if room_match:
                     room = room_match.group(0)
 
-                # Find teacher: look for 2-4 uppercase letters near the match (within 30 chars after)
+                # Find teacher
                 teacher = 'TBA'
                 context = line[start:start+40]
-                # Remove the course and section from context to avoid matching them
                 context_clean = context.replace(course, '').replace(f'({section})', '')
                 teacher_matches = teacher_pattern.findall(context_clean)
                 if teacher_matches:
-                    # Take the first one
                     teacher = teacher_matches[0]
 
                 # Assign time slot based on order
@@ -244,8 +272,9 @@ def parse_pdf_final(content):
             i += 1
 
         logger.info(f"📊 Total classes extracted: {len(all_classes)}")
+        if not all_classes:
+            logger.error("❌ No classes extracted. Check the debug file.")
 
-        # Group by base section
         sections = group_by_section(all_classes)
         return sections
 
@@ -257,11 +286,9 @@ def parse_pdf_final(content):
 
 
 def group_by_section(all_classes):
-    """Group classes by base section, add sub-section."""
     sections = {}
     for cls in all_classes:
         raw_section = cls['section_key']
-        # Remove trailing digits to get base section (e.g., 70_N1 -> 70_N)
         base_section = re.sub(r'(\d+)$', '', raw_section)
         if not base_section:
             base_section = raw_section
