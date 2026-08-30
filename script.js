@@ -1,11 +1,11 @@
-// DIU CSE Routine – Search Icon + Enter Fixed
+// DIU CSE Routine – Enter key fixed for mobile
 
 const STORAGE_KEY = 'diu_cse_section';
 const COMBINED_URL = './data/routine.json?t=' + Date.now();
 const SECTIONS_BASE = './data/sections/';
 
 const sectionInput = document.getElementById('sectionInput');
-const showRoutineBtn = document.getElementById('showRoutineBtn'); // hidden button
+const showRoutineBtn = document.getElementById('showRoutineBtn');
 const clearSectionBtn = document.getElementById('clearSectionBtn');
 const savedChip = document.getElementById('savedChip');
 const savedSectionSpan = document.getElementById('savedSection');
@@ -15,11 +15,9 @@ const statusText = document.getElementById('statusText');
 const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
-
-// Get the search icon (inside .search-input-wrap)
 const searchIcon = document.querySelector('.search-input-wrap i');
 
-let routineData = null;      // combined JSON (fallback)
+let routineData = null;
 let currentSection = null;
 let currentClasses = [];
 
@@ -37,24 +35,33 @@ document.addEventListener('DOMContentLoaded', () => {
         savedChip.style.display = 'none';
     }
 
-    // Load initial data
     loadRoutineData();
 
-    // Event: Search icon click
+    // --- Event Listeners ---
+
+    // 1. Search icon click
     if (searchIcon) {
         searchIcon.style.cursor = 'pointer';
         searchIcon.addEventListener('click', handleShowRoutine);
     }
 
-    // Event: Hidden button click (if any)
+    // 2. Hidden button click (fallback)
     showRoutineBtn.addEventListener('click', handleShowRoutine);
 
-    // Event: Clear button
+    // 3. Clear button
     clearSectionBtn.addEventListener('click', handleClearSection);
 
-    // Event: Enter key on input
+    // 4. Enter key on input – using 'keydown' (works on mobile)
+    sectionInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();  // Prevent form submission
+            handleShowRoutine();
+        }
+    });
+
+    // 5. Also support 'keypress' as a fallback for older browsers
     sectionInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' || e.keyCode === 13) {
             e.preventDefault();
             handleShowRoutine();
         }
@@ -62,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
-// LOAD ROUTINE DATA (loads combined JSON once)
+// LOAD ROUTINE DATA (combined JSON once)
 // ============================================================
 
 async function loadRoutineData() {
@@ -74,7 +81,6 @@ async function loadRoutineData() {
             return;
         }
 
-        // No saved section – load combined and show first
         const response = await fetch(COMBINED_URL);
         if (!response.ok) throw new Error('Failed to load combined data');
         const data = await response.json();
@@ -107,7 +113,7 @@ async function loadRoutineData() {
 }
 
 // ============================================================
-// LOAD SECTION (per‑file first, then combined fallback)
+// LOAD SECTION
 // ============================================================
 
 async function loadSection(sectionKey) {
@@ -119,24 +125,19 @@ async function loadSection(sectionKey) {
         let data = null;
         let found = false;
 
-        // 1. Try per‑section file
+        // 1. Per-section file
         const perSectionUrl = `${SECTIONS_BASE}${normalized}.json?t=${Date.now()}`;
         try {
             const resp = await fetch(perSectionUrl);
             if (resp.ok) {
                 data = await resp.json();
                 found = true;
-                console.log('✅ Found per‑section file:', normalized);
-            } else {
-                console.log('ℹ️ Per‑section file not found, trying combined...');
+                console.log('✅ Found per-section:', normalized);
             }
-        } catch (e) {
-            console.log('ℹ️ Per‑section fetch failed, trying combined...');
-        }
+        } catch (e) {}
 
-        // 2. If not found, try combined JSON
+        // 2. Combined JSON fallback
         if (!found) {
-            // Ensure combined data is loaded
             if (!routineData) {
                 const resp = await fetch(COMBINED_URL);
                 if (!resp.ok) throw new Error('Combined data not found');
@@ -156,11 +157,10 @@ async function loadSection(sectionKey) {
                     classes: sec.classes || []
                 };
                 found = true;
-                console.log('✅ Found in combined data:', normalized);
+                console.log('✅ Found in combined:', normalized);
             } else {
-                // Try to find by partial match (e.g., "70_N" vs "70_N1")
-                const keys = Object.keys(sections);
-                const matchedKey = keys.find(k => k.startsWith(normalized) || normalized.startsWith(k));
+                // Partial match
+                const matchedKey = Object.keys(sections).find(k => k.startsWith(normalized) || normalized.startsWith(k));
                 if (matchedKey) {
                     const sec = sections[matchedKey];
                     data = {
@@ -174,11 +174,8 @@ async function loadSection(sectionKey) {
             }
         }
 
-        if (!found) {
-            throw new Error(`Section "${normalized}" not found.`);
-        }
+        if (!found) throw new Error(`Section "${normalized}" not found.`);
 
-        // Display the section
         displaySection(data.section || normalized, data);
         localStorage.setItem(STORAGE_KEY, data.section || normalized);
         savedSectionSpan.textContent = data.section || normalized;
@@ -195,11 +192,10 @@ async function loadSection(sectionKey) {
 }
 
 // ============================================================
-// DISPLAY SECTION (clears and rebuilds UI)
+// DISPLAY SECTION (UI rendering)
 // ============================================================
 
 function displaySection(sectionKey, sectionData) {
-    // Clear container
     routineContainer.innerHTML = '';
 
     const classes = sectionData.classes || [];
@@ -268,10 +264,8 @@ function displaySection(sectionKey, sectionData) {
 
     routineContainer.innerHTML = html;
 
-    // Render default view (day)
     renderDayView(classes);
 
-    // Tab switching
     document.querySelectorAll('.view-tab').forEach(tab => {
         tab.addEventListener('click', function() {
             document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
@@ -289,14 +283,12 @@ function displaySection(sectionKey, sectionData) {
 function renderDayView(classes) {
     const container = document.getElementById('viewContent');
     if (!container) return;
-
     const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const grouped = {};
     for (const cls of classes) {
         if (!grouped[cls.day]) grouped[cls.day] = [];
         grouped[cls.day].push(cls);
     }
-
     let html = `<div class="day-grid">`;
     for (const day of days) {
         if (!grouped[day]) continue;
@@ -341,17 +333,14 @@ function renderDayView(classes) {
 function renderWeekView(classes) {
     const container = document.getElementById('viewContent');
     if (!container) return;
-
     const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const grouped = {};
     for (const cls of classes) {
         if (!grouped[cls.day]) grouped[cls.day] = [];
         grouped[cls.day].push(cls);
     }
-
     const times = [...new Set(classes.map(c => c.time))].filter(t => t !== 'TBA').sort();
     if (times.length === 0) times.push('TBA');
-
     let html = `<div class="week-view"><table class="week-table"><thead><tr><th>Time</th>`;
     for (const day of days) html += `<th>${day.substring(0, 3)}</th>`;
     html += '</tr></thead><tbody>';
@@ -401,7 +390,6 @@ function handleClearSection() {
     savedChip.style.display = 'none';
     sectionInput.value = '';
     showMessage('Saved section cleared.', 'info');
-    // Reload to show first section from combined data
     loadRoutineData();
 }
 
