@@ -4,10 +4,21 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE123",
-      "teacher": "MSM",
-      "room": "KT-320",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "B",
@@ -17,8 +28,8 @@
       "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE121",
-      "teacher": "MAI",
-      "room": "KT-320",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "B",
@@ -26,80 +37,25 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE124",
-      "teacher": "MSM",
-      "room": "MSM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE121",
-      "teacher": "MAI",
-      "room": "MSR",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
+      "time": "02:30-04:00",
       "course": "PHY102",
-      "teacher": "AEE",
-      "room": "KT-320",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "B",
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE123",
-      "teacher": "MSM",
-      "room": "KT-320",
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE121",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "B",
       "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE124",
-      "teacher": "MSM",
-      "room": "MSM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "PHY103",
-      "teacher": "AEE",
-      "room": "AEE",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "PHY103",
-      "teacher": "AEE",
-      "room": "AEE",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "2"
     }
   ]
 }
