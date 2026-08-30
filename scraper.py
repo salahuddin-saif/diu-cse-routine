@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - WITH SUB-SECTION SUPPORT
-Extracts all classes, groups under base section, preserves sub-section info.
+DIU CSE Routine Scraper - ROBUST ALGORITHM
+Extracts ALL classes using course-code-centric parsing.
 """
 
 import json
@@ -46,7 +46,7 @@ def main():
         DATA_DIR.mkdir(exist_ok=True)
         
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER - SUB-SECTION SUPPORT")
+        logger.info("DIU CSE ROUTINE SCRAPER - ROBUST")
         logger.info("=" * 60)
         
         # Find PDF
@@ -68,7 +68,7 @@ def main():
         
         # Parse PDF
         logger.info("📖 Parsing PDF...")
-        sections = parse_pdf_with_sub_sections(response.content)
+        sections = parse_pdf_robust(response.content)
         
         if not sections:
             logger.error("❌ No data extracted")
@@ -132,8 +132,8 @@ def find_latest_class_routine():
         return None
 
 
-def parse_pdf_with_sub_sections(content):
-    """Parse PDF and group classes under base section with sub-section info."""
+def parse_pdf_robust(content):
+    """Parse PDF using robust course-code-centric approach."""
     sections = {}
     all_classes = []
     
@@ -153,29 +153,24 @@ def parse_pdf_with_sub_sections(content):
             return {}
         
         # Parse the full text
-        all_classes = parse_table(full_text)
+        all_classes = parse_with_robust_algorithm(full_text)
         
-        logger.info(f"📊 Total classes found: {len(all_classes)}")
+        logger.info(f"📊 Total raw classes found: {len(all_classes)}")
         
         # Group by base section
         for cls in all_classes:
             raw_section = cls.get('section_key', '')
-            # Derive base section: remove trailing numbers like 1,2, etc.
-            # Example: "70_N1" -> "70_N", "70_N2" -> "70_N", "70_N" -> "70_N"
-            base_section = re.sub(r'(\d+)$', '', raw_section)  # Remove trailing digits
+            # Derive base section: remove trailing numbers
+            base_section = re.sub(r'(\d+)$', '', raw_section)
             if not base_section:
                 base_section = raw_section
             
-            # Extract sub-section: the part after the underscore or the whole if no change
             sub_section = raw_section.replace(base_section, '').lstrip('_')
             if not sub_section:
                 sub_section = 'Main'
             
-            # Determine batch
             batch_match = re.search(r'(\d{2})', base_section)
             batch = batch_match.group(1) if batch_match else 'Unknown'
-            
-            # Determine section letter (after underscore)
             section_letter = ''
             if '_' in base_section:
                 section_letter = base_section.split('_')[1]
@@ -196,7 +191,7 @@ def parse_pdf_with_sub_sections(content):
                 'type': cls.get('type', 'Theory'),
                 'batch': batch,
                 'section': section_letter,
-                'sub_section': sub_section  # Store the sub-section info
+                'sub_section': sub_section
             }
             sections[base_section]['classes'].append(entry)
         
@@ -207,9 +202,9 @@ def parse_pdf_with_sub_sections(content):
         return {}
 
 
-def parse_table(text):
-    """Parse the table structure from text."""
-    all_classes = []
+def parse_with_robust_algorithm(text):
+    """Parse using course-code-centric extraction."""
+    classes = []
     lines = text.split('\n')
     
     # Time slots (6 slots)
@@ -229,8 +224,10 @@ def parse_table(text):
     i = 0
     
     # Patterns
-    pattern_with_teacher = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
-    pattern_without_teacher = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)'
+    course_pattern = r'([A-Z]{3,4}\d{3,4})'
+    section_pattern = r'\(([^)]+)\)'
+    room_pattern = r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+|CTBA-\d+)\b'
+    teacher_pattern = r'\b([A-Z]{2,4})\b'
     
     while i < len(lines):
         line = lines[i].strip()
@@ -255,50 +252,75 @@ def parse_table(text):
             i += 1
             continue
         
-        # Lab detection
+        # Check for lab
         is_lab = False
         if 'LAB' in line.upper() or 'COM LAB' in line.upper():
             is_lab = True
+            # Merge with next line if it continues
             if i + 1 < len(lines):
                 next_line = lines[i + 1].strip()
                 if next_line and not re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', next_line.upper()):
                     line = line + " " + next_line
                     i += 1
         
-        # Extract matches
-        matches = re.findall(pattern_with_teacher, line)
-        if not matches:
-            matches2 = re.findall(pattern_without_teacher, line)
-            matches = [(m[0], m[1], m[2], 'TBA') for m in matches2]
+        # Extract all course codes in this line
+        course_matches = list(re.finditer(course_pattern, line))
+        if not course_matches:
+            i += 1
+            continue
         
-        if matches:
-            for idx, match in enumerate(matches):
-                if idx >= len(time_slots):
-                    # If more matches than slots, assign the last slot or TBA
-                    time_slot = time_slots[-1] if time_slots else 'TBA'
-                else:
-                    time_slot = time_slots[idx]
-                
-                room, course, section, teacher = match
-                section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
-                if not section_clean:
-                    continue
-                
-                class_type = 'Lab' if is_lab or 'LAB' in line.upper() else 'Theory'
-                
-                all_classes.append({
-                    'section_key': section_clean,
-                    'day': current_day,
-                    'time': time_slot,
-                    'course': course,
-                    'teacher': teacher if teacher != 'TBA' else 'TBA',
-                    'room': room,
-                    'type': class_type,
-                })
+        # For each course code, find section, teacher, room
+        for idx, course_match in enumerate(course_matches):
+            course = course_match.group(0)
+            start_pos = course_match.start()
+            
+            # Find section: look for parentheses after the course
+            section = 'Unknown'
+            section_match = re.search(section_pattern, line[start_pos:])
+            if section_match:
+                section = section_match.group(1)
+            
+            # Find teacher: look for 2-4 uppercase letters near the course
+            teacher = 'TBA'
+            # Search around the course position
+            context = line[max(0, start_pos-20):start_pos+20]
+            teacher_match = re.search(teacher_pattern, context)
+            if teacher_match:
+                teacher = teacher_match.group(0)
+            
+            # Find room: look for room pattern anywhere in the line
+            room = 'TBA'
+            room_match = re.search(room_pattern, line)
+            if room_match:
+                room = room_match.group(0)
+            
+            # Assign time slot based on order of course appearance
+            if idx < len(time_slots):
+                time_slot = time_slots[idx]
+            else:
+                time_slot = 'TBA'
+            
+            # Determine type
+            class_type = 'Lab' if is_lab else 'Theory'
+            
+            # Clean section
+            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
+            if not section_clean:
+                continue
+            
+            classes.append({
+                'section_key': section_clean,
+                'day': current_day,
+                'time': time_slot,
+                'course': course,
+                'teacher': teacher,
+                'room': room,
+                'type': class_type,
+            })
         
         i += 1
     
-    return all_classes
+    return classes
 
 
 if __name__ == "__main__":
