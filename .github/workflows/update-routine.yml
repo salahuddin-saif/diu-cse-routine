@@ -29,6 +29,7 @@ jobs:
           pip install requests beautifulsoup4 PyPDF2 lxml
           
       - name: Run scraper
+        id: scraper
         run: python scraper.py
         
       - name: Check for changes
@@ -45,7 +46,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git pull origin main --rebase
           git add data/routine.json
           git commit -m "Update routine data [skip ci]"
+          git pull origin main --rebase --autostash
           git push origin main
