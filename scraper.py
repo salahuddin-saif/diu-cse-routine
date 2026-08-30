@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper – TEXT-BASED WITH REGEX
+DIU CSE Routine Scraper – TEXT-BASED WITH SUB-SECTION SUPPORT
 """
 
 import json
@@ -46,7 +46,7 @@ def main():
         SECTIONS_DIR.mkdir(exist_ok=True)
 
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER – TEXT-BASED REGEX")
+        logger.info("DIU CSE ROUTINE SCRAPER – SUB-SECTION SUPPORT")
         logger.info("=" * 60)
 
         result = find_latest_class_routine()
@@ -200,11 +200,9 @@ def extract_classes_from_text(text):
         upper = stripped.upper()
 
         # ---- Day Detection ----
-        # If line contains a day name and is either short (header) or has no time slots
         day_found = None
         for day in days:
             if day in upper:
-                # Check if it's a header line (short or no time slots)
                 if len(stripped) < 30 or not any(slot in upper for slot in time_slots):
                     day_found = day.capitalize()
                     break
@@ -228,25 +226,43 @@ def extract_classes_from_text(text):
         # Check for lab
         is_lab = 'LAB' in upper or 'COM LAB' in upper
 
-        # Find all matches in this line using pattern1
+        # Find all matches
         matches = pattern.findall(stripped)
-
-        # If no matches, try pattern2
         if not matches:
             matches2 = pattern2.findall(stripped)
             matches = [(m[0], m[1], m[2], 'TBA') for m in matches2]
 
-        # If still no matches, skip this line
         if not matches:
             continue
 
         # Process each match
         for idx, (room, course, section, teacher) in enumerate(matches):
+            # Clean section: remove special chars, uppercase, replace spaces with underscore
             section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
             if not section_clean:
                 continue
 
-            # Assign time slot based on order of appearance
+            # ---- Extract main section and sub-section ----
+            # Example: "70_N1" -> main "70_N", sub "N1"
+            # Example: "70_N" -> main "70_N", sub "Main" (or None)
+            # We'll use regex to split: main is the part up to the last digit (if any)
+            # But sometimes section like "66_E" has no digit after letter
+            # So we check if the string ends with a digit after an underscore
+            # Pattern: (batch_section)(\d+)?  e.g., 70_N1 -> group1=70_N, group2=1
+            sub_section = ''
+            main_section = section_clean
+            # Check if there's a digit at the end (like N1, N2, etc.)
+            # But we must ensure it's a lab sub-section, not part of the batch (batch is two digits)
+            # We'll look for pattern: _[A-Z]\d+$  (underscore, letter, then digits)
+            match_sub = re.search(r'(_[A-Z])(\d+)$', section_clean)
+            if match_sub:
+                main_section = section_clean[:match_sub.start()] + match_sub.group(1)  # e.g., 70_N
+                sub_section = match_sub.group(2)  # e.g., 1 or 2
+            else:
+                # If no sub-section, set as empty or "Main"
+                sub_section = 'Main'
+
+            # Assign time slot based on order
             if idx < len(time_slots):
                 time_slot = time_slots[idx]
             else:
@@ -254,12 +270,14 @@ def extract_classes_from_text(text):
 
             class_type = 'Lab' if is_lab else 'Theory'
 
-            batch_match = re.search(r'(\d{2})', section_clean)
+            batch_match = re.search(r'(\d{2})', main_section)
             batch = batch_match.group(1) if batch_match else 'Unknown'
-            section_letter = re.sub(r'[^A-Z]', '', section_clean)
+            section_letter = re.sub(r'[^A-Z]', '', main_section.split('_')[-1] if '_' in main_section else '')
 
+            # Store with main_section as the key
             all_classes.append({
-                'section_key': section_clean,
+                'main_section': main_section,   # Used for grouping
+                'sub_section': sub_section,     # Store as comment
                 'day': current_day,
                 'time': time_slot,
                 'course': course,
@@ -267,7 +285,7 @@ def extract_classes_from_text(text):
                 'room': room,
                 'type': class_type,
                 'batch': batch,
-                'section_letter': section_letter
+                'section': section_letter
             })
             class_count += 1
 
@@ -279,9 +297,9 @@ def group_and_verify(all_classes):
     sections = defaultdict(lambda: {'classes': []})
 
     for cls in all_classes:
-        key = cls['section_key']
+        key = cls['main_section']
         sections[key]['batch'] = cls.get('batch', 'Unknown')
-        sections[key]['section'] = cls.get('section_letter', '')
+        sections[key]['section'] = cls.get('section', '')
         entry = {
             'day': cls['day'],
             'time': cls['time'],
@@ -290,7 +308,8 @@ def group_and_verify(all_classes):
             'room': cls['room'],
             'type': cls['type'],
             'batch': cls.get('batch', 'Unknown'),
-            'section': cls.get('section_letter', '')
+            'section': cls.get('section', ''),
+            'sub_section': cls.get('sub_section', 'Main')  # Add sub-section info
         }
         sections[key]['classes'].append(entry)
 
