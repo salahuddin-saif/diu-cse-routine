@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper – PDF OXIDE (with fallback)
-Extracts text with layout, parses class data, merges labs.
+DIU CSE Routine Scraper – Production Ready
+- Extracts tables using pdfplumber
+- Merges consecutive lab slots into 3‑hour blocks
+- Groups classes by main section, preserves sub‑section info
+- Falls back to regex if no tables are found
 """
 
 import json
@@ -11,22 +14,9 @@ from pathlib import Path
 from collections import defaultdict
 import requests
 from bs4 import BeautifulSoup
+import pdfplumber
 from io import BytesIO
 import logging
-
-# Primary: pdfoxide
-try:
-    from pdfoxide import Document
-    HAS_PDFOXIDE = True
-except ImportError:
-    HAS_PDFOXIDE = False
-
-# Fallback: pdfplumber
-try:
-    import pdfplumber
-    HAS_PDFPLUMBER = True
-except ImportError:
-    HAS_PDFPLUMBER = False
 
 # ============================================================
 # CONFIGURATION
@@ -62,7 +52,7 @@ def main():
         SECTIONS_DIR.mkdir(exist_ok=True)
 
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER – PDF OXIDE")
+        logger.info("DIU CSE ROUTINE SCRAPER – PRODUCTION")
         logger.info("=" * 60)
 
         result = find_latest_class_routine()
@@ -79,29 +69,20 @@ def main():
         pdf_content = response.content
         logger.info(f"✅ Downloaded {len(pdf_content)} bytes")
 
-        logger.info("📖 Extracting text with layout...")
-        text = extract_text_with_layout(pdf_content)
+        logger.info("📖 Extracting tables from PDF...")
+        sections = extract_tables_pdfplumber(pdf_content)
 
-        if not text:
-            logger.error("❌ No text extracted")
+        if not sections:
+            logger.warning("⚠️ Table extraction gave no sections. Falling back to regex...")
+            text = extract_text(pdf_content)
+            if text:
+                all_classes = extract_classes_from_text(text)
+                if all_classes:
+                    sections = group_and_verify(all_classes)
+
+        if not sections:
+            logger.error("❌ No data extracted")
             sys.exit(1)
-
-        DEBUG_FILE.write_text(text)
-        logger.info(f"💾 Saved debug text to {DEBUG_FILE}")
-
-        logger.info("🔍 Extracting classes...")
-        all_classes = extract_classes_from_text(text)
-
-        if not all_classes:
-            logger.error("❌ No classes extracted")
-            sys.exit(1)
-
-        logger.info(f"📊 Extracted {len(all_classes)} raw class records")
-
-        # Merge lab classes
-        all_classes = merge_lab_classes(all_classes)
-
-        sections = group_and_verify(all_classes)
 
         total = sum(len(entries) for entries in sections.values())
         from datetime import datetime, timezone
@@ -170,133 +151,171 @@ def find_latest_class_routine():
         return (FALLBACK_PDF_URL, FALLBACK_VERSION)
 
 
-def extract_text_with_layout(pdf_content):
-    """Extract text with layout using pdfoxide, fallback to pdfplumber."""
-    text = ""
-
-    if HAS_PDFOXIDE:
-        try:
-            logger.info("🔍 Using pdfoxide for text extraction...")
-            doc = Document(BytesIO(pdf_content))
-            for page in doc.pages:
-                # Get text with positions
-                page_text = page.text()
+def extract_text(pdf_content):
+    """Extract raw text for regex fallback."""
+    try:
+        with pdfplumber.open(BytesIO(pdf_content)) as pdf:
+            text = ""
+            for page in pdf.pages:
+                page_text = page.extract_text()
                 if page_text:
                     text += page_text + "\n"
-            if text.strip():
-                return text
-        except Exception as e:
-            logger.warning(f"pdfoxide failed: {e}, falling back to pdfplumber")
-
-    if HAS_PDFPLUMBER:
-        try:
-            logger.info("🔍 Using pdfplumber for text extraction...")
-            with pdfplumber.open(BytesIO(pdf_content)) as pdf:
-                for page in pdf.pages:
-                    page_text = page.extract_text()
-                    if page_text:
-                        text += page_text + "\n"
             return text
-        except Exception as e:
-            logger.warning(f"pdfplumber failed: {e}")
+    except Exception as e:
+        logger.warning(f"pdfplumber text extraction failed: {e}")
+        return None
 
-    return None
 
-
-def extract_classes_from_text(text):
-    """Extract classes using regex with day detection."""
-    all_classes = []
-    lines = text.split('\n')
-
-    time_slots = [
-        '08:30-10:00', '10:00-11:30', '11:30-01:00',
-        '01:00-02:30', '02:30-04:00', '04:00-05:30'
-    ]
-    days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
-
-    current_day = None
+def extract_tables_pdfplumber(pdf_content):
+    """Extract classes using pdfplumber tables with robust header detection and lab merging."""
+    sections = defaultdict(lambda: {'classes': []})
     class_count = 0
 
-    # Pattern: Room Course(Section) Teacher
-    pattern = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)')
-    # Fallback: Room Course(Section)
-    pattern2 = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
+    try:
+        with pdfplumber.open(BytesIO(pdf_content)) as pdf:
+            logger.info(f"📄 PDF has {len(pdf.pages)} pages")
 
-    for line in lines:
-        stripped = line.strip()
-        if not stripped:
-            continue
+            for page_num, page in enumerate(pdf.pages, 1):
+                # Detect day from page text
+                page_text = page.extract_text()
+                current_day = None
+                if page_text:
+                    for line in page_text.split('\n'):
+                        upper = line.upper()
+                        for day in ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']:
+                            if day in upper:
+                                if re.search(r'\d{2}:\d{2}-\d{2}:\d{2}', upper) or len(line) < 30:
+                                    current_day = day.capitalize()
+                                    break
+                        if current_day:
+                            break
 
-        upper = stripped.upper()
+                # Extract tables
+                tables = page.extract_tables()
+                if not tables:
+                    continue
 
-        # ---- Day Detection ----
-        day_found = None
-        for day in days:
-            if day in upper:
-                if any(slot in upper for slot in time_slots) or len(stripped) < 50:
-                    day_found = day.capitalize()
-                    break
+                for table in tables:
+                    if not table or len(table) < 2:
+                        continue
 
-        if day_found:
-            current_day = day_found
-            logger.info(f"📅 Found day: {current_day}")
-            continue
+                    # Find header row with time slots
+                    header_index = -1
+                    raw_time_slots = []
+                    for idx, row in enumerate(table):
+                        row_text = ' '.join([str(cell) if cell else '' for cell in row])
+                        if re.search(r'\d{2}:\d{2}-\d{2}:\d{2}', row_text):
+                            header_index = idx
+                            raw_time_slots = [cell.strip() if cell else '' for cell in row]
+                            break
 
-        if not current_day:
-            continue
+                    if header_index == -1:
+                        continue
 
-        # Skip table headers and noise
-        if 'ROOM' in upper and 'COURSE' in upper and 'TEACHER' in upper:
-            continue
-        if 'TABLE' in upper or 'PAGE' in upper:
-            continue
+                    # Clean time slots (propagate last non-empty)
+                    time_slots = []
+                    last_time = None
+                    for cell in raw_time_slots:
+                        if cell.strip():
+                            last_time = cell.strip()
+                        time_slots.append(last_time if last_time else '')
+                    while time_slots and not time_slots[-1]:
+                        time_slots.pop()
 
-        is_lab = 'LAB' in upper or 'COM LAB' in upper
+                    # Process rows below header
+                    for row_idx in range(header_index + 1, len(table)):
+                        row = table[row_idx]
+                        if all(cell is None or str(cell).strip() == '' for cell in row):
+                            continue
 
-        matches = pattern.findall(stripped)
-        if not matches:
-            matches2 = pattern2.findall(stripped)
-            matches = [(m[0], m[1], m[2], 'TBA') for m in matches2]
+                        for col_idx, cell in enumerate(row):
+                            if col_idx >= len(time_slots):
+                                break
+                            time_slot = time_slots[col_idx]
+                            if not time_slot:
+                                continue
 
-        if not matches:
-            continue
+                            cell_text = str(cell).strip() if cell else ''
+                            if not cell_text:
+                                continue
 
-        for idx, (room, course, section, teacher) in enumerate(matches):
-            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
-            if not section_clean:
-                continue
+                            # Parse class data
+                            pattern = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)')
+                            match = pattern.search(cell_text)
+                            if match:
+                                room, course, section, teacher = match.groups()
+                            else:
+                                pattern2 = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
+                                match2 = pattern2.search(cell_text)
+                                if match2:
+                                    room, course, section = match2.groups()
+                                    teacher = 'TBA'
+                                else:
+                                    pattern3 = re.compile(r'([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
+                                    match3 = pattern3.search(cell_text)
+                                    if match3:
+                                        course, section = match3.groups()
+                                        room = 'TBA'
+                                        teacher = 'TBA'
+                                    else:
+                                        continue
 
-            # Extract main section and sub-section
-            sub_section = 'Main'
-            main_section = section_clean
-            match_sub = re.search(r'(_[A-Z])(\d+)$', section_clean)
-            if match_sub:
-                main_section = section_clean[:match_sub.start()] + match_sub.group(1)
-                sub_section = match_sub.group(2)
+                            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
+                            if not section_clean:
+                                continue
 
-            time_slot = time_slots[idx] if idx < len(time_slots) else 'TBA'
-            class_type = 'Lab' if is_lab else 'Theory'
+                            # Extract main section and sub-section
+                            sub_section = 'Main'
+                            main_section = section_clean
+                            match_sub = re.search(r'(_[A-Z])(\d+)$', section_clean)
+                            if match_sub:
+                                main_section = section_clean[:match_sub.start()] + match_sub.group(1)
+                                sub_section = match_sub.group(2)
 
-            batch_match = re.search(r'(\d{2})', main_section)
-            batch = batch_match.group(1) if batch_match else 'Unknown'
-            section_letter = re.sub(r'[^A-Z]', '', main_section.split('_')[-1] if '_' in main_section else '')
+                            is_lab = 'LAB' in cell_text.upper() or 'COM LAB' in cell_text.upper()
+                            class_type = 'Lab' if is_lab else 'Theory'
 
-            all_classes.append({
-                'main_section': main_section,
-                'sub_section': sub_section,
-                'day': current_day,
-                'time': time_slot,
-                'course': course,
-                'teacher': teacher,
-                'room': room,
-                'type': class_type,
-                'batch': batch,
-                'section': section_letter
-            })
-            class_count += 1
+                            batch_match = re.search(r'(\d{2})', main_section)
+                            batch = batch_match.group(1) if batch_match else 'Unknown'
+                            section_letter = re.sub(r'[^A-Z]', '', main_section.split('_')[-1] if '_' in main_section else '')
 
-    logger.info(f"📊 Extracted {class_count} classes")
-    return all_classes
+                            key = main_section
+                            if key not in sections:
+                                sections[key]['batch'] = batch
+                                sections[key]['section'] = section_letter
+                            sections[key]['classes'].append({
+                                'day': current_day or 'Unknown',
+                                'time': time_slot,
+                                'course': course,
+                                'teacher': teacher,
+                                'room': room,
+                                'type': class_type,
+                                'batch': batch,
+                                'section': section_letter,
+                                'sub_section': sub_section
+                            })
+                            class_count += 1
+
+    except Exception as e:
+        logger.error(f"❌ pdfplumber table extraction failed: {e}")
+        return {}
+
+    logger.info(f"📊 Extracted {class_count} raw class records from tables")
+
+    if class_count == 0:
+        return {}
+
+    # Merge lab classes
+    merged_sections = {}
+    for sec_key, sec_data in sections.items():
+        merged_classes = merge_lab_classes(sec_data['classes'])
+        merged_sections[sec_key] = {
+            'batch': sec_data['batch'],
+            'section': sec_data['section'],
+            'classes': merged_classes
+        }
+
+    return merged_sections
 
 
 def merge_lab_classes(classes):
@@ -329,6 +348,75 @@ def merge_lab_classes(classes):
                 continue
         merged.extend(items)
     return merged
+
+
+def extract_classes_from_text(text):
+    """Fallback: regex-based extraction (if table extraction fails)."""
+    all_classes = []
+    lines = text.split('\n')
+    time_slots = [
+        '08:30-10:00', '10:00-11:30', '11:30-01:00',
+        '01:00-02:30', '02:30-04:00', '04:00-05:30'
+    ]
+    days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
+    current_day = None
+    pattern = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)')
+    pattern2 = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            continue
+        upper = stripped.upper()
+        day_found = None
+        for day in days:
+            if day in upper and (any(slot in upper for slot in time_slots) or len(stripped) < 50):
+                day_found = day.capitalize()
+                break
+        if day_found:
+            current_day = day_found
+            continue
+        if not current_day:
+            continue
+        if 'ROOM' in upper and 'COURSE' in upper and 'TEACHER' in upper:
+            continue
+        if 'TABLE' in upper or 'PAGE' in upper:
+            continue
+        is_lab = 'LAB' in upper or 'COM LAB' in upper
+        matches = pattern.findall(stripped)
+        if not matches:
+            matches2 = pattern2.findall(stripped)
+            matches = [(m[0], m[1], m[2], 'TBA') for m in matches2]
+        if not matches:
+            continue
+        for idx, (room, course, section, teacher) in enumerate(matches):
+            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
+            if not section_clean:
+                continue
+            sub_section = 'Main'
+            main_section = section_clean
+            match_sub = re.search(r'(_[A-Z])(\d+)$', section_clean)
+            if match_sub:
+                main_section = section_clean[:match_sub.start()] + match_sub.group(1)
+                sub_section = match_sub.group(2)
+            time_slot = time_slots[idx] if idx < len(time_slots) else 'TBA'
+            class_type = 'Lab' if is_lab else 'Theory'
+            batch_match = re.search(r'(\d{2})', main_section)
+            batch = batch_match.group(1) if batch_match else 'Unknown'
+            section_letter = re.sub(r'[^A-Z]', '', main_section.split('_')[-1] if '_' in main_section else '')
+            all_classes.append({
+                'main_section': main_section,
+                'sub_section': sub_section,
+                'day': current_day,
+                'time': time_slot,
+                'course': course,
+                'teacher': teacher,
+                'room': room,
+                'type': class_type,
+                'batch': batch,
+                'section': section_letter
+            })
+    return all_classes
 
 
 def group_and_verify(all_classes):
