@@ -4,10 +4,32 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE321",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "ACT327",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE322",
-      "teacher": "FNN",
-      "room": "FNN",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "66",
       "section": "A",
@@ -15,102 +37,69 @@
     },
     {
       "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE321",
-      "teacher": "FNN",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "ACT327",
-      "teacher": "ASM",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "SZ",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE315",
-      "teacher": "AS",
-      "room": "KT-305",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "ACT327",
-      "teacher": "ASM",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "SZ",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE315",
-      "teacher": "AS",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE321",
-      "teacher": "FNN",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
+      "time": "10:00-11:30",
       "course": "CSE322",
-      "teacher": "FNN",
-      "room": "FNN",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "66",
       "section": "A",
-      "sub_section": "2"
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE315",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE315",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE321",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
     }
   ]
 }

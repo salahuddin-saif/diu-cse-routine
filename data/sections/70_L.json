@@ -4,10 +4,21 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "PHY102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "JHJ",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "L",
@@ -15,76 +26,54 @@
     },
     {
       "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "PHY102",
-      "teacher": "MRI",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "70",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "DP",
-      "type": "Theory",
-      "batch": "70",
-      "section": "L",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE121",
-      "teacher": "NTS",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "70",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "JHJ",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "70",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "PHY102",
-      "teacher": "MRI",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "70",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "PHY103",
-      "teacher": "MRI",
-      "room": "MRI",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "L",
       "sub_section": "1"
     },
     {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE121",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE123",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "PHY102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
       "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE123",
-      "teacher": "JHJ",
-      "room": "KT-222",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "L",
@@ -94,23 +83,12 @@
       "day": "Wednesday",
       "time": "10:00-11:30",
       "course": "CSE121",
-      "teacher": "NTS",
-      "room": "KT-223",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "70",
       "section": "L",
       "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "PHY103",
-      "teacher": "MRI",
-      "room": "MRI",
-      "type": "Theory",
-      "batch": "70",
-      "section": "L",
-      "sub_section": "2"
     }
   ]
 }

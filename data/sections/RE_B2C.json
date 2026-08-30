@@ -3,14 +3,15 @@
   "batch": "Unknown",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "04:00-05:30",
       "course": "CSE233",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REBC"
+      "section": "BC",
+      "sub_section": "Main"
     },
     {
       "day": "Unknown",
@@ -20,7 +21,8 @@
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REBC"
+      "section": "BC",
+      "sub_section": "Main"
     }
   ]
 }

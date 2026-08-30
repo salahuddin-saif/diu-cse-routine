@@ -3,74 +3,81 @@
   "batch": "Unknown",
   "classes": [
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "04:00-05:30",
       "course": "CSE236",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE334",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE226",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE332",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
-      "day": "Unknown",
+      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE232",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
-      "day": "Unknown",
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE221",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
-      "day": "Unknown",
+      "day": "Wednesday",
       "time": "04:00-05:30",
       "course": "CSE212",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Unknown",
@@ -80,7 +87,8 @@
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     },
     {
       "day": "Unknown",
@@ -90,7 +98,8 @@
       "room": "TBA",
       "type": "Theory",
       "batch": "Unknown",
-      "section": "REAC"
+      "section": "AC",
+      "sub_section": "Main"
     }
   ]
 }
