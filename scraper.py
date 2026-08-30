@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - TABLE-BASED PARSER
-Extracts ALL classes by day and time slot using pattern order.
+DIU CSE Routine Scraper - WITH SUB-SECTION SUPPORT
+Extracts all classes, groups under base section, preserves sub-section info.
 """
 
 import json
@@ -46,7 +46,7 @@ def main():
         DATA_DIR.mkdir(exist_ok=True)
         
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER - TABLE PARSER")
+        logger.info("DIU CSE ROUTINE SCRAPER - SUB-SECTION SUPPORT")
         logger.info("=" * 60)
         
         # Find PDF
@@ -68,7 +68,7 @@ def main():
         
         # Parse PDF
         logger.info("📖 Parsing PDF...")
-        sections = parse_pdf_table_based(response.content)
+        sections = parse_pdf_with_sub_sections(response.content)
         
         if not sections:
             logger.error("❌ No data extracted")
@@ -132,8 +132,8 @@ def find_latest_class_routine():
         return None
 
 
-def parse_pdf_table_based(content):
-    """Parse PDF using table-based approach."""
+def parse_pdf_with_sub_sections(content):
+    """Parse PDF and group classes under base section with sub-section info."""
     sections = {}
     all_classes = []
     
@@ -157,28 +157,48 @@ def parse_pdf_table_based(content):
         
         logger.info(f"📊 Total classes found: {len(all_classes)}")
         
-        # Group by section
+        # Group by base section
         for cls in all_classes:
-            section_key = cls.get('section_key')
-            if section_key:
-                if section_key not in sections:
-                    sections[section_key] = {
-                        'batch': cls.get('batch', 'Unknown'),
-                        'section': cls.get('section_letter', ''),
-                        'classes': []
-                    }
-                
-                entry = {
-                    'day': cls.get('day', 'Unknown'),
-                    'time': cls.get('time', 'TBA'),
-                    'course': cls.get('course', ''),
-                    'teacher': cls.get('teacher', 'TBA'),
-                    'room': cls.get('room', 'TBA'),
-                    'type': cls.get('type', 'Theory'),
-                    'batch': cls.get('batch', 'Unknown'),
-                    'section': cls.get('section_letter', '')
+            raw_section = cls.get('section_key', '')
+            # Derive base section: remove trailing numbers like 1,2, etc.
+            # Example: "70_N1" -> "70_N", "70_N2" -> "70_N", "70_N" -> "70_N"
+            base_section = re.sub(r'(\d+)$', '', raw_section)  # Remove trailing digits
+            if not base_section:
+                base_section = raw_section
+            
+            # Extract sub-section: the part after the underscore or the whole if no change
+            sub_section = raw_section.replace(base_section, '').lstrip('_')
+            if not sub_section:
+                sub_section = 'Main'
+            
+            # Determine batch
+            batch_match = re.search(r'(\d{2})', base_section)
+            batch = batch_match.group(1) if batch_match else 'Unknown'
+            
+            # Determine section letter (after underscore)
+            section_letter = ''
+            if '_' in base_section:
+                section_letter = base_section.split('_')[1]
+            
+            if base_section not in sections:
+                sections[base_section] = {
+                    'batch': batch,
+                    'section': section_letter,
+                    'classes': []
                 }
-                sections[section_key]['classes'].append(entry)
+            
+            entry = {
+                'day': cls.get('day', 'Unknown'),
+                'time': cls.get('time', 'TBA'),
+                'course': cls.get('course', ''),
+                'teacher': cls.get('teacher', 'TBA'),
+                'room': cls.get('room', 'TBA'),
+                'type': cls.get('type', 'Theory'),
+                'batch': batch,
+                'section': section_letter,
+                'sub_section': sub_section  # Store the sub-section info
+            }
+            sections[base_section]['classes'].append(entry)
         
         return sections
         
@@ -208,7 +228,7 @@ def parse_table(text):
     current_day = None
     i = 0
     
-    # Patterns for class data
+    # Patterns
     pattern_with_teacher = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
     pattern_without_teacher = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)'
     
@@ -221,7 +241,6 @@ def parse_table(text):
         # Check for day
         day_match = re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', line.upper())
         if day_match:
-            # Check if it's a day header (contains time slots or is a heading)
             if any(slot in line for slot in time_slots) or len(line) < 30:
                 current_day = day_match.group(1).capitalize()
                 logger.info(f"📅 Found day: {current_day}")
@@ -232,53 +251,40 @@ def parse_table(text):
             i += 1
             continue
         
-        # Skip table of contents and page numbers
         if 'TABLE' in line.upper() or 'PAGE' in line.upper():
             i += 1
             continue
         
-        # Check if this line contains lab info
+        # Lab detection
         is_lab = False
         if 'LAB' in line.upper() or 'COM LAB' in line.upper():
             is_lab = True
-            # Merge with next line if it continues
             if i + 1 < len(lines):
                 next_line = lines[i + 1].strip()
                 if next_line and not re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', next_line.upper()):
                     line = line + " " + next_line
                     i += 1
         
-        # Extract ALL class patterns from this line
-        # First try with teacher
+        # Extract matches
         matches = re.findall(pattern_with_teacher, line)
         if not matches:
-            # Try without teacher
             matches2 = re.findall(pattern_without_teacher, line)
-            # Convert to same format: (room, course, section, teacher)
             matches = [(m[0], m[1], m[2], 'TBA') for m in matches2]
         
         if matches:
-            # Assign time slots sequentially
             for idx, match in enumerate(matches):
-                # If more matches than time slots, wrap around or skip
                 if idx >= len(time_slots):
-                    logger.warning(f"More matches ({len(matches)}) than time slots on line: {line[:50]}...")
-                    break
+                    # If more matches than slots, assign the last slot or TBA
+                    time_slot = time_slots[-1] if time_slots else 'TBA'
+                else:
+                    time_slot = time_slots[idx]
                 
                 room, course, section, teacher = match
                 section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
                 if not section_clean:
                     continue
                 
-                time_slot = time_slots[idx] if idx < len(time_slots) else 'TBA'
-                
-                # Determine class type
                 class_type = 'Lab' if is_lab or 'LAB' in line.upper() else 'Theory'
-                
-                # Extract batch
-                batch_match = re.search(r'(\d{2})', section_clean)
-                batch = batch_match.group(1) if batch_match else 'Unknown'
-                section_letter = re.sub(r'[^A-Z]', '', section_clean)
                 
                 all_classes.append({
                     'section_key': section_clean,
@@ -288,8 +294,6 @@ def parse_table(text):
                     'teacher': teacher if teacher != 'TBA' else 'TBA',
                     'room': room,
                     'type': class_type,
-                    'batch': batch,
-                    'section_letter': section_letter
                 })
         
         i += 1
