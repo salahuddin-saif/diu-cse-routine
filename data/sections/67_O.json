@@ -49,17 +49,6 @@
     {
       "day": "Sunday",
       "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "MDA",
-      "room": "MDA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
       "course": "CSE314",
       "teacher": "UH",
       "room": "UH",
@@ -67,6 +56,17 @@
       "batch": "67",
       "section": "O",
       "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "MDA",
+      "room": "MDA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O",
+      "sub_section": "2"
     },
     {
       "day": "Wednesday",

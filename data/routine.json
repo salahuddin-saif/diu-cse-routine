@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-30T08:31:09.692738+00:00",
+  "updated_at": "2026-08-30T08:40:42.283565+00:00",
   "source": "https://webbackend.daffodilvarsity.edu.bd/download-file/4148",
   "version": "5",
   "sections": {
@@ -2860,17 +2860,6 @@
         {
           "day": "Sunday",
           "time": "10:00-11:30",
-          "course": "CSE312",
-          "teacher": "MDA",
-          "room": "MDA",
-          "type": "Theory",
-          "batch": "67",
-          "section": "O",
-          "sub_section": "2"
-        },
-        {
-          "day": "Sunday",
-          "time": "10:00-11:30",
           "course": "CSE314",
           "teacher": "UH",
           "room": "UH",
@@ -2878,6 +2867,17 @@
           "batch": "67",
           "section": "O",
           "sub_section": "1"
+        },
+        {
+          "day": "Sunday",
+          "time": "10:00-11:30",
+          "course": "CSE312",
+          "teacher": "MDA",
+          "room": "MDA",
+          "type": "Theory",
+          "batch": "67",
+          "section": "O",
+          "sub_section": "2"
         },
         {
           "day": "Wednesday",
