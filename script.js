@@ -1,9 +1,9 @@
-// DIU CSE Routine - Student View with Per-Section JSON Loading
+// DIU CSE Routine - Student View with Fallback
 
 const STORAGE_KEY = 'diu_cse_section';
 const SECTIONS_BASE = './data/sections/';
+const COMBINED_URL = './data/routine.json?t=' + Date.now();
 
-// DOM Elements
 const sectionInput = document.getElementById('sectionInput');
 const showRoutineBtn = document.getElementById('showRoutineBtn');
 const clearSectionBtn = document.getElementById('clearSectionBtn');
@@ -15,16 +15,13 @@ const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
 let currentSectionData = null;
-let currentSectionKey = null;
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
         sectionInput.value = saved;
         loadSection(saved);
     } else {
-        // Show default message
         showNoRoutine('Enter a section', 'Type your section (e.g., 70_N) and click "Show Routine".');
     }
 
@@ -35,37 +32,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Load a specific section
 async function loadSection(sectionKey) {
     try {
         setStatus('loading', 'Loading...');
-        const url = `${SECTIONS_BASE}${sectionKey}.json?t=${Date.now()}`;
-        console.log('📡 Fetching:', url);
+        // Try per‑section file first
+        const perSectionUrl = `${SECTIONS_BASE}${sectionKey}.json?t=${Date.now()}`;
+        let data = null;
+        let found = false;
 
-        const response = await fetch(url);
-        if (!response.ok) {
-            if (response.status === 404) {
-                throw new Error(`Section "${sectionKey}" not found.`);
+        try {
+            const resp = await fetch(perSectionUrl);
+            if (resp.ok) {
+                data = await resp.json();
+                found = true;
             }
-            throw new Error(`HTTP ${response.status}`);
+        } catch (e) {
+            // Per‑section not found, will fallback
         }
 
-        const data = await response.json();
+        // Fallback: load combined and filter
+        if (!found) {
+            const combinedResp = await fetch(COMBINED_URL);
+            if (!combinedResp.ok) throw new Error('Failed to load routine data');
+            const combined = await combinedResp.json();
+            if (combined.sections && combined.sections[sectionKey]) {
+                const secData = combined.sections[sectionKey];
+                data = {
+                    section: sectionKey,
+                    batch: secData.batch || 'Unknown',
+                    classes: secData.classes || []
+                };
+                found = true;
+                // Update version/updated
+                if (combined.version) versionNumber.textContent = combined.version;
+                if (combined.updated_at) {
+                    const date = new Date(combined.updated_at);
+                    lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
+                }
+            }
+        }
+
+        if (!found) {
+            throw new Error(`Section "${sectionKey}" not found.`);
+        }
+
         currentSectionData = data;
-        currentSectionKey = sectionKey;
-
-        // Update version badge (if available from main routine.json)
-        // We'll fetch the main file for version and updated_at
-        const mainResponse = await fetch('./data/routine.json?t=' + Date.now());
-        if (mainResponse.ok) {
-            const mainData = await mainResponse.json();
-            if (mainData.version) versionNumber.textContent = mainData.version;
-            if (mainData.updated_at) {
-                const date = new Date(mainData.updated_at);
-                lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
-            }
-        }
-
         setStatus('ready', 'Ready');
         hideMessage();
         displayRoutine(data);
@@ -75,7 +86,7 @@ async function loadSection(sectionKey) {
         console.error('❌ Failed to load section:', error);
         setStatus('error', 'Error');
         showMessage(error.message, 'error');
-        showNoRoutine('Section Not Found', `No routine data available for "${sectionKey}". Please check your section name.`);
+        showNoRoutine('Section Not Found', `No routine data for "${sectionKey}". Please check the section name.`);
     }
 }
 
@@ -85,7 +96,6 @@ function handleShowRoutine() {
         showMessage('Please enter your section (e.g., 70_N).', 'error');
         return;
     }
-    // Normalize: uppercase and replace spaces with underscores
     const normalized = section.toUpperCase().replace(/\s+/g, '_');
     loadSection(normalized);
 }
@@ -94,19 +104,16 @@ function handleClearSection() {
     localStorage.removeItem(STORAGE_KEY);
     sectionInput.value = '';
     currentSectionData = null;
-    currentSectionKey = null;
     showMessage('Saved section cleared.', 'info');
     showNoRoutine('Enter a section', 'Type your section and click "Show Routine".');
 }
 
-// Display routine data
 function displayRoutine(data) {
     const classes = data.classes || [];
     if (!classes || classes.length === 0) {
-        showNoRoutine('No Classes Found', `No classes found for section "${data.section || currentSectionKey}".`);
+        showNoRoutine('No Classes Found', `No classes for section "${data.section || currentSectionKey}".`);
         return;
     }
-
     const batch = data.batch || 'Unknown';
     const section = data.section || currentSectionKey;
 
@@ -119,11 +126,9 @@ function displayRoutine(data) {
         </div>
         <div id="viewContent"></div>
     `;
-
     routineContainer.innerHTML = html;
     renderDayView(classes);
 
-    // View switching
     document.querySelectorAll('.view-tab').forEach(tab => {
         tab.addEventListener('click', function() {
             document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
@@ -134,13 +139,11 @@ function displayRoutine(data) {
     });
 }
 
-// Build student profile
 function buildProfile(batch, section, classes) {
     const total = classes.length;
     const days = ['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday'];
     const uniqueDays = [...new Set(classes.map(c => c.day))].filter(d => days.includes(d));
     const perWeek = uniqueDays.length;
-
     return `
         <div class="student-profile">
             <div class="profile-top">
@@ -167,7 +170,6 @@ function buildProfile(batch, section, classes) {
     `;
 }
 
-// Build enrolled courses list
 function buildCourses(classes) {
     const courseMap = {};
     for (const cls of classes) {
@@ -192,7 +194,6 @@ function buildCourses(classes) {
     return html;
 }
 
-// Render Day View
 function renderDayView(classes) {
     const container = document.getElementById('viewContent');
     if (!container) return;
@@ -220,7 +221,6 @@ function renderDayView(classes) {
         `;
         for (const cls of sorted) {
             const tc = cls.type === 'Lab' ? 'type-lab' : 'type-theory';
-            // If there's a sub-section, display it
             const subLabel = cls.sub_section && cls.sub_section !== 'Main' ? `<span class="sub-section">(${escapeHtml(cls.sub_section)})</span>` : '';
             html += `
                 <div class="class-item">
@@ -240,7 +240,6 @@ function renderDayView(classes) {
     container.innerHTML = html;
 }
 
-// Render Week View
 function renderWeekView(classes) {
     const container = document.getElementById('viewContent');
     if (!container) return;
@@ -282,7 +281,6 @@ function renderWeekView(classes) {
     container.innerHTML = html;
 }
 
-// Show "No Routine" message
 function showNoRoutine(title, msg) {
     routineContainer.innerHTML = `
         <div class="no-routine">
@@ -293,7 +291,6 @@ function showNoRoutine(title, msg) {
     `;
 }
 
-// Status helpers
 function setStatus(type, text) {
     statusBadge.className = 'status ' + type;
     statusText.textContent = text;
@@ -307,7 +304,6 @@ function showMessage(text, type) {
 
 function hideMessage() { message.className = ''; }
 
-// Escape HTML
 function escapeHtml(text) {
     if (!text) return '-';
     const div = document.createElement('div');
