@@ -4,10 +4,10 @@
   "classes": [
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE311",
-      "teacher": "TBA",
-      "room": "TBA",
+      "time": "08:30-10:00",
+      "course": "CSE226",
+      "teacher": "HMK",
+      "room": "KT-515",
       "type": "Theory",
       "batch": "67",
       "section": "F",
@@ -15,10 +15,32 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "TBA",
-      "room": "TBA",
+      "time": "10:00-11:30",
+      "course": "CSE311",
+      "teacher": "SH",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "SH",
+      "room": "SH",
+      "type": "Theory",
+      "batch": "67",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE311",
+      "teacher": "SH",
+      "room": "KT-304",
       "type": "Theory",
       "batch": "67",
       "section": "F",
@@ -27,20 +49,42 @@
     {
       "day": "Monday",
       "time": "10:00-11:30",
-      "course": "CSE311",
-      "teacher": "TBA",
-      "room": "TBA",
+      "course": "CSE312",
+      "teacher": "SH",
+      "room": "SH",
+      "type": "Theory",
+      "batch": "67",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
       "type": "Theory",
       "batch": "67",
       "section": "F",
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE314",
+      "teacher": "TAS",
+      "room": "TAS",
+      "type": "Theory",
+      "batch": "67",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
       "time": "08:30-10:00",
-      "course": "CSE226",
-      "teacher": "TBA",
-      "room": "TBA",
+      "course": "CSE313",
+      "teacher": "SMTS",
+      "room": "KT-516",
       "type": "Theory",
       "batch": "67",
       "section": "F",
@@ -48,14 +92,14 @@
     },
     {
       "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE313",
-      "teacher": "TBA",
-      "room": "TBA",
+      "time": "10:00-11:30",
+      "course": "CSE314",
+      "teacher": "TAS",
+      "room": "TAS",
       "type": "Theory",
       "batch": "67",
       "section": "F",
-      "sub_section": "Main"
+      "sub_section": "2"
     }
   ]
 }
