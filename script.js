@@ -39,39 +39,58 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadSection(sectionKey) {
     try {
         setStatus('loading', 'Loading...');
+        // Try per‑section file first
+        const perSectionUrl = `${SECTIONS_BASE}${sectionKey}.json?t=${Date.now()}`;
         let data = null;
+        let found = false;
 
         try {
-            const resp = await fetch(`${SECTIONS_BASE}${sectionKey}.json?t=${Date.now()}`);
-            if (resp.ok) data = await resp.json();
-        } catch (_) {}
+            const resp = await fetch(perSectionUrl);
+            if (resp.ok) {
+                data = await resp.json();
+                found = true;
+            }
+        } catch (e) {
+            // Per‑section not found, will fallback
+        }
 
-        if (!data) {
-            const resp = await fetch(COMBINED_URL);
-            if (!resp.ok) throw new Error('Failed to load routine data');
-            const combined = await resp.json();
+        // Fallback: load combined and filter
+        if (!found) {
+            const combinedResp = await fetch(COMBINED_URL);
+            if (!combinedResp.ok) throw new Error('Failed to load routine data');
+            const combined = await combinedResp.json();
             if (combined.sections && combined.sections[sectionKey]) {
-                const sec = combined.sections[sectionKey];
-                data = {section: sectionKey, batch: sec.batch || 'Unknown', classes: sec.classes || []};
+                const secData = combined.sections[sectionKey];
+                data = {
+                    section: sectionKey,
+                    batch: secData.batch || 'Unknown',
+                    classes: secData.classes || []
+                };
+                found = true;
+                // Update version/updated
                 if (combined.version) versionNumber.textContent = combined.version;
                 if (combined.updated_at) {
-                    lastUpdated.textContent = 'Updated: ' + new Date(combined.updated_at).toLocaleString();
+                    const date = new Date(combined.updated_at);
+                    lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
                 }
             }
         }
 
-        if (!data) throw new Error(`Section "${sectionKey}" not found.`);
+        if (!found) {
+            throw new Error(`Section "${sectionKey}" not found.`);
+        }
+
         currentSectionData = data;
-        setStatus('ready', 'Online');
+        setStatus('ready', 'Ready');
         hideMessage();
         displayRoutine(data);
         localStorage.setItem(STORAGE_KEY, sectionKey);
-        if (savedSection) savedSection.textContent = sectionKey;
+
     } catch (error) {
-        console.error(error);
+        console.error('❌ Failed to load section:', error);
         setStatus('error', 'Error');
         showMessage(error.message, 'error');
-        showNoRoutine('Section Not Found', `No routine data for "${sectionKey}".`);
+        showNoRoutine('Section Not Found', `No routine data for "${sectionKey}". Please check the section name.`);
     }
 }
 
