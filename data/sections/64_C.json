@@ -4,10 +4,32 @@
   "classes": [
     {
       "day": "Sunday",
-      "time": "02:30-04:00",
+      "time": "10:00-11:30",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "64",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE432",
+      "teacher": "SN",
+      "room": "MHD",
+      "type": "Theory",
+      "batch": "64",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "CSE431",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "ZH",
+      "room": "KT-201",
       "type": "Theory",
       "batch": "64",
       "section": "C",
