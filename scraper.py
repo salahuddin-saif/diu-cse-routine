@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper – FIXED FOR ACTUAL PDF FORMAT
+DIU CSE Routine Scraper – FIXED DAY DETECTION
 """
 
 import json
@@ -14,7 +14,6 @@ from collections import defaultdict
 import requests
 from bs4 import BeautifulSoup
 
-# Try pdfplumber, fallback to PyPDF2
 try:
     import pdfplumber
     HAS_PDFPLUMBER = True
@@ -60,7 +59,7 @@ def main():
         SECTIONS_DIR.mkdir(exist_ok=True)
 
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER – FIXED")
+        logger.info("DIU CSE ROUTINE SCRAPER – FINAL")
         logger.info("=" * 60)
 
         result = find_latest_class_routine()
@@ -86,8 +85,15 @@ def main():
         DEBUG_FILE.write_text(text)
         logger.info(f"💾 Saved full text to {DEBUG_FILE}")
 
+        # Log first 50 lines for debugging (they are already in the log but we can see)
+        lines = text.split('\n')
+        logger.info("📄 FIRST 50 LINES:")
+        for i, line in enumerate(lines[:50]):
+            if line.strip():
+                logger.info(f"  {i:3d}: {line}")
+
         logger.info("🔍 Extracting classes...")
-        all_classes = extract_classes_fixed(text)
+        all_classes = extract_classes_final(text)
 
         if not all_classes:
             logger.error("❌ No classes extracted")
@@ -190,8 +196,7 @@ def extract_text(pdf_content):
     return None
 
 
-def extract_classes_fixed(text):
-    """Extract classes using the correct pattern for this PDF."""
+def extract_classes_final(text):
     all_classes = []
     lines = text.split('\n')
 
@@ -205,9 +210,10 @@ def extract_classes_fixed(text):
     current_day = None
     class_count = 0
 
-    # Pattern for the actual format: Room Course(Section) Teacher
-    # Example: KT-201 CSE315(66_E) AS
+    # Pattern: Room Course(Section) Teacher
     pattern = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)')
+    # Fallback: Room Course(Section)
+    pattern2 = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
 
     for line in lines:
         stripped = line.strip()
@@ -216,31 +222,47 @@ def extract_classes_fixed(text):
 
         upper = stripped.upper()
 
-        # Detect day
+        # ---- Day Detection ----
+        # If the line contains a day name and either is short (header) or has no time slots
+        # Also, if it's a day name followed by a time slot (but that's already handled)
+        day_found = None
         for day in days:
-            if day in upper and any(slot in upper for slot in time_slots):
-                current_day = day.capitalize()
-                logger.info(f"📅 Found day: {current_day}")
-                break
+            if day in upper:
+                # Check if it's a header line (short or no time slots)
+                if len(stripped) < 30 or not any(slot in upper for slot in time_slots):
+                    day_found = day.capitalize()
+                    break
+
+        if day_found:
+            current_day = day_found
+            logger.info(f"📅 Found day: {current_day}")
+            continue
 
         if not current_day:
             continue
 
-        # Skip table headers
-        if 'TABLE' in upper or 'PAGE' in upper or 'ROOM' in upper and 'COURSE' in upper:
+        # Skip table headers like "Room Course Teacher"
+        if 'ROOM' in upper and 'COURSE' in upper and 'TEACHER' in upper:
+            continue
+
+        # Skip table of contents and page numbers
+        if 'TABLE' in upper or 'PAGE' in upper:
             continue
 
         # Check for lab
         is_lab = 'LAB' in upper or 'COM LAB' in upper
 
-        # Find all matches in this line
+        # Find all matches in this line using pattern1
         matches = pattern.findall(stripped)
 
+        # If no matches, try pattern2
         if not matches:
-            # Try without teacher
-            pattern2 = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
             matches2 = pattern2.findall(stripped)
             matches = [(m[0], m[1], m[2], 'TBA') for m in matches2]
+
+        # If still no matches, skip this line
+        if not matches:
+            continue
 
         # Process each match
         for idx, (room, course, section, teacher) in enumerate(matches):
