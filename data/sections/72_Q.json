@@ -89,6 +89,50 @@
       "batch": "72",
       "section": "Q",
       "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "ENG101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE115",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "01:00-02:30",
+      "course": "ENG101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "02:30-04:00",
+      "course": "CSE115",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
     }
   ]
 }

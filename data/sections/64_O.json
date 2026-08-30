@@ -34,6 +34,28 @@
       "batch": "64",
       "section": "O",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "ECO426",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "O",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "O",
+      "sub_section": "Main"
     }
   ]
 }

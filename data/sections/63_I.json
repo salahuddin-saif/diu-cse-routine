@@ -34,6 +34,17 @@
       "batch": "63",
       "section": "I",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE465",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "63",
+      "section": "I",
+      "sub_section": "Main"
     }
   ]
 }

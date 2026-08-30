@@ -89,6 +89,61 @@
       "batch": "67",
       "section": "E",
       "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE226",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE311",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE226",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE311",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE313",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "Main"
     }
   ]
 }

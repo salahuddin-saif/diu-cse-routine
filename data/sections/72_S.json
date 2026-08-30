@@ -78,6 +78,17 @@
       "batch": "72",
       "section": "S",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE115",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "S",
+      "sub_section": "Main"
     }
   ]
 }

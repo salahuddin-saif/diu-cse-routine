@@ -89,6 +89,39 @@
       "batch": "72",
       "section": "I",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE115",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I",
+      "sub_section": "Main"
     }
   ]
 }

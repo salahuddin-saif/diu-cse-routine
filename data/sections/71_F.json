@@ -89,6 +89,83 @@
       "batch": "71",
       "section": "F",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "MAT102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE113",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "PHY101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE114",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE114",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "ENG102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "ENG102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "Main"
     }
   ]
 }

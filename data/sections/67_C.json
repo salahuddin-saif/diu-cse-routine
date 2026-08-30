@@ -89,6 +89,39 @@
       "batch": "67",
       "section": "C",
       "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE311",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE313",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE226",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "C",
+      "sub_section": "Main"
     }
   ]
 }

@@ -34,6 +34,17 @@
       "batch": "64",
       "section": "D",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE432",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "D",
+      "sub_section": "Main"
     }
   ]
 }

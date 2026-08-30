@@ -12,6 +12,61 @@
       "batch": "Unknown",
       "section": "CC",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "MAT101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "CC",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "MAT211",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "CC",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE113",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "CC",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "04:00-05:30",
+      "course": "CSE113",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "CC",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "02:30-04:00",
+      "course": "MAT211",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "CC",
+      "sub_section": "Main"
     }
   ]
 }

@@ -100,6 +100,116 @@
       "batch": "69",
       "section": "F",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE214",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "CSE214",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE213",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "BNS101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "BNS101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "MAT211",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "69",
+      "section": "F",
+      "sub_section": "Main"
     }
   ]
 }

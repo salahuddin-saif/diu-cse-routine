@@ -56,6 +56,39 @@
       "batch": "12",
       "section": "AC",
       "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "01:00-02:30",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "AC",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "02:30-04:00",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "AC",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "04:00-05:30",
+      "course": "CSE422",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "12",
+      "section": "AC",
+      "sub_section": "Main"
     }
   ]
 }

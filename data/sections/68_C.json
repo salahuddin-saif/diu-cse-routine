@@ -56,6 +56,61 @@
       "batch": "68",
       "section": "C",
       "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "AOL101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE215",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE215",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "AOL101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "02:30-04:00",
+      "course": "CSE221",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
     }
   ]
 }

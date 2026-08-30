@@ -45,6 +45,50 @@
       "batch": "64",
       "section": "E",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE431",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "ECO426",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE432",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Unknown",
+      "time": "11:30-01:00",
+      "course": "CSE432",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "E",
+      "sub_section": "Main"
     }
   ]
 }
