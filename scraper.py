@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - ROBUST VERSION
-Properly extracts ALL classes from the PDF
+DIU CSE Routine Scraper - COMPLETE FIXED VERSION
+Extracts ALL classes from ALL pages
 """
 
 import json
@@ -47,7 +47,7 @@ def main():
         DATA_DIR.mkdir(exist_ok=True)
         
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER - ROBUST")
+        logger.info("DIU CSE ROUTINE SCRAPER - COMPLETE")
         logger.info("=" * 60)
         
         # Find PDF
@@ -69,7 +69,7 @@ def main():
         
         # Parse PDF
         logger.info("📖 Parsing PDF...")
-        sections = parse_pdf_robust(response.content)
+        sections = parse_pdf_complete(response.content)
         
         if not sections:
             logger.error("❌ No data extracted")
@@ -133,8 +133,8 @@ def find_latest_class_routine():
         return None
 
 
-def parse_pdf_robust(content):
-    """Parse PDF with robust extraction."""
+def parse_pdf_complete(content):
+    """Parse PDF and extract ALL data from ALL pages."""
     sections = {}
     all_classes = []
     
@@ -142,28 +142,23 @@ def parse_pdf_robust(content):
         pdf_reader = PyPDF2.PdfReader(BytesIO(content))
         logger.info(f"📄 PDF has {len(pdf_reader.pages)} pages")
         
-        # Extract text from ALL pages with page numbers
-        page_texts = []
+        # Extract text from ALL pages
+        full_text = ""
         for page_num, page in enumerate(pdf_reader.pages):
             text = page.extract_text()
             if text:
-                page_texts.append((page_num + 1, text))
+                full_text += text + "\n"
                 logger.info(f"📝 Page {page_num + 1}: {len(text)} chars")
         
-        if not page_texts:
+        if not full_text:
             return {}
         
-        # Combine all text for debugging
-        full_text = "\n".join([t for _, t in page_texts])
+        # Save debug text
         DEBUG_FILE.write_text(full_text)
         logger.info(f"💾 Saved debug text to {DEBUG_FILE}")
         
-        # Parse each page
-        for page_num, text in page_texts:
-            logger.info(f"🔍 Processing page {page_num}")
-            classes = parse_page(text, page_num)
-            all_classes.extend(classes)
-            logger.info(f"📊 Page {page_num}: Found {len(classes)} classes")
+        # Parse the FULL text
+        all_classes = parse_full_text(full_text)
         
         logger.info(f"📊 Total classes found: {len(all_classes)}")
         
@@ -197,8 +192,8 @@ def parse_pdf_robust(content):
         return {}
 
 
-def parse_page(text, page_num):
-    """Parse a single page."""
+def parse_full_text(text):
+    """Parse the complete text to extract ALL classes."""
     classes = []
     lines = text.split('\n')
     
@@ -212,164 +207,128 @@ def parse_page(text, page_num):
     days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
     
     current_day = None
+    day_found = False
     
-    for i, line in enumerate(lines):
-        line = line.strip()
+    # Pattern for class data: ROOM COURSE(SECTION) TEACHER
+    pattern1 = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
+    pattern2 = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)'
+    pattern3 = r'([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
+    pattern4 = r'([A-Z]{3,4}\d{3,4})\(([^)]+)\)'
+    
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
         if not line:
+            i += 1
             continue
         
         # Check for day
         day_match = re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', line.upper())
         if day_match:
-            # Check if it's a day header (has time slots or is standalone)
+            # Check if it's a day header
             has_time = any(slot in line for slot in time_slots)
-            if has_time or len(line) < 30:
+            is_heading = line.upper().strip() == day_match.group(1)
+            if has_time or is_heading:
                 current_day = day_match.group(1).capitalize()
+                day_found = True
                 logger.debug(f"Found day: {current_day}")
+                i += 1
                 continue
         
         if not current_day:
+            i += 1
             continue
         
         # Skip table of contents and page numbers
         if 'TABLE' in line.upper() or 'PAGE' in line.upper():
+            i += 1
             continue
         
-        # Check for lab classes
+        # Check for lab
         is_lab = False
         if 'LAB' in line.upper() or 'COM LAB' in line.upper():
             is_lab = True
+            # Combine with next line if it's a multi-line lab
+            if i + 1 < len(lines):
+                next_line = lines[i + 1].strip()
+                if next_line and not re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', next_line.upper()):
+                    line = line + " " + next_line
+                    i += 1
         
-        # Extract classes from this line
-        class_matches = extract_classes_from_line(line, current_day, time_slots, is_lab)
-        classes.extend(class_matches)
-    
-    return classes
-
-
-def extract_classes_from_line(line, day, time_slots, is_lab):
-    """Extract ALL classes from a line."""
-    classes = []
-    
-    # Multiple patterns to try
-    patterns = [
-        # Pattern: KT-201 CSE315(66_E) AS
-        r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)',
-        # Pattern: KT-201 CSE315(66_E)
-        r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)',
-        # Pattern: CSE315(66_E) AS
-        r'([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)',
-        # Pattern: CSE315(66_E)
-        r'([A-Z]{3,4}\d{3,4})\(([^)]+)\)',
-    ]
-    
-    all_matches = []
-    
-    for pattern in patterns:
-        matches = re.findall(pattern, line)
-        if matches:
-            for match in matches:
-                if len(match) >= 2:
-                    # Determine what each part is
-                    parts = list(match)
-                    course = None
-                    section = None
-                    teacher = 'TBA'
-                    room = 'TBA'
-                    
-                    # Find course code (starts with letters then numbers)
-                    for part in parts:
-                        if re.match(r'[A-Z]{3,4}\d{3,4}', part):
-                            course = part
-                        elif re.match(r'[A-Z0-9_]+', part) and not course:
-                            section = part
-                        elif re.match(r'[A-Z]{2,4}', part) and len(part) <= 4:
-                            teacher = part
-                        elif re.match(r'[A-Z0-9\-]+', part) and '-' in part:
-                            room = part
-                    
-                    # If we found course and section, add to matches
-                    if course and section:
-                        # Try to find room if not found
-                        if room == 'TBA':
-                            room_match = re.search(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+|CTBA-\d+)\b', line)
-                            if room_match:
-                                room = room_match.group(0)
-                        
-                        # Try to find teacher if not found
-                        if teacher == 'TBA':
-                            remaining = line.replace(course, '').replace(f'({section})', '')
-                            teacher_match = re.search(r'\b([A-Z]{2,4})\b', remaining)
-                            if teacher_match:
-                                teacher = teacher_match.group(0)
-                        
-                        all_matches.append({
-                            'room': room,
-                            'course': course,
-                            'section': section,
-                            'teacher': teacher
-                        })
-            
-            # If we found matches with this pattern, break
-            if all_matches:
-                break
-    
-    # If still no matches, try looking for course codes directly
-    if not all_matches:
-        course_pattern = r'([A-Z]{3,4}\d{3,4})'
-        courses = re.findall(course_pattern, line)
-        for course in courses:
-            # Try to find section nearby
-            section_match = re.search(r'\(([^)]+)\)', line)
-            if section_match:
-                section = section_match.group(1)
-                # Try to find room
-                room = 'TBA'
-                room_match = re.search(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+|CTBA-\d+)\b', line)
-                if room_match:
-                    room = room_match.group(0)
-                # Try to find teacher
+        # Try to find classes in this line
+        matches = []
+        
+        # Try pattern1
+        m1 = re.findall(pattern1, line)
+        for m in m1:
+            matches.append({'room': m[0], 'course': m[1], 'section': m[2], 'teacher': m[3]})
+        
+        # Try pattern2 if no matches
+        if not matches:
+            m2 = re.findall(pattern2, line)
+            for m in m2:
                 teacher = 'TBA'
-                remaining = line.replace(course, '').replace(f'({section})', '')
+                remaining = line.replace(m[0], '').replace(m[1], '').replace(f'({m[2]})', '')
                 teacher_match = re.search(r'\b([A-Z]{2,4})\b', remaining)
                 if teacher_match:
                     teacher = teacher_match.group(0)
-                
-                all_matches.append({
-                    'room': room,
-                    'course': course,
-                    'section': section,
-                    'teacher': teacher
-                })
-    
-    # Process each match
-    for idx, match in enumerate(all_matches):
-        section_clean = re.sub(r'[^A-Z0-9_]', '', match['section'].replace(' ', '_').upper())
-        if not section_clean:
-            continue
+                matches.append({'room': m[0], 'course': m[1], 'section': m[2], 'teacher': teacher})
         
-        # Determine time slot
-        time_slot = get_time_slot(line, match['room'], time_slots, idx, len(all_matches))
+        # Try pattern3 if no matches
+        if not matches:
+            m3 = re.findall(pattern3, line)
+            for m in m3:
+                room = 'TBA'
+                room_match = re.search(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+)\b', line)
+                if room_match:
+                    room = room_match.group(0)
+                matches.append({'room': room, 'course': m[0], 'section': m[1], 'teacher': m[2]})
         
-        # Determine class type
-        class_type = 'Lab' if is_lab or 'LAB' in line.upper() else 'Theory'
+        # Try pattern4 if no matches
+        if not matches:
+            m4 = re.findall(pattern4, line)
+            for m in m4:
+                room = 'TBA'
+                room_match = re.search(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+)\b', line)
+                if room_match:
+                    room = room_match.group(0)
+                teacher = 'TBA'
+                remaining = line.replace(m[0], '').replace(f'({m[1]})', '')
+                teacher_match = re.search(r'\b([A-Z]{2,4})\b', remaining)
+                if teacher_match:
+                    teacher = teacher_match.group(0)
+                matches.append({'room': room, 'course': m[0], 'section': m[1], 'teacher': teacher})
         
-        # Extract batch
-        batch_match = re.search(r'(\d{2})', section_clean)
-        batch = batch_match.group(1) if batch_match else 'Unknown'
-        section_letter = re.sub(r'[^A-Z]', '', section_clean)
+        # Process matches
+        for idx, match in enumerate(matches):
+            section_clean = re.sub(r'[^A-Z0-9_]', '', match['section'].replace(' ', '_').upper())
+            if not section_clean:
+                continue
+            
+            # Determine time slot
+            time_slot = get_time_slot(line, match['room'], time_slots, idx, len(matches))
+            
+            # Determine type
+            class_type = 'Lab' if is_lab or 'LAB' in line.upper() else 'Theory'
+            
+            # Extract batch
+            batch_match = re.search(r'(\d{2})', section_clean)
+            batch = batch_match.group(1) if batch_match else 'Unknown'
+            section_letter = re.sub(r'[^A-Z]', '', section_clean)
+            
+            classes.append({
+                'section_key': section_clean,
+                'day': current_day,
+                'time': time_slot,
+                'course': match['course'],
+                'teacher': match['teacher'],
+                'room': match['room'],
+                'type': class_type,
+                'batch': batch,
+                'section_letter': section_letter
+            })
         
-        classes.append({
-            'section_key': section_clean,
-            'day': day,
-            'time': time_slot,
-            'course': match['course'],
-            'teacher': match['teacher'],
-            'room': match['room'],
-            'type': class_type,
-            'batch': batch,
-            'section_letter': section_letter
-        })
+        i += 1
     
     return classes
 
