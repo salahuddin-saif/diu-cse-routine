@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper – IMPROVED WITH LAB MERGING
+DIU CSE Routine Scraper – FINAL COMPLETE VERSION
+Extracts all classes from PDF, merges lab classes, groups by section, saves per-section JSON.
+Includes fallback for 403 errors.
 """
 
 import json
@@ -19,6 +21,8 @@ import logging
 # ============================================================
 
 NOTICE_URL = "https://webbackend.daffodilvarsity.edu.bd/department/cse/notice"
+FALLBACK_PDF_URL = "https://webbackend.daffodilvarsity.edu.bd/download-file/4148"
+FALLBACK_VERSION = "5.0"
 
 # ============================================================
 # FILE PATHS
@@ -46,7 +50,7 @@ def main():
         SECTIONS_DIR.mkdir(exist_ok=True)
 
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER – IMPROVED LAB MERGING")
+        logger.info("DIU CSE ROUTINE SCRAPER – FINAL COMPLETE")
         logger.info("=" * 60)
 
         result = find_latest_class_routine()
@@ -119,8 +123,16 @@ def main():
 
 
 def find_latest_class_routine():
+    """Try to get the PDF URL from the notice page, fallback to hardcoded."""
     try:
-        response = requests.get(NOTICE_URL, timeout=30)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Referer': 'https://webbackend.daffodilvarsity.edu.bd/',
+            'Connection': 'keep-alive',
+        }
+        response = requests.get(NOTICE_URL, timeout=30, headers=headers)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -134,7 +146,7 @@ def find_latest_class_routine():
                 if not href.startswith(('http://', 'https://')):
                     href = requests.compat.urljoin(NOTICE_URL, href)
 
-                detail_response = requests.get(href, timeout=30)
+                detail_response = requests.get(href, timeout=30, headers=headers)
                 detail_response.raise_for_status()
                 detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
 
@@ -147,7 +159,9 @@ def find_latest_class_routine():
         return None
     except Exception as e:
         logger.error(f"❌ Error finding PDF: {e}")
-        return None
+        # Fallback to known PDF
+        logger.warning(f"⚠️ Using fallback PDF: {FALLBACK_PDF_URL}")
+        return (FALLBACK_PDF_URL, FALLBACK_VERSION)
 
 
 def extract_text(pdf_content):
@@ -293,35 +307,30 @@ def merge_lab_classes(classes):
     """
     merged = []
     # Group by (main_section, day, course, teacher, room, type)
-    # We'll process each group separately
     groups = defaultdict(list)
     for cls in classes:
         key = (cls['main_section'], cls['day'], cls['course'], cls['teacher'], cls['room'], cls['type'])
         groups[key].append(cls)
 
+    time_slots = [
+        '08:30-10:00', '10:00-11:30', '11:30-01:00',
+        '01:00-02:30', '02:30-04:00', '04:00-05:30'
+    ]
+
     for key, items in groups.items():
-        # Sort by time slot index
-        time_slots = [
-            '08:30-10:00', '10:00-11:30', '11:30-01:00',
-            '01:00-02:30', '02:30-04:00', '04:00-05:30'
-        ]
         items.sort(key=lambda x: time_slots.index(x['time']) if x['time'] in time_slots else 999)
 
         # If it's a lab and there are two consecutive slots, merge
         if key[5] == 'Lab' and len(items) >= 2:
-            # Check if they are consecutive
-            merged_item = items[0].copy()
             time_indices = [time_slots.index(item['time']) for item in items if item['time'] in time_slots]
             if len(time_indices) >= 2 and time_indices[1] == time_indices[0] + 1:
-                # Merge: combine times
+                merged_item = items[0].copy()
                 start_time = time_slots[time_indices[0]]
                 end_time = time_slots[time_indices[1]].split('-')[1]
                 merged_item['time'] = f"{start_time.split('-')[0]}-{end_time}"
-                merged_item['sub_section'] = items[0]['sub_section']  # keep sub-section info
+                merged_item['sub_section'] = items[0]['sub_section']
                 merged.append(merged_item)
-                # Skip the rest
                 continue
-        # If not merged, keep all
         merged.extend(items)
 
     return merged
