@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - RELIABLE VERSION
-Uses pdfplumber for accurate table extraction.
-Outputs separate JSON files per section.
+DIU CSE Routine Scraper - FINAL WORKING VERSION
+Generates per-section JSON files.
 """
 
 import json
@@ -14,8 +13,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
-import pdfplumber
-from io import BytesIO
+
+# Try pdfplumber, fallback to PyPDF2
+try:
+    import pdfplumber
+    PDF_ENGINE = 'pdfplumber'
+except ImportError:
+    import PyPDF2
+    from io import BytesIO
+    PDF_ENGINE = 'pypdf2'
 
 # ============================================================
 # CONFIGURATION
@@ -28,9 +34,8 @@ NOTICE_URL = "https://webbackend.daffodilvarsity.edu.bd/department/cse/notice"
 # ============================================================
 
 DATA_DIR = Path("data")
-OUTPUT_FILE = DATA_DIR / "routine.json"          # Combined JSON
-SECTIONS_DIR = DATA_DIR / "sections"              # Per-section JSON files
-DEBUG_FILE = DATA_DIR / "debug_tables.txt"
+SECTIONS_DIR = DATA_DIR / "sections"
+OUTPUT_FILE = DATA_DIR / "routine.json"
 
 # ============================================================
 # LOGGING
@@ -49,10 +54,10 @@ def main():
         SECTIONS_DIR.mkdir(exist_ok=True)
 
         logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER - pdfplumber")
+        logger.info("DIU CSE ROUTINE SCRAPER - FINAL")
         logger.info("=" * 60)
 
-        # Find the PDF URL
+        # Find PDF
         result = find_latest_class_routine()
         if not result:
             logger.error("❌ Could not find Class Routine")
@@ -65,17 +70,18 @@ def main():
         logger.info("⬇️ Downloading PDF...")
         response = requests.get(pdf_url, timeout=30)
         response.raise_for_status()
-        logger.info(f"✅ Downloaded {len(response.content)} bytes")
+        pdf_content = response.content
+        logger.info(f"✅ Downloaded {len(pdf_content)} bytes")
 
-        # Parse PDF with pdfplumber
-        logger.info("📖 Parsing PDF with pdfplumber...")
-        sections = parse_pdf_with_plumber(response.content)
+        # Parse
+        logger.info(f"📖 Parsing PDF using {PDF_ENGINE}...")
+        sections = parse_pdf(pdf_content)
 
         if not sections:
             logger.error("❌ No data extracted")
             sys.exit(1)
 
-        # Save combined JSON
+        # Save combined
         total = sum(len(entries) for entries in sections.values())
         output = {
             'updated_at': datetime.now(timezone.utc).isoformat(),
@@ -87,9 +93,11 @@ def main():
             json.dump(output, f, indent=2, ensure_ascii=False)
         logger.info(f"✅ Saved combined JSON: {len(sections)} sections, {total} classes")
 
-        # Save per-section JSON files
+        # Save per-section files
         for section_key, section_data in sections.items():
-            section_file = SECTIONS_DIR / f"{section_key}.json"
+            # Remove invalid chars for filename
+            safe_key = re.sub(r'[^\w\-]', '_', section_key)
+            section_file = SECTIONS_DIR / f"{safe_key}.json"
             with open(section_file, 'w', encoding='utf-8') as f:
                 json.dump({
                     'section': section_key,
@@ -108,7 +116,6 @@ def main():
 
 
 def find_latest_class_routine():
-    """Find the PDF download URL from the notice page."""
     try:
         response = requests.get(NOTICE_URL, timeout=30)
         response.raise_for_status()
@@ -140,307 +147,183 @@ def find_latest_class_routine():
         return None
 
 
-def parse_pdf_with_plumber(content):
-    """Extract routine data using pdfplumber."""
+def parse_pdf(content):
+    """Parse PDF using available engine."""
+    if PDF_ENGINE == 'pdfplumber':
+        return parse_with_pdfplumber(content)
+    else:
+        return parse_with_pypdf2(content)
+
+
+def parse_with_pdfplumber(content):
+    """Use pdfplumber for accurate table extraction."""
     all_classes = []
-    days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
     time_slots = [
         '08:30-10:00', '10:00-11:30', '11:30-01:00',
         '01:00-02:30', '02:30-04:00', '04:00-05:30'
     ]
+    days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
 
     try:
         with pdfplumber.open(BytesIO(content)) as pdf:
             logger.info(f"📄 PDF has {len(pdf.pages)} pages")
+            full_text = ""
+            for page in pdf.pages:
+                text = page.extract_text()
+                if text:
+                    full_text += text + "\n"
 
-            all_tables = []
-            for page_num, page in enumerate(pdf.pages, 1):
-                tables = page.extract_tables()
-                if tables:
-                    logger.info(f"📊 Page {page_num}: found {len(tables)} tables")
-                    for table_idx, table in enumerate(tables):
-                        # Skip empty tables
-                        if not table or len(table) < 2:
-                            continue
-                        # Convert to list of dicts for easier processing
-                        headers = table[0] if table else []
-                        # Skip if no headers
-                        if not headers or not any(h for h in headers if h):
-                            continue
-                        # Remove empty header columns
-                        clean_headers = [h.strip() if h else f'col_{i}' for i, h in enumerate(headers)]
-                        rows = []
-                        for row in table[1:]:
-                            if any(cell for cell in row if cell and str(cell).strip()):
-                                rows.append(row)
-                        if rows:
-                            all_tables.append({
-                                'page': page_num,
-                                'headers': clean_headers,
-                                'rows': rows
-                            })
+            if not full_text:
+                return {}
 
-            # If no tables found, fallback to text extraction
-            if not all_tables:
-                logger.warning("⚠️ No tables found, falling back to text extraction...")
-                return extract_from_text(pdf)
-
-            # Process tables
+            # Split by day
+            lines = full_text.split('\n')
             current_day = None
             class_count = 0
 
-            # First, try to detect days from the tables
-            for table_info in all_tables:
-                # Look for day headers in the first column of the first few rows
-                for row in table_info['rows']:
-                    if row and row[0]:
-                        cell_text = str(row[0]).strip().upper()
-                        for day in days:
-                            if day in cell_text:
-                                current_day = day.capitalize()
-                                break
-                    if current_day:
-                        break
-                if current_day:
-                    break
+            # Pattern for class data
+            pattern = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
 
-            # If no day found, use page numbers as fallback
-            if not current_day:
-                # Map page numbers to days (this is approximate)
-                page_day_map = {
-                    3: 'Saturday',
-                    4: 'Sunday',
-                    5: 'Monday',
-                    6: 'Tuesday',
-                    7: 'Wednesday',
-                    8: 'Thursday',
-                    9: 'Friday'
-                }
-                # Use the first table's page
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
 
-            # Process each table and extract classes
-            for table_info in all_tables:
-                headers = table_info['headers']
-                rows = table_info['rows']
+                # Detect day header
+                day_match = re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', line.upper())
+                if day_match and any(slot in line for slot in time_slots):
+                    current_day = day_match.group(1).capitalize()
+                    logger.info(f"📅 Found day: {current_day}")
+                    continue
 
-                # Determine which columns contain room, course, section, teacher
-                # We'll look for patterns in the first few rows
-                room_col = None
-                course_col = None
-                section_col = None
-                teacher_col = None
+                if not current_day:
+                    continue
 
-                # Try to infer column types from headers or content
-                for i, h in enumerate(headers):
-                    h_lower = h.lower()
-                    if 'room' in h_lower:
-                        room_col = i
-                    elif 'course' in h_lower or 'code' in h_lower:
-                        course_col = i
-                    elif 'section' in h_lower:
-                        section_col = i
-                    elif 'teacher' in h_lower or 'instructor' in h_lower:
-                        teacher_col = i
+                if 'TABLE' in line.upper() or 'PAGE' in line.upper():
+                    continue
 
-                # If we couldn't find columns, try to detect patterns in the data
-                if room_col is None and course_col is None:
-                    # Inspect first few rows to detect structure
-                    sample_rows = rows[:5]
-                    for row in sample_rows:
-                        for i, cell in enumerate(row):
-                            if cell and isinstance(cell, str):
-                                # Check if cell looks like a room (KT-, G1-, etc.)
-                                if re.search(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+)', cell):
-                                    if room_col is None:
-                                        room_col = i
-                                # Check if cell looks like a course code
-                                if re.search(r'[A-Z]{3,4}\d{3,4}', cell):
-                                    if course_col is None:
-                                        course_col = i
-                                # Check if cell looks like a section (e.g., 66_E)
-                                if re.search(r'\d{2}_[A-Z]', cell):
-                                    if section_col is None:
-                                        section_col = i
+                # Find all matches
+                matches = re.findall(pattern, line)
+                if not matches:
+                    continue
 
-                # If still not found, use positional defaults
-                if room_col is None:
-                    room_col = 0
-                if course_col is None:
-                    course_col = 1 if len(headers) > 1 else 0
-                if section_col is None:
-                    section_col = 2 if len(headers) > 2 else 0
+                # Determine lab
+                is_lab = 'LAB' in line.upper() or 'COM LAB' in line.upper()
 
-                # Now extract classes from each row
-                for row in rows:
-                    # Skip rows that are completely empty or contain only headers
-                    if not row or all(c is None or str(c).strip() == '' for c in row):
+                for idx, (room, course, section, teacher) in enumerate(matches):
+                    section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
+                    if not section_clean:
                         continue
 
-                    # Try to extract multiple classes from a single row
-                    # Some rows contain multiple class entries side by side
-                    # We'll join all cells into a single string and look for patterns
-                    full_row_text = ' '.join([str(c) if c else '' for c in row])
+                    # Time slot based on order
+                    time_slot = time_slots[idx] if idx < len(time_slots) else 'TBA'
 
-                    # Pattern: Room Course(Section) Teacher
-                    pattern = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
-                    matches = re.findall(pattern, full_row_text)
+                    class_type = 'Lab' if is_lab else 'Theory'
 
-                    if matches:
-                        for room, course, section, teacher in matches:
-                            # Clean section
-                            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
-                            if not section_clean:
-                                continue
+                    batch_match = re.search(r'(\d{2})', section_clean)
+                    batch = batch_match.group(1) if batch_match else 'Unknown'
+                    section_letter = re.sub(r'[^A-Z]', '', section_clean)
 
-                            # Determine day: try to get from context (maybe from table metadata)
-                            # We'll assign the current day if we have it
-                            day = current_day if current_day else 'Unknown'
+                    all_classes.append({
+                        'section_key': section_clean,
+                        'day': current_day,
+                        'time': time_slot,
+                        'course': course,
+                        'teacher': teacher,
+                        'room': room,
+                        'type': class_type,
+                        'batch': batch,
+                        'section_letter': section_letter
+                    })
+                    class_count += 1
 
-                            # Determine time slot: we can try to infer from row position or column
-                            # For now, assign sequentially
-                            time_slot = 'TBA'
-                            # If we have a time column, use it
-                            # Otherwise, we'll assign based on the row index (approximate)
-
-                            # Determine type
-                            class_type = 'Lab' if 'LAB' in full_row_text.upper() else 'Theory'
-
-                            # Extract batch
-                            batch_match = re.search(r'(\d{2})', section_clean)
-                            batch = batch_match.group(1) if batch_match else 'Unknown'
-
-                            # Extract section letter
-                            section_letter = re.sub(r'[^A-Z]', '', section_clean)
-                            if not section_letter:
-                                section_letter = section_clean
-
-                            all_classes.append({
-                                'section_key': section_clean,
-                                'day': day,
-                                'time': time_slot,
-                                'course': course,
-                                'teacher': teacher if teacher != 'TBA' else 'TBA',
-                                'room': room,
-                                'type': class_type,
-                                'batch': batch,
-                                'section_letter': section_letter
-                            })
-                            class_count += 1
-
-            logger.info(f"📊 Extracted {class_count} classes from tables")
-
-            # If we have classes, group them by section
+            logger.info(f"📊 Extracted {class_count} classes")
             if all_classes:
-                sections = group_by_section(all_classes)
-                return sections
-
-            # Fallback: if no classes from tables, try text extraction
-            logger.warning("⚠️ No classes extracted from tables, trying text extraction...")
-            return extract_from_text(pdf)
+                return group_by_section(all_classes)
+            return {}
 
     except Exception as e:
         logger.error(f"❌ pdfplumber failed: {e}")
-        import traceback
-        logger.error(traceback.format_exc())
         return {}
 
 
-def extract_from_text(pdf):
-    """Fallback: extract from raw text using pdfplumber's text extraction."""
-    all_classes = []
-    full_text = ""
-    for page in pdf.pages:
-        text = page.extract_text()
-        if text:
-            full_text += text + "\n"
+def parse_with_pypdf2(content):
+    """Fallback to PyPDF2."""
+    try:
+        import PyPDF2
+        from io import BytesIO
 
-    if not full_text:
-        return {}
+        pdf_reader = PyPDF2.PdfReader(BytesIO(content))
+        logger.info(f"📄 PDF has {len(pdf_reader.pages)} pages")
 
-    lines = full_text.split('\n')
-    time_slots = ['08:30-10:00', '10:00-11:30', '11:30-01:00', '01:00-02:30', '02:30-04:00', '04:00-05:30']
-    days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
+        full_text = ""
+        for page in pdf_reader.pages:
+            text = page.extract_text()
+            if text:
+                full_text += text + "\n"
 
-    current_day = None
-    pattern = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
+        if not full_text:
+            return {}
 
-    for line in lines:
-        line = line.strip()
-        if not line:
-            continue
+        time_slots = ['08:30-10:00', '10:00-11:30', '11:30-01:00', '01:00-02:30', '02:30-04:00', '04:00-05:30']
+        days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
+        lines = full_text.split('\n')
+        current_day = None
+        all_classes = []
+        pattern = r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)'
 
-        # Check for day header
-        day_match = re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', line.upper())
-        if day_match and any(slot in line for slot in time_slots):
-            current_day = day_match.group(1).capitalize()
-            continue
-
-        if not current_day:
-            continue
-
-        # Skip table markers
-        if 'TABLE' in line.upper() or 'PAGE' in line.upper():
-            continue
-
-        matches = re.findall(pattern, line)
-        for room, course, section, teacher in matches:
-            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
-            if not section_clean:
+        for line in lines:
+            line = line.strip()
+            if not line:
                 continue
+            day_match = re.search(r'(SATURDAY|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY)', line.upper())
+            if day_match and any(slot in line for slot in time_slots):
+                current_day = day_match.group(1).capitalize()
+                continue
+            if not current_day or 'TABLE' in line.upper():
+                continue
+            matches = re.findall(pattern, line)
+            for idx, (room, course, section, teacher) in enumerate(matches):
+                section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
+                if not section_clean:
+                    continue
+                time_slot = time_slots[idx] if idx < len(time_slots) else 'TBA'
+                is_lab = 'LAB' in line.upper()
+                class_type = 'Lab' if is_lab else 'Theory'
+                batch_match = re.search(r'(\d{2})', section_clean)
+                batch = batch_match.group(1) if batch_match else 'Unknown'
+                section_letter = re.sub(r'[^A-Z]', '', section_clean)
+                all_classes.append({
+                    'section_key': section_clean,
+                    'day': current_day,
+                    'time': time_slot,
+                    'course': course,
+                    'teacher': teacher,
+                    'room': room,
+                    'type': class_type,
+                    'batch': batch,
+                    'section_letter': section_letter
+                })
 
-            # Determine time slot based on position
-            time_slot = 'TBA'
-            pos = line.find(room)
-            if pos != -1 and len(line) > 0:
-                ratio = pos / len(line)
-                if ratio < 0.2:
-                    time_slot = time_slots[0]
-                elif ratio < 0.35:
-                    time_slot = time_slots[1]
-                elif ratio < 0.5:
-                    time_slot = time_slots[2]
-                elif ratio < 0.65:
-                    time_slot = time_slots[3]
-                elif ratio < 0.8:
-                    time_slot = time_slots[4]
-                else:
-                    time_slot = time_slots[5]
+        if all_classes:
+            return group_by_section(all_classes)
+        return {}
 
-            class_type = 'Lab' if 'LAB' in line.upper() else 'Theory'
-            batch_match = re.search(r'(\d{2})', section_clean)
-            batch = batch_match.group(1) if batch_match else 'Unknown'
-            section_letter = re.sub(r'[^A-Z]', '', section_clean)
-
-            all_classes.append({
-                'section_key': section_clean,
-                'day': current_day,
-                'time': time_slot,
-                'course': course,
-                'teacher': teacher,
-                'room': room,
-                'type': class_type,
-                'batch': batch,
-                'section_letter': section_letter
-            })
-
-    if all_classes:
-        return group_by_section(all_classes)
-    return {}
+    except Exception as e:
+        logger.error(f"❌ PyPDF2 failed: {e}")
+        return {}
 
 
 def group_by_section(all_classes):
-    """Group classes by section."""
     sections = {}
     for cls in all_classes:
-        section_key = cls['section_key']
-        if section_key not in sections:
-            sections[section_key] = {
+        key = cls['section_key']
+        if key not in sections:
+            sections[key] = {
                 'batch': cls.get('batch', 'Unknown'),
                 'section': cls.get('section_letter', ''),
                 'classes': []
             }
-
-        # Add class entry without section_key
         entry = {
             'day': cls['day'],
             'time': cls['time'],
@@ -451,8 +334,7 @@ def group_by_section(all_classes):
             'batch': cls.get('batch', 'Unknown'),
             'section': cls.get('section_letter', '')
         }
-        sections[section_key]['classes'].append(entry)
-
+        sections[key]['classes'].append(entry)
     return sections
 
 
