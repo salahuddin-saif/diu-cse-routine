@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-DIU CSE Routine Scraper - DEBUGGING
+DIU CSE Routine Scraper - FIXED VERSION
+Preserves ALL extracted classes without data loss.
 """
 
 import json
@@ -27,7 +28,6 @@ NOTICE_URL = "https://webbackend.daffodilvarsity.edu.bd/department/cse/notice"
 
 DATA_DIR = Path("data")
 OUTPUT_FILE = DATA_DIR / "routine.json"
-DEBUG_FILE = DATA_DIR / "debug_raw_text.txt"
 
 # ============================================================
 # LOGGING
@@ -44,7 +44,7 @@ def main():
     try:
         DATA_DIR.mkdir(exist_ok=True)
         logger.info("="*60)
-        logger.info("DIU CSE ROUTINE SCRAPER - DEBUG")
+        logger.info("DIU CSE ROUTINE SCRAPER - FIXED")
         logger.info("="*60)
 
         result = find_latest_class_routine()
@@ -61,7 +61,7 @@ def main():
         logger.info(f"✅ Downloaded {len(response.content)} bytes")
 
         logger.info("📖 Parsing PDF...")
-        sections = parse_pdf_debug(response.content)
+        sections = parse_pdf_fixed(response.content)
 
         if not sections:
             logger.error("❌ No data extracted")
@@ -120,38 +120,29 @@ def find_latest_class_routine():
         return None
 
 
-def parse_pdf_debug(content):
+def parse_pdf_fixed(content):
+    """Parse PDF and extract ALL classes with proper grouping."""
     all_classes = []
 
     try:
         pdf_reader = PyPDF2.PdfReader(BytesIO(content))
         logger.info(f"📄 PDF has {len(pdf_reader.pages)} pages")
 
-        raw_text_lines = []
+        # Extract text from all pages
+        raw_lines = []
         for page_num, page in enumerate(pdf_reader.pages):
             text = page.extract_text()
             if text:
                 lines = text.split('\n')
-                raw_text_lines.extend(lines)
+                raw_lines.extend(lines)
                 logger.info(f"📝 Page {page_num + 1}: {len(text)} chars, {len(lines)} lines")
 
-        if not raw_text_lines:
+        if not raw_lines:
             return {}
-
-        # Save raw text for debugging
-        with open(DEBUG_FILE, 'w', encoding='utf-8') as f:
-            for line in raw_text_lines:
-                f.write(line + '\n')
-        logger.info(f"💾 Saved raw text to {DEBUG_FILE}")
-
-        # Print first 50 lines to log for inspection
-        logger.info("📄 First 50 lines of raw text:")
-        for idx, line in enumerate(raw_text_lines[:50]):
-            logger.info(f"  {idx:3d}: {line}")
 
         # Clean: remove empty lines and obvious page numbers
         cleaned_lines = []
-        for line in raw_text_lines:
+        for line in raw_lines:
             line = line.strip()
             if not line:
                 continue
@@ -163,12 +154,7 @@ def parse_pdf_debug(content):
 
         logger.info(f"🧹 Cleaned lines: {len(cleaned_lines)}")
 
-        # Print first 50 cleaned lines
-        logger.info("📄 First 50 cleaned lines:")
-        for idx, line in enumerate(cleaned_lines[:50]):
-            logger.info(f"  {idx:3d}: {line}")
-
-        # Time slots
+        # Time slots (6 slots)
         time_slots = [
             '08:30-10:00', '10:00-11:30', '11:30-01:00',
             '01:00-02:30', '02:30-04:00', '04:00-05:30'
@@ -179,7 +165,7 @@ def parse_pdf_debug(content):
         room_pattern = re.compile(r'\b(KT-\d+|G1-\d+|ANX1-\d+|SH-\d+|CTBA-\d+)\b')
         teacher_pattern = re.compile(r'\b([A-Z]{2,4})\b')
 
-        # Day detection: find lines that contain a day name and no course code (or we can just use the first occurrence)
+        # Day names
         day_names = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
 
         current_day = None
@@ -192,8 +178,7 @@ def parse_pdf_debug(content):
             day_found = None
             for day in day_names:
                 if day in upper_line:
-                    # If the line has the day name and it's not part of a course code, treat as day header
-                    # We'll check if there's a course code in this line; if not, it's a header
+                    # If the line has the day name and no course code, treat as day header
                     if not re.search(r'[A-Z]{3,4}\d{3,4}', line):
                         day_found = day.capitalize()
                         break
@@ -254,7 +239,7 @@ def parse_pdf_debug(content):
                 # Determine type
                 class_type = 'Lab' if is_lab else 'Theory'
 
-                # Clean section
+                # Clean section - PRESERVE the original section key
                 section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
                 if not section_clean:
                     continue
@@ -273,9 +258,11 @@ def parse_pdf_debug(content):
 
         logger.info(f"📊 Total classes extracted: {len(all_classes)}")
         if not all_classes:
-            logger.error("❌ No classes extracted. Check the debug file.")
+            logger.error("❌ No classes extracted.")
+            return {}
 
-        sections = group_by_section(all_classes)
+        # Group by section - PRESERVE original section keys
+        sections = group_by_section_preserve(all_classes)
         return sections
 
     except Exception as e:
@@ -285,31 +272,37 @@ def parse_pdf_debug(content):
         return {}
 
 
-def group_by_section(all_classes):
+def group_by_section_preserve(all_classes):
+    """
+    Group classes by section WITHOUT data loss.
+    Uses the original section key as the grouping key.
+    """
     sections = {}
+    
     for cls in all_classes:
-        raw_section = cls['section_key']
-        base_section = re.sub(r'(\d+)$', '', raw_section)
-        if not base_section:
-            base_section = raw_section
-
-        sub_section = raw_section.replace(base_section, '').lstrip('_')
-        if not sub_section:
-            sub_section = 'Main'
-
-        batch_match = re.search(r'(\d{2})', base_section)
+        section_key = cls['section_key']
+        
+        # Extract batch from section key
+        batch_match = re.search(r'(\d{2})', section_key)
         batch = batch_match.group(1) if batch_match else 'Unknown'
+        
+        # Extract section letter (after underscore)
         section_letter = ''
-        if '_' in base_section:
-            section_letter = base_section.split('_')[1]
-
-        if base_section not in sections:
-            sections[base_section] = {
+        if '_' in section_key:
+            section_letter = section_key.split('_')[1]
+        else:
+            # If no underscore, use the whole key
+            section_letter = section_key
+        
+        # Initialize section if not exists
+        if section_key not in sections:
+            sections[section_key] = {
                 'batch': batch,
                 'section': section_letter,
                 'classes': []
             }
-
+        
+        # Add class entry
         entry = {
             'day': cls['day'],
             'time': cls['time'],
@@ -319,10 +312,10 @@ def group_by_section(all_classes):
             'type': cls['type'],
             'batch': batch,
             'section': section_letter,
-            'sub_section': sub_section
+            'sub_section': 'Main'  # No sub-section grouping
         }
-        sections[base_section]['classes'].append(entry)
-
+        sections[section_key]['classes'].append(entry)
+    
     return sections
 
 
