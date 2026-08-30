@@ -29,7 +29,6 @@ jobs:
           pip install requests beautifulsoup4 PyPDF2 lxml
           
       - name: Run scraper
-        id: scraper
         run: python scraper.py
         
       - name: Check for changes
