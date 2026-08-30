@@ -1,4 +1,4 @@
-// DIU CSE Routine – Complete UI Integration
+// DIU CSE Routine – Search Fixed
 
 const STORAGE_KEY = 'diu_cse_section';
 const COMBINED_URL = './data/routine.json?t=' + Date.now();
@@ -16,7 +16,7 @@ const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
-let routineData = null;
+let routineData = null;      // combined data (for fallback)
 let currentSection = null;
 let currentClasses = [];
 
@@ -34,15 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         savedChip.style.display = 'none';
     }
     loadRoutineData();
+
+    // Search button click
     showRoutineBtn.addEventListener('click', handleShowRoutine);
+    // Clear button
     clearSectionBtn.addEventListener('click', handleClearSection);
+    // Enter key on input
     sectionInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleShowRoutine();
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleShowRoutine();
+        }
     });
 });
 
 // ============================================================
-// DATA LOADING
+// LOAD ROUTINE DATA (combined JSON for fallback)
 // ============================================================
 
 async function loadRoutineData() {
@@ -51,28 +58,32 @@ async function loadRoutineData() {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
             await loadSection(saved);
+            return;
+        }
+
+        // No saved section → load combined and show first
+        const response = await fetch(COMBINED_URL);
+        if (!response.ok) throw new Error('Failed to load combined data');
+        const data = await response.json();
+        routineData = data;
+        if (data.version) versionNumber.textContent = data.version;
+        if (data.updated_at) {
+            const date = new Date(data.updated_at);
+            lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
+        }
+        const sections = data.sections || {};
+        const keys = Object.keys(sections);
+        if (keys.length > 0) {
+            const first = keys[0];
+            // We have combined data, but we don't have a per-section file for it.
+            // We'll still display it using the combined data.
+            displaySection(first, sections[first]);
+            sectionInput.value = first;
+            savedSectionSpan.textContent = first;
+            savedChip.style.display = 'inline-flex';
+            localStorage.setItem(STORAGE_KEY, first);
         } else {
-            // Load combined JSON to show first section
-            const response = await fetch(COMBINED_URL);
-            if (!response.ok) throw new Error('Failed to load routine data');
-            const data = await response.json();
-            routineData = data;
-            if (data.version) versionNumber.textContent = data.version;
-            if (data.updated_at) {
-                const date = new Date(data.updated_at);
-                lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
-            }
-            const sections = data.sections || {};
-            const keys = Object.keys(sections);
-            if (keys.length > 0) {
-                const first = keys[0];
-                displaySection(first, sections[first]);
-                sectionInput.value = first;
-                savedSectionSpan.textContent = first;
-                savedChip.style.display = 'inline-flex';
-            } else {
-                showNoRoutine('No Data', 'No routine data available.');
-            }
+            showNoRoutine('No Data', 'No routine data available.');
         }
         setStatus('ready', 'Ready');
     } catch (error) {
@@ -83,10 +94,18 @@ async function loadRoutineData() {
     }
 }
 
+// ============================================================
+// LOAD SECTION (per‑file first, then combined fallback)
+// ============================================================
+
 async function loadSection(sectionKey) {
     try {
-        // Try per-section file first
-        const perSectionUrl = `${SECTIONS_BASE}${sectionKey}.json?t=${Date.now()}`;
+        setStatus('loading', 'Loading...');
+        const normalized = sectionKey.toUpperCase().replace(/\s+/g, '_');
+        console.log('🔍 Searching for section:', normalized);
+
+        // 1. Try per‑section file
+        const perSectionUrl = `${SECTIONS_BASE}${normalized}.json?t=${Date.now()}`;
         let data = null;
         let found = false;
 
@@ -95,42 +114,50 @@ async function loadSection(sectionKey) {
             if (resp.ok) {
                 data = await resp.json();
                 found = true;
+                console.log('✅ Found per‑section file:', normalized);
             }
         } catch (e) { /* ignore */ }
 
-        // If not found, try combined
+        // 2. If not found, try combined JSON
         if (!found) {
-            const resp = await fetch(COMBINED_URL);
-            if (!resp.ok) throw new Error('Combined data not found');
-            const combined = await resp.json();
-            if (combined.sections && combined.sections[sectionKey]) {
-                const sec = combined.sections[sectionKey];
+            // Ensure routineData is loaded
+            if (!routineData) {
+                const resp = await fetch(COMBINED_URL);
+                if (!resp.ok) throw new Error('Combined data not found');
+                routineData = await resp.json();
+                if (routineData.version) versionNumber.textContent = routineData.version;
+                if (routineData.updated_at) {
+                    const date = new Date(routineData.updated_at);
+                    lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
+                }
+            }
+            const sections = routineData.sections || {};
+            if (sections[normalized]) {
+                const sec = sections[normalized];
                 data = {
-                    section: sectionKey,
+                    section: normalized,
                     batch: sec.batch || 'Unknown',
                     classes: sec.classes || []
                 };
                 found = true;
-                if (combined.version) versionNumber.textContent = combined.version;
-                if (combined.updated_at) {
-                    const date = new Date(combined.updated_at);
-                    lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
-                }
-                routineData = combined;
+                console.log('✅ Found in combined data:', normalized);
             }
         }
 
         if (!found) {
-            throw new Error(`Section "${sectionKey}" not found.`);
+            throw new Error(`Section "${normalized}" not found.`);
         }
 
-        displaySection(sectionKey, data);
-        localStorage.setItem(STORAGE_KEY, sectionKey);
-        savedSectionSpan.textContent = sectionKey;
+        // Display the section
+        displaySection(normalized, data);
+        localStorage.setItem(STORAGE_KEY, normalized);
+        savedSectionSpan.textContent = normalized;
         savedChip.style.display = 'inline-flex';
+        setStatus('ready', 'Ready');
+        hideMessage();
 
     } catch (error) {
-        console.error('Failed to load section:', error);
+        console.error('❌ Failed to load section:', error);
         setStatus('error', 'Error');
         showMessage(error.message, 'error');
         showNoRoutine('Section Not Found', `No data for "${sectionKey}".`);
@@ -138,7 +165,7 @@ async function loadSection(sectionKey) {
 }
 
 // ============================================================
-// DISPLAY SECTION
+// DISPLAY SECTION (UI rendering)
 // ============================================================
 
 function displaySection(sectionKey, sectionData) {
@@ -221,10 +248,6 @@ function displaySection(sectionKey, sectionData) {
             else renderWeekView(classes);
         });
     });
-
-    // Update status
-    setStatus('ready', 'Ready');
-    hideMessage();
 }
 
 // ============================================================
@@ -242,7 +265,6 @@ function renderDayView(classes) {
         grouped[cls.day].push(cls);
     }
 
-    // Build day cards
     let html = `<div class="day-grid">`;
     for (const day of days) {
         if (!grouped[day]) continue;
@@ -353,8 +375,7 @@ function handleClearSection() {
 
 function downloadSection() {
     if (currentSection) {
-        // You can implement PDF download logic here if needed
-        alert(`Download PDF for ${currentSection} (feature coming soon)`);
+        alert(`Download PDF for ${currentSection} (coming soon)`);
     }
 }
 
