@@ -1,6 +1,7 @@
-// DIU CSE Routine – Loads from routine.json, merges sub‑sections
+// DIU CSE Routine – Section, Teacher & Room Modes
 
 const STORAGE_KEY = 'diu_cse_section';
+const MODE_KEY = 'diu_cse_mode'; // 'section', 'teacher', 'room'
 const COMBINED_URL = './data/routine.json?t=' + Date.now();
 
 // DOM Elements
@@ -17,8 +18,14 @@ const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 const searchIcon = document.querySelector('.search-input-wrap i');
 
+// Navigation buttons
+const userBtn = document.querySelector('.nav-item:first-child');
+const teacherBtn = document.querySelector('.nav-item .fa-address-card')?.closest('.nav-item');
+const roomBtn = document.querySelector('.nav-item .fa-door-open')?.closest('.nav-item');
+
 let routineData = null;
-let currentBaseSection = null;
+let currentMode = 'section'; // 'section', 'teacher', 'room'
+let currentSearchTerm = '';
 let currentClasses = [];
 
 // ============================================================
@@ -26,6 +33,11 @@ let currentClasses = [];
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Restore mode
+    const savedMode = localStorage.getItem(MODE_KEY) || 'section';
+    currentMode = savedMode;
+    updateModeUI();
+
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
         sectionInput.value = saved;
@@ -38,34 +50,107 @@ document.addEventListener('DOMContentLoaded', () => {
     loadRoutineData();
 
     // --- Event Listeners ---
-    // 1. Search icon click
+    // Search icon click
     if (searchIcon) {
         searchIcon.style.cursor = 'pointer';
-        searchIcon.addEventListener('click', handleShowRoutine);
+        searchIcon.addEventListener('click', handleSearch);
     }
-
-    // 2. Hidden button click (fallback)
+    // Hidden button
     if (showRoutineBtn) {
-        showRoutineBtn.addEventListener('click', handleShowRoutine);
+        showRoutineBtn.addEventListener('click', handleSearch);
     }
-
-    // 3. Clear button
+    // Clear button
     clearSectionBtn.addEventListener('click', handleClearSection);
 
-    // 4. Enter key on input – using 'keydown' (works on mobile)
+    // Enter key
     sectionInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
             e.preventDefault();
-            handleShowRoutine();
+            handleSearch();
         }
     });
     sectionInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
             e.preventDefault();
-            handleShowRoutine();
+            handleSearch();
         }
     });
+
+    // Mode toggles
+    if (userBtn) {
+        userBtn.addEventListener('click', () => setMode('section'));
+    }
+    if (teacherBtn) {
+        teacherBtn.addEventListener('click', () => setMode('teacher'));
+    }
+    if (roomBtn) {
+        roomBtn.addEventListener('click', () => setMode('room'));
+    }
 });
+
+// ============================================================
+// MODE MANAGEMENT
+// ============================================================
+
+function setMode(mode) {
+    if (currentMode === mode) return;
+    currentMode = mode;
+    localStorage.setItem(MODE_KEY, mode);
+    updateModeUI();
+    // Clear current data
+    routineContainer.innerHTML = '';
+    savedChip.style.display = 'none';
+    sectionInput.value = '';
+    localStorage.removeItem(STORAGE_KEY);
+    showMessage(`Switched to ${mode.charAt(0).toUpperCase() + mode.slice(1)} Mode`, 'info');
+    // Show appropriate placeholder
+    if (mode === 'section') {
+        sectionInput.placeholder = 'Enter section (e.g., 70_N)';
+        loadRoutineData(); // reload first section
+    } else if (mode === 'teacher') {
+        sectionInput.placeholder = 'Enter teacher initials (e.g., ABC)';
+        showNoRoutine('Teacher Mode', 'Enter teacher initials to see their classes.');
+    } else if (mode === 'room') {
+        sectionInput.placeholder = 'Enter room (e.g., KT-201)';
+        showNoRoutine('Room Mode', 'Enter room name to see its schedule.');
+    }
+}
+
+function updateModeUI() {
+    // Update header label
+    const brandStrong = document.querySelector('.brand strong');
+    if (brandStrong) {
+        if (currentMode === 'section') brandStrong.textContent = 'Student';
+        else if (currentMode === 'teacher') brandStrong.textContent = 'Teacher';
+        else if (currentMode === 'room') brandStrong.textContent = 'Room';
+    }
+    // Update nav active state
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    if (currentMode === 'section' && userBtn) userBtn.classList.add('active');
+    else if (currentMode === 'teacher' && teacherBtn) teacherBtn.classList.add('active');
+    else if (currentMode === 'room' && roomBtn) roomBtn.classList.add('active');
+}
+
+// ============================================================
+// SEARCH DISPATCH
+// ============================================================
+
+function handleSearch() {
+    const raw = sectionInput.value.trim();
+    if (!raw) {
+        showMessage('Please enter something to search.', 'error');
+        return;
+    }
+    const normalized = raw.toUpperCase().replace(/\s+/g, '_');
+
+    if (currentMode === 'section') {
+        loadSection(normalized);
+    } else if (currentMode === 'teacher') {
+        loadTeacher(normalized);
+    } else if (currentMode === 'room') {
+        loadRoom(normalized);
+    }
+}
 
 // ============================================================
 // LOAD ROUTINE DATA (combined JSON once)
@@ -75,7 +160,7 @@ async function loadRoutineData() {
     try {
         setStatus('loading', 'Loading...');
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
+        if (saved && currentMode === 'section') {
             await loadSection(saved);
             return;
         }
@@ -90,23 +175,27 @@ async function loadRoutineData() {
             lastUpdated.textContent = 'Updated: ' + date.toLocaleString();
         }
 
-        const sections = data.sections || {};
-        const keys = Object.keys(sections);
-        if (keys.length > 0) {
-            // Show first section (merge all its sub‑sections)
-            const firstBase = keys[0];
-            const merged = mergeSubSections(firstBase);
-            if (merged.length > 0) {
-                displaySection(firstBase, merged);
-                sectionInput.value = firstBase;
-                savedSectionSpan.textContent = firstBase;
-                savedChip.style.display = 'inline-flex';
-                localStorage.setItem(STORAGE_KEY, firstBase);
+        if (currentMode === 'section') {
+            const sections = data.sections || {};
+            const keys = Object.keys(sections);
+            if (keys.length > 0) {
+                const firstBase = keys[0];
+                const merged = mergeSubSections(firstBase);
+                if (merged.length > 0) {
+                    displaySection(firstBase, merged);
+                    sectionInput.value = firstBase;
+                    savedSectionSpan.textContent = firstBase;
+                    savedChip.style.display = 'inline-flex';
+                    localStorage.setItem(STORAGE_KEY, firstBase);
+                } else {
+                    showNoRoutine('No Data', 'No routine data available.');
+                }
             } else {
                 showNoRoutine('No Data', 'No routine data available.');
             }
         } else {
-            showNoRoutine('No Data', 'No routine data available.');
+            // Teacher or room mode: show empty state
+            showNoRoutine(`${currentMode.charAt(0).toUpperCase() + currentMode.slice(1)} Mode`, `Enter ${currentMode} name to see results.`);
         }
         setStatus('ready', 'Ready');
     } catch (error) {
@@ -118,7 +207,7 @@ async function loadRoutineData() {
 }
 
 // ============================================================
-// SECTION LOADING WITH SUB‑SECTION MERGING
+// SECTION LOADING (with sub-section merging)
 // ============================================================
 
 async function loadSection(sectionKey) {
@@ -127,7 +216,6 @@ async function loadSection(sectionKey) {
         const normalized = sectionKey.toUpperCase().replace(/\s+/g, '_');
         console.log('🔍 Searching for section:', normalized);
 
-        // Ensure routineData is loaded
         if (!routineData) {
             const resp = await fetch(COMBINED_URL);
             if (!resp.ok) throw new Error('Combined data not found');
@@ -140,27 +228,20 @@ async function loadSection(sectionKey) {
         }
 
         const sections = routineData.sections || {};
-
-        // Find all sections that start with the base (e.g., "70_N" matches "70_N", "70_N1", "70_N2")
         const matchingKeys = Object.keys(sections).filter(k => k.startsWith(normalized) || k === normalized);
         if (matchingKeys.length === 0) {
-            // Try partial match (e.g., "70_N" might match "70_N1")
             const fallbackKey = Object.keys(sections).find(k => k.startsWith(normalized) || normalized.startsWith(k));
-            if (fallbackKey) {
-                matchingKeys.push(fallbackKey);
-            }
+            if (fallbackKey) matchingKeys.push(fallbackKey);
         }
 
         if (matchingKeys.length === 0) {
             throw new Error(`Section "${normalized}" not found.`);
         }
 
-        // Merge classes from all matching sections
         const mergedClasses = [];
         for (const key of matchingKeys) {
             const secData = sections[key];
             if (secData && Array.isArray(secData)) {
-                // If secData is an array of classes
                 mergedClasses.push(...secData);
             } else if (secData && secData.classes) {
                 mergedClasses.push(...secData.classes);
@@ -171,22 +252,15 @@ async function loadSection(sectionKey) {
             throw new Error(`No classes found for section "${normalized}".`);
         }
 
-        // Determine the base section name (remove trailing digits after underscore, e.g., "70_N1" -> "70_N")
         const baseSection = normalized.replace(/_\d+$/, '');
-        // If no change, use the normalized key
-        const displaySectionKey = baseSection !== normalized ? baseSection : normalized;
+        const displayKey = baseSection !== normalized ? baseSection : normalized;
 
-        // Store the display section key and the merged classes
-        currentBaseSection = displaySectionKey;
+        currentSearchTerm = displayKey;
         currentClasses = mergedClasses;
+        displaySection(displayKey, mergedClasses);
 
-        // Display the merged routine
-        displaySection(displaySectionKey, mergedClasses);
-
-        // Save the original search key (the one user typed) for localStorage
-        const saveKey = normalized;
-        localStorage.setItem(STORAGE_KEY, saveKey);
-        savedSectionSpan.textContent = saveKey;
+        localStorage.setItem(STORAGE_KEY, normalized);
+        savedSectionSpan.textContent = normalized;
         savedChip.style.display = 'inline-flex';
         setStatus('ready', 'Ready');
         hideMessage();
@@ -200,44 +274,166 @@ async function loadSection(sectionKey) {
 }
 
 // ============================================================
-// DISPLAY SECTION (UI rendering)
+// TEACHER LOADING
+// ============================================================
+
+async function loadTeacher(initials) {
+    try {
+        setStatus('loading', 'Loading...');
+        const clean = initials.toUpperCase().replace(/\s+/g, '');
+        console.log('🔍 Searching for teacher:', clean);
+
+        if (!routineData) {
+            const resp = await fetch(COMBINED_URL);
+            if (!resp.ok) throw new Error('Combined data not found');
+            routineData = await resp.json();
+        }
+
+        const sections = routineData.sections || {};
+        let allClasses = [];
+        for (const [secKey, secData] of Object.entries(sections)) {
+            const classes = secData.classes || secData;
+            if (!Array.isArray(classes)) continue;
+            for (const cls of classes) {
+                const teacher = (cls.teacher || '').toUpperCase();
+                if (teacher.includes(clean)) {
+                    const enriched = { ...cls, _section: secKey };
+                    allClasses.push(enriched);
+                }
+            }
+        }
+
+        if (allClasses.length === 0) {
+            throw new Error(`No classes found for teacher "${initials}".`);
+        }
+
+        currentSearchTerm = clean;
+        currentClasses = allClasses;
+        displayTeacherRoutine(clean, allClasses);
+        localStorage.setItem(STORAGE_KEY, initials);
+        savedSectionSpan.textContent = initials;
+        savedChip.style.display = 'inline-flex';
+        setStatus('ready', 'Ready');
+        hideMessage();
+
+    } catch (error) {
+        console.error('❌ Failed to load teacher:', error);
+        setStatus('error', 'Error');
+        showMessage(error.message, 'error');
+        showNoRoutine('Teacher Not Found', `No data for "${initials}".`);
+    }
+}
+
+// ============================================================
+// ROOM LOADING
+// ============================================================
+
+async function loadRoom(roomName) {
+    try {
+        setStatus('loading', 'Loading...');
+        const clean = roomName.toUpperCase().replace(/\s+/g, '');
+        console.log('🔍 Searching for room:', clean);
+
+        if (!routineData) {
+            const resp = await fetch(COMBINED_URL);
+            if (!resp.ok) throw new Error('Combined data not found');
+            routineData = await resp.json();
+        }
+
+        const sections = routineData.sections || {};
+        let allClasses = [];
+        for (const [secKey, secData] of Object.entries(sections)) {
+            const classes = secData.classes || secData;
+            if (!Array.isArray(classes)) continue;
+            for (const cls of classes) {
+                const room = (cls.room || '').toUpperCase();
+                if (room.includes(clean)) {
+                    const enriched = { ...cls, _section: secKey };
+                    allClasses.push(enriched);
+                }
+            }
+        }
+
+        if (allClasses.length === 0) {
+            throw new Error(`No classes found for room "${roomName}".`);
+        }
+
+        currentSearchTerm = clean;
+        currentClasses = allClasses;
+        displayRoomRoutine(clean, allClasses);
+        localStorage.setItem(STORAGE_KEY, roomName);
+        savedSectionSpan.textContent = roomName;
+        savedChip.style.display = 'inline-flex';
+        setStatus('ready', 'Ready');
+        hideMessage();
+
+    } catch (error) {
+        console.error('❌ Failed to load room:', error);
+        setStatus('error', 'Error');
+        showMessage(error.message, 'error');
+        showNoRoutine('Room Not Found', `No data for "${roomName}".`);
+    }
+}
+
+// ============================================================
+// DISPLAY FUNCTIONS (Generic)
 // ============================================================
 
 function displaySection(sectionKey, classes) {
+    displayRoutine(classes, sectionKey, false, 'section');
+}
+
+function displayTeacherRoutine(initials, classes) {
+    displayRoutine(classes, initials, true, 'teacher');
+}
+
+function displayRoomRoutine(roomName, classes) {
+    displayRoutine(classes, roomName, true, 'room');
+}
+
+// ============================================================
+// GENERIC DISPLAY ROUTINE
+// ============================================================
+
+function displayRoutine(classes, title, showComment, mode) {
     routineContainer.innerHTML = '';
 
     if (!classes || classes.length === 0) {
-        showNoRoutine('No Classes', `No classes for section "${sectionKey}".`);
+        showNoRoutine('No Data', 'No classes found.');
         return;
     }
 
-    // Build a unique list of teachers
     const teachers = [...new Set(classes.map(c => c.teacher).filter(t => t && t !== '?' && t !== 'TBA'))];
-
-    const batch = sectionKey.split('_')[0] || 'Unknown';
     const total = classes.length;
     const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const uniqueDays = [...new Set(classes.map(c => c.day))].filter(d => days.includes(d));
     const perWeek = uniqueDays.length;
 
+    // Determine batch (if all share same, show it)
+    const batches = [...new Set(classes.map(c => (c.batch || c.group?.split('_')[0] || 'Unknown')))];
+    const batchDisplay = batches.length === 1 ? batches[0] : 'Various';
+
     let html = '';
 
     // ----- Enrolled Card -----
+    const icon = mode === 'teacher' ? 'fa-chalkboard-teacher' : (mode === 'room' ? 'fa-door-open' : 'fa-user-graduate');
+    const label = mode === 'teacher' ? 'Teacher' : (mode === 'room' ? 'Room' : 'Student');
     html += `
         <div class="enrolled-card">
             <div class="card-title">
-                <h3><i class="fas fa-user-graduate"></i> Student · ${batch}_${sectionKey}</h3>
+                <h3><i class="fas ${icon}"></i> ${label} · ${title}</h3>
                 <button class="cr-btn" onclick="downloadSection()"><i class="fas fa-download"></i></button>
             </div>
             <div class="course-meta">
-                <div class="meta-row"><span>Batch</span><strong>${batch}</strong></div>
-                <div class="meta-row"><span>Section</span><strong>${sectionKey}</strong></div>
-                <div class="meta-row"><span>Total Courses</span><strong>${total}</strong></div>
+                <div class="meta-row"><span>Total Classes</span><strong>${total}</strong></div>
+                <div class="meta-row"><span>Active Days</span><strong>${perWeek}</strong></div>
                 <div class="meta-row"><span>Routine Version</span><strong>v${versionNumber.textContent || '5.0'}</strong></div>
-                <div class="meta-row"><span>Classes per Week</span><strong>${perWeek}</strong></div>
+                ${batchDisplay !== 'Various' ? `<div class="meta-row"><span>Batch</span><strong>${batchDisplay}</strong></div>` : ''}
+                ${mode === 'teacher' ? `<div class="meta-row"><span>Sections</span><strong>${[...new Set(classes.map(c => c._section || c.group || '?'))].join(', ')}</strong></div>` : ''}
+                ${mode === 'room' ? `<div class="meta-row"><span>Sections</span><strong>${[...new Set(classes.map(c => c._section || c.group || '?'))].join(', ')}</strong></div>` : ''}
             </div>
             <div class="download-row">
-                <span><i class="fas fa-download"></i> Download PDF for ${sectionKey}</span>
+                <span><i class="fas fa-download"></i> Download PDF for ${title}</span>
                 <button class="download-btn" onclick="downloadSection()"><i class="fas fa-arrow-down"></i></button>
             </div>
         </div>
@@ -272,24 +468,24 @@ function displaySection(sectionKey, classes) {
     routineContainer.innerHTML = html;
 
     // Render default view (day)
-    renderDayView(classes);
+    renderDayView(classes, showComment, mode);
 
     // Tab switching
     document.querySelectorAll('.view-tab').forEach(tab => {
         tab.addEventListener('click', function() {
             document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
             this.classList.add('active');
-            if (this.dataset.view === 'day') renderDayView(classes);
-            else renderWeekView(classes);
+            if (this.dataset.view === 'day') renderDayView(classes, showComment, mode);
+            else renderWeekView(classes, showComment, mode);
         });
     });
 }
 
 // ============================================================
-// DAY VIEW – with sub‑section comment & lab tag
+// DAY VIEW
 // ============================================================
 
-function renderDayView(classes) {
+function renderDayView(classes, showComment, mode) {
     const container = document.getElementById('viewContent');
     if (!container) return;
 
@@ -317,38 +513,35 @@ function renderDayView(classes) {
                 <div class="day-card-body">
         `;
         for (const cls of sorted) {
-            // Determine if lab
-            const isLab = cls.type === 'lab' || (cls.type && cls.type.toLowerCase() === 'lab');
+            const isLab = cls.type === 'lab';
             const typeClass = isLab ? 'type-lab' : 'type-theory';
             const typeLabel = isLab ? 'Lab' : 'Theory';
 
-            // Extract sub‑section comment: if the group (section) differs from current base section
-            // For example, if base is "70_N" and group is "70_N1", show "(N1)" as comment.
-            // We can compute subSection from the group field if present, or from cls.section.
-            let subComment = '';
-            const group = cls.group || cls.section || '';
-            if (group) {
-                // Remove batch prefix and underscore from group, e.g., "70_N1" -> "N1"
-                const parts = group.split('_');
-                if (parts.length > 1) {
-                    const suffix = parts[1];
-                    // Check if suffix has digits after letters (e.g., "N1")
-                    const match = suffix.match(/^([A-Z]+)(\d+)$/);
-                    if (match) {
-                        subComment = `(${match[1]}${match[2]})`; // e.g., "(N1)"
-                    } else if (suffix !== parts[0]) {
-                        subComment = `(${suffix})`;
+            let comment = '';
+            if (showComment) {
+                // For teacher/room mode: show section
+                const sec = cls._section || cls.group || '';
+                if (sec) comment = `(${sec})`;
+            } else {
+                // Section mode: show sub-section if exists
+                const group = cls.group || cls.section || '';
+                if (group) {
+                    const parts = group.split('_');
+                    if (parts.length > 1) {
+                        const suffix = parts[1];
+                        const match = suffix.match(/^([A-Z]+)(\d+)$/);
+                        if (match) comment = `(${match[1]}${match[2]})`;
+                        else if (suffix !== parts[0]) comment = `(${suffix})`;
                     }
                 }
             }
 
-            // Time display: use start/end or the 'time' field
             const timeDisplay = cls.start && cls.end ? `${cls.start} – ${cls.end}` : (cls.time || 'TBA');
 
             html += `
                 <div class="class-item">
                     <div class="time"><i class="far fa-clock"></i> ${escapeHtml(timeDisplay)}</div>
-                    <div class="course">${escapeHtml(cls.course)} <span style="font-size:0.8rem;color:var(--muted);">${escapeHtml(subComment)}</span></div>
+                    <div class="course">${escapeHtml(cls.course)} <span style="font-size:0.8rem;color:var(--muted);">${escapeHtml(comment)}</span></div>
                     <div class="details">
                         <span><i class="fas fa-chalkboard-teacher"></i> ${escapeHtml(cls.teacher || '?')}</span>
                         <span><i class="fas fa-door-open"></i> ${escapeHtml(cls.room || '?')}</span>
@@ -364,10 +557,10 @@ function renderDayView(classes) {
 }
 
 // ============================================================
-// WEEK VIEW – with sub‑section comment & lab tag
+// WEEK VIEW
 // ============================================================
 
-function renderWeekView(classes) {
+function renderWeekView(classes, showComment, mode) {
     const container = document.getElementById('viewContent');
     if (!container) return;
 
@@ -378,7 +571,6 @@ function renderWeekView(classes) {
         grouped[cls.day].push(cls);
     }
 
-    // Collect unique time slots
     const timeSlots = [];
     for (const cls of classes) {
         const slot = cls.start && cls.end ? `${cls.start}-${cls.end}` : (cls.time || 'TBA');
@@ -404,20 +596,24 @@ function renderWeekView(classes) {
                     const isLab = cls.type === 'lab';
                     const typeClass = isLab ? 'type-lab' : 'type-theory';
                     const typeLabel = isLab ? 'Lab' : 'Theory';
-                    // Sub‑section comment
-                    let subComment = '';
-                    const group = cls.group || cls.section || '';
-                    if (group) {
-                        const parts = group.split('_');
-                        if (parts.length > 1) {
-                            const suffix = parts[1];
-                            const match = suffix.match(/^([A-Z]+)(\d+)$/);
-                            if (match) subComment = `(${match[1]}${match[2]})`;
-                            else if (suffix !== parts[0]) subComment = `(${suffix})`;
+                    let comment = '';
+                    if (showComment) {
+                        const sec = cls._section || cls.group || '';
+                        if (sec) comment = `(${sec})`;
+                    } else {
+                        const group = cls.group || cls.section || '';
+                        if (group) {
+                            const parts = group.split('_');
+                            if (parts.length > 1) {
+                                const suffix = parts[1];
+                                const match = suffix.match(/^([A-Z]+)(\d+)$/);
+                                if (match) comment = `(${match[1]}${match[2]})`;
+                                else if (suffix !== parts[0]) comment = `(${suffix})`;
+                            }
                         }
                     }
                     html += `<div style="margin-bottom:4px;">
-                        <strong>${escapeHtml(cls.course)}</strong> <span style="font-size:0.7rem;color:var(--muted);">${escapeHtml(subComment)}</span>
+                        <strong>${escapeHtml(cls.course)}</strong> <span style="font-size:0.7rem;color:var(--muted);">${escapeHtml(comment)}</span>
                         <span class="type-tag ${typeClass}" style="font-size:0.65rem;">${typeLabel}</span><br>
                         <span style="font-size:0.8rem;color:var(--muted);">${escapeHtml(cls.teacher)} • ${escapeHtml(cls.room)}</span>
                     </div>`;
@@ -437,28 +633,17 @@ function renderWeekView(classes) {
 // HANDLERS
 // ============================================================
 
-function handleShowRoutine() {
-    const section = sectionInput.value.trim();
-    if (!section) {
-        showMessage('Please enter a section (e.g., 70_N).', 'error');
-        return;
-    }
-    const normalized = section.toUpperCase().replace(/\s+/g, '_');
-    loadSection(normalized);
-}
-
 function handleClearSection() {
     localStorage.removeItem(STORAGE_KEY);
     savedChip.style.display = 'none';
     sectionInput.value = '';
-    showMessage('Saved section cleared.', 'info');
+    showMessage('Saved search cleared.', 'info');
     loadRoutineData();
 }
 
 function downloadSection() {
-    if (currentBaseSection) {
-        alert(`Download PDF for ${currentBaseSection} (coming soon)`);
-    }
+    const label = currentSearchTerm || 'routine';
+    alert(`Download PDF for ${label} (coming soon)`);
 }
 
 // ============================================================
@@ -505,6 +690,10 @@ function escapeHtml(text) {
 setInterval(() => {
     if (!document.hidden) {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) loadSection(saved);
+        if (saved) {
+            if (currentMode === 'section') loadSection(saved);
+            else if (currentMode === 'teacher') loadTeacher(saved);
+            else if (currentMode === 'room') loadRoom(saved);
+        }
     }
 }, 5 * 60 * 1000);
