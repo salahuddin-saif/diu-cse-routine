@@ -28,20 +28,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install PyMuPDF requests beautifulsoup4
 
-      - name: Download latest routine PDF
+      - name: Run PDF parser (auto‑discovery)
         env:
-          ROUTINE_PDF_URL: ${{ secrets.ROUTINE_PDF_URL }}
+          ROUTINE_PDF_URL: ${{ secrets.ROUTINE_PDF_URL }}   # fallback
         run: |
-          if [ -z "$ROUTINE_PDF_URL" ]; then
-            echo "Error: ROUTINE_PDF_URL secret not set"
-            exit 1
-          fi
           mkdir -p data
-          curl -L -o data/routine.pdf "$ROUTINE_PDF_URL"
-
-      - name: Parse PDF to JSON
-        run: |
-          python scripts/parse_routine_pdf.py data/routine.pdf data/routine.json
+          python scripts/parse_routine_pdf.py
 
       - name: Check for changes
         id: check
