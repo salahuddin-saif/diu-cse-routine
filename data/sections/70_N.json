@@ -177,6 +177,17 @@
       "batch": "70",
       "section": "N",
       "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "PHY103",
+      "teacher": "MMH",
+      "room": "MMH",
+      "type": "Theory",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "2"
     }
   ]
 }
