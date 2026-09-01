@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE432",
-      "teacher": "FH",
-      "room": "MB",
-      "type": "Theory",
-      "batch": "64",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
       "time": "01:00-02:30",
       "course": "ECO426",
       "teacher": "MSR",
@@ -36,11 +25,22 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
-      "course": "CSE431",
-      "teacher": "SN",
-      "room": "17",
+      "course": "CSE432",
+      "teacher": "FH",
+      "room": "MB",
+      "type": "Theory",
+      "batch": "64",
+      "section": "F",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "ECO426",
+      "teacher": "MSR",
+      "room": "KT-217",
       "type": "Theory",
       "batch": "64",
       "section": "F",
@@ -59,10 +59,10 @@
     },
     {
       "day": "Wednesday",
-      "time": "01:00-02:30",
-      "course": "ECO426",
-      "teacher": "MSR",
-      "room": "KT-217",
+      "time": "08:30-10:00",
+      "course": "CSE431",
+      "teacher": "SN",
+      "room": "17",
       "type": "Theory",
       "batch": "64",
       "section": "F",

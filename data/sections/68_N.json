@@ -37,17 +37,6 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "MTN",
-      "type": "Theory",
-      "batch": "68",
-      "section": "N",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE215",
       "teacher": "BM",
@@ -56,6 +45,17 @@
       "batch": "68",
       "section": "N",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE222",
+      "teacher": "MTN",
+      "room": "MTN",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "1"
     },
     {
       "day": "Thursday",

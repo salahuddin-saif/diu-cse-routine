@@ -59,6 +59,17 @@
     },
     {
       "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE121",
+      "teacher": "MHK",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "70",
+      "section": "D",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE124",
       "teacher": "THT",
@@ -78,17 +89,6 @@
       "batch": "70",
       "section": "D",
       "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE121",
-      "teacher": "MHK",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "70",
-      "section": "D",
-      "sub_section": "Main"
     },
     {
       "day": "Wednesday",

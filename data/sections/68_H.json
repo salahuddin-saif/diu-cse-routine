@@ -15,6 +15,17 @@
     },
     {
       "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE221",
+      "teacher": "MRY",
+      "room": "KT-320",
+      "type": "Theory",
+      "batch": "68",
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "UH",
@@ -25,11 +36,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE221",
       "teacher": "MRY",
-      "room": "KT-320",
+      "room": "KT-515",
       "type": "Theory",
       "batch": "68",
       "section": "H",
@@ -45,17 +56,6 @@
       "batch": "68",
       "section": "H",
       "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE221",
-      "teacher": "MRY",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "68",
-      "section": "H",
-      "sub_section": "Main"
     },
     {
       "day": "Monday",

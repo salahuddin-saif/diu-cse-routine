@@ -4,61 +4,6 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "MRM",
-      "room": "MRM",
-      "type": "Theory",
-      "batch": "68",
-      "section": "C",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "AOL101",
-      "teacher": "MIN",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "68",
-      "section": "C",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE215",
-      "teacher": "NAB",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "68",
-      "section": "C",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE215",
-      "teacher": "NAB",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "68",
-      "section": "C",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "MRM",
-      "room": "MRM",
-      "type": "Theory",
-      "batch": "68",
-      "section": "C",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "AOL101",
       "teacher": "TBA",
@@ -111,6 +56,61 @@
       "batch": "68",
       "section": "C",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "AOL101",
+      "teacher": "MIN",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE215",
+      "teacher": "NAB",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE222",
+      "teacher": "MRM",
+      "room": "MRM",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE215",
+      "teacher": "NAB",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "MRM",
+      "room": "MRM",
+      "type": "Theory",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "1"
     }
   ]
 }

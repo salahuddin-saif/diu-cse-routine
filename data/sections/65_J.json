@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE412",
-      "teacher": "ZS",
-      "room": "ZS",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE326",
       "teacher": "MMI",
@@ -36,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE412",
       "teacher": "ZS",
@@ -44,7 +33,7 @@
       "type": "Theory",
       "batch": "65",
       "section": "J",
-      "sub_section": "1"
+      "sub_section": "2"
     },
     {
       "day": "Tuesday",
@@ -67,6 +56,17 @@
       "batch": "65",
       "section": "J",
       "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE412",
+      "teacher": "ZS",
+      "room": "ZS",
+      "type": "Theory",
+      "batch": "65",
+      "section": "J",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",

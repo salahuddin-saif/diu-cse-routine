@@ -4,6 +4,17 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE226",
+      "teacher": "MSK",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "67",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE312",
       "teacher": "MJA",
@@ -14,11 +25,11 @@
       "sub_section": "2"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE226",
       "teacher": "MSK",
-      "room": "KT-304",
+      "room": "KT-216",
       "type": "Theory",
       "batch": "67",
       "section": "E",
@@ -34,17 +45,6 @@
       "batch": "67",
       "section": "E",
       "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE226",
-      "teacher": "MSK",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "67",
-      "section": "E",
-      "sub_section": "Main"
     },
     {
       "day": "Tuesday",

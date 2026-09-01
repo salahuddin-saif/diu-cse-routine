@@ -26,17 +26,6 @@
     },
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "MAR",
-      "room": "MAR",
-      "type": "Theory",
-      "batch": "68",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE215",
       "teacher": "SHD",
@@ -45,6 +34,17 @@
       "batch": "68",
       "section": "A",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "MAR",
+      "room": "MAR",
+      "type": "Theory",
+      "batch": "68",
+      "section": "A",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",

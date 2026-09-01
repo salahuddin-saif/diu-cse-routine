@@ -26,17 +26,6 @@
     },
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "AUA",
-      "room": "AUA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE221",
       "teacher": "AUA",
@@ -45,6 +34,17 @@
       "batch": "68",
       "section": "B",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "AUA",
+      "room": "AUA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "B",
+      "sub_section": "1"
     },
     {
       "day": "Monday",

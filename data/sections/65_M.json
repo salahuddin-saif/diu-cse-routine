@@ -26,6 +26,17 @@
     },
     {
       "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE411",
+      "teacher": "HMK",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "65",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE414",
       "teacher": "SS",
@@ -36,11 +47,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE411",
-      "teacher": "HMK",
-      "room": "KT-217",
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE326",
+      "teacher": "RIA",
+      "room": "KT-224",
       "type": "Theory",
       "batch": "65",
       "section": "M",
@@ -63,17 +74,6 @@
       "course": "CSE325",
       "teacher": "MHH",
       "room": "NNT",
-      "type": "Theory",
-      "batch": "65",
-      "section": "M",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE326",
-      "teacher": "RIA",
-      "room": "KT-224",
       "type": "Theory",
       "batch": "65",
       "section": "M",

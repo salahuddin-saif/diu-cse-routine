@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE412",
-      "teacher": "PB",
-      "room": "ARK",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE325",
       "teacher": "SRRS",
@@ -36,15 +25,26 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
+      "day": "Monday",
+      "time": "08:30-10:00",
       "course": "CSE412",
       "teacher": "PB",
-      "room": "PB",
+      "room": "ARK",
       "type": "Theory",
       "batch": "65",
       "section": "O",
-      "sub_section": "1"
+      "sub_section": "2"
+    },
+    {
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "CSE326",
+      "teacher": "SFMA",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "65",
+      "section": "O",
+      "sub_section": "Main"
     },
     {
       "day": "Tuesday",
@@ -59,10 +59,21 @@
     },
     {
       "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE412",
+      "teacher": "PB",
+      "room": "PB",
+      "type": "Theory",
+      "batch": "65",
+      "section": "O",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
       "time": "04:00-05:30",
-      "course": "CSE326",
-      "teacher": "SFMA",
-      "room": "KT-306",
+      "course": "CSE414",
+      "teacher": "MMRN",
+      "room": "KT-223",
       "type": "Theory",
       "batch": "65",
       "section": "O",
@@ -74,17 +85,6 @@
       "course": "CSE325",
       "teacher": "SRRS",
       "room": "KT-306",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "04:00-05:30",
-      "course": "CSE414",
-      "teacher": "MMRN",
-      "room": "KT-223",
       "type": "Theory",
       "batch": "65",
       "section": "O",

@@ -4,6 +4,28 @@
   "classes": [
     {
       "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE313",
+      "teacher": "CSA",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE226",
+      "teacher": "SP",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE312",
       "teacher": "SEA",
@@ -16,17 +38,6 @@
     {
       "day": "Monday",
       "time": "11:30-01:00",
-      "course": "CSE313",
-      "teacher": "CSA",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
       "course": "CSE314",
       "teacher": "CSA",
       "room": "CSA",
@@ -34,17 +45,6 @@
       "batch": "67",
       "section": "N",
       "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE226",
-      "teacher": "SP",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
     },
     {
       "day": "Tuesday",

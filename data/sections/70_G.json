@@ -4,6 +4,17 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE123",
+      "teacher": "MHS",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "70",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "PHY102",
       "teacher": "MAM",
@@ -25,11 +36,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE123",
-      "teacher": "MHS",
-      "room": "KT-208",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE121",
+      "teacher": "MRIS",
+      "room": "KT-216",
       "type": "Theory",
       "batch": "70",
       "section": "G",
@@ -41,17 +52,6 @@
       "course": "PHY102",
       "teacher": "MAM",
       "room": "KT-217",
-      "type": "Theory",
-      "batch": "70",
-      "section": "G",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE121",
-      "teacher": "MRIS",
-      "room": "KT-216",
       "type": "Theory",
       "batch": "70",
       "section": "G",

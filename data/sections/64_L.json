@@ -26,6 +26,17 @@
     },
     {
       "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE441",
+      "teacher": "MHD",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "64",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "ECO426",
       "teacher": "MBB",
@@ -41,17 +52,6 @@
       "course": "CSE442",
       "teacher": "FFZ",
       "room": "NRM",
-      "type": "Theory",
-      "batch": "64",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE441",
-      "teacher": "MHD",
-      "room": "KT-217",
       "type": "Theory",
       "batch": "64",
       "section": "L",

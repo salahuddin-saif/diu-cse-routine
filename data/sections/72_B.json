@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "FZA",
-      "room": "MSR",
-      "type": "Theory",
-      "batch": "72",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "MAT101",
       "teacher": "MSH",
@@ -25,11 +14,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "FZA",
-      "room": "ANX1-103",
+      "room": "MSR",
       "type": "Theory",
       "batch": "72",
       "section": "B",
@@ -41,6 +30,17 @@
       "course": "CSE115",
       "teacher": "IJN",
       "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "72",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE112",
+      "teacher": "FZA",
+      "room": "ANX1-103",
       "type": "Theory",
       "batch": "72",
       "section": "B",

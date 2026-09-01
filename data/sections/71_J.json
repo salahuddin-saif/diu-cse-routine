@@ -37,17 +37,6 @@
     },
     {
       "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "PHY101",
-      "teacher": "SSK",
-      "room": "SMS",
-      "type": "Theory",
-      "batch": "71",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
       "time": "11:30-01:00",
       "course": "ENG102",
       "teacher": "NAT",
@@ -58,15 +47,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "JRY",
-      "room": "JRY",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "SMS",
       "type": "Theory",
       "batch": "71",
       "section": "J",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -91,7 +80,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
+      "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE114",
       "teacher": "JRY",
@@ -99,7 +88,7 @@
       "type": "Theory",
       "batch": "71",
       "section": "J",
-      "sub_section": "2"
+      "sub_section": "1"
     },
     {
       "day": "Thursday",
@@ -111,6 +100,17 @@
       "batch": "71",
       "section": "J",
       "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "JRY",
+      "room": "JRY",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "2"
     },
     {
       "day": "Wednesday",

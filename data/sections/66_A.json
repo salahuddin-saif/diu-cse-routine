@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "FNN",
-      "room": "FNN",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE321",
       "teacher": "FNN",
@@ -34,6 +23,17 @@
       "batch": "66",
       "section": "A",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "FNN",
+      "room": "FNN",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "1"
     },
     {
       "day": "Sunday",
@@ -70,17 +70,6 @@
     },
     {
       "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "SZ",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
       "time": "11:30-01:00",
       "course": "CSE315",
       "teacher": "AS",
@@ -96,6 +85,17 @@
       "course": "CSE321",
       "teacher": "FNN",
       "room": "KT-201",
+      "type": "Theory",
+      "batch": "66",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "SZ",
+      "room": "KT-208",
       "type": "Theory",
       "batch": "66",
       "section": "A",

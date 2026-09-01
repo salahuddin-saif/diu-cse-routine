@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE326",
-      "teacher": "MUH",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "65",
-      "section": "C",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE414",
       "teacher": "DAN",
@@ -36,15 +25,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE412",
-      "teacher": "TRA",
-      "room": "DP",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE326",
+      "teacher": "MUH",
+      "room": "KT-304",
       "type": "Theory",
       "batch": "65",
       "section": "C",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -56,6 +45,17 @@
       "batch": "65",
       "section": "C",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE412",
+      "teacher": "TRA",
+      "room": "DP",
+      "type": "Theory",
+      "batch": "65",
+      "section": "C",
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",

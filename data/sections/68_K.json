@@ -15,17 +15,6 @@
     },
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "SAL",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "68",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE221",
       "teacher": "LAR",
@@ -36,15 +25,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Saturday",
       "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "LAR",
-      "room": "LAR",
+      "course": "AOL101",
+      "teacher": "SAL",
+      "room": "G1-027",
       "type": "Theory",
       "batch": "68",
       "section": "K",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -67,6 +56,17 @@
       "batch": "68",
       "section": "K",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE222",
+      "teacher": "LAR",
+      "room": "LAR",
+      "type": "Theory",
+      "batch": "68",
+      "section": "K",
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",

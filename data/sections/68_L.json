@@ -15,17 +15,6 @@
     },
     {
       "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "IST",
-      "room": "IST",
-      "type": "Theory",
-      "batch": "68",
-      "section": "L",
-      "sub_section": "1"
-    },
-    {
-      "day": "Tuesday",
       "time": "04:00-05:30",
       "course": "CSE221",
       "teacher": "IST",
@@ -34,6 +23,17 @@
       "batch": "68",
       "section": "L",
       "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "IST",
+      "room": "IST",
+      "type": "Theory",
+      "batch": "68",
+      "section": "L",
+      "sub_section": "1"
     },
     {
       "day": "Thursday",

@@ -15,17 +15,6 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "PDS",
-      "room": "PDS",
-      "type": "Theory",
-      "batch": "66",
-      "section": "E",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE321",
       "teacher": "AM",
@@ -36,22 +25,22 @@
       "sub_section": "Main"
     },
     {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "PDS",
+      "room": "PDS",
+      "type": "Theory",
+      "batch": "66",
+      "section": "E",
+      "sub_section": "1"
+    },
+    {
       "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE315",
       "teacher": "AS",
       "room": "KT-201",
-      "type": "Theory",
-      "batch": "66",
-      "section": "E",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE321",
-      "teacher": "AM",
-      "room": "KT-306",
       "type": "Theory",
       "batch": "66",
       "section": "E",
@@ -69,22 +58,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "PDS",
-      "room": "PDS",
-      "type": "Theory",
-      "batch": "66",
-      "section": "E",
-      "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "ACT327",
-      "teacher": "ASM",
-      "room": "KT-515",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE321",
+      "teacher": "AM",
+      "room": "KT-306",
       "type": "Theory",
       "batch": "66",
       "section": "E",
@@ -100,6 +78,28 @@
       "batch": "66",
       "section": "E",
       "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "ACT327",
+      "teacher": "ASM",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "66",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "PDS",
+      "room": "PDS",
+      "type": "Theory",
+      "batch": "66",
+      "section": "E",
+      "sub_section": "2"
     },
     {
       "day": "Saturday",

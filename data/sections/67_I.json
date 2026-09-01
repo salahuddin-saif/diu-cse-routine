@@ -26,6 +26,17 @@
     },
     {
       "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE313",
+      "teacher": "MMB",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "67",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE312",
       "teacher": "NNT",
@@ -47,11 +58,11 @@
       "sub_section": "1"
     },
     {
-      "day": "Monday",
-      "time": "04:00-05:30",
+      "day": "Tuesday",
+      "time": "02:30-04:00",
       "course": "CSE313",
       "teacher": "MMB",
-      "room": "KT-305",
+      "room": "KT-208",
       "type": "Theory",
       "batch": "67",
       "section": "I",
@@ -63,17 +74,6 @@
       "course": "CSE311",
       "teacher": "SH",
       "room": "KT-304",
-      "type": "Theory",
-      "batch": "67",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE313",
-      "teacher": "MMB",
-      "room": "KT-208",
       "type": "Theory",
       "batch": "67",
       "section": "I",

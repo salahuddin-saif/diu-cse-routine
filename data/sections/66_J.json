@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "STA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "J",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE321",
       "teacher": "STA",
@@ -23,6 +12,17 @@
       "batch": "66",
       "section": "J",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "STA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "J",
+      "sub_section": "1"
     },
     {
       "day": "Monday",

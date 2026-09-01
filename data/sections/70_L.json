@@ -4,6 +4,17 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "PHY102",
+      "teacher": "MRI",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "70",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE124",
       "teacher": "JHJ",
@@ -14,11 +25,11 @@
       "sub_section": "1"
     },
     {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "PHY102",
-      "teacher": "MRI",
-      "room": "KT-219",
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE121",
+      "teacher": "NTS",
+      "room": "KT-518",
       "type": "Theory",
       "batch": "70",
       "section": "L",
@@ -34,17 +45,6 @@
       "batch": "70",
       "section": "L",
       "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE121",
-      "teacher": "NTS",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "70",
-      "section": "L",
-      "sub_section": "Main"
     },
     {
       "day": "Tuesday",

@@ -3,17 +3,6 @@
   "batch": "Unknown",
   "classes": [
     {
-      "day": "Thursday",
-      "time": "11:30-01:00",
-      "course": "MAT211",
-      "teacher": "TBA",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "CC",
-      "sub_section": "Main"
-    },
-    {
       "day": "Saturday",
       "time": "04:00-05:30",
       "course": "MAT101",
@@ -63,6 +52,17 @@
       "course": "MAT211",
       "teacher": "TBA",
       "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "CC",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "MAT211",
+      "teacher": "TBA",
+      "room": "ANX1-208",
       "type": "Theory",
       "batch": "Unknown",
       "section": "CC",

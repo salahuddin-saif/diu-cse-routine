@@ -4,10 +4,43 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE442",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "ECO426",
-      "teacher": "MBB",
-      "room": "KT-223",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE441",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "ECO426",
+      "teacher": "TBA",
+      "room": "TBA",
       "type": "Theory",
       "batch": "64",
       "section": "K",
@@ -25,11 +58,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "ECO426",
       "teacher": "MBB",
-      "room": "KT-218",
+      "room": "KT-223",
       "type": "Theory",
       "batch": "64",
       "section": "K",
@@ -47,44 +80,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE442",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "ECO426",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE441",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "ECO426",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MBB",
+      "room": "KT-218",
       "type": "Theory",
       "batch": "64",
       "section": "K",

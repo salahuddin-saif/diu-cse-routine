@@ -4,14 +4,14 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "RYS",
-      "room": "RYS",
+      "time": "01:00-02:30",
+      "course": "AOL101",
+      "teacher": "UH",
+      "room": "KT-217",
       "type": "Theory",
       "batch": "68",
       "section": "G",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
@@ -26,17 +26,6 @@
     },
     {
       "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "AOL101",
-      "teacher": "UH",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "68",
-      "section": "G",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE222",
       "teacher": "RYS",
@@ -44,7 +33,7 @@
       "type": "Theory",
       "batch": "68",
       "section": "G",
-      "sub_section": "2"
+      "sub_section": "1"
     },
     {
       "day": "Monday",
@@ -69,15 +58,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "SOM",
-      "room": "KT-217",
+      "course": "CSE222",
+      "teacher": "RYS",
+      "room": "RYS",
       "type": "Theory",
       "batch": "68",
       "section": "G",
-      "sub_section": "Main"
+      "sub_section": "2"
     },
     {
       "day": "Wednesday",
@@ -85,6 +74,17 @@
       "course": "CSE221",
       "teacher": "SZ",
       "room": "KT-201",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE215",
+      "teacher": "SOM",
+      "room": "KT-217",
       "type": "Theory",
       "batch": "68",
       "section": "G",

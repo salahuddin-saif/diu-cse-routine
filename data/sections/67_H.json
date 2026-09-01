@@ -59,17 +59,6 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "MAH",
-      "room": "SAI",
-      "type": "Theory",
-      "batch": "67",
-      "section": "H",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE312",
       "teacher": "SNA",
@@ -78,6 +67,17 @@
       "batch": "67",
       "section": "H",
       "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "MAH",
+      "room": "SAI",
+      "type": "Theory",
+      "batch": "67",
+      "section": "H",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",

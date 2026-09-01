@@ -37,17 +37,6 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "FTJ",
-      "room": "FTJ",
-      "type": "Theory",
-      "batch": "66",
-      "section": "F",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE321",
       "teacher": "FTJ",
@@ -56,6 +45,17 @@
       "batch": "66",
       "section": "F",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "FTJ",
+      "room": "FTJ",
+      "type": "Theory",
+      "batch": "66",
+      "section": "F",
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",

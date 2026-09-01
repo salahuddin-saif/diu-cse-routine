@@ -59,17 +59,6 @@
     },
     {
       "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "AOL101",
-      "teacher": "NNT",
-      "room": "KT-224",
-      "type": "Theory",
-      "batch": "68",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
       "time": "01:00-02:30",
       "course": "CSE221",
       "teacher": "ZZM",
@@ -85,6 +74,17 @@
       "course": "CSE215",
       "teacher": "BM",
       "room": "KT-223",
+      "type": "Theory",
+      "batch": "68",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "AOL101",
+      "teacher": "NNT",
+      "room": "KT-224",
       "type": "Theory",
       "batch": "68",
       "section": "I",

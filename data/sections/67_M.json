@@ -15,17 +15,6 @@
     },
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "IJN",
-      "room": "IJN",
-      "type": "Theory",
-      "batch": "67",
-      "section": "M",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE311",
       "teacher": "IJN",
@@ -34,6 +23,17 @@
       "batch": "67",
       "section": "M",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE312",
+      "teacher": "IJN",
+      "room": "IJN",
+      "type": "Theory",
+      "batch": "67",
+      "section": "M",
+      "sub_section": "2"
     },
     {
       "day": "Monday",
@@ -81,6 +81,17 @@
     },
     {
       "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE313",
+      "teacher": "RAK",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "67",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
       "time": "10:00-11:30",
       "course": "CSE312",
       "teacher": "IJN",
@@ -100,17 +111,6 @@
       "batch": "67",
       "section": "M",
       "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "02:30-04:00",
-      "course": "CSE313",
-      "teacher": "RAK",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "67",
-      "section": "M",
-      "sub_section": "Main"
     },
     {
       "day": "Saturday",

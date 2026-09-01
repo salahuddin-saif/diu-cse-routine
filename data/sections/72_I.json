@@ -15,17 +15,6 @@
     },
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE115",
-      "teacher": "ZMK",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "72",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "ENG101",
       "teacher": "ANR",
@@ -47,11 +36,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "ACC",
-      "room": "AHAK",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE115",
+      "teacher": "ZMK",
+      "room": "ANX1-202",
       "type": "Theory",
       "batch": "72",
       "section": "I",
@@ -63,6 +52,17 @@
       "course": "CSE115",
       "teacher": "ZMK",
       "room": "ANX1-210",
+      "type": "Theory",
+      "batch": "72",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE112",
+      "teacher": "ACC",
+      "room": "AHAK",
       "type": "Theory",
       "batch": "72",
       "section": "I",

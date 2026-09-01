@@ -3,28 +3,6 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "ECO426",
-      "teacher": "SMS",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "64",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "11:30-01:00",
-      "course": "ECO426",
-      "teacher": "SMS",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "64",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
       "day": "Unknown",
       "time": "02:30-04:00",
       "course": "ECO426",
@@ -52,6 +30,28 @@
       "course": "CSE431",
       "teacher": "TBA",
       "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "64",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "ECO426",
+      "teacher": "SMS",
+      "room": "KT-216",
       "type": "Theory",
       "batch": "64",
       "section": "I",

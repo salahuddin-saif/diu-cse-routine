@@ -59,17 +59,6 @@
     },
     {
       "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "MSM",
-      "room": "MSM",
-      "type": "Theory",
-      "batch": "71",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
       "time": "11:30-01:00",
       "course": "PHY101",
       "teacher": "MAK",
@@ -89,6 +78,17 @@
       "batch": "71",
       "section": "B",
       "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "MSM",
+      "room": "MSM",
+      "type": "Theory",
+      "batch": "71",
+      "section": "B",
+      "sub_section": "2"
     },
     {
       "day": "Wednesday",

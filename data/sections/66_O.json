@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE315",
-      "teacher": "SEA",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "ACT327",
       "teacher": "MDS",
@@ -25,15 +14,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Saturday",
       "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "ARK",
-      "room": "ARK",
+      "course": "CSE315",
+      "teacher": "SEA",
+      "room": "KT-306",
       "type": "Theory",
       "batch": "66",
       "section": "O",
-      "sub_section": "2"
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -58,6 +47,17 @@
       "sub_section": "Main"
     },
     {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE322",
+      "teacher": "ARK",
+      "room": "ARK",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O",
+      "sub_section": "2"
+    },
+    {
       "day": "Thursday",
       "time": "08:30-10:00",
       "course": "CSE317",
@@ -67,17 +67,6 @@
       "batch": "66",
       "section": "O",
       "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "ARK",
-      "room": "ARK",
-      "type": "Theory",
-      "batch": "66",
-      "section": "O",
-      "sub_section": "1"
     },
     {
       "day": "Thursday",
@@ -100,6 +89,17 @@
       "batch": "66",
       "section": "O",
       "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "ARK",
+      "room": "ARK",
+      "type": "Theory",
+      "batch": "66",
+      "section": "O",
+      "sub_section": "1"
     },
     {
       "day": "Saturday",

@@ -15,6 +15,17 @@
     },
     {
       "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE325",
+      "teacher": "AKM",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "65",
+      "section": "E",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE326",
       "teacher": "NS",
@@ -34,17 +45,6 @@
       "batch": "65",
       "section": "E",
       "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE325",
-      "teacher": "AKM",
-      "room": "KT-224",
-      "type": "Theory",
-      "batch": "65",
-      "section": "E",
-      "sub_section": "Main"
     },
     {
       "day": "Tuesday",

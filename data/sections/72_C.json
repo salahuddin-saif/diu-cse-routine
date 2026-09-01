@@ -37,17 +37,6 @@
     },
     {
       "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "MAT101",
-      "teacher": "AMN",
-      "room": "ANX1-209",
-      "type": "Theory",
-      "batch": "72",
-      "section": "C",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
       "time": "11:30-01:00",
       "course": "ENG101",
       "teacher": "SMH",
@@ -58,11 +47,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "MFH",
-      "room": "KT-515",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "MAT101",
+      "teacher": "AMN",
+      "room": "ANX1-209",
       "type": "Theory",
       "batch": "72",
       "section": "C",
@@ -74,6 +63,17 @@
       "course": "CSE115",
       "teacher": "FTJ",
       "room": "KT-305",
+      "type": "Theory",
+      "batch": "72",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE112",
+      "teacher": "MFH",
+      "room": "KT-515",
       "type": "Theory",
       "batch": "72",
       "section": "C",

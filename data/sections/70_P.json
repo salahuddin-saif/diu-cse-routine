@@ -81,6 +81,17 @@
     },
     {
       "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "PHY102",
+      "teacher": "MAM",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE121",
       "teacher": "MHI",
@@ -96,17 +107,6 @@
       "course": "CSE123",
       "teacher": "RIA",
       "room": "KT-220",
-      "type": "Theory",
-      "batch": "70",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "02:30-04:00",
-      "course": "PHY102",
-      "teacher": "MAM",
-      "room": "KT-217",
       "type": "Theory",
       "batch": "70",
       "section": "P",

@@ -48,17 +48,6 @@
     },
     {
       "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE325",
-      "teacher": "SHD",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "65",
-      "section": "G",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE411",
       "teacher": "AAA",
@@ -69,11 +58,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "CSE325",
       "teacher": "SHD",
-      "room": "KT-514",
+      "room": "KT-223",
       "type": "Theory",
       "batch": "65",
       "section": "G",
@@ -85,6 +74,17 @@
       "course": "CSE326",
       "teacher": "SAL",
       "room": "KT-208",
+      "type": "Theory",
+      "batch": "65",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE325",
+      "teacher": "SHD",
+      "room": "KT-514",
       "type": "Theory",
       "batch": "65",
       "section": "G",

@@ -26,14 +26,14 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE124",
-      "teacher": "MSM",
-      "room": "MSM",
+      "time": "01:00-02:30",
+      "course": "PHY102",
+      "teacher": "AEE",
+      "room": "KT-320",
       "type": "Theory",
       "batch": "70",
       "section": "B",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -48,14 +48,14 @@
     },
     {
       "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "PHY102",
-      "teacher": "AEE",
-      "room": "KT-320",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "MSM",
+      "room": "MSM",
       "type": "Theory",
       "batch": "70",
       "section": "B",
-      "sub_section": "Main"
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",

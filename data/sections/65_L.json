@@ -26,6 +26,17 @@
     },
     {
       "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE414",
+      "teacher": "SS",
+      "room": "KT-306",
+      "type": "Theory",
+      "batch": "65",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE412",
       "teacher": "NJO",
@@ -36,11 +47,11 @@
       "sub_section": "1"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE414",
-      "teacher": "SS",
-      "room": "KT-306",
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE325",
+      "teacher": "EHL",
+      "room": "KT-224",
       "type": "Theory",
       "batch": "65",
       "section": "L",
@@ -58,11 +69,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE325",
-      "teacher": "EHL",
-      "room": "KT-224",
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE414",
+      "teacher": "SS",
+      "room": "KT-306",
       "type": "Theory",
       "batch": "65",
       "section": "L",
@@ -78,17 +89,6 @@
       "batch": "65",
       "section": "L",
       "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE414",
-      "teacher": "SS",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "65",
-      "section": "L",
-      "sub_section": "Main"
     },
     {
       "day": "Wednesday",

@@ -15,6 +15,17 @@
     },
     {
       "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "MAT102",
+      "teacher": "SP",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "ENG102",
       "teacher": "IMT",
@@ -36,11 +47,11 @@
       "sub_section": "1"
     },
     {
-      "day": "Sunday",
+      "day": "Tuesday",
       "time": "01:00-02:30",
-      "course": "MAT102",
-      "teacher": "SP",
-      "room": "KT-221",
+      "course": "CSE113",
+      "teacher": "MHN",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "71",
       "section": "H",
@@ -52,17 +63,6 @@
       "course": "PHY101",
       "teacher": "AAS",
       "room": "KT-306",
-      "type": "Theory",
-      "batch": "71",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE113",
-      "teacher": "MHN",
-      "room": "KT-303",
       "type": "Theory",
       "batch": "71",
       "section": "H",

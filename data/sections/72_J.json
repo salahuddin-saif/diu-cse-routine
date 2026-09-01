@@ -26,17 +26,6 @@
     },
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "ENG101",
-      "teacher": "SMSH",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "72",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE115",
       "teacher": "MSJ",
@@ -47,11 +36,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "FFN",
-      "room": "MHS",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "ENG101",
+      "teacher": "SMSH",
+      "room": "ANX1-208",
       "type": "Theory",
       "batch": "72",
       "section": "J",
@@ -63,6 +52,17 @@
       "course": "CSE115",
       "teacher": "MSJ",
       "room": "ANX1-207",
+      "type": "Theory",
+      "batch": "72",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE112",
+      "teacher": "FFN",
+      "room": "MHS",
       "type": "Theory",
       "batch": "72",
       "section": "J",

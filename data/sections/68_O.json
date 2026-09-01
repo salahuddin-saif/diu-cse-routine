@@ -26,6 +26,17 @@
     },
     {
       "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE215",
+      "teacher": "MNS",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "68",
+      "section": "O",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE221",
       "teacher": "IST",
@@ -45,17 +56,6 @@
       "batch": "68",
       "section": "O",
       "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE215",
-      "teacher": "MNS",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "68",
-      "section": "O",
-      "sub_section": "Main"
     },
     {
       "day": "Thursday",

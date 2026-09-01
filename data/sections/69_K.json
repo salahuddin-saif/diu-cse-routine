@@ -3,94 +3,6 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE212",
-      "teacher": "MMI",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "MAT211",
-      "teacher": "MPL",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "BNS101",
-      "teacher": "ALK",
-      "room": "ANX1-207",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "MPL",
-      "room": "ANX1-207",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "BNS101",
-      "teacher": "ALK",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE213",
-      "teacher": "AGT",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "AGT",
-      "room": "AGT",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "2"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "AGT",
-      "room": "AGT",
-      "type": "Theory",
-      "batch": "69",
-      "section": "K",
-      "sub_section": "1"
-    },
-    {
       "day": "Monday",
       "time": "02:30-04:00",
       "course": "BNS101",
@@ -177,6 +89,83 @@
       "batch": "69",
       "section": "K",
       "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE212",
+      "teacher": "MMI",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "BNS101",
+      "teacher": "ALK",
+      "room": "ANX1-207",
+      "type": "Theory",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "MAT211",
+      "teacher": "MPL",
+      "room": "ANX1-210",
+      "type": "Theory",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "MPL",
+      "room": "ANX1-207",
+      "type": "Theory",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "BNS101",
+      "teacher": "ALK",
+      "room": "ANX1-208",
+      "type": "Theory",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE213",
+      "teacher": "AGT",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "AGT",
+      "room": "AGT",
+      "type": "Theory",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "2"
     }
   ]
 }

@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "MUM",
-      "room": "MUM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE226",
       "teacher": "NRM",
@@ -25,6 +14,17 @@
       "sub_section": "Main"
     },
     {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "MUM",
+      "room": "MUM",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B",
+      "sub_section": "1"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE313",
@@ -67,17 +67,6 @@
       "batch": "67",
       "section": "B",
       "sub_section": "1"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "SFMA",
-      "room": "SFMA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "2"
     },
     {
       "day": "Tuesday",
@@ -89,6 +78,17 @@
       "batch": "67",
       "section": "B",
       "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "SFMA",
+      "room": "SFMA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "B",
+      "sub_section": "2"
     },
     {
       "day": "Saturday",

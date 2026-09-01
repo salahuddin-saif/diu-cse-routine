@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "TI",
-      "room": "TI",
-      "type": "Theory",
-      "batch": "66",
-      "section": "G",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE322",
       "teacher": "TI",
@@ -23,6 +12,17 @@
       "batch": "66",
       "section": "G",
       "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "TI",
+      "room": "TI",
+      "type": "Theory",
+      "batch": "66",
+      "section": "G",
+      "sub_section": "2"
     },
     {
       "day": "Monday",
@@ -48,17 +48,6 @@
     },
     {
       "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE315",
-      "teacher": "NS",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "66",
-      "section": "G",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE317",
       "teacher": "MRR",
@@ -69,11 +58,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE317",
-      "teacher": "MRR",
-      "room": "TAB",
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE315",
+      "teacher": "NS",
+      "room": "KT-518",
       "type": "Theory",
       "batch": "66",
       "section": "G",
@@ -85,6 +74,17 @@
       "course": "ACT327",
       "teacher": "ARN",
       "room": "KT-219",
+      "type": "Theory",
+      "batch": "66",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE317",
+      "teacher": "MRR",
+      "room": "TAB",
       "type": "Theory",
       "batch": "66",
       "section": "G",

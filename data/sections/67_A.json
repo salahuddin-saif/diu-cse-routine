@@ -15,6 +15,17 @@
     },
     {
       "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE311",
+      "teacher": "MSK",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "67",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE313",
       "teacher": "MUR",
@@ -36,11 +47,11 @@
       "sub_section": "1"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE311",
       "teacher": "MSK",
-      "room": "KT-208",
+      "room": "KT-216",
       "type": "Theory",
       "batch": "67",
       "section": "A",
@@ -67,17 +78,6 @@
       "batch": "67",
       "section": "A",
       "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE311",
-      "teacher": "MSK",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "67",
-      "section": "A",
-      "sub_section": "Main"
     },
     {
       "day": "Tuesday",

@@ -26,17 +26,6 @@
     },
     {
       "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "PHY101",
-      "teacher": "SSK",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "71",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "ENG102",
       "teacher": "SAS",
@@ -47,15 +36,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "MA",
-      "room": "MA",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "KT-514",
       "type": "Theory",
       "batch": "71",
       "section": "I",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
@@ -67,6 +56,17 @@
       "batch": "71",
       "section": "I",
       "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "MA",
+      "room": "MA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "I",
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",

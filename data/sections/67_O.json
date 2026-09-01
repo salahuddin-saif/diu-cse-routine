@@ -37,6 +37,17 @@
     },
     {
       "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE312",
+      "teacher": "MDA",
+      "room": "MDA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE312",
       "teacher": "MDA",
@@ -58,28 +69,6 @@
       "sub_section": "1"
     },
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "MDA",
-      "room": "MDA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O",
-      "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE311",
-      "teacher": "MDA",
-      "room": "19",
-      "type": "Theory",
-      "batch": "67",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
       "day": "Wednesday",
       "time": "01:00-02:30",
       "course": "CSE313",
@@ -96,6 +85,17 @@
       "course": "CSE226",
       "teacher": "MMR",
       "room": "KT-303",
+      "type": "Theory",
+      "batch": "67",
+      "section": "O",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE311",
+      "teacher": "MDA",
+      "room": "19",
       "type": "Theory",
       "batch": "67",
       "section": "O",

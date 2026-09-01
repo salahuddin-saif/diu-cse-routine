@@ -26,10 +26,10 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "RIA",
-      "room": "KT-224",
+      "time": "11:30-01:00",
+      "course": "CSE325",
+      "teacher": "SRRS",
+      "room": "KT-219",
       "type": "Theory",
       "batch": "65",
       "section": "N",
@@ -37,10 +37,10 @@
     },
     {
       "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE325",
-      "teacher": "SRRS",
-      "room": "KT-219",
+      "time": "08:30-10:00",
+      "course": "CSE326",
+      "teacher": "RIA",
+      "room": "KT-224",
       "type": "Theory",
       "batch": "65",
       "section": "N",
@@ -70,17 +70,6 @@
     },
     {
       "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE412",
-      "teacher": "MSA",
-      "room": "MSA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "N",
-      "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE325",
       "teacher": "SRRS",
@@ -89,6 +78,17 @@
       "batch": "65",
       "section": "N",
       "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE412",
+      "teacher": "MSA",
+      "room": "MSA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "1"
     },
     {
       "day": "Wednesday",

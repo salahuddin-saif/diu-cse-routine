@@ -4,17 +4,6 @@
   "classes": [
     {
       "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE212",
-      "teacher": "RKR",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "69",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE213",
       "teacher": "SHR",
@@ -25,22 +14,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "SHR",
-      "room": "SHR",
-      "type": "Theory",
-      "batch": "69",
-      "section": "L",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "MAT211",
-      "teacher": "JS",
-      "room": "ANX1-208",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
       "type": "Theory",
       "batch": "69",
       "section": "L",
@@ -58,15 +36,26 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE212",
-      "teacher": "RKR",
-      "room": "KT-518",
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-208",
       "type": "Theory",
       "batch": "69",
       "section": "L",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "SHR",
+      "room": "SHR",
+      "type": "Theory",
+      "batch": "69",
+      "section": "L",
+      "sub_section": "1"
     },
     {
       "day": "Tuesday",
@@ -80,15 +69,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "SHR",
-      "room": "SHR",
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
       "type": "Theory",
       "batch": "69",
       "section": "L",
-      "sub_section": "2"
+      "sub_section": "Main"
     },
     {
       "day": "Wednesday",
@@ -111,6 +100,17 @@
       "batch": "69",
       "section": "L",
       "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "SHR",
+      "room": "SHR",
+      "type": "Theory",
+      "batch": "69",
+      "section": "L",
+      "sub_section": "2"
     },
     {
       "day": "Sunday",

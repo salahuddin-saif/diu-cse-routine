@@ -4,6 +4,17 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE321",
+      "teacher": "TI",
+      "room": "MFH",
+      "type": "Theory",
+      "batch": "66",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE315",
       "teacher": "NS",
@@ -14,11 +25,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE321",
-      "teacher": "TI",
-      "room": "MFH",
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE317",
+      "teacher": "ADK",
+      "room": "KT-218",
       "type": "Theory",
       "batch": "66",
       "section": "I",
@@ -34,28 +45,6 @@
       "batch": "66",
       "section": "I",
       "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE317",
-      "teacher": "ADK",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "TI",
-      "room": "IEA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "1"
     },
     {
       "day": "Tuesday",
@@ -78,6 +67,17 @@
       "batch": "66",
       "section": "I",
       "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "TI",
+      "room": "IEA",
+      "type": "Theory",
+      "batch": "66",
+      "section": "I",
+      "sub_section": "1"
     },
     {
       "day": "Thursday",

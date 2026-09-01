@@ -59,6 +59,17 @@
     },
     {
       "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE113",
+      "teacher": "MAIT",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
       "time": "01:00-02:30",
       "course": "ENG102",
       "teacher": "IMT",
@@ -69,11 +80,22 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
+      "day": "Wednesday",
+      "time": "01:00-02:30",
       "course": "CSE113",
       "teacher": "MAIT",
-      "room": "KT-516",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "ENG102",
+      "teacher": "IMT",
+      "room": "G1-027",
       "type": "Theory",
       "batch": "71",
       "section": "L",
@@ -89,28 +111,6 @@
       "batch": "71",
       "section": "L",
       "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "01:00-02:30",
-      "course": "CSE113",
-      "teacher": "MAIT",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "02:30-04:00",
-      "course": "ENG102",
-      "teacher": "IMT",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "Main"
     },
     {
       "day": "Saturday",
