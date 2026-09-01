@@ -16,6 +16,9 @@ const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
+// The search icon inside the input wrapper
+const searchIcon = document.querySelector('.search-input-wrap i');
+
 let routineData = null;
 let currentSection = null;
 let currentClasses = [];
@@ -25,6 +28,9 @@ let currentClasses = [];
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 DOM ready');
+
+    // Restore saved section
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
         sectionInput.value = saved;
@@ -34,13 +40,50 @@ document.addEventListener('DOMContentLoaded', () => {
         savedChip.style.display = 'none';
     }
 
+    // Load initial data
     loadRoutineData();
 
-    showRoutineBtn.addEventListener('click', handleShowRoutine);
-    clearSectionBtn.addEventListener('click', handleClearSection);
-    sectionInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleShowRoutine();
-    });
+    // ---- Event Listeners ----
+    // 1. Hidden "Show Routine" button (if present)
+    if (showRoutineBtn) {
+        showRoutineBtn.addEventListener('click', handleShowRoutine);
+        console.log('✅ Show Routine button attached');
+    }
+
+    // 2. Clear button
+    if (clearSectionBtn) {
+        clearSectionBtn.addEventListener('click', handleClearSection);
+        console.log('✅ Clear button attached');
+    }
+
+    // 3. Search icon click
+    if (searchIcon) {
+        searchIcon.style.cursor = 'pointer';
+        searchIcon.addEventListener('click', handleShowRoutine);
+        console.log('✅ Search icon click attached');
+    }
+
+    // 4. Enter key on input (works on mobile & desktop)
+    if (sectionInput) {
+        sectionInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                e.preventDefault();
+                console.log('⏎ Enter pressed');
+                handleShowRoutine();
+            }
+        });
+        // Also support keypress as a fallback
+        sectionInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                e.preventDefault();
+                console.log('⏎ Enter pressed (keypress)');
+                handleShowRoutine();
+            }
+        });
+        console.log('✅ Enter key attached');
+    }
+
+    console.log('✅ All event listeners set up');
 });
 
 // ============================================================
@@ -50,12 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadRoutineData() {
     try {
         setStatus('loading', 'Loading...');
+        console.log('📡 Fetching routine data...');
+
         const response = await fetch(ROUTINE_URL);
-        if (!response.ok) throw new Error('Failed to load routine data');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         routineData = data;
+        console.log('📦 Data loaded:', Object.keys(data));
 
-        // Update version/update info
         if (data.meta) {
             if (data.meta.version) versionNumber.textContent = data.meta.version;
             if (data.meta.updatedAt) {
@@ -67,7 +112,6 @@ async function loadRoutineData() {
         setStatus('ready', 'Ready');
         hideMessage();
 
-        // Show saved section or first available
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && data.sections && data.sections[saved]) {
             displaySection(saved, data.sections[saved]);
@@ -80,10 +124,44 @@ async function loadRoutineData() {
             }
         }
     } catch (error) {
-        console.error('Failed to load routine:', error);
+        console.error('❌ Failed to load routine:', error);
         setStatus('error', 'Error');
         showMessage('Routine data is currently unavailable. Please try again later.', 'error');
         showNoRoutine('Could not load routine data', 'Please try again later.');
+    }
+}
+
+// ============================================================
+// SECTION LOADING
+// ============================================================
+
+function handleShowRoutine() {
+    const raw = sectionInput.value.trim();
+    if (!raw) {
+        showMessage('Please enter a section (e.g., 70_N).', 'error');
+        return;
+    }
+    const normalized = raw.toUpperCase().replace(/\s+/g, '_');
+    console.log(`🔍 Searching for section: "${normalized}"`);
+
+    if (!routineData || !routineData.sections) {
+        showMessage('Routine data not loaded yet.', 'error');
+        return;
+    }
+
+    const sections = routineData.sections;
+    if (sections[normalized]) {
+        displaySection(normalized, sections[normalized]);
+    } else {
+        // Try partial match (e.g., "70_N" might match "70_N1")
+        const matchedKey = Object.keys(sections).find(k => k.startsWith(normalized) || normalized.startsWith(k));
+        if (matchedKey) {
+            console.log(`✅ Found by partial match: "${matchedKey}"`);
+            displaySection(matchedKey, sections[matchedKey]);
+        } else {
+            showMessage(`Section "${normalized}" not found.`, 'error');
+            console.warn(`❌ Section "${normalized}" not found in data.`);
+        }
     }
 }
 
@@ -97,6 +175,8 @@ function displaySection(sectionKey, sectionData) {
     currentSection = sectionKey;
     currentClasses = classes;
 
+    console.log(`📋 Displaying section "${sectionKey}" with ${classes.length} classes`);
+
     let html = buildEnrolledCard(sectionKey, classes);
     html += buildTeacherRow(classes);
     html += buildViewTabs();
@@ -105,6 +185,7 @@ function displaySection(sectionKey, sectionData) {
     routineContainer.innerHTML = html;
     renderDayView(classes);
 
+    // Attach tab switching
     document.querySelectorAll('.view-tab').forEach(tab => {
         tab.addEventListener('click', function() {
             document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
@@ -114,9 +195,11 @@ function displaySection(sectionKey, sectionData) {
         });
     });
 
+    // Save to localStorage
     localStorage.setItem(STORAGE_KEY, sectionKey);
     savedSectionSpan.textContent = sectionKey;
     savedChip.style.display = 'inline-flex';
+    hideMessage();
 }
 
 // ============================================================
@@ -238,7 +321,6 @@ function renderWeekView(classes) {
         grouped[cls.day].push(cls);
     }
 
-    // Collect all unique time slots
     const slots = [...new Set(classes.map(c => c.start + '-' + c.end))].sort();
 
     let html = `<div class="week-view"><table class="week-table"><thead><tr><th>Time</th>`;
@@ -275,26 +357,13 @@ function renderWeekView(classes) {
 // HANDLERS
 // ============================================================
 
-function handleShowRoutine() {
-    const section = sectionInput.value.trim();
-    if (!section) {
-        showMessage('Please enter a section (e.g., 70_N).', 'error');
-        return;
-    }
-    const normalized = section.toUpperCase().replace(/\s+/g, '_');
-    if (routineData && routineData.sections && routineData.sections[normalized]) {
-        displaySection(normalized, routineData.sections[normalized]);
-    } else {
-        showMessage(`Section "${normalized}" not found.`, 'error');
-    }
-}
-
 function handleClearSection() {
     localStorage.removeItem(STORAGE_KEY);
     savedChip.style.display = 'none';
     sectionInput.value = '';
     showMessage('Saved section cleared.', 'info');
-    loadRoutineData(); // reload to show first section
+    // Reload to show first section
+    loadRoutineData();
 }
 
 function downloadSection() {
