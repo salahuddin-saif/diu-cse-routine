@@ -16,8 +16,10 @@ const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
 
-// The search icon inside the input wrapper
-const searchIcon = document.querySelector('.search-input-wrap i');
+// ----- Search Icon: try multiple selectors -----
+const searchIcon = document.querySelector('.search-input-wrap i') ||
+                   document.querySelector('.fa-search') ||
+                   document.querySelector('[class*="search"] i');
 
 let routineData = null;
 let currentSection = null;
@@ -56,11 +58,30 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('✅ Clear button attached');
     }
 
-    // 3. Search icon click
+    // 3. Search icon click – with fallback
     if (searchIcon) {
         searchIcon.style.cursor = 'pointer';
-        searchIcon.addEventListener('click', handleShowRoutine);
+        searchIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('🔍 Search icon clicked');
+            handleShowRoutine();
+        });
         console.log('✅ Search icon click attached');
+    } else {
+        // Fallback: attach click to the whole wrapper
+        const wrapper = document.querySelector('.search-input-wrap');
+        if (wrapper) {
+            wrapper.addEventListener('click', function(e) {
+                // Only trigger if click is on the icon or wrapper, not on input
+                if (e.target.tagName !== 'INPUT' && !e.target.closest('input')) {
+                    console.log('🔍 Wrapper clicked');
+                    handleShowRoutine();
+                }
+            });
+            console.log('✅ Click attached to wrapper (fallback)');
+        } else {
+            console.warn('⚠️ Could not find search icon or wrapper');
+        }
     }
 
     // 4. Enter key on input (works on mobile & desktop)
