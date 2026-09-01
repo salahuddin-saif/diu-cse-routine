@@ -4,14 +4,25 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
+      "time": "08:30-11:30",
       "course": "PHY103",
       "teacher": "MMH",
-      "room": "MMH",
+      "room": "KT-804",
       "type": "Theory",
       "batch": "70",
       "section": "N",
       "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "PHY103",
+      "teacher": "EHL",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "1"
     },
     {
       "day": "Monday",
