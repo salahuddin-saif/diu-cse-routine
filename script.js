@@ -1,25 +1,10 @@
 // ============================================================
 // DIU CSE ROUTINE - STUDENT VIEW
 // ============================================================
-// Features:
-// 1. Loads section JSON first
-// 2. Falls back to routine.json
-// 3. Correct Saturday -> Friday ordering
-// 4. Correct routine time-slot ordering
-// 5. Handles Main / Sub-section properly
-// 6. Clearly shows Theory / Lab
-// 7. Correctly displays Lab Group 1 / Group 2
-// 8. Works regardless of JSON class order
-// ============================================================
 
 const STORAGE_KEY = 'diu_cse_section';
 const SECTIONS_BASE = './data/sections/';
 const COMBINED_URL = './data/routine.json?t=' + Date.now();
-
-
-// ============================================================
-// DOM ELEMENTS
-// ============================================================
 
 const sectionInput = document.getElementById('sectionInput');
 const showRoutineBtn = document.getElementById('showRoutineBtn');
@@ -35,18 +20,8 @@ let currentSectionData = null;
 
 
 // ============================================================
-// FIXED DAY ORDER
+// DAY ORDER
 // ============================================================
-
-const DAY_ORDER = {
-    Saturday: 0,
-    Sunday: 1,
-    Monday: 2,
-    Tuesday: 3,
-    Wednesday: 4,
-    Thursday: 5,
-    Friday: 6
-};
 
 const DAYS = [
     'Saturday',
@@ -58,23 +33,31 @@ const DAYS = [
     'Friday'
 ];
 
+const DAY_ORDER = {
+    Saturday: 0,
+    Sunday: 1,
+    Monday: 2,
+    Tuesday: 3,
+    Wednesday: 4,
+    Thursday: 5,
+    Friday: 6
+};
+
 
 // ============================================================
-// FIXED TIME ORDER
+// TIME ORDER
 // ============================================================
 //
 // IMPORTANT:
-// Do NOT use:
-//      a.time.localeCompare(b.time)
+// Never use localeCompare() for routine times.
 //
-// Because:
-//      "10:00-11:30"
-//      "08:30-10:00"
-//      "01:00-02:30"
-//
-// are strings, not chronological values.
-//
-// We use the official routine slot order instead.
+// Correct order:
+// 08:30-10:00
+// 10:00-11:30
+// 11:30-01:00
+// 01:00-02:30
+// 02:30-04:00
+// 04:00-05:30
 // ============================================================
 
 const TIME_ORDER = {
@@ -88,12 +71,13 @@ const TIME_ORDER = {
 
 
 // ============================================================
-// INITIALIZATION
+// PAGE LOAD
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved =
+        localStorage.getItem(STORAGE_KEY);
 
     if (saved) {
 
@@ -107,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'Enter a section',
             'Type your section (e.g., 70_N) and click "Show Routine".'
         );
+
     }
 
 
@@ -127,7 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
         (e) => {
 
             if (e.key === 'Enter') {
+
                 handleShowRoutine();
+
             }
 
         }
@@ -151,7 +138,7 @@ async function loadSection(sectionKey) {
 
 
         // ----------------------------------------------------
-        // Try individual section JSON first
+        // Try section JSON first
         // ----------------------------------------------------
 
         const perSectionUrl =
@@ -170,7 +157,8 @@ async function loadSection(sectionKey) {
 
             if (response.ok) {
 
-                data = await response.json();
+                data =
+                    await response.json();
 
                 found = true;
 
@@ -178,14 +166,13 @@ async function loadSection(sectionKey) {
 
         } catch (error) {
 
-            // Per-section file unavailable.
-            // We will use routine.json below.
+            // Fallback below
 
         }
 
 
         // ----------------------------------------------------
-        // FALLBACK: routine.json
+        // Fallback to routine.json
         // ----------------------------------------------------
 
         if (!found) {
@@ -217,22 +204,26 @@ async function loadSection(sectionKey) {
 
 
                 data = {
-                    section: sectionKey,
+
+                    section:
+                        sectionKey,
 
                     batch:
                         secData.batch ||
-                        extractBatchFromSection(sectionKey),
+                        extractBatchFromSection(
+                            sectionKey
+                        ),
 
                     classes:
                         secData.classes ||
                         []
+
                 };
 
 
                 found = true;
 
 
-                // Update version
                 if (combined.version) {
 
                     versionNumber.textContent =
@@ -241,14 +232,12 @@ async function loadSection(sectionKey) {
                 }
 
 
-                // Update date
                 if (combined.updated_at) {
 
                     const date =
                         new Date(
                             combined.updated_at
                         );
-
 
                     lastUpdated.textContent =
                         'Updated: ' +
@@ -261,10 +250,6 @@ async function loadSection(sectionKey) {
         }
 
 
-        // ----------------------------------------------------
-        // Section not found
-        // ----------------------------------------------------
-
         if (!found) {
 
             throw new Error(
@@ -275,7 +260,7 @@ async function loadSection(sectionKey) {
 
 
         // ----------------------------------------------------
-        // Normalize data
+        // Normalize classes
         // ----------------------------------------------------
 
         data.classes =
@@ -284,7 +269,8 @@ async function loadSection(sectionKey) {
             );
 
 
-        currentSectionData = data;
+        currentSectionData =
+            data;
 
 
         setStatus(
@@ -308,7 +294,7 @@ async function loadSection(sectionKey) {
     } catch (error) {
 
         console.error(
-            '❌ Failed to load section:',
+            'Failed to load section:',
             error
         );
 
@@ -455,38 +441,27 @@ function normalizeClassType(type) {
 
     if (!type) return 'Theory';
 
-    const value =
-        String(type)
-            .trim()
-            .toLowerCase();
-
-
-    if (value === 'lab') {
-
-        return 'Lab';
-
-    }
-
-
-    return 'Theory';
+    return String(type)
+        .trim()
+        .toLowerCase() === 'lab'
+        ? 'Lab'
+        : 'Theory';
 
 }
 
 
 // ============================================================
-// EXTRACT BATCH
+// BATCH FROM SECTION
 // ============================================================
 
 function extractBatchFromSection(section) {
 
     if (!section) return 'Unknown';
 
-
     const match =
         String(section).match(
             /^(\d+)_/
         );
-
 
     return match
         ? match[1]
@@ -496,7 +471,7 @@ function extractBatchFromSection(section) {
 
 
 // ============================================================
-// HANDLE SHOW ROUTINE
+// SHOW ROUTINE
 // ============================================================
 
 function handleShowRoutine() {
@@ -568,10 +543,7 @@ function displayRoutine(data) {
         data.classes || [];
 
 
-    if (
-        !classes ||
-        classes.length === 0
-    ) {
+    if (classes.length === 0) {
 
         showNoRoutine(
             'No Classes Found',
@@ -602,12 +574,16 @@ function displayRoutine(data) {
         );
 
 
+    // Keep Enrolled Courses exactly in this part
     html +=
         buildCourses(classes);
 
 
+    // Keep Day View / Week View exactly below courses
     html += `
+
         <div class="view-tabs">
+
             <button
                 class="view-tab active"
                 data-view="day"
@@ -616,6 +592,7 @@ function displayRoutine(data) {
                 Day View
             </button>
 
+
             <button
                 class="view-tab"
                 data-view="week"
@@ -623,9 +600,12 @@ function displayRoutine(data) {
                 <i class="fas fa-calendar-week"></i>
                 Week View
             </button>
+
         </div>
 
+
         <div id="viewContent"></div>
+
     `;
 
 
@@ -637,7 +617,7 @@ function displayRoutine(data) {
 
 
     // --------------------------------------------------------
-    // View switching
+    // View buttons
     // --------------------------------------------------------
 
     document
@@ -652,11 +632,13 @@ function displayRoutine(data) {
                         .querySelectorAll(
                             '.view-tab'
                         )
-                        .forEach(t =>
+                        .forEach(t => {
+
                             t.classList.remove(
                                 'active'
-                            )
-                        );
+                            );
+
+                        });
 
 
                     this.classList.add(
@@ -690,7 +672,23 @@ function displayRoutine(data) {
 
 
 // ============================================================
-// PROFILE
+// STUDENT PROFILE
+// ============================================================
+//
+// Kept in the same structure as the existing UI:
+//
+// Student 70_N
+//
+// Batch: 70
+// Section: 70_N
+// Total Classes: 10
+// Version: v5.0
+// Classes/Week: 4
+//
+// 10 Classes
+// 4 Days
+// Sat, Sun, Tue, Wed
+// Active Days
 // ============================================================
 
 function buildProfile(
@@ -725,6 +723,7 @@ function buildProfile(
 
 
     return `
+
         <div class="student-profile">
 
             <div class="profile-top">
@@ -801,37 +800,46 @@ function buildProfile(
                 <div class="profile-stats">
 
                     <div class="stat-item">
+
                         <div class="num">
                             ${total}
                         </div>
+
                         <div class="label">
                             Classes
                         </div>
+
                     </div>
 
 
                     <div class="stat-item">
+
                         <div class="num">
                             ${perWeek}
                         </div>
+
                         <div class="label">
                             Days
                         </div>
+
                     </div>
 
 
                     <div class="stat-item">
+
                         <div class="num">
                             ${uniqueDays
-                                .map(d =>
-                                    d.substring(0, 3)
+                                .map(day =>
+                                    day.substring(0, 3)
                                 )
                                 .join(', ')
                             }
                         </div>
+
                         <div class="label">
                             Active Days
                         </div>
+
                     </div>
 
                 </div>
@@ -839,22 +847,17 @@ function buildProfile(
             </div>
 
         </div>
+
     `;
 
 }
 
 
 // ============================================================
-// COURSES
+// ENROLLED COURSES
 // ============================================================
 //
-// Shows:
-// CSE213 | NSL | Theory
-// CSE214 | NSL | Lab
-//
-// This section intentionally does NOT show
-// section letter like "(N)".
-// The selected section is already shown in profile.
+// This section remains above Day View / Week View.
 // ============================================================
 
 function buildCourses(classes) {
@@ -939,7 +942,9 @@ function buildCourses(classes) {
                 </span>
 
 
-                <span class="type-tag ${typeClass}">
+                <span
+                    class="type-tag ${typeClass}"
+                >
                     ${escapeHtml(
                         course.type
                     )}
@@ -953,8 +958,11 @@ function buildCourses(classes) {
 
 
     html += `
+
             </div>
+
         </div>
+
     `;
 
 
@@ -967,11 +975,9 @@ function buildCourses(classes) {
 // SORT CLASSES
 // ============================================================
 //
-// This is the most important sorting function.
+// JSON order doesn't matter.
 //
-// JSON order DOES NOT MATTER.
-//
-// UI will ALWAYS be:
+// UI ALWAYS:
 //
 // Saturday
 // Sunday
@@ -981,14 +987,14 @@ function buildCourses(classes) {
 // Thursday
 // Friday
 //
-// Inside each day:
+// And inside each day:
 //
-// 08:30-10:00
-// 10:00-11:30
-// 11:30-01:00
-// 01:00-02:30
-// 02:30-04:00
-// 04:00-05:30
+// 08:30
+// 10:00
+// 11:30
+// 01:00
+// 02:30
+// 04:00
 // ============================================================
 
 function sortClasses(classes) {
@@ -996,18 +1002,16 @@ function sortClasses(classes) {
     return [...classes].sort(
         (a, b) => {
 
-            // ----------------------------------------------
-            // Day sorting
-            // ----------------------------------------------
+            // ------------------------------------------------
+            // DAY
+            // ------------------------------------------------
 
             const dayA =
-                DAY_ORDER[a.day] ??
-                999;
+                DAY_ORDER[a.day] ?? 999;
 
 
             const dayB =
-                DAY_ORDER[b.day] ??
-                999;
+                DAY_ORDER[b.day] ?? 999;
 
 
             if (dayA !== dayB) {
@@ -1017,18 +1021,16 @@ function sortClasses(classes) {
             }
 
 
-            // ----------------------------------------------
-            // Time sorting
-            // ----------------------------------------------
+            // ------------------------------------------------
+            // TIME
+            // ------------------------------------------------
 
             const timeA =
-                TIME_ORDER[a.time] ??
-                getTimeStartMinutes(a.time);
+                getTimeOrder(a.time);
 
 
             const timeB =
-                TIME_ORDER[b.time] ??
-                getTimeStartMinutes(b.time);
+                getTimeOrder(b.time);
 
 
             if (timeA !== timeB) {
@@ -1038,9 +1040,9 @@ function sortClasses(classes) {
             }
 
 
-            // ----------------------------------------------
-            // Course sorting
-            // ----------------------------------------------
+            // ------------------------------------------------
+            // COURSE
+            // ------------------------------------------------
 
             return String(
                 a.course || ''
@@ -1052,6 +1054,182 @@ function sortClasses(classes) {
 
         }
     );
+
+}
+
+
+// ============================================================
+// GET TIME ORDER
+// ============================================================
+
+function getTimeOrder(time) {
+
+    if (!time) return 9999;
+
+
+    // Exact routine slot
+    if (
+        Object.prototype.hasOwnProperty.call(
+            TIME_ORDER,
+            time
+        )
+    ) {
+
+        return TIME_ORDER[time];
+
+    }
+
+
+    // --------------------------------------------------------
+    // Fallback for custom time
+    // --------------------------------------------------------
+
+    const minutes =
+        getTimeStartMinutes(time);
+
+
+    return minutes === 999999
+        ? 9999
+        : minutes;
+
+}
+
+
+// ============================================================
+// TIME TO MINUTES
+// ============================================================
+
+function getTimeStartMinutes(time) {
+
+    if (!time) return 999999;
+
+
+    const match =
+        String(time).match(
+            /^(\d{1,2}):(\d{2})/
+        );
+
+
+    if (!match) return 999999;
+
+
+    let hour =
+        parseInt(
+            match[1],
+            10
+        );
+
+
+    const minute =
+        parseInt(
+            match[2],
+            10
+        );
+
+
+    // Routine uses:
+    //
+    // 11:30
+    // 01:00
+    // 02:30
+    // 04:00
+    //
+    // Therefore 01-05 means afternoon.
+
+    if (
+        hour >= 1 &&
+        hour <= 5
+    ) {
+
+        hour += 12;
+
+    }
+
+
+    return (
+        hour * 60 +
+        minute
+    );
+
+}
+
+
+// ============================================================
+// GET SUB SECTION LABEL
+// ============================================================
+//
+// JSON:
+//
+// section: "70_N"
+// sub_section: "Main"
+//      -> nothing
+//
+// sub_section: "1"
+//      -> (N1)
+//
+// sub_section: "2"
+//      -> (N2)
+//
+// For another section:
+//
+// 70_F + 1 -> (F1)
+// 70_F + 2 -> (F2)
+// ============================================================
+
+function getSubSectionLabel(cls) {
+
+    if (
+        !cls.sub_section ||
+        cls.sub_section === 'Main'
+    ) {
+
+        return '';
+
+    }
+
+
+    let sectionLetter =
+        cls.section_letter;
+
+
+    // If section_letter isn't present,
+    // extract it from 70_N.
+    if (!sectionLetter) {
+
+        const match =
+            String(
+                cls.section || ''
+            ).match(
+                /^\d+_([A-Z])/
+            );
+
+
+        if (match) {
+
+            sectionLetter =
+                match[1];
+
+        }
+
+    }
+
+
+    // --------------------------------------------------------
+    // Normal section
+    // --------------------------------------------------------
+
+    if (sectionLetter) {
+
+        return `(${sectionLetter}${cls.sub_section})`;
+
+    }
+
+
+    // --------------------------------------------------------
+    // Special section fallback
+    // --------------------------------------------------------
+
+    return `(${cls.sub_section})`;
 
 }
 
@@ -1071,9 +1249,6 @@ function renderDayView(classes) {
     if (!container) return;
 
 
-    // IMPORTANT:
-    // Make a sorted COPY.
-    // Do not mutate original JSON array.
     const sortedClasses =
         sortClasses(classes);
 
@@ -1082,7 +1257,7 @@ function renderDayView(classes) {
 
 
     // --------------------------------------------------------
-    // Group classes by day
+    // Group by day
     // --------------------------------------------------------
 
     for (const cls of sortedClasses) {
@@ -1104,7 +1279,7 @@ function renderDayView(classes) {
 
 
     // --------------------------------------------------------
-    // Day order is fixed
+    // ALWAYS use Saturday -> Friday
     // --------------------------------------------------------
 
     for (const day of DAYS) {
@@ -1152,7 +1327,7 @@ function renderDayView(classes) {
 
 
         // ----------------------------------------------------
-        // Classes inside the day
+        // TIME ORDER IS ALREADY SORTED
         // ----------------------------------------------------
 
         for (const cls of sorted) {
@@ -1186,23 +1361,7 @@ function renderDayView(classes) {
 
 
 // ============================================================
-// BUILD CLASS ITEM
-// ============================================================
-//
-// Example:
-//
-// 02:30-04:00
-// CSE213
-// NSL • KT-516
-// THEORY
-//
-// Lab:
-//
-// 11:30-02:30
-// CSE214
-// Lab Group 1
-// NSL • G1-008
-// LAB
+// CLASS ITEM
 // ============================================================
 
 function buildClassItem(cls) {
@@ -1220,87 +1379,30 @@ function buildClassItem(cls) {
 
 
     // --------------------------------------------------------
-    // Sub-section
-    // --------------------------------------------------------
+    // Section label
     //
     // Main:
-    //     Don't show "Main"
+    //      nothing
     //
-    // 1:
-    //     Lab Group 1
+    // Lab sub section 1:
+    //      (N1)
     //
-    // 2:
-    //     Lab Group 2
+    // Lab sub section 2:
+    //      (N2)
     // --------------------------------------------------------
 
-    let subLabel = '';
+    const subLabel =
+        getSubSectionLabel(cls);
 
 
-    if (
-        cls.sub_section &&
-        cls.sub_section !== 'Main'
-    ) {
-
-        if (type === 'Lab') {
-
-            subLabel = `
+    const subHtml =
+        subLabel
+            ? `
                 <span class="sub-section">
-                    Lab Group ${escapeHtml(
-                        cls.sub_section
-                    )}
+                    ${escapeHtml(subLabel)}
                 </span>
-            `;
-
-        } else {
-
-            subLabel = `
-                <span class="sub-section">
-                    Group ${escapeHtml(
-                        cls.sub_section
-                    )}
-                </span>
-            `;
-
-        }
-
-    }
-
-
-    // --------------------------------------------------------
-    // Course line
-    // --------------------------------------------------------
-
-    const courseLine = `
-
-        <div class="course">
-
-            <span class="course-code">
-                ${escapeHtml(
-                    cls.course
-                )}
-            </span>
-
-            ${subLabel}
-
-        </div>
-
-    `;
-
-
-    // --------------------------------------------------------
-    // Details
-    // --------------------------------------------------------
-
-    const teacher =
-        escapeHtml(
-            cls.teacher || 'TBA'
-        );
-
-
-    const room =
-        escapeHtml(
-            cls.room || 'TBA'
-        );
+              `
+            : '';
 
 
     return `
@@ -1318,7 +1420,20 @@ function buildClassItem(cls) {
             </div>
 
 
-            ${courseLine}
+            <div class="course">
+
+                <span class="course-code">
+
+                    ${escapeHtml(
+                        cls.course
+                    )}
+
+                </span>
+
+
+                ${subHtml}
+
+            </div>
 
 
             <div class="details">
@@ -1327,7 +1442,9 @@ function buildClassItem(cls) {
 
                     <i class="fas fa-chalkboard-teacher"></i>
 
-                    ${teacher}
+                    ${escapeHtml(
+                        cls.teacher || 'TBA'
+                    )}
 
                 </span>
 
@@ -1336,17 +1453,19 @@ function buildClassItem(cls) {
 
                     <i class="fas fa-door-open"></i>
 
-                    ${room}
+                    ${escapeHtml(
+                        cls.room || 'TBA'
+                    )}
 
                 </span>
 
 
                 <span>
 
-                    <span class="type-tag ${typeClass}">
-
+                    <span
+                        class="type-tag ${typeClass}"
+                    >
                         ${type}
-
                     </span>
 
                 </span>
@@ -1363,9 +1482,6 @@ function buildClassItem(cls) {
 // ============================================================
 // WEEK VIEW
 // ============================================================
-//
-// Week view also uses fixed time ordering.
-// ============================================================
 
 function renderWeekView(classes) {
 
@@ -1380,10 +1496,6 @@ function renderWeekView(classes) {
 
     const grouped = {};
 
-
-    // --------------------------------------------------------
-    // Group by day
-    // --------------------------------------------------------
 
     for (const cls of classes) {
 
@@ -1400,44 +1512,25 @@ function renderWeekView(classes) {
 
 
     // --------------------------------------------------------
-    // Get all used time slots
+    // Collect unique times
     // --------------------------------------------------------
 
-    const usedTimes =
+    const times =
         [
             ...new Set(
                 classes
                     .map(c => c.time)
                     .filter(
-                        time =>
-                            time &&
-                            time !== 'TBA'
+                        t =>
+                            t &&
+                            t !== 'TBA'
                     )
             )
-        ];
-
-
-    // --------------------------------------------------------
-    // Sort time slots correctly
-    // --------------------------------------------------------
-
-    const times =
-        usedTimes.sort(
-            (a, b) => {
-
-                const orderA =
-                    TIME_ORDER[a] ??
-                    getTimeStartMinutes(a);
-
-
-                const orderB =
-                    TIME_ORDER[b] ??
-                    getTimeStartMinutes(b);
-
-
-                return orderA - orderB;
-
-            }
+        ]
+        .sort(
+            (a, b) =>
+                getTimeOrder(a) -
+                getTimeOrder(b)
         );
 
 
@@ -1472,9 +1565,11 @@ function renderWeekView(classes) {
     for (const day of DAYS) {
 
         html += `
+
             <th>
                 ${day.substring(0, 3)}
             </th>
+
         `;
 
     }
@@ -1492,7 +1587,7 @@ function renderWeekView(classes) {
 
 
     // --------------------------------------------------------
-    // Time rows
+    // TIME ROWS
     // --------------------------------------------------------
 
     for (const time of times) {
@@ -1503,9 +1598,7 @@ function renderWeekView(classes) {
 
                 <td class="time-col">
 
-                    ${escapeHtml(
-                        time
-                    )}
+                    ${escapeHtml(time)}
 
                 </td>
 
@@ -1513,7 +1606,7 @@ function renderWeekView(classes) {
 
 
         // ----------------------------------------------------
-        // Each day
+        // DAYS
         // ----------------------------------------------------
 
         for (const day of DAYS) {
@@ -1524,8 +1617,8 @@ function renderWeekView(classes) {
 
             const matching =
                 dayClasses.filter(
-                    c =>
-                        c.time === time
+                    cls =>
+                        cls.time === time
                 );
 
 
@@ -1536,17 +1629,13 @@ function renderWeekView(classes) {
                 html += `<td>`;
 
 
-                // Sort matching classes
-                const sortedMatching =
+                const sorted =
                     sortClasses(
                         matching
                     );
 
 
-                for (
-                    const cls
-                    of sortedMatching
-                ) {
+                for (const cls of sorted) {
 
                     const type =
                         cls.type === 'Lab'
@@ -1560,29 +1649,10 @@ function renderWeekView(classes) {
                             : 'type-theory';
 
 
-                    let subText = '';
-
-
-                    if (
-                        cls.sub_section &&
-                        cls.sub_section !== 'Main'
-                    ) {
-
-                        if (
-                            type === 'Lab'
-                        ) {
-
-                            subText =
-                                ` • Lab Group ${cls.sub_section}`;
-
-                        } else {
-
-                            subText =
-                                ` • Group ${cls.sub_section}`;
-
-                        }
-
-                    }
+                    const subLabel =
+                        getSubSectionLabel(
+                            cls
+                        );
 
 
                     html += `
@@ -1593,15 +1663,34 @@ function renderWeekView(classes) {
                         >
 
                             <strong>
+
                                 ${escapeHtml(
                                     cls.course
                                 )}
+
                             </strong>
+
+
+                            ${
+                                subLabel
+                                    ? `
+                                        <span
+                                            class="sub-section"
+                                        >
+                                            ${escapeHtml(
+                                                subLabel
+                                            )}
+                                        </span>
+                                      `
+                                    : ''
+                            }
 
 
                             <span
                                 class="type-tag ${typeClass}"
-                                style="font-size:0.65rem;"
+                                style="
+                                    font-size:0.65rem;
+                                "
                             >
                                 ${type}
                             </span>
@@ -1622,15 +1711,11 @@ function renderWeekView(classes) {
                                     'TBA'
                                 )}
 
-                                • 
+                                •
 
                                 ${escapeHtml(
                                     cls.room ||
                                     'TBA'
-                                )}
-
-                                ${escapeHtml(
-                                    subText
                                 )}
 
                             </span>
@@ -1685,74 +1770,6 @@ function renderWeekView(classes) {
 
     container.innerHTML =
         html;
-
-}
-
-
-// ============================================================
-// TIME FALLBACK PARSER
-// ============================================================
-//
-// Used only if an unknown/custom time appears.
-//
-// Known routine slots always use TIME_ORDER.
-// ============================================================
-
-function getTimeStartMinutes(time) {
-
-    if (!time) return 999999;
-
-
-    const match =
-        String(time).match(
-            /^(\d{1,2}):(\d{2})/
-        );
-
-
-    if (!match) return 999999;
-
-
-    let hour =
-        parseInt(
-            match[1],
-            10
-        );
-
-
-    const minute =
-        parseInt(
-            match[2],
-            10
-        );
-
-
-    // --------------------------------------------------------
-    // Routine is based on:
-    //
-    // 08:30
-    // 10:00
-    // 11:30
-    // 01:00
-    // 02:30
-    // 04:00
-    //
-    // After 11:30, 01:00 means afternoon.
-    // --------------------------------------------------------
-
-    if (
-        hour >= 1 &&
-        hour <= 5
-    ) {
-
-        hour += 12;
-
-    }
-
-
-    return (
-        hour * 60 +
-        minute
-    );
 
 }
 
@@ -1847,7 +1864,7 @@ function hideMessage() {
 
 
 // ============================================================
-// HTML ESCAPE
+// ESCAPE HTML
 // ============================================================
 
 function escapeHtml(text) {
