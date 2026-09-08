@@ -4,13 +4,47 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "FMA",
-      "room": "FMA",
-      "type": "Theory",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "LAR",
+      "room": "G1-013",
+      "type": "Lab",
       "batch": "69",
-      "section": "G"
+      "section": "G",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "LAR",
+      "room": "G1-013",
+      "type": "Lab",
+      "batch": "69",
+      "section": "G",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE216",
+      "teacher": "EHL",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "69",
+      "section": "G",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE216",
+      "teacher": "EHL",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "69",
+      "section": "G",
+      "sub_section": "2"
     }
   ]
 }

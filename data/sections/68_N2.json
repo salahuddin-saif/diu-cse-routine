@@ -3,14 +3,26 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "MTN",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE224",
+      "teacher": "RYS",
+      "room": "SH-105",
+      "type": "Lab",
       "batch": "68",
-      "section": "N"
+      "section": "N",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE224",
+      "teacher": "RYS",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "2"
     }
   ]
 }

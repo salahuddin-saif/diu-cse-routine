@@ -3,14 +3,37 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "AGT",
-      "room": "AGT",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "LAR",
+      "room": "G1-011",
+      "type": "Lab",
       "batch": "69",
-      "section": "K"
+      "section": "K",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE222",
+      "teacher": "LAR",
+      "room": "G1-011",
+      "type": "Lab",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "EEE_3",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "K",
+      "sub_section": "2"
     }
   ]
 }

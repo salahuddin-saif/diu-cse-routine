@@ -15,17 +15,17 @@
     },
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
+      "time": "01:00-02:30",
       "course": "CSE216",
       "teacher": "EEE_4",
-      "room": "4",
-      "type": "Theory",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
       "batch": "69",
       "section": "P",
-      "sub_section": "2"
+      "sub_section": "1"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "TBA",
@@ -36,29 +36,51 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE216",
+      "teacher": "EEE_4",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "P",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE216",
       "teacher": "EEE_4",
-      "room": "4",
-      "type": "Theory",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "P",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "EEE_4",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
       "batch": "69",
       "section": "P",
       "sub_section": "1"
     },
     {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "AOL101",
-      "teacher": "TBA",
-      "room": "KT-224",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "SRS",
+      "room": "G1-013",
+      "type": "Lab",
       "batch": "69",
       "section": "P",
-      "sub_section": "Main"
+      "sub_section": "2"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE221",
       "teacher": "SRS",
@@ -69,7 +91,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "AOL101",
+      "teacher": "TBA",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "69",
+      "section": "P",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE221",
       "teacher": "SRS",
@@ -80,29 +113,29 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "CSE222",
       "teacher": "SRS",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-013",
+      "type": "Lab",
       "batch": "69",
       "section": "P",
       "sub_section": "2"
     },
     {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
+      "day": "Monday",
+      "time": "01:00-02:30",
       "course": "CSE222",
       "teacher": "SRS",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-002",
+      "type": "Lab",
       "batch": "69",
       "section": "P",
-      "sub_section": "2"
+      "sub_section": "1"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE221",
       "teacher": "SRS",
@@ -113,59 +146,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE222",
       "teacher": "SRS",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-002",
+      "type": "Lab",
       "batch": "69",
       "section": "P",
       "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "SRS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "P",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE215",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "04:00-05:30",
-      "course": "CSE221",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "P",
-      "sub_section": "Main"
     }
   ]
 }

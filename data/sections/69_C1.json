@@ -3,14 +3,48 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SI",
-      "room": "TI",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE216",
+      "teacher": "MSU",
+      "room": "KT-810",
+      "type": "Lab",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "CSE216",
+      "teacher": "MSU",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "FLA",
+      "room": "G1-009",
+      "type": "Lab",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "FLA",
+      "room": "G1-009",
+      "type": "Lab",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "1"
     }
   ]
 }

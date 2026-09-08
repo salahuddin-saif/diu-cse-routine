@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "PHY103",
-      "teacher": "RIM",
-      "room": "RIM",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "SS",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "70",
-      "section": "D"
+      "section": "D",
+      "sub_section": "2"
     },
     {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE124",
-      "teacher": "THT",
-      "room": "FFZ",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE214",
+      "teacher": "SS",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "70",
-      "section": "D"
+      "section": "D",
+      "sub_section": "2"
     }
   ]
 }

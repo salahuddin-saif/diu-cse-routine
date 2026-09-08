@@ -3,14 +3,26 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE222",
-      "teacher": "MRC",
-      "room": "MRC",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE224",
+      "teacher": "MAH",
+      "room": "SH-103",
+      "type": "Lab",
       "batch": "68",
-      "section": "M"
+      "section": "M",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE224",
+      "teacher": "MAH",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "68",
+      "section": "M",
+      "sub_section": "2"
     }
   ]
 }

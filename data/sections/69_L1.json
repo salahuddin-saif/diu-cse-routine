@@ -3,14 +3,48 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "SHR",
-      "room": "SHR",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-011",
+      "type": "Lab",
       "batch": "69",
-      "section": "L"
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-011",
+      "type": "Lab",
+      "batch": "69",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "EEE_4",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "EEE_4",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "L",
+      "sub_section": "1"
     }
   ]
 }

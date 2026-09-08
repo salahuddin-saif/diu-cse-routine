@@ -3,14 +3,48 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "MUH",
-      "room": "MUH",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE222",
+      "teacher": "AUA",
+      "room": "G1-002",
+      "type": "Lab",
       "batch": "69",
-      "section": "E"
+      "section": "E",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "CSE222",
+      "teacher": "AUA",
+      "room": "G1-002",
+      "type": "Lab",
+      "batch": "69",
+      "section": "E",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "MBM",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "69",
+      "section": "E",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "MBM",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "69",
+      "section": "E",
+      "sub_section": "1"
     }
   ]
 }

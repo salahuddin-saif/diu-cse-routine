@@ -4,13 +4,25 @@
   "classes": [
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "IST",
-      "room": "IST",
-      "type": "Theory",
+      "time": "08:30-10:00",
+      "course": "CSE224",
+      "teacher": "PB",
+      "room": "SH-103",
+      "type": "Lab",
       "batch": "68",
-      "section": "O"
+      "section": "O",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE224",
+      "teacher": "PB",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "68",
+      "section": "O",
+      "sub_section": "2"
     }
   ]
 }

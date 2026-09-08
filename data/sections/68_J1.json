@@ -3,14 +3,26 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "SRS",
-      "room": "SRS",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE224",
+      "teacher": "MDA",
+      "room": "SH-105",
+      "type": "Lab",
       "batch": "68",
-      "section": "J"
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE224",
+      "teacher": "MDA",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "68",
+      "section": "J",
+      "sub_section": "1"
     }
   ]
 }

@@ -3,14 +3,26 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
-      "course": "CSE222",
-      "teacher": "ZZM",
-      "room": "ZZM",
-      "type": "Theory",
+      "course": "CSE224",
+      "teacher": "ZMK",
+      "room": "SH-103",
+      "type": "Lab",
       "batch": "68",
-      "section": "I"
+      "section": "I",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE224",
+      "teacher": "ZMK",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "68",
+      "section": "I",
+      "sub_section": "1"
     }
   ]
 }

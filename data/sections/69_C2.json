@@ -4,13 +4,47 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "TIS",
-      "room": "MDA",
-      "type": "Theory",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "MSU",
+      "room": "KT-809",
+      "type": "Lab",
       "batch": "69",
-      "section": "C"
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "MSU",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "FLA",
+      "room": "G1-010",
+      "type": "Lab",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "FLA",
+      "room": "G1-010",
+      "type": "Lab",
+      "batch": "69",
+      "section": "C",
+      "sub_section": "2"
     }
   ]
 }

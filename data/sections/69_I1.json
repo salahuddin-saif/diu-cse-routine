@@ -4,13 +4,47 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "TAB",
-      "room": "TAB",
-      "type": "Theory",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "MIZ",
+      "room": "G1-006",
+      "type": "Lab",
       "batch": "69",
-      "section": "I"
+      "section": "I",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "MIZ",
+      "room": "G1-006",
+      "type": "Lab",
+      "batch": "69",
+      "section": "I",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "EEE_1",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "69",
+      "section": "I",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "EEE_1",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "69",
+      "section": "I",
+      "sub_section": "1"
     }
   ]
 }

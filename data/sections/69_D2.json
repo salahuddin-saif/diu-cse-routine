@@ -3,14 +3,48 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SS",
-      "room": "TAK",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "ZZM",
+      "room": "G1-014",
+      "type": "Lab",
       "batch": "69",
-      "section": "D"
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "ZZM",
+      "room": "G1-014",
+      "type": "Lab",
+      "batch": "69",
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE216",
+      "teacher": "NAB",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "69",
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE216",
+      "teacher": "NAB",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "69",
+      "section": "D",
+      "sub_section": "2"
     }
   ]
 }

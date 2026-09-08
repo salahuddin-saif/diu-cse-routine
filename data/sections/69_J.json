@@ -4,6 +4,17 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "EEE_2",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "NNT",
@@ -15,17 +26,28 @@
     },
     {
       "day": "Saturday",
-      "time": "10:00-11:30",
+      "time": "11:30-01:00",
       "course": "CSE216",
       "teacher": "EEE_2",
-      "room": "2",
-      "type": "Theory",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
       "batch": "69",
       "section": "J",
       "sub_section": "2"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-010",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE221",
       "teacher": "NAE",
@@ -36,7 +58,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE215",
       "teacher": "EEE_2",
@@ -47,7 +69,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE221",
       "teacher": "NAE",
@@ -58,29 +80,40 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE222",
       "teacher": "NAE",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-010",
+      "type": "Lab",
       "batch": "69",
       "section": "J",
       "sub_section": "2"
     },
     {
-      "day": "Tuesday",
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "EEE_2",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE222",
       "teacher": "NAE",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-016",
+      "type": "Lab",
       "batch": "69",
       "section": "J",
-      "sub_section": "2"
+      "sub_section": "1"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE215",
       "teacher": "EEE_2",
@@ -91,29 +124,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "NAE",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J",
-      "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "NAE",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J",
-      "sub_section": "1"
-    },
-    {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "AOL101",
       "teacher": "NNT",
@@ -124,48 +135,26 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
-      "time": "10:00-11:30",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE216",
       "teacher": "EEE_2",
-      "room": "2",
-      "type": "Theory",
+      "room": "SH-105",
+      "type": "Lab",
       "batch": "69",
       "section": "J",
       "sub_section": "1"
     },
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-016",
+      "type": "Lab",
       "batch": "69",
       "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "04:00-05:30",
-      "course": "CSE221",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "J",
-      "sub_section": "Main"
+      "sub_section": "1"
     }
   ]
 }

@@ -3,14 +3,48 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "AHAK",
-      "room": "AHAK",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-016",
+      "type": "Lab",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-016",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "EEE_2",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "EEE_2",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "1"
     }
   ]
 }

@@ -3,14 +3,48 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "SNK",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "SEA",
+      "room": "G1-012",
+      "type": "Lab",
       "batch": "69",
-      "section": "H"
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "SEA",
+      "room": "G1-012",
+      "type": "Lab",
+      "batch": "69",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE216",
+      "teacher": "MBM",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE216",
+      "teacher": "MBM",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "H",
+      "sub_section": "2"
     }
   ]
 }

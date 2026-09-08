@@ -4,13 +4,47 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "AHAK",
-      "room": "AHAK",
-      "type": "Theory",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "EEE_2",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
       "batch": "69",
-      "section": "J"
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE216",
+      "teacher": "EEE_2",
+      "room": "EMBED LAB-KT-301",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-010",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE222",
+      "teacher": "NAE",
+      "room": "G1-010",
+      "type": "Lab",
+      "batch": "69",
+      "section": "J",
+      "sub_section": "2"
     }
   ]
 }

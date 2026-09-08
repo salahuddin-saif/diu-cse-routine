@@ -3,14 +3,48 @@
   "batch": "69",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "FJ",
-      "room": "FJ",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE216",
+      "teacher": "NAB",
+      "room": "SH-103",
+      "type": "Lab",
       "batch": "69",
-      "section": "B"
+      "section": "B",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "CSE216",
+      "teacher": "NAB",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "69",
+      "section": "B",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE222",
+      "teacher": "MTN",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "69",
+      "section": "B",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE222",
+      "teacher": "MTN",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "69",
+      "section": "B",
+      "sub_section": "1"
     }
   ]
 }

@@ -4,13 +4,25 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "RYS",
-      "room": "RYS",
-      "type": "Theory",
+      "time": "02:30-04:00",
+      "course": "CSE224",
+      "teacher": "MDA",
+      "room": "SH-105",
+      "type": "Lab",
       "batch": "68",
-      "section": "G"
+      "section": "G",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE224",
+      "teacher": "MDA",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "2"
     }
   ]
 }
