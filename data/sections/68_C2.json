@@ -4,13 +4,25 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "MRM",
-      "room": "MRM",
-      "type": "Theory",
+      "time": "11:30-01:00",
+      "course": "CSE224",
+      "teacher": "LR",
+      "room": "SH-103",
+      "type": "Lab",
       "batch": "68",
-      "section": "C"
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE224",
+      "teacher": "LR",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "68",
+      "section": "C",
+      "sub_section": "2"
     }
   ]
 }

@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "ARK",
-      "room": "ARK",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "MRM",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "66",
-      "section": "O"
+      "section": "O",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "MRM",
+      "room": "G1-004",
+      "type": "Lab",
+      "batch": "66",
+      "section": "O",
+      "sub_section": "2"
     }
   ]
 }

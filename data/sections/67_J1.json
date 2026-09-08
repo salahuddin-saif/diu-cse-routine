@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "SEA",
-      "room": "SEA",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "TI",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "67",
-      "section": "J"
+      "section": "J",
+      "sub_section": "1"
     },
     {
-      "day": "Monday",
+      "day": "Saturday",
       "time": "10:00-11:30",
-      "course": "CSE314",
-      "teacher": "SRS",
-      "room": "SRS",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "TI",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "67",
-      "section": "J"
+      "section": "J",
+      "sub_section": "1"
     }
   ]
 }

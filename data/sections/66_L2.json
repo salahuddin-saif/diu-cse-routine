@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "TAA",
-      "room": "TAA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "FRN",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "66",
-      "section": "L"
+      "section": "L",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "FRN",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "66",
+      "section": "L",
+      "sub_section": "2"
     }
   ]
 }

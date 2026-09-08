@@ -5,22 +5,24 @@
     {
       "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "SRS",
-      "room": "SRS",
-      "type": "Theory",
+      "course": "CSE321",
+      "teacher": "TI",
+      "room": "G1-008",
+      "type": "Lab",
       "batch": "67",
-      "section": "J"
+      "section": "J",
+      "sub_section": "2"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "SEA",
-      "room": "SEA",
-      "type": "Theory",
+      "course": "CSE321",
+      "teacher": "TI",
+      "room": "G1-008",
+      "type": "Lab",
       "batch": "67",
-      "section": "J"
+      "section": "J",
+      "sub_section": "2"
     }
   ]
 }

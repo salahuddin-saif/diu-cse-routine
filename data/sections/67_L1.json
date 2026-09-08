@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "MSS",
-      "room": "MSS",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "KRY",
+      "room": "G1-007",
+      "type": "Lab",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "1"
     },
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "TAS",
-      "room": "TAS",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE322",
+      "teacher": "KRY",
+      "room": "G1-007",
+      "type": "Lab",
       "batch": "67",
-      "section": "L"
+      "section": "L",
+      "sub_section": "1"
     }
   ]
 }

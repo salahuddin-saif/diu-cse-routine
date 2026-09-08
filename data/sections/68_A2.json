@@ -3,14 +3,26 @@
   "batch": "68",
   "classes": [
     {
-      "day": "Wednesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "MAR",
-      "room": "MAR",
-      "type": "Theory",
+      "course": "CSE224",
+      "teacher": "ADK",
+      "room": "SH-103",
+      "type": "Lab",
       "batch": "68",
-      "section": "A"
+      "section": "A",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE224",
+      "teacher": "ADK",
+      "room": "SH-103",
+      "type": "Lab",
+      "batch": "68",
+      "section": "A",
+      "sub_section": "2"
     }
   ]
 }

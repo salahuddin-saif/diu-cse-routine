@@ -5,22 +5,24 @@
     {
       "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "UH",
-      "room": "UH",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "KRY",
+      "room": "G1-010",
+      "type": "Lab",
       "batch": "67",
-      "section": "O"
+      "section": "O",
+      "sub_section": "2"
     },
     {
       "day": "Sunday",
       "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "MDA",
-      "room": "MDA",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "KRY",
+      "room": "G1-010",
+      "type": "Lab",
       "batch": "67",
-      "section": "O"
+      "section": "O",
+      "sub_section": "2"
     }
   ]
 }

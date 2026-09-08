@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "MDA",
-      "room": "MDA",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE322",
+      "teacher": "KRY",
+      "room": "G1-007",
+      "type": "Lab",
       "batch": "67",
-      "section": "O"
+      "section": "O",
+      "sub_section": "1"
     },
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE314",
-      "teacher": "UH",
-      "room": "UH",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE322",
+      "teacher": "KRY",
+      "room": "G1-007",
+      "type": "Lab",
       "batch": "67",
-      "section": "O"
+      "section": "O",
+      "sub_section": "1"
     }
   ]
 }

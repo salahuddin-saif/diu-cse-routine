@@ -5,22 +5,24 @@
     {
       "day": "Monday",
       "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "RKR",
-      "room": "RKR",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "AAM",
+      "room": "G1-002",
+      "type": "Lab",
       "batch": "67",
-      "section": "D"
+      "section": "D",
+      "sub_section": "1"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "MB",
-      "room": "MB",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE322",
+      "teacher": "AAM",
+      "room": "G1-002",
+      "type": "Lab",
       "batch": "67",
-      "section": "D"
+      "section": "D",
+      "sub_section": "1"
     }
   ]
 }

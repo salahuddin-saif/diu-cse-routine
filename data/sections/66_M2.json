@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "STA",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "MRM",
+      "room": "KT-513",
+      "type": "Lab",
       "batch": "66",
-      "section": "M"
+      "section": "M",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "MRM",
+      "room": "KT-513",
+      "type": "Lab",
+      "batch": "66",
+      "section": "M",
+      "sub_section": "2"
     }
   ]
 }

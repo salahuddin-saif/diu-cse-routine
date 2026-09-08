@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "MHD",
-      "room": "MHD",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE322",
+      "teacher": "PDS",
+      "room": "G1-006",
+      "type": "Lab",
       "batch": "67",
-      "section": "G"
+      "section": "G",
+      "sub_section": "1"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "MIS",
-      "room": "IEA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE322",
+      "teacher": "PDS",
+      "room": "G1-006",
+      "type": "Lab",
       "batch": "67",
-      "section": "G"
+      "section": "G",
+      "sub_section": "1"
     }
   ]
 }

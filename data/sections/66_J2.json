@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "STA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "CSA",
+      "room": "G1-007",
+      "type": "Lab",
       "batch": "66",
-      "section": "J"
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "CSA",
+      "room": "G1-007",
+      "type": "Lab",
+      "batch": "66",
+      "section": "J",
+      "sub_section": "2"
     }
   ]
 }

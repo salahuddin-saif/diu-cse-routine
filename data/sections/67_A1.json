@@ -4,23 +4,25 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "MSK",
-      "room": "MSK",
-      "type": "Theory",
+      "time": "01:00-02:30",
+      "course": "CSE322",
+      "teacher": "FNN",
+      "room": "G1-001",
+      "type": "Lab",
       "batch": "67",
-      "section": "A"
+      "section": "A",
+      "sub_section": "1"
     },
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE314",
-      "teacher": "MUR",
-      "room": "MUR",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE322",
+      "teacher": "FNN",
+      "room": "G1-001",
+      "type": "Lab",
       "batch": "67",
-      "section": "A"
+      "section": "A",
+      "sub_section": "1"
     }
   ]
 }

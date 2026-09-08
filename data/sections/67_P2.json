@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE312",
-      "teacher": "DP",
-      "room": "DP",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "TAA",
+      "room": "G1-012",
+      "type": "Lab",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "2"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "DP",
-      "room": "DP",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "TAA",
+      "room": "G1-012",
+      "type": "Lab",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "2"
     }
   ]
 }

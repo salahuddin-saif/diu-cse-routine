@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE314",
-      "teacher": "MRC",
-      "room": "MRC",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "TAA",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "1"
     },
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "MRC",
-      "room": "MRC",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE322",
+      "teacher": "TAA",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "67",
-      "section": "P"
+      "section": "P",
+      "sub_section": "1"
     }
   ]
 }

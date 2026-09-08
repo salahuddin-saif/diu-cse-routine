@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "SH",
-      "room": "SH",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE322",
+      "teacher": "AAM",
+      "room": "KT-501(A)",
+      "type": "Lab",
       "batch": "67",
-      "section": "F"
+      "section": "F",
+      "sub_section": "2"
     },
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE314",
-      "teacher": "TAS",
-      "room": "TAS",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "CSE322",
+      "teacher": "AAM",
+      "room": "KT-501(A)",
+      "type": "Lab",
       "batch": "67",
-      "section": "F"
+      "section": "F",
+      "sub_section": "2"
     }
   ]
 }

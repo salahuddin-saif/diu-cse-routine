@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "MMB",
-      "room": "MMB",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "ROZ",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "67",
-      "section": "I"
+      "section": "I",
+      "sub_section": "2"
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "NNT",
-      "room": "NNT",
-      "type": "Theory",
+      "time": "10:00-11:30",
+      "course": "CSE322",
+      "teacher": "ROZ",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "67",
-      "section": "I"
+      "section": "I",
+      "sub_section": "2"
     }
   ]
 }

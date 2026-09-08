@@ -3,24 +3,26 @@
   "batch": "67",
   "classes": [
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "CSE312",
-      "teacher": "IJN",
-      "room": "IJN",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "SMF",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "67",
-      "section": "M"
+      "section": "M",
+      "sub_section": "2"
     },
     {
-      "day": "Wednesday",
+      "day": "Sunday",
       "time": "10:00-11:30",
-      "course": "CSE314",
-      "teacher": "RAK",
-      "room": "RAK",
-      "type": "Theory",
+      "course": "CSE322",
+      "teacher": "SMF",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "67",
-      "section": "M"
+      "section": "M",
+      "sub_section": "2"
     }
   ]
 }

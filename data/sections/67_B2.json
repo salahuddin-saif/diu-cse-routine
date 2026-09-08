@@ -4,23 +4,25 @@
   "classes": [
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "MUM",
-      "room": "MUM",
-      "type": "Theory",
+      "time": "08:30-10:00",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "G1-017",
+      "type": "Lab",
       "batch": "67",
-      "section": "B"
+      "section": "B",
+      "sub_section": "2"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE314",
-      "teacher": "SFMA",
-      "room": "SFMA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "G1-017",
+      "type": "Lab",
       "batch": "67",
-      "section": "B"
+      "section": "B",
+      "sub_section": "2"
     }
   ]
 }

@@ -4,23 +4,25 @@
   "classes": [
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE312",
-      "teacher": "MJA",
-      "room": "MJA",
-      "type": "Theory",
+      "time": "11:30-01:00",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "67",
-      "section": "E"
+      "section": "E",
+      "sub_section": "2"
     },
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE314",
-      "teacher": "CSA",
-      "room": "CSA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "67",
-      "section": "E"
+      "section": "E",
+      "sub_section": "2"
     }
   ]
 }

@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "ROZ",
-      "room": "ROZ",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "FRN",
+      "room": "KT-504",
+      "type": "Lab",
       "batch": "66",
-      "section": "H"
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "FRN",
+      "room": "KT-504",
+      "type": "Lab",
+      "batch": "66",
+      "section": "H",
+      "sub_section": "2"
     }
   ]
 }

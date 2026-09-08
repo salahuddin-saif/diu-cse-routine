@@ -16,6 +16,17 @@
     {
       "day": "Saturday",
       "time": "02:30-04:00",
+      "course": "CSE316",
+      "teacher": "MRY",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "66",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
       "course": "CSE326",
       "teacher": "SAL",
       "room": "KT-223",
@@ -26,28 +37,6 @@
     },
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE328",
-      "teacher": "AHAK",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE316",
-      "teacher": "MRY",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE328",
       "teacher": "AHAK",
@@ -58,18 +47,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "02:30-04:00",
-      "course": "CSE326",
-      "teacher": "SAL",
-      "room": "KT-220",
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE328",
+      "teacher": "AHAK",
+      "room": "KT-516",
       "type": "Theory",
       "batch": "66",
       "section": "I",
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE323",
       "teacher": "MAS",
@@ -80,30 +69,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE324",
-      "teacher": "MAS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE324",
-      "teacher": "MAS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "2"
-    },
-    {
-      "day": "Thursday",
-      "time": "11:30-01:00",
+      "day": "Monday",
+      "time": "01:00-02:30",
       "course": "CSE323",
       "teacher": "MAS",
       "room": "KT-306",
@@ -113,92 +80,59 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE326",
+      "teacher": "SAL",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "66",
+      "section": "I",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE324",
       "teacher": "MAS",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-513",
+      "type": "Lab",
       "batch": "66",
       "section": "I",
       "sub_section": "1"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "MAS",
+      "room": "KT-510",
+      "type": "Lab",
+      "batch": "66",
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE324",
       "teacher": "MAS",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-513",
+      "type": "Lab",
       "batch": "66",
       "section": "I",
       "sub_section": "1"
     },
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE316",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE326",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
+      "day": "Monday",
       "time": "10:00-11:30",
-      "course": "CSE328",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "course": "CSE324",
+      "teacher": "MAS",
+      "room": "KT-510",
+      "type": "Lab",
       "batch": "66",
       "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE316",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE328",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "01:00-02:30",
-      "course": "CSE323",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "I",
-      "sub_section": "Main"
+      "sub_section": "2"
     }
   ]
 }

@@ -5,12 +5,24 @@
     {
       "day": "Monday",
       "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "TI",
-      "room": "TRN",
-      "type": "Theory",
+      "course": "CSE324",
+      "teacher": "MAS",
+      "room": "KT-510",
+      "type": "Lab",
       "batch": "66",
-      "section": "I"
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "MAS",
+      "room": "KT-510",
+      "type": "Lab",
+      "batch": "66",
+      "section": "I",
+      "sub_section": "2"
     }
   ]
 }
