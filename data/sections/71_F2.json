@@ -3,14 +3,70 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE114",
-      "teacher": "FAF",
-      "room": "IST",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MAM",
+      "room": "KT-816",
+      "type": "Lab",
       "batch": "71",
-      "section": "F"
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "PHY103",
+      "teacher": "MAM",
+      "room": "KT-816",
+      "type": "Lab",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE122",
+      "teacher": "MHI",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE122",
+      "teacher": "MHI",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "HH",
+      "room": "G1-006",
+      "type": "Lab",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "HH",
+      "room": "G1-006",
+      "type": "Lab",
+      "batch": "71",
+      "section": "F",
+      "sub_section": "2"
     }
   ]
 }

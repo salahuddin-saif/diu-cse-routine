@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE124",
-      "teacher": "JLA",
-      "room": "JLA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE214",
+      "teacher": "TAK",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "70",
-      "section": "F"
+      "section": "F",
+      "sub_section": "1"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "PHY103",
-      "teacher": "AAR",
-      "room": "AAR",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE214",
+      "teacher": "TAK",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "70",
-      "section": "F"
+      "section": "F",
+      "sub_section": "1"
     }
   ]
 }

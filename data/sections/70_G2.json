@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE124",
-      "teacher": "MHS",
-      "room": "SAI",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "G1-008",
+      "type": "Lab",
       "batch": "70",
-      "section": "G"
+      "section": "G",
+      "sub_section": "2"
     },
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "PHY103",
-      "teacher": "MAM",
-      "room": "MAM",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "G1-008",
+      "type": "Lab",
       "batch": "70",
-      "section": "G"
+      "section": "G",
+      "sub_section": "2"
     }
   ]
 }

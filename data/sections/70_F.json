@@ -3,7 +3,7 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE212",
       "teacher": "AHN",
@@ -14,8 +14,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
+      "day": "Saturday",
+      "time": "02:30-04:00",
       "course": "CSE213",
       "teacher": "MUH",
       "room": "G1-026",
@@ -25,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "MAT211",
       "teacher": "SAR",
@@ -36,40 +36,40 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "BNS101",
-      "teacher": "BNS_1",
-      "room": "ANX1-204",
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE212",
+      "teacher": "AHN",
+      "room": "KT-318(B)",
       "type": "Theory",
       "batch": "70",
       "section": "F",
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE214",
       "teacher": "TAK",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "70",
       "section": "F",
       "sub_section": "1"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE214",
       "teacher": "TAK",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "70",
       "section": "F",
       "sub_section": "1"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "MAT211",
       "teacher": "SAR",
@@ -80,7 +80,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "BNS101",
       "teacher": "BNS_1",
@@ -91,77 +91,33 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "CSE213",
-      "teacher": "MUH",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "70",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE214",
       "teacher": "TAK",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
       "section": "F",
       "sub_section": "2"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE214",
       "teacher": "TAK",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
       "section": "F",
       "sub_section": "2"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE212",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE213",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE212",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE213",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MUH",
+      "room": "KT-514",
       "type": "Theory",
       "batch": "70",
       "section": "F",

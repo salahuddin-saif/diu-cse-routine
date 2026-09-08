@@ -3,40 +3,29 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "MNT_1",
-      "room": "ANX1-401",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE212",
+      "teacher": "AGT",
+      "room": "KT-517(A)",
       "type": "Theory",
       "batch": "70",
       "section": "O",
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE214",
-      "teacher": "TIS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE214",
       "teacher": "TIS",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "70",
       "section": "O",
       "sub_section": "2"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "MAT211",
       "teacher": "MNT_1",
@@ -47,7 +36,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "MNT_1",
+      "room": "ANX1-401",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "BNS101",
       "teacher": "BNS_2",
@@ -58,29 +58,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "CSE214",
       "teacher": "TIS",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "70",
       "section": "O",
-      "sub_section": "1"
+      "sub_section": "2"
     },
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "TIS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "O",
-      "sub_section": "1"
-    },
-    {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE213",
       "teacher": "TIS",
@@ -91,7 +80,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE213",
+      "teacher": "TIS",
+      "room": "KT-517(A)",
+      "type": "Theory",
+      "batch": "70",
+      "section": "O",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "BNS101",
       "teacher": "BNS_2",
@@ -102,33 +102,33 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE212",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-007",
+      "type": "Lab",
       "batch": "70",
       "section": "O",
-      "sub_section": "Main"
+      "sub_section": "1"
     },
     {
-      "day": "Thursday",
-      "time": "01:00-02:30",
-      "course": "CSE213",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-007",
+      "type": "Lab",
       "batch": "70",
       "section": "O",
-      "sub_section": "Main"
+      "sub_section": "1"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE212",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "AGT",
+      "room": "KT-517(A)",
       "type": "Theory",
       "batch": "70",
       "section": "O",

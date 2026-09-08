@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE124",
-      "teacher": "PPC",
-      "room": "PPC",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "2"
     },
     {
-      "day": "Thursday",
-      "time": "11:30-01:00",
-      "course": "PHY103",
-      "teacher": "MFI",
-      "room": "MFI",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "70",
-      "section": "O"
+      "section": "O",
+      "sub_section": "2"
     }
   ]
 }

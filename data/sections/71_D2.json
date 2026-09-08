@@ -3,14 +3,70 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "SI",
-      "room": "SI",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "PHY103",
+      "teacher": "AEE",
+      "room": "KT-815",
+      "type": "Lab",
       "batch": "71",
-      "section": "D"
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "PHY103",
+      "teacher": "AEE",
+      "room": "KT-815",
+      "type": "Lab",
+      "batch": "71",
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "DAN",
+      "room": "G1-013",
+      "type": "Lab",
+      "batch": "71",
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "DAN",
+      "room": "G1-013",
+      "type": "Lab",
+      "batch": "71",
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE122",
+      "teacher": "MHI",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "71",
+      "section": "D",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE122",
+      "teacher": "MHI",
+      "room": "SH-105",
+      "type": "Lab",
+      "batch": "71",
+      "section": "D",
+      "sub_section": "2"
     }
   ]
 }

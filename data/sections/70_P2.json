@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE124",
-      "teacher": "RIA",
-      "room": "RIA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "SFMA",
+      "room": "G1-016",
+      "type": "Lab",
       "batch": "70",
-      "section": "P"
+      "section": "P",
+      "sub_section": "2"
     },
     {
       "day": "Sunday",
       "time": "10:00-11:30",
-      "course": "PHY103",
-      "teacher": "MMH",
-      "room": "MMH",
-      "type": "Theory",
+      "course": "CSE214",
+      "teacher": "SFMA",
+      "room": "G1-016",
+      "type": "Lab",
       "batch": "70",
-      "section": "P"
+      "section": "P",
+      "sub_section": "2"
     }
   ]
 }

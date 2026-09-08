@@ -4,11 +4,22 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE212",
+      "teacher": "MJZ",
+      "room": "KT-517(A)",
+      "type": "Theory",
+      "batch": "70",
+      "section": "P",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE214",
       "teacher": "SFMA",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "70",
       "section": "P",
       "sub_section": "1"
@@ -18,14 +29,36 @@
       "time": "10:00-11:30",
       "course": "CSE214",
       "teacher": "SFMA",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-009",
+      "type": "Lab",
       "batch": "70",
       "section": "P",
       "sub_section": "1"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "SFMA",
+      "room": "G1-016",
+      "type": "Lab",
+      "batch": "70",
+      "section": "P",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "SFMA",
+      "room": "G1-016",
+      "type": "Lab",
+      "batch": "70",
+      "section": "P",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE212",
       "teacher": "MJZ",
@@ -37,28 +70,28 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "SFMA",
-      "room": "COM",
+      "time": "01:00-02:30",
+      "course": "BNS101",
+      "teacher": "BNS_2",
+      "room": "ANX1-202",
       "type": "Theory",
       "batch": "70",
       "section": "P",
-      "sub_section": "2"
+      "sub_section": "Main"
     },
     {
       "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SFMA",
-      "room": "COM",
+      "time": "01:00-02:30",
+      "course": "BNS101",
+      "teacher": "BNS_2",
+      "room": "ANX1-302",
       "type": "Theory",
       "batch": "70",
       "section": "P",
-      "sub_section": "2"
+      "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "SFMA",
@@ -69,29 +102,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "MAT211",
-      "teacher": "MNT_1",
-      "room": "ANX1-207",
-      "type": "Theory",
-      "batch": "70",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "BNS101",
-      "teacher": "BNS_2",
-      "room": "ANX1-302",
-      "type": "Theory",
-      "batch": "70",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "SFMA",
@@ -102,8 +113,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "MAT211",
       "teacher": "MNT_1",
       "room": "ANX1-201",
@@ -113,33 +124,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "BNS_2",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "70",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE212",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "TBA",
-      "room": "TBA",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "MAT211",
+      "teacher": "MNT_1",
+      "room": "ANX1-207",
       "type": "Theory",
       "batch": "70",
       "section": "P",

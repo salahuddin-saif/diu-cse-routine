@@ -3,14 +3,70 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE114",
-      "teacher": "MAIT",
-      "room": "MAIT",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "BOOKED",
+      "room": "KT-816",
+      "type": "Lab",
       "batch": "71",
-      "section": "E"
+      "section": "E",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "PHY103",
+      "teacher": "BOOKED",
+      "room": "KT-816",
+      "type": "Lab",
+      "batch": "71",
+      "section": "E",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE122",
+      "teacher": "SMC",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "71",
+      "section": "E",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE122",
+      "teacher": "SMC",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "71",
+      "section": "E",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "THT",
+      "room": "KT-503",
+      "type": "Lab",
+      "batch": "71",
+      "section": "E",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE124",
+      "teacher": "THT",
+      "room": "KT-503",
+      "type": "Lab",
+      "batch": "71",
+      "section": "E",
+      "sub_section": "2"
     }
   ]
 }

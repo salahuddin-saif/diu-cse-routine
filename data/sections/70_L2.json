@@ -4,23 +4,25 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "DP",
-      "type": "Theory",
+      "time": "02:30-04:00",
+      "course": "CSE214",
+      "teacher": "DRAR",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "2"
     },
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "PHY103",
-      "teacher": "MRI",
-      "room": "MRI",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE214",
+      "teacher": "DRAR",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
-      "section": "L"
+      "section": "L",
+      "sub_section": "2"
     }
   ]
 }

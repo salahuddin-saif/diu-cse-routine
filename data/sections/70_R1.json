@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "PHY103",
-      "teacher": "MRZ",
-      "room": "MRZ",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "MRY",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "1"
     },
     {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE124",
-      "teacher": "DRAR",
-      "room": "DRAR",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "MRY",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
-      "section": "R"
+      "section": "R",
+      "sub_section": "1"
     }
   ]
 }

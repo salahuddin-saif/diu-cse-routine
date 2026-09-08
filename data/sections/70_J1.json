@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE124",
-      "teacher": "HHP",
-      "room": "HHP",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "AGT",
+      "room": "G1-014",
+      "type": "Lab",
       "batch": "70",
-      "section": "J"
+      "section": "J",
+      "sub_section": "1"
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "PHY103",
-      "teacher": "MRI",
-      "room": "MRI",
-      "type": "Theory",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "AGT",
+      "room": "G1-014",
+      "type": "Lab",
       "batch": "70",
-      "section": "J"
+      "section": "J",
+      "sub_section": "1"
     }
   ]
 }

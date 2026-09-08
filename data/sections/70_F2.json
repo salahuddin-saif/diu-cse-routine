@@ -4,23 +4,25 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE124",
-      "teacher": "JLA",
-      "room": "JLA",
-      "type": "Theory",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "TAK",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
-      "section": "F"
+      "section": "F",
+      "sub_section": "2"
     },
     {
-      "day": "Tuesday",
+      "day": "Monday",
       "time": "10:00-11:30",
-      "course": "PHY103",
-      "teacher": "AAR",
-      "room": "AAR",
-      "type": "Theory",
+      "course": "CSE214",
+      "teacher": "TAK",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "70",
-      "section": "F"
+      "section": "F",
+      "sub_section": "2"
     }
   ]
 }

@@ -5,22 +5,24 @@
     {
       "day": "Sunday",
       "time": "11:30-01:00",
-      "course": "PHY103",
-      "teacher": "MRZ",
-      "room": "MRZ",
-      "type": "Theory",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "70",
-      "section": "Q"
+      "section": "Q",
+      "sub_section": "2"
     },
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE124",
-      "teacher": "TAK",
-      "room": "TAK",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "70",
-      "section": "Q"
+      "section": "Q",
+      "sub_section": "2"
     }
   ]
 }

@@ -5,6 +5,28 @@
     {
       "day": "Saturday",
       "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "NSL",
+      "room": "G1-008",
+      "type": "Lab",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "NSL",
+      "room": "G1-005",
+      "type": "Lab",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
       "course": "CSE213",
       "teacher": "NSL",
       "room": "KT-516",
@@ -15,28 +37,6 @@
     },
     {
       "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE214",
-      "teacher": "NSL",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "N",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE214",
-      "teacher": "NSL",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "N",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "MAT211",
       "teacher": "MNM",
@@ -47,29 +47,29 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE214",
       "teacher": "NSL",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-008",
+      "type": "Lab",
+      "batch": "70",
+      "section": "N",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "NSL",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "70",
       "section": "N",
       "sub_section": "2"
     },
     {
       "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE214",
-      "teacher": "NSL",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "N",
-      "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
       "time": "01:00-02:30",
       "course": "CSE212",
       "teacher": "TI",
@@ -80,18 +80,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "04:00-05:30",
-      "course": "BNS101",
-      "teacher": "BNS_3",
-      "room": "ANX1-201",
-      "type": "Theory",
-      "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "MAT211",
       "teacher": "MNM",
@@ -102,18 +91,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE212",
-      "teacher": "TI",
-      "room": "KT-216",
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "BNS101",
+      "teacher": "BNS_3",
+      "room": "ANX1-201",
       "type": "Theory",
       "batch": "70",
       "section": "N",
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "NSL",
@@ -124,8 +113,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "10:00-11:30",
       "course": "BNS101",
       "teacher": "BNS_3",
       "room": "ANX1-208",
@@ -135,22 +124,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE213",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE212",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "TI",
+      "room": "KT-216",
       "type": "Theory",
       "batch": "70",
       "section": "N",

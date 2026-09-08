@@ -1,71 +1,71 @@
 {
-  "section": "71_B2",
+  "section": "71_C2",
   "batch": "71",
   "classes": [
     {
       "day": "Sunday",
-      "time": "11:30-01:00",
+      "time": "01:00-02:30",
       "course": "CSE124",
-      "teacher": "MSM",
-      "room": "G1-020",
+      "teacher": "RKR",
+      "room": "KT-510",
       "type": "Lab",
       "batch": "71",
-      "section": "B",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE124",
+      "teacher": "RKR",
+      "room": "KT-510",
+      "type": "Lab",
+      "batch": "71",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "SSK",
+      "room": "KT-816",
+      "type": "Lab",
+      "batch": "71",
+      "section": "C",
       "sub_section": "2"
     },
     {
       "day": "Sunday",
       "time": "01:00-02:30",
-      "course": "CSE124",
-      "teacher": "MSM",
-      "room": "G1-020",
-      "type": "Lab",
-      "batch": "71",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE122",
-      "teacher": "MRIS",
-      "room": "KT-809",
-      "type": "Lab",
-      "batch": "71",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE122",
-      "teacher": "MRIS",
-      "room": "KT-809",
-      "type": "Lab",
-      "batch": "71",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
       "course": "PHY103",
-      "teacher": "AAS",
+      "teacher": "SSK",
       "room": "KT-816",
       "type": "Lab",
       "batch": "71",
-      "section": "B",
+      "section": "C",
       "sub_section": "2"
     },
     {
       "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "PHY103",
-      "teacher": "AAS",
-      "room": "KT-816",
+      "time": "02:30-04:00",
+      "course": "CSE122",
+      "teacher": "MHK",
+      "room": "KT-810",
       "type": "Lab",
       "batch": "71",
-      "section": "B",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE122",
+      "teacher": "MHK",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "71",
+      "section": "C",
       "sub_section": "2"
     }
   ]

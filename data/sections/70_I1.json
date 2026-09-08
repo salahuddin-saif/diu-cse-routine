@@ -3,24 +3,26 @@
   "batch": "70",
   "classes": [
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "PHY103",
-      "teacher": "MFI",
-      "room": "MFI",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "TAB",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "70",
-      "section": "I"
+      "section": "I",
+      "sub_section": "1"
     },
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE124",
-      "teacher": "ZMK",
-      "room": "ZMK",
-      "type": "Theory",
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "TAB",
+      "room": "G1-005",
+      "type": "Lab",
       "batch": "70",
-      "section": "I"
+      "section": "I",
+      "sub_section": "1"
     }
   ]
 }
