@@ -3,7 +3,7 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE438",
       "teacher": "HHP",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE437",
       "teacher": "MUM",
@@ -25,33 +25,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE438",
-      "teacher": "HHP",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "64",
-      "section": "E",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE438",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "E",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE437",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MUM",
+      "room": "KT-318(B)",
       "type": "Theory",
       "batch": "64",
       "section": "E",

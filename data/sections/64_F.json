@@ -3,10 +3,10 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE438",
-      "teacher": "NT",
+      "teacher": "NT-8",
       "room": "KT-223",
       "type": "Theory",
       "batch": "64",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE437",
       "teacher": "MSS",
@@ -25,33 +25,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE438",
-      "teacher": "NT",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "64",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE437",
-      "teacher": "MSS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "64",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
       "day": "Sunday",
-      "time": "01:00-02:30",
+      "time": "08:30-10:00",
       "course": "CSE438",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "NT-8",
+      "room": "KT-220",
       "type": "Theory",
       "batch": "64",
       "section": "F",
@@ -61,9 +39,9 @@
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE437",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "MSS",
+      "room": "KT-503",
+      "type": "Lab",
       "batch": "64",
       "section": "F",
       "sub_section": "Main"

@@ -14,7 +14,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMY",
+      "room": "KT-517(A)",
+      "type": "Theory",
+      "batch": "63",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE450",
       "teacher": "RKR",
@@ -25,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE491",
       "teacher": "DMP",
@@ -36,44 +47,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE450",
       "teacher": "RKR",
       "room": "KT-518",
-      "type": "Theory",
-      "batch": "63",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "63",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "63",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE450",
-      "teacher": "TBA",
-      "room": "TBA",
       "type": "Theory",
       "batch": "63",
       "section": "A",

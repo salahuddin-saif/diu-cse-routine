@@ -6,28 +6,6 @@
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE491",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "63",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "63",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
       "teacher": "DMZ",
       "room": "KT-320",
       "type": "Theory",
@@ -36,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE491",
       "teacher": "DMP",
