@@ -36,8 +36,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
+      "day": "Saturday",
+      "time": "02:30-04:00",
       "course": "MAT101",
       "teacher": "MSH",
       "room": "ANX1-208",
@@ -47,18 +47,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE112",
       "teacher": "MIN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-501(B)",
+      "type": "Lab",
       "batch": "73",
       "section": "H",
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "SMSH",
@@ -69,7 +69,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "MAT101",
       "teacher": "MSH",
@@ -80,44 +80,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE115",
       "teacher": "GR",
       "room": "ANX1-203",
-      "type": "Theory",
-      "batch": "73",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE112",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "73",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "73",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "ENG101",
-      "teacher": "TBA",
-      "room": "TBA",
       "type": "Theory",
       "batch": "73",
       "section": "H",

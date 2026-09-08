@@ -36,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "ENG101",
       "teacher": "PS",
@@ -47,7 +47,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "MAT101",
       "teacher": "AMN",
@@ -58,7 +58,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "ENG101",
       "teacher": "PS",
@@ -69,7 +69,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE115",
       "teacher": "FMA",
@@ -80,45 +80,12 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "MUR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "73",
-      "section": "M",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "73",
-      "section": "M",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE115",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "73",
-      "section": "M",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "MAT101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "room": "KT-501(A)",
+      "type": "Lab",
       "batch": "73",
       "section": "M",
       "sub_section": "Main"

@@ -3,7 +3,7 @@
   "batch": "73",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "ENG101",
       "teacher": "SMH",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "MAT101",
       "teacher": "MRN",
@@ -25,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE115",
       "teacher": "IJN",
@@ -36,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "ENG101",
       "teacher": "SMH",
@@ -47,18 +47,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE112",
       "teacher": "ACC",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-504",
+      "type": "Lab",
       "batch": "73",
       "section": "G",
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE115",
       "teacher": "IJN",
@@ -69,7 +69,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE112",
       "teacher": "ACC",
@@ -80,7 +80,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "MAT101",
       "teacher": "MRN",

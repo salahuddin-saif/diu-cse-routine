@@ -3,7 +3,7 @@
   "batch": "73",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "MAT101",
       "teacher": "AST",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "ENG101",
       "teacher": "SAS",
@@ -25,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE112",
       "teacher": "TAK",
@@ -36,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE115",
       "teacher": "MSJ",
@@ -47,7 +47,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "SAS",
@@ -58,8 +58,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE115",
       "teacher": "MSJ",
       "room": "ANX1-204",
@@ -69,8 +69,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
+      "day": "Monday",
+      "time": "01:00-02:30",
       "course": "MAT101",
       "teacher": "AST",
       "room": "ANX1-204",
@@ -80,12 +80,12 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "TAK",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-513",
+      "type": "Lab",
       "batch": "73",
       "section": "T",
       "sub_section": "Main"

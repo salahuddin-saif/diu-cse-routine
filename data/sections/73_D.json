@@ -3,7 +3,7 @@
   "batch": "73",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "ASA",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "MAT101",
       "teacher": "MSH",
@@ -25,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE115",
       "teacher": "IJN",
@@ -36,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "DMR",
@@ -47,7 +47,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "MAT101",
       "teacher": "MSH",
@@ -58,7 +58,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "DMR",
@@ -69,7 +69,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE115",
       "teacher": "IJN",
@@ -80,7 +80,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "ENG101",
       "teacher": "ASA",

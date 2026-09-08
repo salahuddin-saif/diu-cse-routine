@@ -1,15 +1,15 @@
 {
   "section": "RE_B",
-  "batch": "Unknown",
+  "batch": "RE",
   "classes": [
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE491",
       "teacher": "DMD",
       "room": "G1-027",
       "type": "Theory",
-      "batch": "Unknown",
+      "batch": "RE",
       "section": "B",
       "sub_section": "Main"
     }

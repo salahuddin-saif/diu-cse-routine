@@ -3,7 +3,7 @@
   "batch": "73",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "MAT101",
       "teacher": "NDS",
@@ -14,18 +14,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "10:00-11:30",
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "CSE112",
       "teacher": "AAK",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-501(A)",
+      "type": "Lab",
       "batch": "73",
       "section": "L",
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE115",
       "teacher": "NJO",
@@ -36,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "PS",
@@ -47,7 +47,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE112",
       "teacher": "AAK",
@@ -58,7 +58,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "PS",
@@ -69,8 +69,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
-      "time": "10:00-11:30",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE115",
       "teacher": "NJO",
       "room": "ANX1-101",
@@ -80,8 +80,8 @@
       "sub_section": "Main"
     },
     {
-      "day": "Thursday",
-      "time": "11:30-01:00",
+      "day": "Monday",
+      "time": "01:00-02:30",
       "course": "MAT101",
       "teacher": "NDS",
       "room": "ANX1-102",
