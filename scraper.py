@@ -1,565 +1,1180 @@
-#!/usr/bin/env python3
-"""
-DIU CSE Routine Scraper – VERSION‑AWARE WITH MULTI‑STRATEGY EXTRACTION
-Extracts using pdfplumber tables + regex, merges results, replaces on version change.
-"""
-
-import json
+import os
 import re
-import sys
-from pathlib import Path
-from collections import defaultdict
+import json
 import requests
-from bs4 import BeautifulSoup
 import pdfplumber
-from io import BytesIO
-import logging
+from bs4 import BeautifulSoup
+from pathlib import Path
+from collections import defaultdict, Counter
+from urllib.parse import urljoin
+
 
 # ============================================================
-# CONFIGURATION
+# CONFIG
 # ============================================================
 
 NOTICE_URL = "https://webbackend.daffodilvarsity.edu.bd/department/cse/notice"
 FALLBACK_PDF_URL = "https://webbackend.daffodilvarsity.edu.bd/download-file/4148"
-FALLBACK_VERSION = "5.0"
 
-# ============================================================
-# FILE PATHS
-# ============================================================
-
-DATA_DIR = Path("data")
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
 SECTIONS_DIR = DATA_DIR / "sections"
-OUTPUT_FILE = DATA_DIR / "routine.json"
-DEBUG_FILE = DATA_DIR / "debug_text.txt"
+
+PDF_PATH = BASE_DIR / "latest_routine.pdf"
+
+TIME_SLOTS = [
+    "08:30-10:00",
+    "10:00-11:30",
+    "11:30-01:00",
+    "01:00-02:30",
+    "02:30-04:00",
+    "04:00-05:30",
+]
+
+DAYS = {
+    "SATURDAY": "Saturday",
+    "SUNDAY": "Sunday",
+    "MONDAY": "Monday",
+    "TUESDAY": "Tuesday",
+    "WEDNESDAY": "Wednesday",
+    "THURSDAY": "Thursday",
+    "FRIDAY": "Friday",
+}
+
 
 # ============================================================
-# LOGGING
+# HTTP SESSION
 # ============================================================
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+session = requests.Session()
+
+session.headers.update({
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 Chrome/140.0 Safari/537.36"
+    )
+})
+
+
+# ============================================================
+# FIND LATEST ROUTINE PDF
+# KEEPING EXISTING FETCH LOGIC
+# ============================================================
+
+def find_latest_class_routine():
+    """
+    Finds the latest CSE class routine from DIU notice page.
+
+    Existing fetch logic is intentionally kept:
+        NOTICE PAGE
+            ↓
+        Notice details
+            ↓
+        download-file URL
+            ↓
+        PDF
+    """
+
+    try:
+        print("Checking DIU CSE notice page...")
+
+        response = session.get(
+            NOTICE_URL,
+            timeout=30
+        )
+
+        response.raise_for_status()
+
+        soup = BeautifulSoup(
+            response.text,
+            "html.parser"
+        )
+
+        notices = []
+
+        for link in soup.find_all("a", href=True):
+
+            text = link.get_text(
+                " ",
+                strip=True
+            )
+
+            href = link.get("href", "").strip()
+
+            text_lower = text.lower()
+
+            if (
+                "class routine" in text_lower
+                and "exam" not in text_lower
+            ):
+
+                full_url = urljoin(
+                    NOTICE_URL,
+                    href
+                )
+
+                notices.append(
+                    (
+                        text,
+                        full_url
+                    )
+                )
+
+        if not notices:
+            raise RuntimeError(
+                "No class routine notice found."
+            )
+
+        # Usually first/latest notice is the newest.
+        notice_text, notice_url = notices[0]
+
+        print(
+            f"Latest routine notice: {notice_text}"
+        )
+
+        detail_response = session.get(
+            notice_url,
+            timeout=30
+        )
+
+        detail_response.raise_for_status()
+
+        detail_soup = BeautifulSoup(
+            detail_response.text,
+            "html.parser"
+        )
+
+        pdf_url = None
+
+        for link in detail_soup.find_all(
+            "a",
+            href=True
+        ):
+
+            href = link.get("href", "")
+
+            if "download-file" in href.lower():
+
+                pdf_url = urljoin(
+                    notice_url,
+                    href
+                )
+
+                break
+
+        # Sometimes download-file is inside an iframe/embed
+        if not pdf_url:
+
+            for tag in detail_soup.find_all(
+                ["iframe", "embed"]
+            ):
+
+                src = tag.get("src", "")
+
+                if "download-file" in src.lower():
+
+                    pdf_url = urljoin(
+                        notice_url,
+                        src
+                    )
+
+                    break
+
+        if not pdf_url:
+            raise RuntimeError(
+                "PDF download URL not found."
+            )
+
+        return pdf_url, notice_text
+
+    except Exception as e:
+
+        print(
+            f"Notice page fetch failed: {e}"
+        )
+
+        print(
+            "Using fallback PDF URL..."
+        )
+
+        return (
+            FALLBACK_PDF_URL,
+            "Fallback routine"
+        )
+
+
+# ============================================================
+# DOWNLOAD PDF
+# ============================================================
+
+def download_pdf(pdf_url):
+    print(
+        f"Downloading PDF:\n{pdf_url}"
+    )
+
+    response = session.get(
+        pdf_url,
+        timeout=60
+    )
+
+    response.raise_for_status()
+
+    PDF_PATH.write_bytes(
+        response.content
+    )
+
+    print(
+        f"PDF saved: {PDF_PATH}"
+    )
+
+    return PDF_PATH
+
+
+# ============================================================
+# NORMALIZE TEXT
+# ============================================================
+
+def clean_text(value):
+    if value is None:
+        return ""
+
+    value = str(value)
+
+    value = value.replace(
+        "\n",
+        " "
+    )
+
+    value = value.replace(
+        "\r",
+        " "
+    )
+
+    value = re.sub(
+        r"\s+",
+        " ",
+        value
+    )
+
+    return value.strip()
+
+
+# ============================================================
+# DAY DETECTION
+# ============================================================
+
+def detect_day_from_text(text):
+
+    if not text:
+        return None
+
+    upper = text.upper()
+
+    for key, day in DAYS.items():
+
+        if key in upper:
+            return day
+
+    return None
+
+
+# ============================================================
+# SECTION PARSING
+# ============================================================
+
+def parse_section(raw_section):
+    """
+    Examples:
+
+        70_N
+        67_F1
+        69_J2
+        RE_A
+        RE_A1
+    """
+
+    raw_section = clean_text(
+        raw_section
+    ).upper()
+
+    raw_section = raw_section.replace(
+        " ",
+        ""
+    )
+
+    # --------------------------------------------------------
+    # Normal section:
+    #
+    # 70_N
+    # 70_N1
+    # 70_N2
+    # 67_F
+    # 67_F1
+    # 67_F2
+    # --------------------------------------------------------
+
+    match = re.match(
+        r"^(\d+)_([A-Z])([12]?)$",
+        raw_section
+    )
+
+    if match:
+
+        batch = match.group(1)
+        section = match.group(2)
+        suffix = match.group(3)
+
+        main_section = f"{batch}_{section}"
+
+        if suffix:
+            subsection = suffix
+        else:
+            subsection = "Main"
+
+        return {
+            "section": main_section,
+            "sub_section": subsection,
+            "batch": batch,
+            "section_letter": section,
+        }
+
+    # --------------------------------------------------------
+    # Special section:
+    #
+    # RE_A
+    # RE_A1
+    # RE_A2
+    # --------------------------------------------------------
+
+    match = re.match(
+        r"^(.+?)([12]?)$",
+        raw_section
+    )
+
+    if match:
+
+        base = match.group(1)
+        suffix = match.group(2)
+
+        if suffix and base.endswith("_"):
+            base = base[:-1]
+
+        return {
+            "section": base,
+            "sub_section": suffix or "Main",
+            "batch": "",
+            "section_letter": "",
+        }
+
+    return {
+        "section": raw_section,
+        "sub_section": "Main",
+        "batch": "",
+        "section_letter": "",
+    }
+
+
+# ============================================================
+# COURSE PARSING
+# ============================================================
+
+COURSE_PATTERN = re.compile(
+    r"^([A-Z]{2,8}\d{3,4})\((.*)\)$"
+)
+
+
+def parse_course(course_text):
+
+    course_text = clean_text(
+        course_text
+    )
+
+    match = COURSE_PATTERN.match(
+        course_text
+    )
+
+    if not match:
+        return None, None
+
+    course_code = match.group(1)
+
+    section = clean_text(
+        match.group(2)
+    )
+
+    return course_code, section
+
+
+# ============================================================
+# LAB DETECTION
+# ============================================================
+
+def is_lab_room(room):
+    if not room:
+        return False
+
+    return "LAB" in room.upper()
+
+
+def clean_room(room):
+
+    room = clean_text(room)
+
+    if not room:
+        return ""
+
+    # Example:
+    # KT-501(A) (COM LAB)
+    #
+    # becomes:
+    # KT-501(A)
+
+    room = re.sub(
+        r"\s*\([^)]*LAB[^)]*\)",
+        "",
+        room,
+        flags=re.I
+    )
+
+    return clean_text(room)
+
+
+# ============================================================
+# TABLE EXTRACTION
+# ============================================================
+
+def extract_tables(pdf_path):
+
+    DATA_DIR.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    debug_dir = DATA_DIR / "debug"
+    debug_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    all_classes = []
+
+    current_day = None
+
+    raw_table_counter = 0
+
+    print(
+        "\nExtracting PDF tables..."
+    )
+
+    with pdfplumber.open(
+        pdf_path
+    ) as pdf:
+
+        for page_number, page in enumerate(
+            pdf.pages,
+            start=1
+        ):
+
+            print(
+                f"Processing page {page_number}/{len(pdf.pages)}..."
+            )
+
+            # ------------------------------------------------
+            # Try to detect day from page text.
+            # ------------------------------------------------
+
+            page_text = page.extract_text() or ""
+
+            detected_day = detect_day_from_text(
+                page_text
+            )
+
+            if detected_day:
+                current_day = detected_day
+
+            if not current_day:
+                print(
+                    f"WARNING: Could not detect day on page {page_number}"
+                )
+
+            # ------------------------------------------------
+            # Extract tables
+            # ------------------------------------------------
+
+            tables = page.extract_tables()
+
+            if not tables:
+                print(
+                    f"WARNING: No table found on page {page_number}"
+                )
+                continue
+
+            for table_index, table in enumerate(
+                tables
+            ):
+
+                if not table:
+                    continue
+
+                raw_table_counter += 1
+
+                # Save debug table
+                debug_file = (
+                    debug_dir
+                    / f"page_{page_number}_table_{table_index + 1}.json"
+                )
+
+                try:
+
+                    debug_file.write_text(
+                        json.dumps(
+                            table,
+                            ensure_ascii=False,
+                            indent=2
+                        ),
+                        encoding="utf-8"
+                    )
+
+                except Exception:
+                    pass
+
+                # ------------------------------------------------
+                # Every logical time slot contains:
+                #
+                # ROOM
+                # COURSE
+                # TEACHER
+                #
+                # 6 slots × 3 = 18 columns
+                # ------------------------------------------------
+
+                for row_number, row in enumerate(
+                    table
+                ):
+
+                    if not row:
+                        continue
+
+                    # Normalize cells
+                    row = [
+                        clean_text(cell)
+                        for cell in row
+                    ]
+
+                    # ------------------------------------------------
+                    # VERY IMPORTANT:
+                    #
+                    # Never remove empty cells.
+                    #
+                    # Removing empty cells causes:
+                    #
+                    # slot 2 → slot 1
+                    # slot 3 → slot 2
+                    #
+                    # and classes get wrong times.
+                    # ------------------------------------------------
+
+                    if len(row) < 18:
+
+                        row += [
+                            ""
+                        ] * (
+                            18 - len(row)
+                        )
+
+                    # Some PDFs may contain extra cells.
+                    # We only process the first 18 logical columns.
+                    row = row[:18]
+
+                    # ------------------------------------------------
+                    # Process six time slots
+                    # ------------------------------------------------
+
+                    for slot_index in range(6):
+
+                        base = slot_index * 3
+
+                        room = row[base]
+                        course_cell = row[base + 1]
+                        teacher = row[base + 2]
+
+                        if not course_cell:
+                            continue
+
+                        course_code, raw_section = parse_course(
+                            course_cell
+                        )
+
+                        if not course_code:
+                            continue
+
+                        if not raw_section:
+                            continue
+
+                        section_info = parse_section(
+                            raw_section
+                        )
+
+                        room_clean = clean_room(
+                            room
+                        )
+
+                        class_type = (
+                            "Lab"
+                            if is_lab_room(room)
+                            else "Theory"
+                        )
+
+                        # ------------------------------------------------
+                        # Teacher cleanup
+                        # ------------------------------------------------
+
+                        teacher = clean_text(
+                            teacher
+                        )
+
+                        # Some teacher cells may be merged/empty.
+                        # Do not invent teacher names.
+                        if teacher == "-":
+                            teacher = ""
+
+                        item = {
+                            "day": current_day,
+                            "time": TIME_SLOTS[slot_index],
+                            "course": course_code,
+                            "teacher": teacher,
+                            "room": room_clean,
+                            "section": section_info["section"],
+                            "sub_section": section_info["sub_section"],
+                            "batch": section_info["batch"],
+                            "section_letter": section_info["section_letter"],
+                            "type": class_type,
+                            "_page": page_number,
+                            "_row": row_number,
+                            "_slot": slot_index,
+                        }
+
+                        all_classes.append(
+                            item
+                        )
+
+    print(
+        f"\nRaw classes extracted: {len(all_classes)}"
+    )
+
+    return all_classes
+
+
+# ============================================================
+# MERGE CONSECUTIVE LAB CLASSES
+# ============================================================
+
+def time_to_minutes(time_string):
+
+    start, end = time_string.split("-")
+
+    def parse_time(value):
+
+        hour, minute = map(
+            int,
+            value.split(":")
+        )
+
+        # Routine times use:
+        # 01:00 after 11:30
+        #
+        # Treat 01:00 / 02:30 / 04:00 as afternoon
+        # when necessary.
+
+        return hour * 60 + minute
+
+    return (
+        parse_time(start),
+        parse_time(end)
+    )
+
+
+def are_consecutive(
+    first_time,
+    second_time
+):
+
+    _, first_end = time_to_minutes(
+        first_time
+    )
+
+    second_start, _ = time_to_minutes(
+        second_time
+    )
+
+    # Handle afternoon wrap:
+    # 01:00 follows 11:30
+    if (
+        first_end == 60
+        and second_start == 60
+    ):
+        return True
+
+    if first_end == second_start:
+        return True
+
+    # 11:30 → 01:00
+    if (
+        first_time.endswith("01:00")
+        and second_time.startswith("01:00")
+    ):
+        return True
+
+    return False
+
+
+def merge_lab_classes(classes):
+
+    if not classes:
+        return []
+
+    # Sort chronologically using slot order.
+    time_order = {
+        time: index
+        for index, time in enumerate(
+            TIME_SLOTS
+        )
+    }
+
+    classes = sorted(
+        classes,
+        key=lambda x: (
+            x.get("day", ""),
+            x.get("section", ""),
+            x.get("sub_section", ""),
+            time_order.get(
+                x.get("time", ""),
+                999
+            ),
+            x.get("course", ""),
+        )
+    )
+
+    merged = []
+
+    for item in classes:
+
+        if not merged:
+
+            merged.append(
+                item.copy()
+            )
+
+            continue
+
+        previous = merged[-1]
+
+        same_class = (
+            previous.get("day")
+            == item.get("day")
+            and previous.get("section")
+            == item.get("section")
+            and previous.get("sub_section")
+            == item.get("sub_section")
+            and previous.get("course")
+            == item.get("course")
+            and previous.get("teacher")
+            == item.get("teacher")
+            and previous.get("room")
+            == item.get("room")
+            and previous.get("type")
+            == "Lab"
+            and item.get("type")
+            == "Lab"
+        )
+
+        if same_class and are_consecutive(
+            previous["time"],
+            item["time"]
+        ):
+
+            previous_start = previous["time"].split("-")[0]
+
+            current_end = item["time"].split("-")[1]
+
+            previous["time"] = (
+                f"{previous_start}-{current_end}"
+            )
+
+        else:
+
+            merged.append(
+                item.copy()
+            )
+
+    return merged
+
+
+# ============================================================
+# GROUP SECTIONS
+# ============================================================
+
+def group_sections(classes):
+
+    sections = defaultdict(list)
+
+    for item in classes:
+
+        section = item.get(
+            "section"
+        )
+
+        if not section:
+            continue
+
+        clean_item = {
+            key: value
+            for key, value in item.items()
+            if not key.startswith("_")
+        }
+
+        sections[section].append(
+            clean_item
+        )
+
+    # Sort classes
+    time_order = {
+        time: index
+        for index, time in enumerate(
+            TIME_SLOTS
+        )
+    }
+
+    for section in sections:
+
+        sections[section].sort(
+            key=lambda x: (
+                x.get("day", ""),
+                time_order.get(
+                    x.get("time", ""),
+                    999
+                ),
+                x.get("course", "")
+            )
+        )
+
+    return sections
+
+
+# ============================================================
+# VALIDATION
+# ============================================================
+
+def validate_classes(classes):
+
+    invalid = []
+
+    duplicate_keys = []
+
+    seen = set()
+
+    for index, item in enumerate(
+        classes
+    ):
+
+        required = [
+            "day",
+            "time",
+            "course",
+            "section",
+            "sub_section",
+            "room",
+            "type",
+        ]
+
+        missing = [
+            field
+            for field in required
+            if not item.get(field)
+        ]
+
+        if missing:
+
+            invalid.append({
+                "index": index,
+                "missing": missing,
+                "class": item,
+            })
+
+        key = (
+            item.get("day"),
+            item.get("time"),
+            item.get("course"),
+            item.get("section"),
+            item.get("sub_section"),
+            item.get("room"),
+        )
+
+        if key in seen:
+
+            duplicate_keys.append({
+                "index": index,
+                "key": key,
+            })
+
+        seen.add(key)
+
+    teacher_missing = [
+        item
+        for item in classes
+        if not item.get("teacher")
+    ]
+
+    return {
+        "total_classes": len(classes),
+        "invalid_classes": len(invalid),
+        "duplicate_classes": len(duplicate_keys),
+        "missing_teacher": len(teacher_missing),
+        "invalid": invalid[:100],
+        "duplicates": duplicate_keys[:100],
+    }
+
+
+# ============================================================
+# WRITE OUTPUT
+# ============================================================
+
+def write_output(
+    classes,
+    sections,
+    validation,
+    pdf_url,
+    version
+):
+
+    DATA_DIR.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    SECTIONS_DIR.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    # --------------------------------------------------------
+    # Main routine.json
+    # --------------------------------------------------------
+
+    routine_data = {
+        "version": version,
+        "pdf_url": pdf_url,
+        "total_classes": len(classes),
+        "total_sections": len(sections),
+        "classes": classes,
+        "sections": {
+            section: data
+            for section, data in sections.items()
+        },
+    }
+
+    routine_file = (
+        DATA_DIR / "routine.json"
+    )
+
+    routine_file.write_text(
+        json.dumps(
+            routine_data,
+            ensure_ascii=False,
+            indent=2
+        ),
+        encoding="utf-8"
+    )
+
+    # --------------------------------------------------------
+    # Individual section JSON files
+    # --------------------------------------------------------
+
+    for section, section_classes in sections.items():
+
+        safe_name = re.sub(
+            r"[^A-Za-z0-9_\-]",
+            "_",
+            section
+        )
+
+        section_data = {
+            "section": section,
+            "classes": section_classes,
+        }
+
+        section_file = (
+            SECTIONS_DIR
+            / f"{safe_name}.json"
+        )
+
+        section_file.write_text(
+            json.dumps(
+                section_data,
+                ensure_ascii=False,
+                indent=2
+            ),
+            encoding="utf-8"
+        )
+
+    # --------------------------------------------------------
+    # Validation
+    # --------------------------------------------------------
+
+    validation_file = (
+        DATA_DIR / "validation.json"
+    )
+
+    validation_file.write_text(
+        json.dumps(
+            validation,
+            ensure_ascii=False,
+            indent=2
+        ),
+        encoding="utf-8"
+    )
+
+    print(
+        "\nOutput generated successfully."
+    )
+
+    print(
+        f"routine.json : {routine_file}"
+    )
+
+    print(
+        f"sections     : {SECTIONS_DIR}"
+    )
+
+    print(
+        f"classes      : {len(classes)}"
+    )
+
+    print(
+        f"sections     : {len(sections)}"
+    )
+
+    print(
+        f"invalid      : {validation['invalid_classes']}"
+    )
+
+    print(
+        f"duplicates    : {validation['duplicate_classes']}"
+    )
+
+    print(
+        f"missing teacher: {validation['missing_teacher']}"
+    )
+
 
 # ============================================================
 # MAIN
 # ============================================================
 
-def main():
-    try:
-        DATA_DIR.mkdir(exist_ok=True)
-        SECTIONS_DIR.mkdir(exist_ok=True)
+def run():
 
-        logger.info("=" * 60)
-        logger.info("DIU CSE ROUTINE SCRAPER – VERSION-AWARE")
-        logger.info("=" * 60)
+    print("=" * 60)
+    print("DIU CSE ROUTINE SCRAPER")
+    print("=" * 60)
 
-        # 1. Find latest routine PDF and version
-        result = find_latest_class_routine()
-        if not result:
-            logger.error("❌ Could not find Class Routine")
-            sys.exit(1)
+    # --------------------------------------------------------
+    # 1. Find PDF
+    # --------------------------------------------------------
 
-        pdf_url, new_version = result
-        logger.info(f"📄 Found Version: {new_version}")
+    pdf_url, version = (
+        find_latest_class_routine()
+    )
 
-        # 2. Check stored version
-        stored_version = get_stored_version()
-        replace_all = (stored_version is None or stored_version != new_version)
+    print(
+        f"\nPDF URL: {pdf_url}"
+    )
 
-        if replace_all:
-            logger.info(f"🔄 New version detected (stored: {stored_version}, new: {new_version}). Replacing all data.")
-        else:
-            logger.info(f"✅ Same version ({stored_version}). Merging with existing data.")
+    print(
+        f"Version: {version}"
+    )
 
-        # 3. Download PDF
-        logger.info("⬇️ Downloading PDF...")
-        response = requests.get(pdf_url, timeout=30)
-        response.raise_for_status()
-        pdf_content = response.content
-        logger.info(f"✅ Downloaded {len(pdf_content)} bytes")
+    # --------------------------------------------------------
+    # 2. Download PDF
+    # --------------------------------------------------------
 
-        # 4. Extract using multiple strategies
-        logger.info("📖 Extracting using pdfplumber tables...")
-        sections_from_tables = extract_tables_pdfplumber(pdf_content)
+    pdf_path = download_pdf(
+        pdf_url
+    )
 
-        logger.info("📖 Extracting using regex fallback...")
-        text = extract_text(pdf_content)
-        sections_from_regex = extract_classes_from_text(text) if text else {}
+    # --------------------------------------------------------
+    # 3. Extract classes from tables
+    # --------------------------------------------------------
 
-        # 5. Merge results from both strategies
-        logger.info("🔄 Merging results from both strategies...")
-        combined_sections = merge_section_data(sections_from_tables, sections_from_regex)
+    raw_classes = extract_tables(
+        pdf_path
+    )
 
-        if not combined_sections:
-            logger.error("❌ No data extracted from PDF.")
-            sys.exit(1)
+    # --------------------------------------------------------
+    # 4. Merge consecutive lab slots
+    # --------------------------------------------------------
 
-        # 6. Final merge with existing (if same version)
-        if replace_all:
-            final_sections = combined_sections
-        else:
-            final_sections = merge_with_existing(combined_sections)
+    classes = merge_lab_classes(
+        raw_classes
+    )
 
-        # 7. Save combined JSON
-        total = sum(len(entries) for entries in final_sections.values())
-        from datetime import datetime, timezone
-        output = {
-            'updated_at': datetime.now(timezone.utc).isoformat(),
-            'source': pdf_url,
-            'version': new_version,
-            'sections': final_sections
+    print(
+        f"\nAfter lab merging: {len(classes)}"
+    )
+
+    # --------------------------------------------------------
+    # 5. Remove internal fields
+    # --------------------------------------------------------
+
+    cleaned_classes = []
+
+    for item in classes:
+
+        clean_item = {
+            key: value
+            for key, value in item.items()
+            if not key.startswith("_")
         }
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            json.dump(output, f, indent=2, ensure_ascii=False)
-        logger.info(f"✅ Saved combined JSON: {len(final_sections)} sections, {total} classes")
 
-        # 8. Save per‑section JSON files
-        for section_key, section_data in final_sections.items():
-            safe_key = re.sub(r'[^\w\-]', '_', section_key)
-            section_file = SECTIONS_DIR / f"{safe_key}.json"
-            with open(section_file, 'w', encoding='utf-8') as f:
-                json.dump({
-                    'section': section_key,
-                    'batch': section_data.get('batch', 'Unknown'),
-                    'classes': section_data.get('classes', [])
-                }, f, indent=2, ensure_ascii=False)
-            logger.info(f"   Saved {section_file}")
+        cleaned_classes.append(
+            clean_item
+        )
 
-        sys.exit(0)
+    # --------------------------------------------------------
+    # 6. Group by section
+    # --------------------------------------------------------
 
-    except Exception as e:
-        logger.error(f"❌ Failed: {e}")
-        import traceback
-        logger.error(traceback.format_exc())
-        sys.exit(1)
+    sections = group_sections(
+        cleaned_classes
+    )
 
+    # --------------------------------------------------------
+    # 7. Validation
+    # --------------------------------------------------------
 
-# ============================================================
-# VERSION HANDLING
-# ============================================================
+    validation = validate_classes(
+        cleaned_classes
+    )
 
-def get_stored_version():
-    """Read the version from existing routine.json."""
-    if not OUTPUT_FILE.exists():
-        return None
-    try:
-        with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            return data.get('version')
-    except Exception:
-        return None
+    # --------------------------------------------------------
+    # 8. Write JSON
+    # --------------------------------------------------------
+
+    write_output(
+        cleaned_classes,
+        sections,
+        validation,
+        pdf_url,
+        version
+    )
+
+    print(
+        "\nScraping completed."
+    )
 
 
 # ============================================================
-# FIND ROUTINE NOTICE & PDF
+# ENTRY POINT
 # ============================================================
-
-def find_latest_class_routine():
-    try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9',
-            'Referer': 'https://webbackend.daffodilvarsity.edu.bd/',
-        }
-        response = requests.get(NOTICE_URL, timeout=30, headers=headers)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        for link in soup.find_all('a', href=True):
-            text = link.get_text().strip()
-            href = link.get('href', '')
-            if 'class routine' in text.lower() and 'exam' not in text.lower():
-                version_match = re.search(r'[Vv]ersion\s*([\d.]+)', text)
-                version = version_match.group(1) if version_match else '5.0'
-                if not href.startswith(('http://', 'https://')):
-                    href = requests.compat.urljoin(NOTICE_URL, href)
-                detail_response = requests.get(href, timeout=30, headers=headers)
-                detail_response.raise_for_status()
-                detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
-                for dl_link in detail_soup.find_all('a', href=True):
-                    dl_href = dl_link.get('href', '')
-                    if 'download-file' in dl_href:
-                        if not dl_href.startswith(('http://', 'https://')):
-                            dl_href = requests.compat.urljoin(href, dl_href)
-                        return (dl_href, version)
-        return None
-    except Exception as e:
-        logger.error(f"❌ Error finding PDF: {e}")
-        logger.warning(f"⚠️ Using fallback PDF: {FALLBACK_PDF_URL}")
-        return (FALLBACK_PDF_URL, FALLBACK_VERSION)
-
-
-# ============================================================
-# TEXT EXTRACTION (for regex fallback)
-# ============================================================
-
-def extract_text(pdf_content):
-    try:
-        with pdfplumber.open(BytesIO(pdf_content)) as pdf:
-            text = ""
-            for page in pdf.pages:
-                page_text = page.extract_text()
-                if page_text:
-                    text += page_text + "\n"
-            return text
-    except Exception as e:
-        logger.warning(f"pdfplumber text extraction failed: {e}")
-        return None
-
-
-def extract_classes_from_text(text):
-    """Regex-based extraction (existing code)."""
-    all_classes = []
-    lines = text.split('\n')
-    time_slots = [
-        '08:30-10:00', '10:00-11:30', '11:30-01:00',
-        '01:00-02:30', '02:30-04:00', '04:00-05:30'
-    ]
-    days = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']
-
-    current_day = None
-    pattern = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)')
-    pattern2 = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
-
-    for line in lines:
-        stripped = line.strip()
-        if not stripped:
-            continue
-        upper = stripped.upper()
-        day_found = None
-        for day in days:
-            if day in upper and (any(slot in upper for slot in time_slots) or len(stripped) < 50):
-                day_found = day.capitalize()
-                break
-        if day_found:
-            current_day = day_found
-            continue
-        if not current_day:
-            continue
-        if 'ROOM' in upper and 'COURSE' in upper and 'TEACHER' in upper:
-            continue
-        if 'TABLE' in upper or 'PAGE' in upper:
-            continue
-        is_lab = 'LAB' in upper or 'COM LAB' in upper
-        matches = pattern.findall(stripped)
-        if not matches:
-            matches2 = pattern2.findall(stripped)
-            matches = [(m[0], m[1], m[2], 'TBA') for m in matches2]
-        if not matches:
-            continue
-        for idx, (room, course, section, teacher) in enumerate(matches):
-            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
-            if not section_clean:
-                continue
-            sub_section = 'Main'
-            main_section = section_clean
-            match_sub = re.search(r'(_[A-Z])(\d+)$', section_clean)
-            if match_sub:
-                main_section = section_clean[:match_sub.start()] + match_sub.group(1)
-                sub_section = match_sub.group(2)
-            time_slot = time_slots[idx] if idx < len(time_slots) else 'TBA'
-            class_type = 'Lab' if is_lab else 'Theory'
-            batch_match = re.search(r'(\d{2})', main_section)
-            batch = batch_match.group(1) if batch_match else 'Unknown'
-            section_letter = re.sub(r'[^A-Z]', '', main_section.split('_')[-1] if '_' in main_section else '')
-            all_classes.append({
-                'main_section': main_section,
-                'sub_section': sub_section,
-                'day': current_day,
-                'time': time_slot,
-                'course': course,
-                'teacher': teacher,
-                'room': room,
-                'type': class_type,
-                'batch': batch,
-                'section': section_letter
-            })
-
-    # Group into sections (dict)
-    sections = defaultdict(lambda: {'classes': []})
-    for cls in all_classes:
-        key = cls['main_section']
-        sections[key]['batch'] = cls.get('batch', 'Unknown')
-        sections[key]['section'] = cls.get('section', '')
-        sections[key]['classes'].append({
-            'day': cls['day'],
-            'time': cls['time'],
-            'course': cls['course'],
-            'teacher': cls['teacher'],
-            'room': cls['room'],
-            'type': cls['type'],
-            'batch': cls.get('batch', 'Unknown'),
-            'section': cls.get('section', ''),
-            'sub_section': cls.get('sub_section', 'Main')
-        })
-    return dict(sections)
-
-
-# ============================================================
-# TABLE EXTRACTION (pdfplumber)
-# ============================================================
-
-def extract_tables_pdfplumber(pdf_content):
-    """Extract classes using pdfplumber tables with lab merging."""
-    sections = defaultdict(lambda: {'classes': []})
-    class_count = 0
-
-    try:
-        with pdfplumber.open(BytesIO(pdf_content)) as pdf:
-            logger.info(f"📄 PDF has {len(pdf.pages)} pages")
-
-            for page_num, page in enumerate(pdf.pages, 1):
-                page_text = page.extract_text()
-                current_day = None
-                if page_text:
-                    for line in page_text.split('\n'):
-                        upper = line.upper()
-                        for day in ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY']:
-                            if day in upper and (re.search(r'\d{2}:\d{2}-\d{2}:\d{2}', upper) or len(line) < 30):
-                                current_day = day.capitalize()
-                                break
-                        if current_day:
-                            break
-
-                tables = page.extract_tables()
-                if not tables:
-                    continue
-
-                for table in tables:
-                    if not table or len(table) < 2:
-                        continue
-
-                    header_index = -1
-                    raw_time_slots = []
-                    for idx, row in enumerate(table):
-                        row_text = ' '.join([str(cell) if cell else '' for cell in row])
-                        if re.search(r'\d{2}:\d{2}-\d{2}:\d{2}', row_text):
-                            header_index = idx
-                            raw_time_slots = [cell.strip() if cell else '' for cell in row]
-                            break
-
-                    if header_index == -1:
-                        continue
-
-                    time_slots = []
-                    last_time = None
-                    for cell in raw_time_slots:
-                        if cell.strip():
-                            last_time = cell.strip()
-                        time_slots.append(last_time if last_time else '')
-                    while time_slots and not time_slots[-1]:
-                        time_slots.pop()
-
-                    for row_idx in range(header_index + 1, len(table)):
-                        row = table[row_idx]
-                        if all(cell is None or str(cell).strip() == '' for cell in row):
-                            continue
-
-                        for col_idx, cell in enumerate(row):
-                            if col_idx >= len(time_slots):
-                                break
-                            time_slot = time_slots[col_idx]
-                            if not time_slot:
-                                continue
-
-                            cell_text = str(cell).strip() if cell else ''
-                            if not cell_text:
-                                continue
-
-                            pattern = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)\s+([A-Z0-9_]+)')
-                            match = pattern.search(cell_text)
-                            if match:
-                                room, course, section, teacher = match.groups()
-                            else:
-                                pattern2 = re.compile(r'([A-Z0-9\-]+)\s+([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
-                                match2 = pattern2.search(cell_text)
-                                if match2:
-                                    room, course, section = match2.groups()
-                                    teacher = 'TBA'
-                                else:
-                                    pattern3 = re.compile(r'([A-Z]{3,4}\d{3,4})\(([^)]+)\)')
-                                    match3 = pattern3.search(cell_text)
-                                    if match3:
-                                        course, section = match3.groups()
-                                        room = 'TBA'
-                                        teacher = 'TBA'
-                                    else:
-                                        continue
-
-                            section_clean = re.sub(r'[^A-Z0-9_]', '', section.replace(' ', '_').upper())
-                            if not section_clean:
-                                continue
-
-                            sub_section = 'Main'
-                            main_section = section_clean
-                            match_sub = re.search(r'(_[A-Z])(\d+)$', section_clean)
-                            if match_sub:
-                                main_section = section_clean[:match_sub.start()] + match_sub.group(1)
-                                sub_section = match_sub.group(2)
-
-                            is_lab = 'LAB' in cell_text.upper() or 'COM LAB' in cell_text.upper()
-                            class_type = 'Lab' if is_lab else 'Theory'
-
-                            batch_match = re.search(r'(\d{2})', main_section)
-                            batch = batch_match.group(1) if batch_match else 'Unknown'
-                            section_letter = re.sub(r'[^A-Z]', '', main_section.split('_')[-1] if '_' in main_section else '')
-
-                            key = main_section
-                            if key not in sections:
-                                sections[key]['batch'] = batch
-                                sections[key]['section'] = section_letter
-                            sections[key]['classes'].append({
-                                'day': current_day or 'Unknown',
-                                'time': time_slot,
-                                'course': course,
-                                'teacher': teacher,
-                                'room': room,
-                                'type': class_type,
-                                'batch': batch,
-                                'section': section_letter,
-                                'sub_section': sub_section
-                            })
-                            class_count += 1
-
-    except Exception as e:
-        logger.error(f"❌ pdfplumber table extraction failed: {e}")
-        return {}
-
-    logger.info(f"📊 Extracted {class_count} raw class records from tables")
-
-    if class_count == 0:
-        return {}
-
-    # Merge lab classes within each section
-    merged_sections = {}
-    for sec_key, sec_data in sections.items():
-        merged_classes = merge_lab_classes(sec_data['classes'])
-        merged_sections[sec_key] = {
-            'batch': sec_data['batch'],
-            'section': sec_data['section'],
-            'classes': merged_classes
-        }
-    return merged_sections
-
-
-def merge_lab_classes(classes):
-    """Merge consecutive lab slots."""
-    if not classes:
-        return []
-    time_slots = [
-        '08:30-10:00', '10:00-11:30', '11:30-01:00',
-        '01:00-02:30', '02:30-04:00', '04:00-05:30'
-    ]
-    groups = defaultdict(list)
-    for cls in classes:
-        key = (cls['day'], cls['course'], cls['teacher'], cls['room'])
-        groups[key].append(cls)
-
-    merged = []
-    for key, items in groups.items():
-        items.sort(key=lambda x: time_slots.index(x['time']) if x['time'] in time_slots else 999)
-        if items[0]['type'] == 'Lab' and len(items) >= 2:
-            time_indices = [time_slots.index(item['time']) for item in items if item['time'] in time_slots]
-            if len(time_indices) >= 2 and time_indices[1] == time_indices[0] + 1:
-                merged_item = items[0].copy()
-                start_time = time_slots[time_indices[0]]
-                end_time = time_slots[time_indices[1]].split('-')[1]
-                merged_item['time'] = f"{start_time.split('-')[0]}-{end_time}"
-                merged_item['sub_section'] = items[0].get('sub_section', 'Main')
-                merged.append(merged_item)
-                continue
-        merged.extend(items)
-    return merged
-
-
-# ============================================================
-# MERGE UTILITIES
-# ============================================================
-
-def merge_section_data(sections_a, sections_b):
-    """Merge two dictionaries of sections, preferring the one with more classes per section."""
-    merged = {}
-    all_keys = set(sections_a.keys()) | set(sections_b.keys())
-    for key in all_keys:
-        data_a = sections_a.get(key, {})
-        data_b = sections_b.get(key, {})
-        classes_a = data_a.get('classes', [])
-        classes_b = data_b.get('classes', [])
-        # Keep the one with more classes
-        if len(classes_a) >= len(classes_b):
-            merged[key] = data_a
-            # Add any missing from b
-            existing_fps = set((c['day'], c['time'], c['course'], c['teacher'], c['room']) for c in classes_a)
-            for cls in classes_b:
-                fp = (cls['day'], cls['time'], cls['course'], cls['teacher'], cls['room'])
-                if fp not in existing_fps:
-                    merged[key]['classes'].append(cls)
-                    existing_fps.add(fp)
-        else:
-            merged[key] = data_b
-            existing_fps = set((c['day'], c['time'], c['course'], c['teacher'], c['room']) for c in classes_b)
-            for cls in classes_a:
-                fp = (cls['day'], cls['time'], cls['course'], cls['teacher'], cls['room'])
-                if fp not in existing_fps:
-                    merged[key]['classes'].append(cls)
-                    existing_fps.add(fp)
-        # Ensure batch and section fields
-        if 'batch' not in merged[key]:
-            merged[key]['batch'] = data_a.get('batch', data_b.get('batch', 'Unknown'))
-        if 'section' not in merged[key]:
-            merged[key]['section'] = data_a.get('section', data_b.get('section', ''))
-    return merged
-
-
-def merge_with_existing(new_sections):
-    """
-    Merge new data into existing per‑section JSON files (preserve manual fixes).
-    Only adds classes that are not already present.
-    """
-    merged = {}
-    # Load existing sections from disk
-    existing_files = list(SECTIONS_DIR.glob("*.json"))
-    for file_path in existing_files:
-        try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                section_key = data.get('section')
-                if section_key:
-                    merged[section_key] = {
-                        'batch': data.get('batch', 'Unknown'),
-                        'section': data.get('section', ''),
-                        'classes': data.get('classes', [])
-                    }
-        except Exception as e:
-            logger.warning(f"Could not load existing {file_path}: {e}")
-
-    # Merge new sections
-    for sec_key, sec_data in new_sections.items():
-        if sec_key not in merged:
-            merged[sec_key] = {
-                'batch': sec_data.get('batch', 'Unknown'),
-                'section': sec_data.get('section', ''),
-                'classes': sec_data.get('classes', [])
-            }
-            continue
-
-        existing_classes = merged[sec_key]['classes']
-        new_classes = sec_data.get('classes', [])
-        existing_fps = set((c['day'], c['time'], c['course'], c['teacher'], c['room']) for c in existing_classes)
-        added = 0
-        for cls in new_classes:
-            fp = (cls['day'], cls['time'], cls['course'], cls['teacher'], cls['room'])
-            if fp not in existing_fps:
-                existing_classes.append(cls)
-                existing_fps.add(fp)
-                added += 1
-        if added:
-            logger.info(f"   Added {added} new classes to section {sec_key}")
-            # Update batch/section if they changed (keep existing)
-            merged[sec_key]['batch'] = merged[sec_key].get('batch', sec_data.get('batch', 'Unknown'))
-            merged[sec_key]['section'] = merged[sec_key].get('section', sec_data.get('section', ''))
-
-    return merged
-
 
 if __name__ == "__main__":
-    main()
+    run()
