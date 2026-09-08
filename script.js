@@ -1,47 +1,103 @@
-// DIU CSE Routine – Section, Teacher & Room Modes
-// Updated:
-// - Correct chronological time sorting
-// - Main section shows no "(N)"
-// - Lab sections show "(N1)" / "(N2)"
-// - Supports new JSON: sub_section, section_letter, type
-// - Teacher & Room modes preserved
-// - Search icon preserved
-// - Existing UI structure preserved
+// ============================================================
+// DIU CSE ROUTINE
+// Section / Teacher / Room Modes
+// ============================================================
+// Features:
+// - Correct day ordering
+// - Correct time ordering
+// - 11:30-02:30 before 02:30-04:00
+// - Main = no subsection label
+// - Lab = (N1), (N2)
+// - Teacher mode
+// - Room mode
+// - Search icon
+// - Day View / Week View
+// - Stylish PNG routine download
+// ============================================================
+
 
 const STORAGE_KEY = 'diu_cse_section';
-const MODE_KEY = 'diu_cse_mode'; // 'section', 'teacher', 'room'
-const COMBINED_URL = './data/routine.json?t=' + Date.now();
+const MODE_KEY = 'diu_cse_mode';
+
+const COMBINED_URL =
+    './data/routine.json?t=' + Date.now();
+
 
 // ============================================================
-// DOM ELEMENTS
+// DOM
 // ============================================================
 
-const sectionInput = document.getElementById('sectionInput');
-const showRoutineBtn = document.getElementById('showRoutineBtn');
-const clearSectionBtn = document.getElementById('clearSectionBtn');
-const savedChip = document.getElementById('savedChip');
-const savedSectionSpan = document.getElementById('savedSection');
-const routineContainer = document.getElementById('routineContainer');
-const statusBadge = document.getElementById('statusBadge');
-const statusText = document.getElementById('statusText');
-const versionNumber = document.getElementById('versionNumber');
-const lastUpdated = document.getElementById('lastUpdated');
-const message = document.getElementById('message');
-const searchIcon = document.querySelector('.search-input-wrap i');
+const sectionInput =
+    document.getElementById('sectionInput');
 
-// Navigation buttons
-const userBtn = document.querySelector('.nav-item:first-child');
-const teacherBtn = document.querySelector('.nav-item .fa-address-card')?.closest('.nav-item');
-const roomBtn = document.querySelector('.nav-item .fa-door-open')?.closest('.nav-item');
+const showRoutineBtn =
+    document.getElementById('showRoutineBtn');
+
+const clearSectionBtn =
+    document.getElementById('clearSectionBtn');
+
+const savedChip =
+    document.getElementById('savedChip');
+
+const savedSectionSpan =
+    document.getElementById('savedSection');
+
+const routineContainer =
+    document.getElementById('routineContainer');
+
+const statusBadge =
+    document.getElementById('statusBadge');
+
+const statusText =
+    document.getElementById('statusText');
+
+const versionNumber =
+    document.getElementById('versionNumber');
+
+const lastUpdated =
+    document.getElementById('lastUpdated');
+
+const message =
+    document.getElementById('message');
+
+const searchIcon =
+    document.querySelector(
+        '.search-input-wrap i'
+    );
+
+
+// Navigation
+const userBtn =
+    document.querySelector(
+        '.nav-item:first-child'
+    );
+
+const teacherBtn =
+    document.querySelector(
+        '.nav-item .fa-address-card'
+    )?.closest('.nav-item');
+
+const roomBtn =
+    document.querySelector(
+        '.nav-item .fa-door-open'
+    )?.closest('.nav-item');
+
+
+// ============================================================
+// STATE
+// ============================================================
 
 let routineData = null;
+
 let currentMode = 'section';
+
 let currentSearchTerm = '';
+
 let currentClasses = [];
 
 
 // ============================================================
-// FIXED DAY ORDER
+// DAYS
 // ============================================================
 
 const DAYS = [
@@ -54,7 +110,9 @@ const DAYS = [
     'Friday'
 ];
 
+
 const DAY_ORDER = {
+
     Saturday: 0,
     Sunday: 1,
     Monday: 2,
@@ -62,169 +120,244 @@ const DAY_ORDER = {
     Wednesday: 4,
     Thursday: 5,
     Friday: 6
+
 };
 
 
 // ============================================================
-// FIXED TIME ORDER
+// TIME ORDER
+// ============================================================
+//
+// IMPORTANT:
+// 11:30-02:30 is LAB SLOT
+// and MUST come before 02:30-04:00.
+//
 // ============================================================
 
 const TIME_ORDER = {
+
     '08:30-10:00': 0,
+
     '10:00-11:30': 1,
+
     '11:30-01:00': 2,
-    '01:00-02:30': 3,
-    '02:30-04:00': 4,
-    '04:00-05:30': 5
+
+    '11:30-02:30': 3,
+
+    '01:00-02:30': 4,
+
+    '02:30-04:00': 5,
+
+    '04:00-05:30': 6
+
 };
+
+
+// Display columns for download image.
+// The long lab slot is intentionally included.
+
+const DISPLAY_TIME_SLOTS = [
+
+    '08:30-10:00',
+
+    '10:00-11:30',
+
+    '11:30-01:00',
+
+    '01:00-02:30',
+
+    '11:30-02:30',
+
+    '02:30-04:00',
+
+    '04:00-05:30'
+
+];
 
 
 // ============================================================
 // INIT
 // ============================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
 
-    const savedMode =
-        localStorage.getItem(MODE_KEY) || 'section';
-
-    currentMode = savedMode;
-
-    updateModeUI();
-
-    const saved =
-        localStorage.getItem(STORAGE_KEY);
-
-    if (saved) {
-        sectionInput.value = saved;
-        savedSectionSpan.textContent = saved;
-        savedChip.style.display = 'inline-flex';
-    } else {
-        savedChip.style.display = 'none';
-    }
-
-    loadRoutineData();
+        currentMode =
+            localStorage.getItem(
+                MODE_KEY
+            ) || 'section';
 
 
-    // Search icon
-    if (searchIcon) {
-        searchIcon.style.cursor = 'pointer';
-        searchIcon.addEventListener(
-            'click',
-            handleSearch
-        );
-    }
+        updateModeUI();
 
 
-    // Hidden button
-    if (showRoutineBtn) {
-        showRoutineBtn.addEventListener(
-            'click',
-            handleSearch
-        );
-    }
+        const saved =
+            localStorage.getItem(
+                STORAGE_KEY
+            );
 
 
-    // Clear button
-    if (clearSectionBtn) {
-        clearSectionBtn.addEventListener(
-            'click',
-            handleClearSection
-        );
-    }
+        if (saved) {
+
+            sectionInput.value =
+                saved;
+
+            savedSectionSpan.textContent =
+                saved;
+
+            savedChip.style.display =
+                'inline-flex';
+
+        }
+
+        else {
+
+            savedChip.style.display =
+                'none';
+
+        }
 
 
-    // Enter key
-    if (sectionInput) {
+        loadRoutineData();
 
-        sectionInput.addEventListener(
-            'keydown',
-            (e) => {
 
-                if (
-                    e.key === 'Enter' ||
-                    e.keyCode === 13
-                ) {
-                    e.preventDefault();
-                    handleSearch();
+        // Search icon
+        if (searchIcon) {
+
+            searchIcon.style.cursor =
+                'pointer';
+
+            searchIcon.addEventListener(
+                'click',
+                handleSearch
+            );
+
+        }
+
+
+        // Hidden/show button
+        if (showRoutineBtn) {
+
+            showRoutineBtn.addEventListener(
+                'click',
+                handleSearch
+            );
+
+        }
+
+
+        // Clear
+        if (clearSectionBtn) {
+
+            clearSectionBtn.addEventListener(
+                'click',
+                handleClearSection
+            );
+
+        }
+
+
+        // Enter
+        if (sectionInput) {
+
+            sectionInput.addEventListener(
+                'keydown',
+                e => {
+
+                    if (
+                        e.key === 'Enter' ||
+                        e.keyCode === 13
+                    ) {
+
+                        e.preventDefault();
+
+                        handleSearch();
+
+                    }
+
                 }
+            );
 
-            }
-        );
+        }
 
-        sectionInput.addEventListener(
-            'keypress',
-            (e) => {
 
-                if (
-                    e.key === 'Enter' ||
-                    e.keyCode === 13
-                ) {
-                    e.preventDefault();
-                    handleSearch();
-                }
+        // Modes
+        if (userBtn) {
 
-            }
-        );
+            userBtn.addEventListener(
+                'click',
+                () =>
+                    setMode('section')
+            );
+
+        }
+
+
+        if (teacherBtn) {
+
+            teacherBtn.addEventListener(
+                'click',
+                () =>
+                    setMode('teacher')
+            );
+
+        }
+
+
+        if (roomBtn) {
+
+            roomBtn.addEventListener(
+                'click',
+                () =>
+                    setMode('room')
+            );
+
+        }
+
     }
-
-
-    // Mode toggles
-    if (userBtn) {
-        userBtn.addEventListener(
-            'click',
-            () => setMode('section')
-        );
-    }
-
-    if (teacherBtn) {
-        teacherBtn.addEventListener(
-            'click',
-            () => setMode('teacher')
-        );
-    }
-
-    if (roomBtn) {
-        roomBtn.addEventListener(
-            'click',
-            () => setMode('room')
-        );
-    }
-
-});
+);
 
 
 // ============================================================
-// MODE MANAGEMENT
+// MODE
 // ============================================================
 
 function setMode(mode) {
 
-    if (currentMode === mode) return;
+    if (
+        currentMode === mode
+    ) {
+        return;
+    }
+
 
     currentMode = mode;
+
 
     localStorage.setItem(
         MODE_KEY,
         mode
     );
 
+
     updateModeUI();
 
-    routineContainer.innerHTML = '';
 
-    savedChip.style.display = 'none';
+    routineContainer.innerHTML =
+        '';
 
-    sectionInput.value = '';
 
-    localStorage.removeItem(STORAGE_KEY);
+    savedChip.style.display =
+        'none';
 
-    showMessage(
-        `Switched to ${
-            mode.charAt(0).toUpperCase() +
-            mode.slice(1)
-        } Mode`,
-        'info'
+
+    sectionInput.value =
+        '';
+
+
+    localStorage.removeItem(
+        STORAGE_KEY
     );
 
 
@@ -237,10 +370,11 @@ function setMode(mode) {
 
     }
 
+
     else if (mode === 'teacher') {
 
         sectionInput.placeholder =
-            'Enter teacher initials (e.g., ABC)';
+            'Enter teacher initials (e.g., NSL)';
 
         showNoRoutine(
             'Teacher Mode',
@@ -249,10 +383,11 @@ function setMode(mode) {
 
     }
 
+
     else if (mode === 'room') {
 
         sectionInput.placeholder =
-            'Enter room (e.g., KT-201)';
+            'Enter room (e.g., KT-516)';
 
         showNoRoutine(
             'Room Mode',
@@ -260,6 +395,7 @@ function setMode(mode) {
         );
 
     }
+
 }
 
 
@@ -269,29 +405,51 @@ function setMode(mode) {
 
 function updateModeUI() {
 
-    const brandStrong =
-        document.querySelector('.brand strong');
+    const brand =
+        document.querySelector(
+            '.brand strong'
+        );
 
-    if (brandStrong) {
 
-        if (currentMode === 'section') {
-            brandStrong.textContent = 'Student';
+    if (brand) {
+
+        if (
+            currentMode === 'section'
+        ) {
+
+            brand.textContent =
+                'Student';
+
         }
 
-        else if (currentMode === 'teacher') {
-            brandStrong.textContent = 'Teacher';
+        else if (
+            currentMode === 'teacher'
+        ) {
+
+            brand.textContent =
+                'Teacher';
+
         }
 
-        else if (currentMode === 'room') {
-            brandStrong.textContent = 'Room';
+        else {
+
+            brand.textContent =
+                'Room';
+
         }
+
     }
 
 
     document
-        .querySelectorAll('.nav-item')
-        .forEach(el =>
-            el.classList.remove('active')
+        .querySelectorAll(
+            '.nav-item'
+        )
+        .forEach(
+            el =>
+                el.classList.remove(
+                    'active'
+                )
         );
 
 
@@ -299,33 +457,49 @@ function updateModeUI() {
         currentMode === 'section' &&
         userBtn
     ) {
-        userBtn.classList.add('active');
+
+        userBtn.classList.add(
+            'active'
+        );
+
     }
 
-    else if (
+
+    if (
         currentMode === 'teacher' &&
         teacherBtn
     ) {
-        teacherBtn.classList.add('active');
+
+        teacherBtn.classList.add(
+            'active'
+        );
+
     }
 
-    else if (
+
+    if (
         currentMode === 'room' &&
         roomBtn
     ) {
-        roomBtn.classList.add('active');
+
+        roomBtn.classList.add(
+            'active'
+        );
+
     }
+
 }
 
 
 // ============================================================
-// SEARCH DISPATCH
+// SEARCH
 // ============================================================
 
 function handleSearch() {
 
     const raw =
         sectionInput.value.trim();
+
 
     if (!raw) {
 
@@ -335,6 +509,7 @@ function handleSearch() {
         );
 
         return;
+
     }
 
 
@@ -344,22 +519,41 @@ function handleSearch() {
             .replace(/\s+/g, '_');
 
 
-    if (currentMode === 'section') {
-        loadSection(normalized);
+    if (
+        currentMode === 'section'
+    ) {
+
+        loadSection(
+            normalized
+        );
+
     }
 
-    else if (currentMode === 'teacher') {
-        loadTeacher(normalized);
+
+    else if (
+        currentMode === 'teacher'
+    ) {
+
+        loadTeacher(
+            normalized
+        );
+
     }
 
-    else if (currentMode === 'room') {
-        loadRoom(normalized);
+
+    else {
+
+        loadRoom(
+            normalized
+        );
+
     }
+
 }
 
 
 // ============================================================
-// LOAD ROUTINE DATA
+// LOAD DATA
 // ============================================================
 
 async function loadRoutineData() {
@@ -383,132 +577,140 @@ async function loadRoutineData() {
             currentMode === 'section'
         ) {
 
-            await loadSection(saved);
+            await loadSection(
+                saved
+            );
 
             return;
+
         }
 
 
         const response =
-            await fetch(COMBINED_URL);
+            await fetch(
+                COMBINED_URL
+            );
 
 
         if (!response.ok) {
+
             throw new Error(
-                'Failed to load combined data'
+                'Failed to load routine data.'
             );
+
         }
 
 
-        const data =
+        routineData =
             await response.json();
 
 
-        routineData = data;
+        updateMeta(
+            routineData
+        );
 
 
         if (
-            data.version &&
-            versionNumber
+            currentMode !== 'section'
         ) {
 
-            versionNumber.textContent =
-                String(data.version)
-                    .replace(/^v/i, '');
+            showNoRoutine(
+                currentMode === 'teacher'
+                    ? 'Teacher Mode'
+                    : 'Room Mode',
+                `Enter ${
+                    currentMode === 'teacher'
+                        ? 'teacher initials'
+                        : 'room name'
+                } to see results.`
+            );
+
+            setStatus(
+                'ready',
+                'Ready'
+            );
+
+            return;
+
+        }
+
+
+        const sections =
+            routineData.sections ||
+            {};
+
+
+        const keys =
+            Object.keys(
+                sections
+            );
+
+
+        if (!keys.length) {
+
+            showNoRoutine(
+                'No Data',
+                'No routine data available.'
+            );
+
+            return;
+
         }
 
 
-        if (
-            data.updated_at &&
-            lastUpdated
-        ) {
-
-            const date =
-                new Date(data.updated_at);
-
-            lastUpdated.textContent =
-                'Updated: ' +
-                date.toLocaleString();
-        }
+        const firstBase =
+            getBaseSection(
+                keys[0]
+            );
 
 
-        if (currentMode === 'section') {
-
-            const sections =
-                data.sections || {};
-
-            const keys =
-                Object.keys(sections);
+        const merged =
+            mergeSubSections(
+                firstBase
+            );
 
 
-            if (keys.length > 0) {
+        if (merged.length) {
 
-                const firstBase =
-                    getBaseSection(keys[0]);
-
-
-                const merged =
-                    mergeSubSections(
-                        firstBase
-                    );
+            sectionInput.value =
+                firstBase;
 
 
-                if (merged.length > 0) {
-
-                    displaySection(
-                        firstBase,
-                        merged
-                    );
+            savedSectionSpan.textContent =
+                firstBase;
 
 
-                    sectionInput.value =
-                        firstBase;
+            savedChip.style.display =
+                'inline-flex';
 
-                    savedSectionSpan.textContent =
-                        firstBase;
 
-                    savedChip.style.display =
-                        'inline-flex';
+            localStorage.setItem(
+                STORAGE_KEY,
+                firstBase
+            );
 
-                    localStorage.setItem(
-                        STORAGE_KEY,
-                        firstBase
-                    );
 
-                }
+            currentSearchTerm =
+                firstBase;
 
-                else {
 
-                    showNoRoutine(
-                        'No Data',
-                        'No routine data available.'
-                    );
+            currentClasses =
+                merged;
 
-                }
 
-            }
-
-            else {
-
-                showNoRoutine(
-                    'No Data',
-                    'No routine data available.'
-                );
-
-            }
+            displaySection(
+                firstBase,
+                merged
+            );
 
         }
+
 
         else {
 
             showNoRoutine(
-                `${
-                    currentMode
-                        .charAt(0)
-                        .toUpperCase() +
-                    currentMode.slice(1)
-                } Mode`,
-                `Enter ${currentMode} name to see results.`
+                'No Data',
+                'No routine data available.'
             );
 
         }
@@ -519,40 +721,44 @@ async function loadRoutineData() {
             'Ready'
         );
 
-
     }
 
     catch (error) {
 
         console.error(
-            'Failed to load routine:',
             error
         );
+
 
         setStatus(
             'error',
             'Error'
         );
 
+
         showMessage(
-            'Could not load routine data. Please try again.',
+            'Could not load routine data.',
             'error'
         );
 
+
         showNoRoutine(
             'Error',
-            'Data could not be loaded.'
+            'Routine data could not be loaded.'
         );
 
     }
+
 }
 
 
 // ============================================================
-// SECTION LOADING
+// LOAD SECTION
 // ============================================================
 
-async function loadSection(sectionKey) {
+async function loadSection(
+    sectionKey
+) {
 
     try {
 
@@ -563,118 +769,83 @@ async function loadSection(sectionKey) {
 
 
         const normalized =
-            sectionKey
+            String(sectionKey)
                 .toUpperCase()
                 .replace(/\s+/g, '_');
 
 
-        console.log(
-            '🔍 Searching for section:',
-            normalized
-        );
-
-
         if (!routineData) {
 
-            const resp =
-                await fetch(COMBINED_URL);
-
-
-            if (!resp.ok) {
-                throw new Error(
-                    'Combined data not found'
+            const response =
+                await fetch(
+                    COMBINED_URL
                 );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    'Combined data not found.'
+                );
+
             }
 
 
             routineData =
-                await resp.json();
+                await response.json();
 
 
             updateMeta(
                 routineData
             );
+
         }
 
 
         const sections =
-            routineData.sections || {};
+            routineData.sections ||
+            {};
 
 
         const baseSection =
-            getBaseSection(normalized);
-
-
-        // Find exact/base section first.
-        let matchingKeys =
-            Object.keys(sections)
-                .filter(
-                    key =>
-                        key === normalized ||
-                        key === baseSection ||
-                        getBaseSection(key) === baseSection
-                );
-
-
-        // Fallback
-        if (matchingKeys.length === 0) {
-
-            const fallbackKey =
-                Object.keys(sections).find(
-                    key =>
-                        key.startsWith(normalized) ||
-                        normalized.startsWith(key)
-                );
-
-
-            if (fallbackKey) {
-                matchingKeys.push(
-                    fallbackKey
-                );
-            }
-        }
-
-
-        if (matchingKeys.length === 0) {
-
-            throw new Error(
-                `Section "${normalized}" not found.`
+            getBaseSection(
+                normalized
             );
 
-        }
+
+        let matchingKeys =
+            Object.keys(
+                sections
+            ).filter(
+                key =>
+                    key === normalized ||
+                    key === baseSection ||
+                    getBaseSection(key) ===
+                        baseSection
+            );
 
 
-        const mergedClasses = [];
-
-
-        for (
-            const key of matchingKeys
+        if (
+            matchingKeys.length === 0
         ) {
 
-            const secData =
-                sections[key];
-
-
-            if (
-                secData &&
-                Array.isArray(secData)
-            ) {
-
-                mergedClasses.push(
-                    ...secData
+            const fallback =
+                Object.keys(
+                    sections
+                ).find(
+                    key =>
+                        key
+                            .toUpperCase()
+                            .startsWith(
+                                normalized
+                            )
                 );
 
-            }
 
-            else if (
-                secData &&
-                Array.isArray(
-                    secData.classes
-                )
-            ) {
+            if (fallback) {
 
-                mergedClasses.push(
-                    ...secData.classes
+                matchingKeys.push(
+                    fallback
                 );
 
             }
@@ -683,21 +854,60 @@ async function loadSection(sectionKey) {
 
 
         if (
-            mergedClasses.length === 0
+            matchingKeys.length === 0
         ) {
 
             throw new Error(
-                `No classes found for section "${normalized}".`
+                `Section "${normalized}" not found.`
             );
 
         }
 
 
-        // Remove exact duplicates.
-        const uniqueClasses =
+        const all =
+            [];
+
+
+        matchingKeys.forEach(
+            key => {
+
+                const data =
+                    sections[key];
+
+
+                const classes =
+                    Array.isArray(data)
+                        ? data
+                        : data?.classes;
+
+
+                if (
+                    Array.isArray(classes)
+                ) {
+
+                    all.push(
+                        ...classes
+                    );
+
+                }
+
+            }
+        );
+
+
+        const classes =
             removeDuplicateClasses(
-                mergedClasses
+                normalizeClasses(all)
             );
+
+
+        if (!classes.length) {
+
+            throw new Error(
+                `No classes found for "${normalized}".`
+            );
+
+        }
 
 
         currentSearchTerm =
@@ -705,12 +915,12 @@ async function loadSection(sectionKey) {
 
 
         currentClasses =
-            uniqueClasses;
+            classes;
 
 
         displaySection(
             baseSection,
-            uniqueClasses
+            classes
         );
 
 
@@ -728,21 +938,19 @@ async function loadSection(sectionKey) {
             'inline-flex';
 
 
+        hideMessage();
+
+
         setStatus(
             'ready',
             'Ready'
         );
-
-
-        hideMessage();
-
 
     }
 
     catch (error) {
 
         console.error(
-            '❌ Failed to load section:',
             error
         );
 
@@ -765,62 +973,79 @@ async function loadSection(sectionKey) {
         );
 
     }
+
 }
 
 
 // ============================================================
-// MERGE SUB-SECTIONS
+// MERGE SUBSECTIONS
 // ============================================================
 
-function mergeSubSections(baseSection) {
+function mergeSubSections(
+    baseSection
+) {
 
-    if (!routineData) return [];
+    if (!routineData) {
+        return [];
+    }
+
 
     const sections =
-        routineData.sections || {};
+        routineData.sections ||
+        {};
 
 
-    const all = [];
+    const all =
+        [];
 
 
-    for (
-        const [key, secData]
-        of Object.entries(sections)
-    ) {
+    Object.entries(
+        sections
+    ).forEach(
+        ([key, data]) => {
 
-        if (
-            key === baseSection ||
-            getBaseSection(key) === baseSection
-        ) {
+            if (
+                key === baseSection ||
+                getBaseSection(key) ===
+                    baseSection
+            ) {
 
-            const classes =
-                Array.isArray(secData)
-                    ? secData
-                    : secData?.classes;
+                const classes =
+                    Array.isArray(data)
+                        ? data
+                        : data?.classes;
 
 
-            if (Array.isArray(classes)) {
+                if (
+                    Array.isArray(classes)
+                ) {
 
-                all.push(
-                    ...classes
-                );
+                    all.push(
+                        ...classes
+                    );
+
+                }
 
             }
 
         }
+    );
 
-    }
 
+    return removeDuplicateClasses(
+        normalizeClasses(all)
+    );
 
-    return removeDuplicateClasses(all);
 }
 
 
 // ============================================================
-// TEACHER LOADING
+// TEACHER
 // ============================================================
 
-async function loadTeacher(initials) {
+async function loadTeacher(
+    initials
+) {
 
     try {
 
@@ -830,104 +1055,103 @@ async function loadTeacher(initials) {
         );
 
 
-        const clean =
-            initials
-                .toUpperCase()
-                .replace(/\s+/g, '');
-
-
-        console.log(
-            '🔍 Searching for teacher:',
-            clean
-        );
-
-
         if (!routineData) {
 
-            const resp =
-                await fetch(COMBINED_URL);
-
-
-            if (!resp.ok) {
-                throw new Error(
-                    'Combined data not found'
+            const response =
+                await fetch(
+                    COMBINED_URL
                 );
-            }
 
 
             routineData =
-                await resp.json();
+                await response.json();
 
 
             updateMeta(
                 routineData
             );
+
         }
+
+
+        const clean =
+            String(initials)
+                .toUpperCase()
+                .replace(/\s+/g, '');
 
 
         const sections =
-            routineData.sections || {};
+            routineData.sections ||
+            {};
 
 
-        const allClasses = [];
+        const results =
+            [];
 
 
-        for (
-            const [secKey, secData]
-            of Object.entries(sections)
-        ) {
+        Object.entries(
+            sections
+        ).forEach(
+            ([section, data]) => {
 
-            const classes =
-                Array.isArray(secData)
-                    ? secData
-                    : secData?.classes;
-
-
-            if (!Array.isArray(classes)) {
-                continue;
-            }
-
-
-            for (const cls of classes) {
-
-                const teacher =
-                    String(
-                        cls.teacher || ''
-                    )
-                        .toUpperCase()
-                        .replace(/\s+/g, '');
+                const classes =
+                    Array.isArray(data)
+                        ? data
+                        : data?.classes;
 
 
                 if (
-                    teacher.includes(clean)
+                    !Array.isArray(classes)
                 ) {
-
-                    const enriched = {
-                        ...cls,
-                        _section: secKey
-                    };
-
-
-                    allClasses.push(
-                        enriched
-                    );
-
+                    return;
                 }
 
+
+                classes.forEach(
+                    cls => {
+
+                        const teacher =
+                            String(
+                                cls.teacher ||
+                                ''
+                            )
+                                .toUpperCase()
+                                .replace(
+                                    /\s+/g,
+                                    ''
+                                );
+
+
+                        if (
+                            teacher.includes(
+                                clean
+                            )
+                        ) {
+
+                            results.push({
+                                ...cls,
+                                _section:
+                                    section
+                            });
+
+                        }
+
+                    }
+                );
+
             }
+        );
 
-        }
 
-
-        const uniqueClasses =
+        const classes =
             removeDuplicateClasses(
-                allClasses
+                normalizeClasses(
+                    results
+                )
             );
 
 
-        if (
-            uniqueClasses.length === 0
-        ) {
+        if (!classes.length) {
 
             throw new Error(
                 `No classes found for teacher "${initials}".`
@@ -941,12 +1165,12 @@ async function loadTeacher(initials) {
 
 
         currentClasses =
-            uniqueClasses;
+            classes;
 
 
         displayTeacherRoutine(
             clean,
-            uniqueClasses
+            classes
         );
 
 
@@ -964,21 +1188,19 @@ async function loadTeacher(initials) {
             'inline-flex';
 
 
+        hideMessage();
+
+
         setStatus(
             'ready',
             'Ready'
         );
-
-
-        hideMessage();
-
 
     }
 
     catch (error) {
 
         console.error(
-            '❌ Failed to load teacher:',
             error
         );
 
@@ -1001,14 +1223,17 @@ async function loadTeacher(initials) {
         );
 
     }
+
 }
 
 
 // ============================================================
-// ROOM LOADING
+// ROOM
 // ============================================================
 
-async function loadRoom(roomName) {
+async function loadRoom(
+    roomName
+) {
 
     try {
 
@@ -1018,104 +1243,101 @@ async function loadRoom(roomName) {
         );
 
 
-        const clean =
-            roomName
-                .toUpperCase()
-                .replace(/\s+/g, '');
-
-
-        console.log(
-            '🔍 Searching for room:',
-            clean
-        );
-
-
         if (!routineData) {
 
-            const resp =
-                await fetch(COMBINED_URL);
-
-
-            if (!resp.ok) {
-                throw new Error(
-                    'Combined data not found'
+            const response =
+                await fetch(
+                    COMBINED_URL
                 );
-            }
 
 
             routineData =
-                await resp.json();
+                await response.json();
 
 
             updateMeta(
                 routineData
             );
+
         }
+
+
+        const clean =
+            String(roomName)
+                .toUpperCase()
+                .replace(/\s+/g, '');
 
 
         const sections =
-            routineData.sections || {};
+            routineData.sections ||
+            {};
 
 
-        const allClasses = [];
+        const results =
+            [];
 
 
-        for (
-            const [secKey, secData]
-            of Object.entries(sections)
-        ) {
+        Object.entries(
+            sections
+        ).forEach(
+            ([section, data]) => {
 
-            const classes =
-                Array.isArray(secData)
-                    ? secData
-                    : secData?.classes;
-
-
-            if (!Array.isArray(classes)) {
-                continue;
-            }
-
-
-            for (const cls of classes) {
-
-                const room =
-                    String(
-                        cls.room || ''
-                    )
-                        .toUpperCase()
-                        .replace(/\s+/g, '');
+                const classes =
+                    Array.isArray(data)
+                        ? data
+                        : data?.classes;
 
 
                 if (
-                    room.includes(clean)
+                    !Array.isArray(classes)
                 ) {
-
-                    const enriched = {
-                        ...cls,
-                        _section: secKey
-                    };
-
-
-                    allClasses.push(
-                        enriched
-                    );
-
+                    return;
                 }
 
+
+                classes.forEach(
+                    cls => {
+
+                        const room =
+                            String(
+                                cls.room ||
+                                ''
+                            )
+                                .toUpperCase()
+                                .replace(
+                                    /\s+/g,
+                                    ''
+                                );
+
+
+                        if (
+                            room.includes(clean)
+                        ) {
+
+                            results.push({
+                                ...cls,
+                                _section:
+                                    section
+                            });
+
+                        }
+
+                    }
+                );
+
             }
+        );
 
-        }
 
-
-        const uniqueClasses =
+        const classes =
             removeDuplicateClasses(
-                allClasses
+                normalizeClasses(
+                    results
+                )
             );
 
 
-        if (
-            uniqueClasses.length === 0
-        ) {
+        if (!classes.length) {
 
             throw new Error(
                 `No classes found for room "${roomName}".`
@@ -1129,12 +1351,12 @@ async function loadRoom(roomName) {
 
 
         currentClasses =
-            uniqueClasses;
+            classes;
 
 
         displayRoomRoutine(
             clean,
-            uniqueClasses
+            classes
         );
 
 
@@ -1152,21 +1374,19 @@ async function loadRoom(roomName) {
             'inline-flex';
 
 
+        hideMessage();
+
+
         setStatus(
             'ready',
             'Ready'
         );
-
-
-        hideMessage();
-
 
     }
 
     catch (error) {
 
         console.error(
-            '❌ Failed to load room:',
             error
         );
 
@@ -1189,57 +1409,61 @@ async function loadRoom(roomName) {
         );
 
     }
+
 }
 
 
 // ============================================================
-// DISPLAY WRAPPERS
+// DISPLAY
 // ============================================================
 
 function displaySection(
-    sectionKey,
+    section,
     classes
 ) {
 
     displayRoutine(
         classes,
-        sectionKey,
+        section,
         false,
         'section'
     );
+
 }
 
 
 function displayTeacherRoutine(
-    initials,
+    teacher,
     classes
 ) {
 
     displayRoutine(
         classes,
-        initials,
+        teacher,
         true,
         'teacher'
     );
+
 }
 
 
 function displayRoomRoutine(
-    roomName,
+    room,
     classes
 ) {
 
     displayRoutine(
         classes,
-        roomName,
+        room,
         true,
         'room'
     );
+
 }
 
 
 // ============================================================
-// GENERIC DISPLAY ROUTINE
+// MAIN DISPLAY
 // ============================================================
 
 function displayRoutine(
@@ -1249,13 +1473,19 @@ function displayRoutine(
     mode
 ) {
 
-    routineContainer.innerHTML = '';
+    classes =
+        sortClasses(
+            normalizeClasses(
+                classes
+            )
+        );
 
 
-    if (
-        !classes ||
-        classes.length === 0
-    ) {
+    currentClasses =
+        classes;
+
+
+    if (!classes.length) {
 
         showNoRoutine(
             'No Data',
@@ -1263,122 +1493,109 @@ function displayRoutine(
         );
 
         return;
+
     }
-
-
-    // ALWAYS sort before display.
-    classes =
-        sortClasses(
-            normalizeClasses(classes)
-        );
 
 
     const teachers =
         [
             ...new Set(
                 classes
-                    .map(c => c.teacher)
-                    .filter(
-                        t =>
-                            t &&
-                            t !== '?' &&
-                            t !== 'TBA'
+                    .map(
+                        c => c.teacher
                     )
+                    .filter(Boolean)
             )
         ];
 
 
-    const total =
-        classes.length;
-
-
-    const uniqueDays =
+    const days =
         [
             ...new Set(
-                classes
-                    .map(c => normalizeDay(c.day))
-                    .filter(
-                        d =>
-                            DAYS.includes(d)
-                    )
+                classes.map(
+                    c =>
+                        normalizeDay(
+                            c.day
+                        )
+                )
             )
         ];
 
 
-    const perWeek =
-        uniqueDays.length;
-
-
-    const batches =
+    const batch =
         [
             ...new Set(
                 classes
                     .map(
                         c =>
                             c.batch ||
-                            c.group?.split('_')[0] ||
-                            'Unknown'
+                            extractBatchFromSection(
+                                c.section
+                            )
                     )
+                    .filter(Boolean)
             )
         ];
-
-
-    const batchDisplay =
-        batches.length === 1
-            ? batches[0]
-            : 'Various';
-
-
-    let html = '';
-
-
-    // ========================================================
-    // ENROLLED CARD
-    // ========================================================
-
-    const icon =
-        mode === 'teacher'
-            ? 'fa-chalkboard-teacher'
-            : (
-                mode === 'room'
-                    ? 'fa-door-open'
-                    : 'fa-user-graduate'
-            );
-
-
-    const label =
-        mode === 'teacher'
-            ? 'Teacher'
-            : (
-                mode === 'room'
-                    ? 'Room'
-                    : 'Student'
-            );
 
 
     const cleanVersion =
         String(
             versionNumber?.textContent ||
             '5.0'
-        ).replace(/^v/i, '');
+        ).replace(
+            /^v/i,
+            ''
+        );
 
+
+    const icon =
+        mode === 'teacher'
+            ? 'fa-chalkboard-teacher'
+            : mode === 'room'
+                ? 'fa-door-open'
+                : 'fa-user-graduate';
+
+
+    const label =
+        mode === 'teacher'
+            ? 'Teacher'
+            : mode === 'room'
+                ? 'Room'
+                : 'Student';
+
+
+    let html = '';
+
+
+    // ========================================================
+    // CARD
+    // ========================================================
 
     html += `
+
         <div class="enrolled-card">
 
             <div class="card-title">
 
                 <h3>
+
                     <i class="fas ${icon}"></i>
-                    ${escapeHtml(label)} ·
+
+                    ${escapeHtml(label)}
+                    ·
                     ${escapeHtml(title)}
+
                 </h3>
+
 
                 <button
                     class="cr-btn"
                     onclick="downloadSection()"
+                    title="Download routine image"
                 >
+
                     <i class="fas fa-download"></i>
+
                 </button>
 
             </div>
@@ -1387,32 +1604,62 @@ function displayRoutine(
             <div class="course-meta">
 
                 <div class="meta-row">
-                    <span>Total Classes</span>
-                    <strong>${total}</strong>
+
+                    <span>
+                        Total Classes
+                    </span>
+
+                    <strong>
+                        ${classes.length}
+                    </strong>
+
                 </div>
 
 
                 <div class="meta-row">
-                    <span>Active Days</span>
-                    <strong>${perWeek}</strong>
+
+                    <span>
+                        Active Days
+                    </span>
+
+                    <strong>
+                        ${days.length}
+                    </strong>
+
                 </div>
 
 
                 <div class="meta-row">
-                    <span>Routine Version</span>
-                    <strong>v${escapeHtml(cleanVersion)}</strong>
+
+                    <span>
+                        Routine Version
+                    </span>
+
+                    <strong>
+                        v${escapeHtml(cleanVersion)}
+                    </strong>
+
                 </div>
 
 
                 ${
-                    batchDisplay !== 'Various'
+                    batch.length
                         ? `
+
                             <div class="meta-row">
-                                <span>Batch</span>
+
+                                <span>
+                                    Batch
+                                </span>
+
                                 <strong>
-                                    ${escapeHtml(batchDisplay)}
+                                    ${escapeHtml(
+                                        batch.join(', ')
+                                    )}
                                 </strong>
+
                             </div>
+
                           `
                         : ''
                 }
@@ -1422,30 +1669,34 @@ function displayRoutine(
                     mode === 'teacher' ||
                     mode === 'room'
                         ? `
+
                             <div class="meta-row">
-                                <span>Sections</span>
+
+                                <span>
+                                    Sections
+                                </span>
 
                                 <strong>
-                                    ${
+
+                                    ${escapeHtml(
                                         [
                                             ...new Set(
                                                 classes.map(
                                                     c =>
                                                         c._section ||
                                                         c.section ||
-                                                        c.group ||
-                                                        '?'
+                                                        ''
                                                 )
                                             )
                                         ]
-                                            .map(
-                                                escapeHtml
-                                            )
+                                            .filter(Boolean)
                                             .join(', ')
-                                    }
+                                    )}
+
                                 </strong>
 
                             </div>
+
                           `
                         : ''
                 }
@@ -1456,26 +1707,33 @@ function displayRoutine(
             <div class="download-row">
 
                 <span>
-                    <i class="fas fa-download"></i>
-                    Download PDF for
-                    ${escapeHtml(title)}
+
+                    <i class="fas fa-image"></i>
+
+                    Download routine image
+
                 </span>
+
 
                 <button
                     class="download-btn"
                     onclick="downloadSection()"
+                    title="Download routine image"
                 >
-                    <i class="fas fa-arrow-down"></i>
+
+                    <i class="fas fa-download"></i>
+
                 </button>
 
             </div>
 
         </div>
+
     `;
 
 
     // ========================================================
-    // TEACHER ROW
+    // TEACHERS
     // ========================================================
 
     html += `
@@ -1483,71 +1741,76 @@ function displayRoutine(
     `;
 
 
-    if (teachers.length > 0) {
+    if (teachers.length) {
 
-        teachers.forEach(t => {
+        teachers.forEach(
+            teacher => {
 
-            const initial =
-                String(t)
-                    .substring(0, 2)
-                    .toUpperCase();
+                const initial =
+                    String(
+                        teacher
+                    )
+                        .substring(
+                            0,
+                            2
+                        )
+                        .toUpperCase();
 
 
-            html += `
-                <div class="teacher">
+                html += `
 
-                    <div class="avatar">
+                    <div class="teacher">
+
+                        <div class="avatar">
+
+                            <span>
+                                ${escapeHtml(
+                                    initial
+                                )}
+                            </span>
+
+                            <span class="online"></span>
+
+                        </div>
 
                         <span>
-                            ${escapeHtml(initial)}
+                            ${escapeHtml(
+                                teacher
+                            )}
                         </span>
-
-                        <span class="online"></span>
 
                     </div>
 
-                    <span>
-                        ${escapeHtml(t)}
-                    </span>
+                `;
 
-                </div>
-            `;
-
-        });
-
-    }
-
-    else {
-
-        html += `
-            <div class="teacher blank">
-
-                <div class="avatar">?</div>
-
-                <span>No teachers</span>
-
-            </div>
-        `;
+            }
+        );
 
     }
 
 
-    html += `</div>`;
+    html += `
+        </div>
+    `;
 
 
     // ========================================================
-    // VIEW TABS
+    // TABS
     // ========================================================
 
     html += `
+
         <div class="view-tabs">
 
             <button
                 class="view-tab active"
                 data-view="day"
             >
+
                 <i class="fas fa-calendar-day"></i>
+
                 Day View
+
             </button>
 
 
@@ -1555,14 +1818,18 @@ function displayRoutine(
                 class="view-tab"
                 data-view="week"
             >
+
                 <i class="fas fa-calendar-week"></i>
+
                 Week View
+
             </button>
 
         </div>
 
 
         <div id="viewContent"></div>
+
     `;
 
 
@@ -1570,7 +1837,6 @@ function displayRoutine(
         html;
 
 
-    // Default Day View
     renderDayView(
         classes,
         showComment,
@@ -1578,58 +1844,62 @@ function displayRoutine(
     );
 
 
-    // Tabs
     document
-        .querySelectorAll('.view-tab')
-        .forEach(tab => {
+        .querySelectorAll(
+            '.view-tab'
+        )
+        .forEach(
+            tab => {
 
-            tab.addEventListener(
-                'click',
-                function () {
+                tab.addEventListener(
+                    'click',
+                    () => {
 
-                    document
-                        .querySelectorAll(
-                            '.view-tab'
-                        )
-                        .forEach(t =>
-                            t.classList.remove(
-                                'active'
+                        document
+                            .querySelectorAll(
+                                '.view-tab'
                             )
+                            .forEach(
+                                t =>
+                                    t.classList.remove(
+                                        'active'
+                                    )
+                            );
+
+
+                        tab.classList.add(
+                            'active'
                         );
 
 
-                    this.classList.add(
-                        'active'
-                    );
+                        if (
+                            tab.dataset.view ===
+                            'day'
+                        ) {
 
+                            renderDayView(
+                                classes,
+                                showComment,
+                                mode
+                            );
 
-                    if (
-                        this.dataset.view ===
-                        'day'
-                    ) {
+                        }
 
-                        renderDayView(
-                            classes,
-                            showComment,
-                            mode
-                        );
+                        else {
+
+                            renderWeekView(
+                                classes,
+                                showComment,
+                                mode
+                            );
+
+                        }
 
                     }
+                );
 
-                    else {
-
-                        renderWeekView(
-                            classes,
-                            showComment,
-                            mode
-                        );
-
-                    }
-
-                }
-            );
-
-        });
+            }
+        );
 
 }
 
@@ -1650,352 +1920,96 @@ function renderDayView(
         );
 
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
 
     const grouped = {};
 
 
-    DAYS.forEach(day => {
-        grouped[day] = [];
-    });
-
-
-    for (const cls of classes) {
-
-        const day =
-            normalizeDay(cls.day);
-
-
-        if (!grouped[day]) {
+    DAYS.forEach(
+        day => {
             grouped[day] = [];
         }
+    );
 
 
-        grouped[day].push(
-            cls
-        );
+    classes.forEach(
+        cls => {
 
-    }
+            const day =
+                normalizeDay(
+                    cls.day
+                );
+
+
+            if (
+                grouped[day]
+            ) {
+
+                grouped[day].push(
+                    cls
+                );
+
+            }
+
+        }
+    );
 
 
     let html =
         `<div class="day-grid">`;
 
 
-    for (const day of DAYS) {
-
-        if (
-            !grouped[day] ||
-            grouped[day].length === 0
-        ) {
-            continue;
-        }
-
-
-        // IMPORTANT:
-        // Exact fixed chronological sorting.
-        const sorted =
-            sortClasses(
-                grouped[day]
-            );
-
-
-        html += `
-            <div class="day-card">
-
-                <div class="day-card-header">
-
-                    <span>
-                        <i class="fas fa-calendar-alt"></i>
-                        ${day}
-                    </span>
-
-                    <span>
-                        ${sorted.length} classes
-                    </span>
-
-                </div>
-
-
-                <div class="day-card-body">
-        `;
-
-
-        for (const cls of sorted) {
-
-            const isLab =
-                normalizeClassType(
-                    cls.type
-                ) === 'Lab';
-
-
-            const typeClass =
-                isLab
-                    ? 'type-lab'
-                    : 'type-theory';
-
-
-            const typeLabel =
-                isLab
-                    ? 'Lab'
-                    : 'Theory';
-
-
-            const comment =
-                getDisplayComment(
-                    cls,
-                    showComment,
-                    mode
-                );
-
-
-            const timeDisplay =
-                cls.start &&
-                cls.end
-                    ? `${cls.start} – ${cls.end}`
-                    : (
-                        cls.time ||
-                        'TBA'
-                    );
-
-
-            html += `
-                <div class="class-item">
-
-                    <div class="time">
-
-                        <i class="far fa-clock"></i>
-
-                        ${escapeHtml(
-                            timeDisplay
-                        )}
-
-                    </div>
-
-
-                    <div class="course">
-
-                        ${escapeHtml(
-                            cls.course
-                        )}
-
-                        ${
-                            comment
-                                ? `
-                                    <span
-                                        style="
-                                            font-size:0.8rem;
-                                            color:var(--muted);
-                                        "
-                                    >
-                                        ${escapeHtml(comment)}
-                                    </span>
-                                  `
-                                : ''
-                        }
-
-                    </div>
-
-
-                    <div class="details">
-
-                        <span>
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            ${escapeHtml(
-                                cls.teacher || '?'
-                            )}
-                        </span>
-
-
-                        <span>
-                            <i class="fas fa-door-open"></i>
-                            ${escapeHtml(
-                                cls.room || '?'
-                            )}
-                        </span>
-
-
-                        <span>
-                            <span
-                                class="type-tag ${typeClass}"
-                            >
-                                ${typeLabel}
-                            </span>
-                        </span>
-
-                    </div>
-
-                </div>
-            `;
-
-        }
-
-
-        html += `
-                </div>
-            </div>
-        `;
-
-    }
-
-
-    html += `</div>`;
-
-
-    container.innerHTML =
-        html;
-}
-
-
-// ============================================================
-// WEEK VIEW
-// ============================================================
-
-function renderWeekView(
-    classes,
-    showComment,
-    mode
-) {
-
-    const container =
-        document.getElementById(
-            'viewContent'
-        );
-
-
-    if (!container) return;
-
-
-    const grouped = {};
-
-
-    DAYS.forEach(day => {
-        grouped[day] = [];
-    });
-
-
-    for (const cls of classes) {
-
-        const day =
-            normalizeDay(cls.day);
-
-
-        if (!grouped[day]) {
-            grouped[day] = [];
-        }
-
-
-        grouped[day].push(
-            cls
-        );
-
-    }
-
-
-    // Build unique time slots
-    const timeSlots = [];
-
-
-    for (const cls of classes) {
-
-        const slot =
-            getClassTimeSlot(cls);
-
-
-        if (
-            slot &&
-            !timeSlots.includes(slot)
-        ) {
-            timeSlots.push(slot);
-        }
-
-    }
-
-
-    // NEVER use .sort() alone for routine times.
-    timeSlots.sort(
-        (a, b) =>
-            getTimeOrder(a) -
-            getTimeOrder(b)
-    );
-
-
-    let html = `
-        <div class="week-view">
-
-            <table class="week-table">
-
-                <thead>
-
-                    <tr>
-
-                        <th>Time</th>
-    `;
-
-
-    for (const day of DAYS) {
-
-        html += `
-            <th>
-                ${day.substring(0, 3)}
-            </th>
-        `;
-
-    }
-
-
-    html += `
-                    </tr>
-
-                </thead>
-
-                <tbody>
-    `;
-
-
-    for (const slot of timeSlots) {
-
-        html += `
-            <tr>
-
-                <td class="time-col">
-                    ${escapeHtml(slot)}
-                </td>
-        `;
-
-
-        for (const day of DAYS) {
+    // FIX:
+    // Always use DAYS order.
+    DAYS.forEach(
+        day => {
 
             const dayClasses =
-                grouped[day] || [];
-
-
-            const matching =
-                dayClasses.filter(
-                    c =>
-                        getClassTimeSlot(c) ===
-                        slot
+                sortClasses(
+                    grouped[day]
                 );
 
 
             if (
-                matching.length > 0
+                !dayClasses.length
             ) {
-
-                html += `<td>`;
-
-
-                const sortedMatching =
-                    sortClasses(
-                        matching
-                    );
+                return;
+            }
 
 
-                for (
-                    const cls
-                    of sortedMatching
-                ) {
+            html += `
+
+                <div class="day-card">
+
+                    <div class="day-card-header">
+
+                        <span>
+
+                            <i class="fas fa-calendar-alt"></i>
+
+                            ${day}
+
+                        </span>
+
+
+                        <span>
+                            ${dayClasses.length}
+                            classes
+                        </span>
+
+                    </div>
+
+
+                    <div class="day-card-body">
+
+            `;
+
+
+            dayClasses.forEach(
+                cls => {
 
                     const isLab =
                         normalizeClassType(
@@ -2023,112 +2037,444 @@ function renderWeekView(
                         );
 
 
-                    html += `
-                        <div
-                            style="
-                                margin-bottom:4px;
-                            "
-                        >
+                    const time =
+                        getClassTimeSlot(
+                            cls
+                        );
 
-                            <strong>
+
+                    html += `
+
+                        <div class="class-item">
+
+                            <div class="time">
+
+                                <i class="far fa-clock"></i>
+
+                                ${escapeHtml(
+                                    time || 'TBA'
+                                )}
+
+                            </div>
+
+
+                            <div class="course">
+
                                 ${escapeHtml(
                                     cls.course
                                 )}
-                            </strong>
+
+                                ${
+                                    comment
+                                        ? `
+
+                                            <span
+                                                style="
+                                                    font-size:.8rem;
+                                                    color:var(--muted);
+                                                    margin-left:4px;
+                                                "
+                                            >
+                                                ${escapeHtml(
+                                                    comment
+                                                )}
+                                            </span>
+
+                                          `
+                                        : ''
+                                }
+
+                            </div>
 
 
-                            ${
-                                comment
-                                    ? `
-                                        <span
-                                            style="
-                                                font-size:0.7rem;
-                                                color:var(--muted);
-                                            "
-                                        >
-                                            ${escapeHtml(comment)}
-                                        </span>
-                                      `
-                                    : ''
-                            }
+                            <div class="details">
+
+                                <span>
+
+                                    <i class="fas fa-chalkboard-teacher"></i>
+
+                                    ${escapeHtml(
+                                        cls.teacher ||
+                                        '?'
+                                    )}
+
+                                </span>
 
 
-                            <span
-                                class="type-tag ${typeClass}"
-                                style="
-                                    font-size:0.65rem;
-                                "
-                            >
-                                ${typeLabel}
-                            </span>
+                                <span>
+
+                                    <i class="fas fa-door-open"></i>
+
+                                    ${escapeHtml(
+                                        cls.room ||
+                                        '?'
+                                    )}
+
+                                </span>
 
 
-                            <br>
+                                <span>
 
+                                    <span
+                                        class="type-tag ${typeClass}"
+                                    >
+                                        ${typeLabel}
+                                    </span>
 
-                            <span
-                                style="
-                                    font-size:0.8rem;
-                                    color:var(--muted);
-                                "
-                            >
-                                ${escapeHtml(
-                                    cls.teacher || '?'
-                                )}
-                                •
-                                ${escapeHtml(
-                                    cls.room || '?'
-                                )}
-                            </span>
+                                </span>
+
+                            </div>
 
                         </div>
+
                     `;
 
                 }
+            );
 
 
-                html += `</td>`;
+            html += `
 
-            }
+                    </div>
 
-            else {
+                </div>
 
-                html += `
-                    <td
-                        style="
-                            color:var(--soft);
-                        "
-                    >
-                        —
-                    </td>
-                `;
+            `;
+
+        }
+    );
+
+
+    html +=
+        `</div>`;
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+// ============================================================
+// WEEK VIEW
+// ============================================================
+
+function renderWeekView(
+    classes,
+    showComment,
+    mode
+) {
+
+    const container =
+        document.getElementById(
+            'viewContent'
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    const grouped = {};
+
+
+    DAYS.forEach(
+        day => {
+            grouped[day] = [];
+        }
+    );
+
+
+    classes.forEach(
+        cls => {
+
+            const day =
+                normalizeDay(
+                    cls.day
+                );
+
+
+            if (
+                grouped[day]
+            ) {
+
+                grouped[day].push(
+                    cls
+                );
 
             }
 
         }
+    );
 
 
-        html += `</tr>`;
+    const slots = [];
 
-    }
+
+    classes.forEach(
+        cls => {
+
+            const slot =
+                getClassTimeSlot(
+                    cls
+                );
+
+
+            if (
+                slot &&
+                !slots.includes(slot)
+            ) {
+
+                slots.push(
+                    slot
+                );
+
+            }
+
+        }
+    );
+
+
+    slots.sort(
+        (a, b) =>
+            getTimeOrder(a) -
+            getTimeOrder(b)
+    );
+
+
+    let html = `
+
+        <div class="week-view">
+
+            <table class="week-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Time
+                        </th>
+
+    `;
+
+
+    DAYS.forEach(
+        day => {
+
+            html += `
+                <th>
+                    ${day.substring(0, 3)}
+                </th>
+            `;
+
+        }
+    );
 
 
     html += `
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+    `;
+
+
+    slots.forEach(
+        slot => {
+
+            html += `
+
+                <tr>
+
+                    <td class="time-col">
+                        ${escapeHtml(slot)}
+                    </td>
+
+            `;
+
+
+            DAYS.forEach(
+                day => {
+
+                    const matching =
+                        sortClasses(
+                            grouped[day]
+                                .filter(
+                                    cls =>
+                                        getClassTimeSlot(
+                                            cls
+                                        ) === slot
+                                )
+                        );
+
+
+                    if (
+                        matching.length
+                    ) {
+
+                        html +=
+                            `<td>`;
+
+
+                        matching.forEach(
+                            cls => {
+
+                                const isLab =
+                                    normalizeClassType(
+                                        cls.type
+                                    ) === 'Lab';
+
+
+                                const comment =
+                                    getDisplayComment(
+                                        cls,
+                                        showComment,
+                                        mode
+                                    );
+
+
+                                html += `
+
+                                    <div
+                                        style="
+                                            margin-bottom:6px;
+                                        "
+                                    >
+
+                                        <strong>
+                                            ${escapeHtml(
+                                                cls.course
+                                            )}
+                                        </strong>
+
+                                        ${
+                                            comment
+                                                ? `
+
+                                                    <span
+                                                        style="
+                                                            font-size:.7rem;
+                                                            color:var(--muted);
+                                                            margin-left:3px;
+                                                        "
+                                                    >
+                                                        ${escapeHtml(
+                                                            comment
+                                                        )}
+                                                    </span>
+
+                                                  `
+                                                : ''
+                                        }
+
+
+                                        <span
+                                            class="type-tag ${
+                                                isLab
+                                                    ? 'type-lab'
+                                                    : 'type-theory'
+                                            }"
+                                            style="
+                                                font-size:.65rem;
+                                            "
+                                        >
+                                            ${
+                                                isLab
+                                                    ? 'Lab'
+                                                    : 'Theory'
+                                            }
+                                        </span>
+
+
+                                        <br>
+
+
+                                        <span
+                                            style="
+                                                font-size:.8rem;
+                                                color:var(--muted);
+                                            "
+                                        >
+
+                                            ${escapeHtml(
+                                                cls.teacher ||
+                                                '?'
+                                            )}
+
+                                            •
+
+                                            ${escapeHtml(
+                                                cls.room ||
+                                                '?'
+                                            )}
+
+                                        </span>
+
+                                    </div>
+
+                                `;
+
+                            }
+                        );
+
+
+                        html +=
+                            `</td>`;
+
+                    }
+
+                    else {
+
+                        html += `
+
+                            <td
+                                style="
+                                    color:var(--soft);
+                                "
+                            >
+                                —
+                            </td>
+
+                        `;
+
+                    }
+
+                }
+            );
+
+
+            html +=
+                `</tr>`;
+
+        }
+    );
+
+
+    html += `
+
                 </tbody>
 
             </table>
 
         </div>
+
     `;
 
 
     container.innerHTML =
         html;
+
 }
 
 
 // ============================================================
-// COMMENT / SUBSECTION LABEL
+// SUBSECTION LABEL
 // ============================================================
 
 function getDisplayComment(
@@ -2137,26 +2483,26 @@ function getDisplayComment(
     mode
 ) {
 
-    // Teacher / Room mode:
-    // Show section.
+    // Teacher / Room mode
     if (showComment) {
 
-        const sec =
+        const section =
             cls._section ||
             cls.section ||
             cls.group ||
             '';
 
 
-        return sec
-            ? `(${sec})`
+        return section
+            ? `(${section})`
             : '';
+
     }
 
 
-    // ========================================================
-    // NEW JSON FORMAT
-    // ========================================================
+    // --------------------------------------------------------
+    // NEW JSON
+    // --------------------------------------------------------
 
     let sub =
         cls.sub_section ??
@@ -2166,45 +2512,51 @@ function getDisplayComment(
 
 
     sub =
-        String(sub).trim();
+        String(sub)
+            .trim();
 
 
-    // Main = NO "(N)"
+    // Main = NOTHING
     if (
         !sub ||
-        sub.toLowerCase() === 'main'
+        sub.toLowerCase() ===
+            'main'
     ) {
+
         return '';
+
     }
 
 
-    let sectionLetter =
+    let letter =
         cls.section_letter ||
         extractSectionLetter(
             cls.section
         );
 
 
-    sectionLetter =
+    letter =
         String(
-            sectionLetter || ''
+            letter || ''
         )
             .trim()
             .charAt(0)
             .toUpperCase();
 
 
-    // sub_section = "1" → (N1)
-    if (/^\d+$/.test(sub)) {
+    // 1 => N1
+    if (
+        /^\d+$/.test(sub)
+    ) {
 
-        return sectionLetter
-            ? `(${sectionLetter}${sub})`
+        return letter
+            ? `(${letter}${sub})`
             : `(${sub})`;
 
     }
 
 
-    // sub_section = "N1" → (N1)
+    // N1 => N1
     if (
         /^[A-Za-z]\d+$/.test(sub)
     ) {
@@ -2214,181 +2566,152 @@ function getDisplayComment(
     }
 
 
-    // ========================================================
-    // OLD JSON FORMAT FALLBACK
-    // ========================================================
+    return '';
 
-    const group =
-        cls.group ||
-        '';
+}
 
 
-    if (group) {
+// ============================================================
+// NORMALIZE
+// ============================================================
 
-        const parts =
-            group.split('_');
+function normalizeClasses(
+    classes
+) {
+
+    if (
+        !Array.isArray(classes)
+    ) {
+
+        return [];
+
+    }
 
 
-        if (parts.length > 1) {
+    return classes.map(
+        cls => {
 
-            const suffix =
-                parts.slice(1).join('_');
-
-
-            const match =
-                suffix.match(
-                    /^([A-Z]+)(\d+)$/i
-                );
+            const section =
+                cls.section ||
+                cls.section_name ||
+                '';
 
 
-            if (match) {
+            let sub =
+                cls.sub_section ??
+                cls.subSection ??
+                cls.subsection ??
+                'Main';
 
-                return `(${match[1].toUpperCase()}${match[2]})`;
+
+            if (
+                sub === null ||
+                sub === undefined ||
+                sub === ''
+            ) {
+
+                sub = 'Main';
 
             }
 
 
             if (
-                suffix &&
-                suffix.toLowerCase() !== 'main'
+                String(sub)
+                    .toLowerCase() ===
+                    'main'
             ) {
 
-                return `(${suffix})`;
+                sub = 'Main';
 
             }
 
+
+            return {
+
+                ...cls,
+
+                day:
+                    normalizeDay(
+                        cls.day
+                    ),
+
+                time:
+                    normalizeTime(
+                        cls.time
+                    ),
+
+                course:
+                    String(
+                        cls.course ||
+                        cls.course_code ||
+                        ''
+                    ).trim(),
+
+                teacher:
+                    String(
+                        cls.teacher ||
+                        cls.faculty ||
+                        ''
+                    ).trim(),
+
+                room:
+                    String(
+                        cls.room ||
+                        cls.room_no ||
+                        ''
+                    ).trim(),
+
+                section:
+
+                    section,
+
+                sub_section:
+
+                    String(
+                        sub
+                    ).trim(),
+
+                section_letter:
+
+                    cls.section_letter ||
+                    extractSectionLetter(
+                        section
+                    ),
+
+                batch:
+
+                    cls.batch ||
+                    extractBatchFromSection(
+                        section
+                    ),
+
+                type:
+
+                    normalizeClassType(
+                        cls.type ||
+                        cls.class_type ||
+                        ''
+                    )
+
+            };
+
         }
-
-    }
-
-
-    return '';
-}
-
-
-// ============================================================
-// NORMALIZE CLASSES
-// ============================================================
-
-function normalizeClasses(classes) {
-
-    if (!Array.isArray(classes)) {
-        return [];
-    }
-
-
-    return classes.map(cls => {
-
-        const section =
-            cls.section ||
-            cls.section_name ||
-            '';
-
-
-        let subSection =
-            cls.sub_section ??
-            cls.subSection ??
-            cls.subsection ??
-            'Main';
-
-
-        if (
-            subSection === '' ||
-            subSection === null ||
-            subSection === undefined
-        ) {
-            subSection = 'Main';
-        }
-
-
-        if (
-            String(subSection)
-                .toLowerCase() ===
-            'main'
-        ) {
-            subSection = 'Main';
-        }
-
-
-        const sectionLetter =
-            cls.section_letter ||
-            extractSectionLetter(
-                section
-            );
-
-
-        return {
-
-            ...cls,
-
-            day:
-                normalizeDay(
-                    cls.day
-                ),
-
-            time:
-                normalizeTime(
-                    cls.time
-                ),
-
-            course:
-                String(
-                    cls.course ||
-                    cls.course_code ||
-                    ''
-                ).trim(),
-
-            teacher:
-                String(
-                    cls.teacher ||
-                    cls.faculty ||
-                    ''
-                ).trim(),
-
-            room:
-                String(
-                    cls.room ||
-                    cls.room_no ||
-                    ''
-                ).trim(),
-
-            section,
-
-            sub_section:
-                String(
-                    subSection
-                ).trim(),
-
-            section_letter:
-                sectionLetter,
-
-            batch:
-                cls.batch ||
-                extractBatchFromSection(
-                    section
-                ),
-
-            type:
-                normalizeClassType(
-                    cls.type ||
-                    cls.class_type ||
-                    ''
-                )
-
-        };
-
-    });
+    );
 
 }
 
 
 // ============================================================
-// DAY NORMALIZATION
+// DAY NORMALIZE
 // ============================================================
 
-function normalizeDay(day) {
+function normalizeDay(
+    day
+) {
 
-    if (!day) return '';
+    if (!day) {
+        return '';
+    }
 
 
     const value =
@@ -2399,46 +2722,76 @@ function normalizeDay(day) {
 
     const map = {
 
-        saturday: 'Saturday',
-        sunday: 'Sunday',
-        monday: 'Monday',
-        tuesday: 'Tuesday',
-        wednesday: 'Wednesday',
-        thursday: 'Thursday',
-        friday: 'Friday'
+        saturday:
+            'Saturday',
+
+        sunday:
+            'Sunday',
+
+        monday:
+            'Monday',
+
+        tuesday:
+            'Tuesday',
+
+        wednesday:
+            'Wednesday',
+
+        thursday:
+            'Thursday',
+
+        friday:
+            'Friday'
 
     };
 
 
-    return map[value] ||
-        String(day).trim();
+    return (
+        map[value] ||
+        String(day).trim()
+    );
+
 }
 
 
 // ============================================================
-// TIME NORMALIZATION
+// TIME NORMALIZE
 // ============================================================
 
-function normalizeTime(time) {
+function normalizeTime(
+    time
+) {
 
-    if (!time) return '';
+    if (!time) {
+        return '';
+    }
 
 
     return String(time)
         .trim()
-        .replace(/\s+/g, '')
-        .replace(/[–—]/g, '-');
+        .replace(
+            /\s+/g,
+            ''
+        )
+        .replace(
+            /[–—]/g,
+            '-'
+        );
 
 }
 
 
 // ============================================================
-// CLASS TYPE NORMALIZATION
+// TYPE
 // ============================================================
 
-function normalizeClassType(type) {
+function normalizeClassType(
+    type
+) {
 
-    if (!type) return '';
+    if (!type) {
+        return '';
+    }
 
 
     const value =
@@ -2447,67 +2800,97 @@ function normalizeClassType(type) {
             .toLowerCase();
 
 
-    if (value.includes('lab')) {
+    if (
+        value.includes('lab')
+    ) {
+
         return 'Lab';
+
     }
 
 
-    if (value.includes('theory')) {
+    if (
+        value.includes('theory')
+    ) {
+
         return 'Theory';
+
     }
 
 
-    return String(type).trim();
+    return String(type)
+        .trim();
+
 }
 
 
 // ============================================================
-// SORT CLASSES
+// SORT
 // ============================================================
 
-function sortClasses(classes) {
+function sortClasses(
+    classes
+) {
 
     return [...classes].sort(
         (a, b) => {
 
             const dayA =
                 DAY_ORDER[
-                    normalizeDay(a.day)
+                    normalizeDay(
+                        a.day
+                    )
                 ] ?? 999;
 
 
             const dayB =
                 DAY_ORDER[
-                    normalizeDay(b.day)
+                    normalizeDay(
+                        b.day
+                    )
                 ] ?? 999;
 
 
-            if (dayA !== dayB) {
+            if (
+                dayA !== dayB
+            ) {
+
                 return dayA - dayB;
+
             }
 
 
             const timeA =
                 getTimeOrder(
-                    getClassTimeSlot(a)
+                    getClassTimeSlot(
+                        a
+                    )
                 );
 
 
             const timeB =
                 getTimeOrder(
-                    getClassTimeSlot(b)
+                    getClassTimeSlot(
+                        b
+                    )
                 );
 
 
-            if (timeA !== timeB) {
+            if (
+                timeA !== timeB
+            ) {
+
                 return timeA - timeB;
+
             }
 
 
             return String(
                 a.course || ''
             ).localeCompare(
-                String(b.course || '')
+                String(
+                    b.course || ''
+                )
             );
 
         }
@@ -2520,10 +2903,14 @@ function sortClasses(classes) {
 // TIME ORDER
 // ============================================================
 
-function getTimeOrder(time) {
+function getTimeOrder(
+    time
+) {
 
     const normalized =
-        normalizeTime(time);
+        normalizeTime(
+            time
+        );
 
 
     if (
@@ -2548,12 +2935,16 @@ function getTimeOrder(time) {
 
 
 // ============================================================
-// TIME START MINUTES
+// TIME START
 // ============================================================
 
-function getTimeStartMinutes(time) {
+function getTimeStartMinutes(
+    time
+) {
 
-    if (!time) return 9999;
+    if (!time) {
+        return 9999;
+    }
 
 
     const match =
@@ -2562,18 +2953,23 @@ function getTimeStartMinutes(time) {
         );
 
 
-    if (!match) return 9999;
+    if (!match) {
+        return 9999;
+    }
 
 
     let hour =
-        Number(match[1]);
+        Number(
+            match[1]
+        );
 
 
     const minute =
-        Number(match[2]);
+        Number(
+            match[2]
+        );
 
 
-    // 01:00 / 02:30 / 04:00 = PM
     if (
         hour >= 1 &&
         hour <= 5
@@ -2593,10 +2989,12 @@ function getTimeStartMinutes(time) {
 
 
 // ============================================================
-// CLASS TIME SLOT
+// CLASS TIME
 // ============================================================
 
-function getClassTimeSlot(cls) {
+function getClassTimeSlot(
+    cls
+) {
 
     if (
         cls.start &&
@@ -2618,30 +3016,29 @@ function getClassTimeSlot(cls) {
 
 
 // ============================================================
-// SECTION HELPERS
+// SECTION
 // ============================================================
 
-function getBaseSection(section) {
+function getBaseSection(
+    section
+) {
 
-    const value =
-        String(
-            section || ''
-        )
-            .trim()
-            .toUpperCase();
-
-
-    // 70_N1 -> 70_N
-    // 70_N2 -> 70_N
-    // But 70_N remains 70_N.
-
-    return value.replace(
-        /_\d+$/,
-        ''
-    );
+    return String(
+        section || ''
+    )
+        .trim()
+        .toUpperCase()
+        .replace(
+            /_\d+$/,
+            ''
+        );
 
 }
 
+
+// ============================================================
+// BATCH
+// ============================================================
 
 function extractBatchFromSection(
     section
@@ -2658,8 +3055,13 @@ function extractBatchFromSection(
     return match
         ? match[1]
         : '';
+
 }
 
+
+// ============================================================
+// SECTION LETTER
+// ============================================================
 
 function extractSectionLetter(
     section
@@ -2678,8 +3080,10 @@ function extractSectionLetter(
 
 
     if (match) {
+
         return match[1]
             .toUpperCase();
+
     }
 
 
@@ -2697,7 +3101,7 @@ function extractSectionLetter(
 
 
 // ============================================================
-// REMOVE DUPLICATES
+// REMOVE DUPLICATE
 // ============================================================
 
 function removeDuplicateClasses(
@@ -2708,59 +3112,72 @@ function removeDuplicateClasses(
         new Set();
 
 
-    const result = [];
+    const result =
+        [];
 
 
-    for (
-        const cls of classes
-    ) {
+    classes.forEach(
+        cls => {
 
-        const key = [
+            const key = [
 
-            cls.day || '',
+                cls.day || '',
 
-            getClassTimeSlot(cls),
+                getClassTimeSlot(
+                    cls
+                ),
 
-            cls.course || '',
+                cls.course || '',
 
-            cls.teacher || '',
+                cls.teacher || '',
 
-            cls.room || '',
+                cls.room || '',
 
-            cls.sub_section ||
-                cls.subSection ||
-                '',
+                cls.sub_section ||
+                    '',
 
-            cls.section ||
-                cls._section ||
-                ''
+                cls.section ||
+                    cls._section ||
+                    ''
 
-        ].join('|');
+            ].join('|');
 
 
-        if (seen.has(key)) {
-            continue;
+            if (
+                seen.has(key)
+            ) {
+
+                return;
+
+            }
+
+
+            seen.add(key);
+
+            result.push(
+                cls
+            );
+
         }
-
-
-        seen.add(key);
-
-        result.push(cls);
-
-    }
+    );
 
 
     return result;
+
 }
 
 
 // ============================================================
-// UPDATE META
+// META
 // ============================================================
 
-function updateMeta(data) {
+function updateMeta(
+    data
+) {
 
-    if (!data) return;
+    if (!data) {
+        return;
+    }
 
 
     if (
@@ -2769,8 +3186,12 @@ function updateMeta(data) {
     ) {
 
         versionNumber.textContent =
-            String(data.version)
-                .replace(/^v/i, '');
+            String(
+                data.version
+            ).replace(
+                /^v/i,
+                ''
+            );
 
     }
 
@@ -2796,7 +3217,853 @@ function updateMeta(data) {
 
 
 // ============================================================
-// HANDLERS
+// SEMESTER
+// ============================================================
+
+function getSemester() {
+
+    // If JSON has semester
+    if (
+        routineData &&
+        routineData.semester
+    ) {
+
+        return String(
+            routineData.semester
+        );
+
+    }
+
+
+    // If JSON has metadata
+    if (
+        routineData &&
+        routineData.meta &&
+        routineData.meta.semester
+    ) {
+
+        return String(
+            routineData.meta.semester
+        );
+
+    }
+
+
+    // Current DIU routine fallback
+    return 'Summer 2026';
+
+}
+
+
+// ============================================================
+// DOWNLOAD ROUTINE IMAGE
+// ============================================================
+
+async function downloadSection() {
+
+    if (
+        !currentClasses ||
+        !currentClasses.length
+    ) {
+
+        showMessage(
+            'No routine available to download.',
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        showMessage(
+            'Preparing routine image...',
+            'info'
+        );
+
+
+        // ----------------------------------------------------
+        // Load html2canvas automatically.
+        // No HTML modification required.
+        // ----------------------------------------------------
+
+        await loadHtml2Canvas();
+
+
+        const imageElement =
+            createRoutineDownloadCard();
+
+
+        document.body.appendChild(
+            imageElement
+        );
+
+
+        // Give browser time to render fonts/table
+        await new Promise(
+            resolve =>
+                setTimeout(
+                    resolve,
+                    300
+                )
+        );
+
+
+        const canvas =
+            await html2canvas(
+                imageElement,
+                {
+
+                    scale: 2,
+
+                    backgroundColor:
+                        '#ffffff',
+
+                    useCORS: true,
+
+                    allowTaint: true,
+
+                    logging: false,
+
+                    width:
+                        imageElement
+                            .scrollWidth,
+
+                    height:
+                        imageElement
+                            .scrollHeight
+
+                }
+            );
+
+
+        imageElement.remove();
+
+
+        const link =
+            document.createElement(
+                'a'
+            );
+
+
+        const section =
+            currentMode === 'section'
+                ? currentSearchTerm
+                : (
+                    currentClasses[0]?.section ||
+                    currentSearchTerm ||
+                    'routine'
+                );
+
+
+        link.download =
+            `DIU-CSE-Routine-${section}.png`;
+
+
+        link.href =
+            canvas.toDataURL(
+                'image/png'
+            );
+
+
+        link.click();
+
+
+        showMessage(
+            'Routine image downloaded successfully.',
+            'success'
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Download error:',
+            error
+        );
+
+
+        showMessage(
+            'Could not create routine image.',
+            'error'
+        );
+
+    }
+
+}
+
+
+// ============================================================
+// LOAD HTML2CANVAS
+// ============================================================
+
+function loadHtml2Canvas() {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            if (
+                window.html2canvas
+            ) {
+
+                resolve();
+
+                return;
+
+            }
+
+
+            const existing =
+                document.querySelector(
+                    'script[data-html2canvas]'
+                );
+
+
+            if (existing) {
+
+                existing.addEventListener(
+                    'load',
+                    () => resolve()
+                );
+
+                existing.addEventListener(
+                    'error',
+                    () =>
+                        reject(
+                            new Error(
+                                'html2canvas failed to load.'
+                            )
+                        )
+                );
+
+                return;
+
+            }
+
+
+            const script =
+                document.createElement(
+                    'script'
+                );
+
+
+            script.src =
+                'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+
+
+            script.async =
+                true;
+
+
+            script.dataset.html2canvas =
+                'true';
+
+
+            script.onload =
+                () => resolve();
+
+
+            script.onerror =
+                () =>
+                    reject(
+                        new Error(
+                            'Unable to load html2canvas.'
+                        )
+                    );
+
+
+            document.head.appendChild(
+                script
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// CREATE DOWNLOAD TABLE
+// ============================================================
+
+function createRoutineDownloadCard() {
+
+    const wrapper =
+        document.createElement(
+            'div'
+        );
+
+
+    wrapper.style.position =
+        'fixed';
+
+    wrapper.style.left =
+        '-100000px';
+
+    wrapper.style.top =
+        '0';
+
+    wrapper.style.width =
+        '1500px';
+
+    wrapper.style.background =
+        '#f8fafc';
+
+    wrapper.style.padding =
+        '45px';
+
+    wrapper.style.boxSizing =
+        'border-box';
+
+    wrapper.style.fontFamily =
+        'Arial, Helvetica, sans-serif';
+
+    wrapper.style.color =
+        '#111827';
+
+
+    const section =
+        currentMode === 'section'
+            ? currentSearchTerm
+            : (
+                currentClasses[0]?.section ||
+                currentSearchTerm
+            );
+
+
+    const semester =
+        getSemester();
+
+
+    const version =
+        String(
+            routineData?.version ||
+            versionNumber?.textContent ||
+            '5.0'
+        ).replace(
+            /^v/i,
+            ''
+        );
+
+
+    const sorted =
+        sortClasses(
+            normalizeClasses(
+                currentClasses
+            )
+        );
+
+
+    // --------------------------------------------------------
+    // Map classes
+    // --------------------------------------------------------
+
+    const cellMap =
+        {};
+
+
+    DAYS.forEach(
+        day => {
+
+            cellMap[day] =
+                {};
+
+            DISPLAY_TIME_SLOTS.forEach(
+                slot => {
+
+                    cellMap[day][slot] =
+                        [];
+
+                }
+            );
+
+        }
+    );
+
+
+    sorted.forEach(
+        cls => {
+
+            const day =
+                normalizeDay(
+                    cls.day
+                );
+
+
+            const slot =
+                getClassTimeSlot(
+                    cls
+                );
+
+
+            if (
+                cellMap[day] &&
+                cellMap[day][slot]
+            ) {
+
+                cellMap[day][slot].push(
+                    cls
+                );
+
+            }
+
+        }
+    );
+
+
+    // --------------------------------------------------------
+    // Header
+    // --------------------------------------------------------
+
+    wrapper.innerHTML = `
+
+        <div
+            style="
+                background:#ffffff;
+                border-radius:24px;
+                overflow:hidden;
+                box-shadow:
+                    0 20px 60px
+                    rgba(15,23,42,.12);
+                border:1px solid #e5e7eb;
+            "
+        >
+
+            <!-- HEADER -->
+
+            <div
+                style="
+                    padding:38px 42px 30px;
+                    background:
+                        linear-gradient(
+                            135deg,
+                            #111827 0%,
+                            #1f2937 100%
+                        );
+                    color:#ffffff;
+                "
+            >
+
+                <div
+                    style="
+                        font-size:14px;
+                        letter-spacing:2px;
+                        font-weight:700;
+                        opacity:.75;
+                        margin-bottom:8px;
+                    "
+                >
+                    DAFFODIL INTERNATIONAL UNIVERSITY
+                </div>
+
+
+                <div
+                    style="
+                        font-size:30px;
+                        font-weight:800;
+                        margin-bottom:8px;
+                    "
+                >
+                    Department of Computer Science & Engineering
+                </div>
+
+
+                <div
+                    style="
+                        font-size:18px;
+                        opacity:.9;
+                    "
+                >
+                    CSE Class Routine
+                </div>
+
+
+                <div
+                    style="
+                        display:flex;
+                        gap:12px;
+                        flex-wrap:wrap;
+                        margin-top:25px;
+                    "
+                >
+
+                    <span
+                        style="
+                            background:rgba(255,255,255,.12);
+                            border:1px solid rgba(255,255,255,.18);
+                            padding:9px 16px;
+                            border-radius:999px;
+                            font-size:14px;
+                            font-weight:700;
+                        "
+                    >
+                        Section:
+                        ${escapeHtml(section)}
+                    </span>
+
+
+                    <span
+                        style="
+                            background:rgba(255,255,255,.12);
+                            border:1px solid rgba(255,255,255,.18);
+                            padding:9px 16px;
+                            border-radius:999px;
+                            font-size:14px;
+                            font-weight:700;
+                        "
+                    >
+                        ${escapeHtml(semester)}
+                    </span>
+
+
+                    <span
+                        style="
+                            background:rgba(255,255,255,.12);
+                            border:1px solid rgba(255,255,255,.18);
+                            padding:9px 16px;
+                            border-radius:999px;
+                            font-size:14px;
+                            font-weight:700;
+                        "
+                    >
+                        Version v${escapeHtml(version)}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div
+                style="
+                    padding:28px;
+                    background:#ffffff;
+                "
+            >
+
+                <table
+                    style="
+                        width:100%;
+                        border-collapse:separate;
+                        border-spacing:0;
+                        table-layout:fixed;
+                        font-size:13px;
+                    "
+                >
+
+                    <thead>
+
+                        <tr>
+
+                            <th
+                                style="
+                                    width:120px;
+                                    background:#111827;
+                                    color:#ffffff;
+                                    padding:16px 10px;
+                                    text-align:center;
+                                    border:1px solid #111827;
+                                "
+                            >
+                                DAY
+                            </th>
+
+                            ${DISPLAY_TIME_SLOTS.map(
+                                slot =>
+                                    `
+
+                                    <th
+                                        style="
+                                            background:#111827;
+                                            color:#ffffff;
+                                            padding:16px 8px;
+                                            text-align:center;
+                                            border-left:1px solid #374151;
+                                            font-size:12px;
+                                        "
+                                    >
+                                        ${slot}
+                                    </th>
+
+                                    `
+                            ).join('')}
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        ${DAYS.map(
+                            (day, dayIndex) => `
+
+                            <tr>
+
+                                <td
+                                    style="
+                                        background:#f1f5f9;
+                                        font-weight:800;
+                                        font-size:14px;
+                                        padding:18px 10px;
+                                        text-align:center;
+                                        border-left:1px solid #e2e8f0;
+                                        border-bottom:1px solid #e2e8f0;
+                                        border-right:1px solid #e2e8f0;
+                                    "
+                                >
+                                    ${day}
+                                </td>
+
+
+                                ${DISPLAY_TIME_SLOTS.map(
+                                    slot => {
+
+                                        const list =
+                                            cellMap[day][slot] ||
+                                            [];
+
+
+                                        if (!list.length) {
+
+                                            return `
+
+                                                <td
+                                                    style="
+                                                        background:#ffffff;
+                                                        text-align:center;
+                                                        vertical-align:middle;
+                                                        padding:12px 6px;
+                                                        border-right:1px solid #e2e8f0;
+                                                        border-bottom:1px solid #e2e8f0;
+                                                        color:#cbd5e1;
+                                                        height:95px;
+                                                    "
+                                                >
+                                                    —
+                                                </td>
+
+                                            `;
+
+                                        }
+
+
+                                        const content =
+                                            list
+                                                .map(
+                                                    cls => {
+
+                                                        const comment =
+                                                            getDisplayComment(
+                                                                cls,
+                                                                currentMode !== 'section',
+                                                                currentMode
+                                                            );
+
+
+                                                        const isLab =
+                                                            normalizeClassType(
+                                                                cls.type
+                                                            ) === 'Lab';
+
+
+                                                        return `
+
+                                                            <div
+                                                                style="
+                                                                    background:${
+                                                                        isLab
+                                                                            ? '#f5f3ff'
+                                                                            : '#f8fafc'
+                                                                    };
+                                                                    border:1px solid ${
+                                                                        isLab
+                                                                            ? '#ddd6fe'
+                                                                            : '#e2e8f0'
+                                                                    };
+                                                                    border-radius:10px;
+                                                                    padding:9px;
+                                                                    margin-bottom:6px;
+                                                                "
+                                                            >
+
+                                                                <div
+                                                                    style="
+                                                                        font-size:14px;
+                                                                        font-weight:800;
+                                                                        color:#111827;
+                                                                    "
+                                                                >
+                                                                    ${escapeHtml(
+                                                                        cls.course
+                                                                    )}
+
+                                                                    ${
+                                                                        comment
+                                                                            ? `
+                                                                                <span
+                                                                                    style="
+                                                                                        font-size:10px;
+                                                                                        font-weight:700;
+                                                                                        color:#64748b;
+                                                                                    "
+                                                                                >
+                                                                                    ${escapeHtml(
+                                                                                        comment
+                                                                                    )}
+                                                                                </span>
+                                                                              `
+                                                                            : ''
+                                                                    }
+
+                                                                </div>
+
+
+                                                                <div
+                                                                    style="
+                                                                        margin-top:4px;
+                                                                        font-size:11px;
+                                                                        font-weight:700;
+                                                                        color:#475569;
+                                                                    "
+                                                                >
+                                                                    ${escapeHtml(
+                                                                        cls.teacher ||
+                                                                        'TBA'
+                                                                    )}
+                                                                </div>
+
+
+                                                                <div
+                                                                    style="
+                                                                        margin-top:3px;
+                                                                        font-size:11px;
+                                                                        color:#64748b;
+                                                                    "
+                                                                >
+                                                                    ${escapeHtml(
+                                                                        cls.room ||
+                                                                        'TBA'
+                                                                    )}
+                                                                </div>
+
+
+                                                                <div
+                                                                    style="
+                                                                        margin-top:5px;
+                                                                        display:inline-block;
+                                                                        font-size:9px;
+                                                                        font-weight:800;
+                                                                        padding:3px 7px;
+                                                                        border-radius:999px;
+                                                                        background:${
+                                                                            isLab
+                                                                                ? '#ede9fe'
+                                                                                : '#e2e8f0'
+                                                                        };
+                                                                        color:${
+                                                                            isLab
+                                                                                ? '#6d28d9'
+                                                                                : '#475569'
+                                                                        };
+                                                                    "
+                                                                >
+                                                                    ${
+                                                                        isLab
+                                                                            ? 'LAB'
+                                                                            : 'THEORY'
+                                                                    }
+                                                                </div>
+
+                                                            </div>
+
+                                                        `;
+
+                                                    }
+                                                )
+                                                .join('');
+
+
+                                        return `
+
+                                            <td
+                                                style="
+                                                    background:#ffffff;
+                                                    vertical-align:top;
+                                                    padding:8px;
+                                                    border-right:1px solid #e2e8f0;
+                                                    border-bottom:1px solid #e2e8f0;
+                                                    height:95px;
+                                                "
+                                            >
+                                                ${content}
+                                            </td>
+
+                                        `;
+
+                                    }
+                                ).join('')}
+
+                            </tr>
+
+                        `
+                        ).join('')}
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- FOOTER -->
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;
+                        margin-top:22px;
+                        padding-top:18px;
+                        border-top:1px solid #e5e7eb;
+                        font-size:11px;
+                        color:#64748b;
+                    "
+                >
+
+                    <span>
+                        DIU CSE Routine
+                    </span>
+
+
+                    <span>
+                        ${sorted.length} Classes
+                    </span>
+
+
+                    <span>
+                        ${escapeHtml(semester)}
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    return wrapper;
+
+}
+
+
+// ============================================================
+// CLEAR
 // ============================================================
 
 function handleClearSection() {
@@ -2810,7 +4077,8 @@ function handleClearSection() {
         'none';
 
 
-    sectionInput.value = '';
+    sectionInput.value =
+        '';
 
 
     showMessage(
@@ -2824,22 +4092,8 @@ function handleClearSection() {
 }
 
 
-function downloadSection() {
-
-    const label =
-        currentSearchTerm ||
-        'routine';
-
-
-    alert(
-        `Download PDF for ${label} (coming soon)`
-    );
-
-}
-
-
 // ============================================================
-// UI HELPERS
+// NO ROUTINE
 // ============================================================
 
 function showNoRoutine(
@@ -2870,49 +4124,69 @@ function showNoRoutine(
 }
 
 
+// ============================================================
+// STATUS
+// ============================================================
+
 function setStatus(
     type,
     text
 ) {
 
     if (statusBadge) {
+
         statusBadge.className =
             'status ' + type;
+
     }
 
 
     if (statusText) {
+
         statusText.textContent =
             text;
+
     }
 
 }
 
+
+// ============================================================
+// MESSAGE
+// ============================================================
 
 function showMessage(
     text,
     type
 ) {
 
-    if (!message) return;
+    if (!message) {
+        return;
+    }
 
 
     message.textContent =
         text;
 
 
-    message.style.display =
-        'block';
-
-
     message.className =
         type;
 
 
+    message.style.display =
+        'block';
+
+
     setTimeout(
         () => {
-            message.style.display =
-                'none';
+
+            if (message) {
+
+                message.style.display =
+                    'none';
+
+            }
+
         },
         5000
     );
@@ -2923,8 +4197,10 @@ function showMessage(
 function hideMessage() {
 
     if (message) {
+
         message.style.display =
             'none';
+
     }
 
 }
@@ -2934,14 +4210,18 @@ function hideMessage() {
 // ESCAPE HTML
 // ============================================================
 
-function escapeHtml(text) {
+function escapeHtml(
+    text
+) {
 
     if (
         text === null ||
         text === undefined ||
         text === ''
     ) {
+
         return '-';
+
     }
 
 
@@ -2956,6 +4236,7 @@ function escapeHtml(text) {
 
 
     return div.innerHTML;
+
 }
 
 
@@ -2966,43 +4247,53 @@ function escapeHtml(text) {
 setInterval(
     () => {
 
-        if (!document.hidden) {
-
-            const saved =
-                localStorage.getItem(
-                    STORAGE_KEY
-                );
-
-
-            if (!saved) return;
+        if (
+            document.hidden
+        ) {
+            return;
+        }
 
 
-            if (
-                currentMode ===
-                'section'
-            ) {
+        const saved =
+            localStorage.getItem(
+                STORAGE_KEY
+            );
 
-                loadSection(saved);
 
-            }
+        if (!saved) {
+            return;
+        }
 
-            else if (
-                currentMode ===
-                'teacher'
-            ) {
 
-                loadTeacher(saved);
+        if (
+            currentMode === 'section'
+        ) {
 
-            }
+            loadSection(
+                saved
+            );
 
-            else if (
-                currentMode ===
-                'room'
-            ) {
+        }
 
-                loadRoom(saved);
 
-            }
+        else if (
+            currentMode === 'teacher'
+        ) {
+
+            loadTeacher(
+                saved
+            );
+
+        }
+
+
+        else if (
+            currentMode === 'room'
+        ) {
+
+            loadRoom(
+                saved
+            );
 
         }
 
