@@ -1,0 +1,17 @@
+{
+  "section": "63_Q",
+  "batch": "63",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMY",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "63",
+      "section": "Q",
+      "sub_section": "Main"
+    }
+  ]
+}

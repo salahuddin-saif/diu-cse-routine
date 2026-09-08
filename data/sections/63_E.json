@@ -3,42 +3,9 @@
   "batch": "63",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Tuesday",
       "time": "08:30-10:00",
-      "course": "CSE465",
-      "teacher": "NT_11",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "63",
-      "section": "E",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "01:00-02:30",
-      "course": "CSE465",
-      "teacher": "NT_17",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "63",
-      "section": "E",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE431",
-      "teacher": "NT_27",
-      "room": "27",
-      "type": "Theory",
-      "batch": "63",
-      "section": "E",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE465",
+      "course": "CSE491",
       "teacher": "TBA",
       "room": "TBA",
       "type": "Theory",
@@ -47,11 +14,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "01:00-02:30",
-      "course": "CSE465",
-      "teacher": "TBA",
-      "room": "TBA",
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMX",
+      "room": "KT-218",
       "type": "Theory",
       "batch": "63",
       "section": "E",

@@ -1,0 +1,138 @@
+{
+  "section": "73_A",
+  "batch": "73",
+  "classes": [
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "ENG101",
+      "teacher": "ASA",
+      "room": "ANX1-103",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "MAT101",
+      "teacher": "MRN",
+      "room": "ANX1-103",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE112",
+      "teacher": "MFH",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "ASA",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE115",
+      "teacher": "AUA",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE112",
+      "teacher": "MFH",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "MRN",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE115",
+      "teacher": "AUA",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "ENG101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "MAT101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "73",
+      "section": "A",
+      "sub_section": "Main"
+    }
+  ]
+}

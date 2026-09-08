@@ -1,0 +1,116 @@
+{
+  "section": "73_N",
+  "batch": "73",
+  "classes": [
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE112",
+      "teacher": "MUR",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "AMN",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "ENG101",
+      "teacher": "PS",
+      "room": "ANX1-207",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE112",
+      "teacher": "MUR",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE115",
+      "teacher": "NJO",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "MAT101",
+      "teacher": "AMN",
+      "room": "ANX1-103",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "CSE115",
+      "teacher": "NJO",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "ENG101",
+      "teacher": "PS",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "73",
+      "section": "N",
+      "sub_section": "Main"
+    }
+  ]
+}

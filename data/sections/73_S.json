@@ -1,0 +1,94 @@
+{
+  "section": "73_S",
+  "batch": "73",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE112",
+      "teacher": "TAK",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "MAT101",
+      "teacher": "AST",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "MSJ",
+      "room": "ANX1-202",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE115",
+      "teacher": "MSJ",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "MAT101",
+      "teacher": "AST",
+      "room": "ANX1-204",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "ENG101",
+      "teacher": "ENT_2",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "ENT_2",
+      "room": "ANX1-203",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE112",
+      "teacher": "TAK",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "73",
+      "section": "S",
+      "sub_section": "Main"
+    }
+  ]
+}

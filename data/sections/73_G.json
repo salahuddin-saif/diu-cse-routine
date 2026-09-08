@@ -1,0 +1,94 @@
+{
+  "section": "73_G",
+  "batch": "73",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "MAT101",
+      "teacher": "MRN",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE115",
+      "teacher": "IJN",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE112",
+      "teacher": "ACC",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "IJN",
+      "room": "ANX1-103",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE112",
+      "teacher": "ACC",
+      "room": "ANX1-103",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "MAT101",
+      "teacher": "MRN",
+      "room": "ANX1-201",
+      "type": "Theory",
+      "batch": "73",
+      "section": "G",
+      "sub_section": "Main"
+    }
+  ]
+}

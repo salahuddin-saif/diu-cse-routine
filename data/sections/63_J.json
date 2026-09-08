@@ -3,22 +3,11 @@
   "batch": "63",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Wednesday",
       "time": "08:30-10:00",
-      "course": "CSE465",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "63",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE465",
-      "teacher": "NT_16",
-      "room": "G1-026",
+      "course": "CSE491",
+      "teacher": "DMQ",
+      "room": "KT-303",
       "type": "Theory",
       "batch": "63",
       "section": "J",
