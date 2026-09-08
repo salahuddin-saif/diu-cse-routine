@@ -1,26 +1,47 @@
-// ============================================================
-// DIU CSE ROUTINE - STUDENT VIEW
-// ============================================================
+// DIU CSE Routine – Section, Teacher & Room Modes
+// Updated:
+// - Correct chronological time sorting
+// - Main section shows no "(N)"
+// - Lab sections show "(N1)" / "(N2)"
+// - Supports new JSON: sub_section, section_letter, type
+// - Teacher & Room modes preserved
+// - Search icon preserved
+// - Existing UI structure preserved
 
 const STORAGE_KEY = 'diu_cse_section';
-const SECTIONS_BASE = './data/sections/';
+const MODE_KEY = 'diu_cse_mode'; // 'section', 'teacher', 'room'
 const COMBINED_URL = './data/routine.json?t=' + Date.now();
+
+// ============================================================
+// DOM ELEMENTS
+// ============================================================
 
 const sectionInput = document.getElementById('sectionInput');
 const showRoutineBtn = document.getElementById('showRoutineBtn');
 const clearSectionBtn = document.getElementById('clearSectionBtn');
+const savedChip = document.getElementById('savedChip');
+const savedSectionSpan = document.getElementById('savedSection');
 const routineContainer = document.getElementById('routineContainer');
 const statusBadge = document.getElementById('statusBadge');
 const statusText = document.getElementById('statusText');
 const versionNumber = document.getElementById('versionNumber');
 const lastUpdated = document.getElementById('lastUpdated');
 const message = document.getElementById('message');
+const searchIcon = document.querySelector('.search-input-wrap i');
 
-let currentSectionData = null;
+// Navigation buttons
+const userBtn = document.querySelector('.nav-item:first-child');
+const teacherBtn = document.querySelector('.nav-item .fa-address-card')?.closest('.nav-item');
+const roomBtn = document.querySelector('.nav-item .fa-door-open')?.closest('.nav-item');
+
+let routineData = null;
+let currentMode = 'section';
+let currentSearchTerm = '';
+let currentClasses = [];
 
 
 // ============================================================
-// DAY ORDER
+// FIXED DAY ORDER
 // ============================================================
 
 const DAYS = [
@@ -45,19 +66,7 @@ const DAY_ORDER = {
 
 
 // ============================================================
-// TIME ORDER
-// ============================================================
-//
-// IMPORTANT:
-// Never use localeCompare() for routine times.
-//
-// Correct order:
-// 08:30-10:00
-// 10:00-11:30
-// 11:30-01:00
-// 01:00-02:30
-// 02:30-04:00
-// 04:00-05:30
+// FIXED TIME ORDER
 // ============================================================
 
 const TIME_ORDER = {
@@ -71,60 +80,476 @@ const TIME_ORDER = {
 
 
 // ============================================================
-// PAGE LOAD
+// INIT
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    const savedMode =
+        localStorage.getItem(MODE_KEY) || 'section';
+
+    currentMode = savedMode;
+
+    updateModeUI();
 
     const saved =
         localStorage.getItem(STORAGE_KEY);
 
     if (saved) {
-
         sectionInput.value = saved;
-
-        loadSection(saved);
-
+        savedSectionSpan.textContent = saved;
+        savedChip.style.display = 'inline-flex';
     } else {
+        savedChip.style.display = 'none';
+    }
 
-        showNoRoutine(
-            'Enter a section',
-            'Type your section (e.g., 70_N) and click "Show Routine".'
+    loadRoutineData();
+
+
+    // Search icon
+    if (searchIcon) {
+        searchIcon.style.cursor = 'pointer';
+        searchIcon.addEventListener(
+            'click',
+            handleSearch
         );
-
     }
 
 
-    showRoutineBtn.addEventListener(
-        'click',
-        handleShowRoutine
-    );
+    // Hidden button
+    if (showRoutineBtn) {
+        showRoutineBtn.addEventListener(
+            'click',
+            handleSearch
+        );
+    }
 
 
-    clearSectionBtn.addEventListener(
-        'click',
-        handleClearSection
-    );
+    // Clear button
+    if (clearSectionBtn) {
+        clearSectionBtn.addEventListener(
+            'click',
+            handleClearSection
+        );
+    }
 
 
-    sectionInput.addEventListener(
-        'keypress',
-        (e) => {
+    // Enter key
+    if (sectionInput) {
 
-            if (e.key === 'Enter') {
+        sectionInput.addEventListener(
+            'keydown',
+            (e) => {
 
-                handleShowRoutine();
+                if (
+                    e.key === 'Enter' ||
+                    e.keyCode === 13
+                ) {
+                    e.preventDefault();
+                    handleSearch();
+                }
 
             }
+        );
 
-        }
-    );
+        sectionInput.addEventListener(
+            'keypress',
+            (e) => {
+
+                if (
+                    e.key === 'Enter' ||
+                    e.keyCode === 13
+                ) {
+                    e.preventDefault();
+                    handleSearch();
+                }
+
+            }
+        );
+    }
+
+
+    // Mode toggles
+    if (userBtn) {
+        userBtn.addEventListener(
+            'click',
+            () => setMode('section')
+        );
+    }
+
+    if (teacherBtn) {
+        teacherBtn.addEventListener(
+            'click',
+            () => setMode('teacher')
+        );
+    }
+
+    if (roomBtn) {
+        roomBtn.addEventListener(
+            'click',
+            () => setMode('room')
+        );
+    }
 
 });
 
 
 // ============================================================
-// LOAD SECTION
+// MODE MANAGEMENT
+// ============================================================
+
+function setMode(mode) {
+
+    if (currentMode === mode) return;
+
+    currentMode = mode;
+
+    localStorage.setItem(
+        MODE_KEY,
+        mode
+    );
+
+    updateModeUI();
+
+    routineContainer.innerHTML = '';
+
+    savedChip.style.display = 'none';
+
+    sectionInput.value = '';
+
+    localStorage.removeItem(STORAGE_KEY);
+
+    showMessage(
+        `Switched to ${
+            mode.charAt(0).toUpperCase() +
+            mode.slice(1)
+        } Mode`,
+        'info'
+    );
+
+
+    if (mode === 'section') {
+
+        sectionInput.placeholder =
+            'Enter section (e.g., 70_N)';
+
+        loadRoutineData();
+
+    }
+
+    else if (mode === 'teacher') {
+
+        sectionInput.placeholder =
+            'Enter teacher initials (e.g., ABC)';
+
+        showNoRoutine(
+            'Teacher Mode',
+            'Enter teacher initials to see their classes.'
+        );
+
+    }
+
+    else if (mode === 'room') {
+
+        sectionInput.placeholder =
+            'Enter room (e.g., KT-201)';
+
+        showNoRoutine(
+            'Room Mode',
+            'Enter room name to see its schedule.'
+        );
+
+    }
+}
+
+
+// ============================================================
+// MODE UI
+// ============================================================
+
+function updateModeUI() {
+
+    const brandStrong =
+        document.querySelector('.brand strong');
+
+    if (brandStrong) {
+
+        if (currentMode === 'section') {
+            brandStrong.textContent = 'Student';
+        }
+
+        else if (currentMode === 'teacher') {
+            brandStrong.textContent = 'Teacher';
+        }
+
+        else if (currentMode === 'room') {
+            brandStrong.textContent = 'Room';
+        }
+    }
+
+
+    document
+        .querySelectorAll('.nav-item')
+        .forEach(el =>
+            el.classList.remove('active')
+        );
+
+
+    if (
+        currentMode === 'section' &&
+        userBtn
+    ) {
+        userBtn.classList.add('active');
+    }
+
+    else if (
+        currentMode === 'teacher' &&
+        teacherBtn
+    ) {
+        teacherBtn.classList.add('active');
+    }
+
+    else if (
+        currentMode === 'room' &&
+        roomBtn
+    ) {
+        roomBtn.classList.add('active');
+    }
+}
+
+
+// ============================================================
+// SEARCH DISPATCH
+// ============================================================
+
+function handleSearch() {
+
+    const raw =
+        sectionInput.value.trim();
+
+    if (!raw) {
+
+        showMessage(
+            'Please enter something to search.',
+            'error'
+        );
+
+        return;
+    }
+
+
+    const normalized =
+        raw
+            .toUpperCase()
+            .replace(/\s+/g, '_');
+
+
+    if (currentMode === 'section') {
+        loadSection(normalized);
+    }
+
+    else if (currentMode === 'teacher') {
+        loadTeacher(normalized);
+    }
+
+    else if (currentMode === 'room') {
+        loadRoom(normalized);
+    }
+}
+
+
+// ============================================================
+// LOAD ROUTINE DATA
+// ============================================================
+
+async function loadRoutineData() {
+
+    try {
+
+        setStatus(
+            'loading',
+            'Loading...'
+        );
+
+
+        const saved =
+            localStorage.getItem(
+                STORAGE_KEY
+            );
+
+
+        if (
+            saved &&
+            currentMode === 'section'
+        ) {
+
+            await loadSection(saved);
+
+            return;
+        }
+
+
+        const response =
+            await fetch(COMBINED_URL);
+
+
+        if (!response.ok) {
+            throw new Error(
+                'Failed to load combined data'
+            );
+        }
+
+
+        const data =
+            await response.json();
+
+
+        routineData = data;
+
+
+        if (
+            data.version &&
+            versionNumber
+        ) {
+
+            versionNumber.textContent =
+                String(data.version)
+                    .replace(/^v/i, '');
+        }
+
+
+        if (
+            data.updated_at &&
+            lastUpdated
+        ) {
+
+            const date =
+                new Date(data.updated_at);
+
+            lastUpdated.textContent =
+                'Updated: ' +
+                date.toLocaleString();
+        }
+
+
+        if (currentMode === 'section') {
+
+            const sections =
+                data.sections || {};
+
+            const keys =
+                Object.keys(sections);
+
+
+            if (keys.length > 0) {
+
+                const firstBase =
+                    getBaseSection(keys[0]);
+
+
+                const merged =
+                    mergeSubSections(
+                        firstBase
+                    );
+
+
+                if (merged.length > 0) {
+
+                    displaySection(
+                        firstBase,
+                        merged
+                    );
+
+
+                    sectionInput.value =
+                        firstBase;
+
+                    savedSectionSpan.textContent =
+                        firstBase;
+
+                    savedChip.style.display =
+                        'inline-flex';
+
+                    localStorage.setItem(
+                        STORAGE_KEY,
+                        firstBase
+                    );
+
+                }
+
+                else {
+
+                    showNoRoutine(
+                        'No Data',
+                        'No routine data available.'
+                    );
+
+                }
+
+            }
+
+            else {
+
+                showNoRoutine(
+                    'No Data',
+                    'No routine data available.'
+                );
+
+            }
+
+        }
+
+        else {
+
+            showNoRoutine(
+                `${
+                    currentMode
+                        .charAt(0)
+                        .toUpperCase() +
+                    currentMode.slice(1)
+                } Mode`,
+                `Enter ${currentMode} name to see results.`
+            );
+
+        }
+
+
+        setStatus(
+            'ready',
+            'Ready'
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Failed to load routine:',
+            error
+        );
+
+        setStatus(
+            'error',
+            'Error'
+        );
+
+        showMessage(
+            'Could not load routine data. Please try again.',
+            'error'
+        );
+
+        showNoRoutine(
+            'Error',
+            'Data could not be loaded.'
+        );
+
+    }
+}
+
+
+// ============================================================
+// SECTION LOADING
 // ============================================================
 
 async function loadSection(sectionKey) {
@@ -137,140 +562,170 @@ async function loadSection(sectionKey) {
         );
 
 
-        // ----------------------------------------------------
-        // Try section JSON first
-        // ----------------------------------------------------
-
-        const perSectionUrl =
-            `${SECTIONS_BASE}${sectionKey}.json?t=${Date.now()}`;
+        const normalized =
+            sectionKey
+                .toUpperCase()
+                .replace(/\s+/g, '_');
 
 
-        let data = null;
-        let found = false;
+        console.log(
+            '🔍 Searching for section:',
+            normalized
+        );
 
 
-        try {
+        if (!routineData) {
 
-            const response =
-                await fetch(perSectionUrl);
+            const resp =
+                await fetch(COMBINED_URL);
 
 
-            if (response.ok) {
-
-                data =
-                    await response.json();
-
-                found = true;
-
+            if (!resp.ok) {
+                throw new Error(
+                    'Combined data not found'
+                );
             }
 
-        } catch (error) {
 
-            // Fallback below
+            routineData =
+                await resp.json();
+
+
+            updateMeta(
+                routineData
+            );
+        }
+
+
+        const sections =
+            routineData.sections || {};
+
+
+        const baseSection =
+            getBaseSection(normalized);
+
+
+        // Find exact/base section first.
+        let matchingKeys =
+            Object.keys(sections)
+                .filter(
+                    key =>
+                        key === normalized ||
+                        key === baseSection ||
+                        getBaseSection(key) === baseSection
+                );
+
+
+        // Fallback
+        if (matchingKeys.length === 0) {
+
+            const fallbackKey =
+                Object.keys(sections).find(
+                    key =>
+                        key.startsWith(normalized) ||
+                        normalized.startsWith(key)
+                );
+
+
+            if (fallbackKey) {
+                matchingKeys.push(
+                    fallbackKey
+                );
+            }
+        }
+
+
+        if (matchingKeys.length === 0) {
+
+            throw new Error(
+                `Section "${normalized}" not found.`
+            );
 
         }
 
 
-        // ----------------------------------------------------
-        // Fallback to routine.json
-        // ----------------------------------------------------
-
-        if (!found) {
-
-            const combinedResponse =
-                await fetch(COMBINED_URL);
+        const mergedClasses = [];
 
 
-            if (!combinedResponse.ok) {
+        for (
+            const key of matchingKeys
+        ) {
 
-                throw new Error(
-                    'Failed to load routine data.'
+            const secData =
+                sections[key];
+
+
+            if (
+                secData &&
+                Array.isArray(secData)
+            ) {
+
+                mergedClasses.push(
+                    ...secData
                 );
 
             }
 
-
-            const combined =
-                await combinedResponse.json();
-
-
-            if (
-                combined.sections &&
-                combined.sections[sectionKey]
+            else if (
+                secData &&
+                Array.isArray(
+                    secData.classes
+                )
             ) {
 
-                const secData =
-                    combined.sections[sectionKey];
-
-
-                data = {
-
-                    section:
-                        sectionKey,
-
-                    batch:
-                        secData.batch ||
-                        extractBatchFromSection(
-                            sectionKey
-                        ),
-
-                    classes:
-                        secData.classes ||
-                        []
-
-                };
-
-
-                found = true;
-
-
-                if (combined.version) {
-
-                    versionNumber.textContent =
-                        combined.version;
-
-                }
-
-
-                if (combined.updated_at) {
-
-                    const date =
-                        new Date(
-                            combined.updated_at
-                        );
-
-                    lastUpdated.textContent =
-                        'Updated: ' +
-                        date.toLocaleString();
-
-                }
+                mergedClasses.push(
+                    ...secData.classes
+                );
 
             }
 
         }
 
 
-        if (!found) {
+        if (
+            mergedClasses.length === 0
+        ) {
 
             throw new Error(
-                `Section "${sectionKey}" not found.`
+                `No classes found for section "${normalized}".`
             );
 
         }
 
 
-        // ----------------------------------------------------
-        // Normalize classes
-        // ----------------------------------------------------
-
-        data.classes =
-            normalizeClasses(
-                data.classes || []
+        // Remove exact duplicates.
+        const uniqueClasses =
+            removeDuplicateClasses(
+                mergedClasses
             );
 
 
-        currentSectionData =
-            data;
+        currentSearchTerm =
+            baseSection;
+
+
+        currentClasses =
+            uniqueClasses;
+
+
+        displaySection(
+            baseSection,
+            uniqueClasses
+        );
+
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            normalized
+        );
+
+
+        savedSectionSpan.textContent =
+            normalized;
+
+
+        savedChip.style.display =
+            'inline-flex';
 
 
         setStatus(
@@ -282,19 +737,12 @@ async function loadSection(sectionKey) {
         hideMessage();
 
 
-        displayRoutine(data);
+    }
 
-
-        localStorage.setItem(
-            STORAGE_KEY,
-            sectionKey
-        );
-
-
-    } catch (error) {
+    catch (error) {
 
         console.error(
-            'Failed to load section:',
+            '❌ Failed to load section:',
             error
         );
 
@@ -313,275 +761,785 @@ async function loadSection(sectionKey) {
 
         showNoRoutine(
             'Section Not Found',
-            `No routine data for "${sectionKey}". Please check the section name.`
+            `No data for "${sectionKey}".`
         );
 
     }
-
 }
 
 
 // ============================================================
-// NORMALIZE CLASSES
+// MERGE SUB-SECTIONS
 // ============================================================
 
-function normalizeClasses(classes) {
+function mergeSubSections(baseSection) {
 
-    return classes.map(cls => {
+    if (!routineData) return [];
 
-        return {
-
-            ...cls,
-
-            day:
-                normalizeDay(cls.day),
-
-            time:
-                normalizeTime(cls.time),
-
-            course:
-                String(
-                    cls.course || ''
-                ).trim(),
-
-            teacher:
-                String(
-                    cls.teacher || ''
-                ).trim(),
-
-            room:
-                String(
-                    cls.room || ''
-                ).trim(),
-
-            section:
-                String(
-                    cls.section || ''
-                ).trim(),
-
-            sub_section:
-                String(
-                    cls.sub_section || 'Main'
-                ).trim(),
-
-            batch:
-                String(
-                    cls.batch || ''
-                ).trim(),
-
-            section_letter:
-                String(
-                    cls.section_letter || ''
-                ).trim(),
-
-            type:
-                normalizeClassType(
-                    cls.type
-                )
-
-        };
-
-    });
-
-}
+    const sections =
+        routineData.sections || {};
 
 
-// ============================================================
-// NORMALIZE DAY
-// ============================================================
-
-function normalizeDay(day) {
-
-    if (!day) return '';
-
-    const value =
-        String(day)
-            .trim()
-            .toLowerCase();
+    const all = [];
 
 
-    for (const validDay of DAYS) {
+    for (
+        const [key, secData]
+        of Object.entries(sections)
+    ) {
 
         if (
-            validDay.toLowerCase() === value
+            key === baseSection ||
+            getBaseSection(key) === baseSection
         ) {
 
-            return validDay;
+            const classes =
+                Array.isArray(secData)
+                    ? secData
+                    : secData?.classes;
+
+
+            if (Array.isArray(classes)) {
+
+                all.push(
+                    ...classes
+                );
+
+            }
 
         }
 
     }
 
 
-    return String(day).trim();
-
+    return removeDuplicateClasses(all);
 }
 
 
 // ============================================================
-// NORMALIZE TIME
+// TEACHER LOADING
 // ============================================================
 
-function normalizeTime(time) {
+async function loadTeacher(initials) {
 
-    if (!time) return 'TBA';
+    try {
 
-    return String(time)
-        .trim()
-        .replace(/\s+/g, '');
-
-}
-
-
-// ============================================================
-// NORMALIZE TYPE
-// ============================================================
-
-function normalizeClassType(type) {
-
-    if (!type) return 'Theory';
-
-    return String(type)
-        .trim()
-        .toLowerCase() === 'lab'
-        ? 'Lab'
-        : 'Theory';
-
-}
-
-
-// ============================================================
-// BATCH FROM SECTION
-// ============================================================
-
-function extractBatchFromSection(section) {
-
-    if (!section) return 'Unknown';
-
-    const match =
-        String(section).match(
-            /^(\d+)_/
+        setStatus(
+            'loading',
+            'Loading...'
         );
 
-    return match
-        ? match[1]
-        : 'Unknown';
 
-}
-
-
-// ============================================================
-// SHOW ROUTINE
-// ============================================================
-
-function handleShowRoutine() {
-
-    const section =
-        sectionInput.value.trim();
+        const clean =
+            initials
+                .toUpperCase()
+                .replace(/\s+/g, '');
 
 
-    if (!section) {
+        console.log(
+            '🔍 Searching for teacher:',
+            clean
+        );
+
+
+        if (!routineData) {
+
+            const resp =
+                await fetch(COMBINED_URL);
+
+
+            if (!resp.ok) {
+                throw new Error(
+                    'Combined data not found'
+                );
+            }
+
+
+            routineData =
+                await resp.json();
+
+
+            updateMeta(
+                routineData
+            );
+        }
+
+
+        const sections =
+            routineData.sections || {};
+
+
+        const allClasses = [];
+
+
+        for (
+            const [secKey, secData]
+            of Object.entries(sections)
+        ) {
+
+            const classes =
+                Array.isArray(secData)
+                    ? secData
+                    : secData?.classes;
+
+
+            if (!Array.isArray(classes)) {
+                continue;
+            }
+
+
+            for (const cls of classes) {
+
+                const teacher =
+                    String(
+                        cls.teacher || ''
+                    )
+                        .toUpperCase()
+                        .replace(/\s+/g, '');
+
+
+                if (
+                    teacher.includes(clean)
+                ) {
+
+                    const enriched = {
+                        ...cls,
+                        _section: secKey
+                    };
+
+
+                    allClasses.push(
+                        enriched
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        const uniqueClasses =
+            removeDuplicateClasses(
+                allClasses
+            );
+
+
+        if (
+            uniqueClasses.length === 0
+        ) {
+
+            throw new Error(
+                `No classes found for teacher "${initials}".`
+            );
+
+        }
+
+
+        currentSearchTerm =
+            clean;
+
+
+        currentClasses =
+            uniqueClasses;
+
+
+        displayTeacherRoutine(
+            clean,
+            uniqueClasses
+        );
+
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            initials
+        );
+
+
+        savedSectionSpan.textContent =
+            initials;
+
+
+        savedChip.style.display =
+            'inline-flex';
+
+
+        setStatus(
+            'ready',
+            'Ready'
+        );
+
+
+        hideMessage();
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            '❌ Failed to load teacher:',
+            error
+        );
+
+
+        setStatus(
+            'error',
+            'Error'
+        );
+
 
         showMessage(
-            'Please enter your section (e.g., 70_N).',
+            error.message,
             'error'
         );
 
-        return;
-
-    }
-
-
-    const normalized =
-        section
-            .toUpperCase()
-            .replace(/\s+/g, '_');
-
-
-    loadSection(normalized);
-
-}
-
-
-// ============================================================
-// CLEAR SECTION
-// ============================================================
-
-function handleClearSection() {
-
-    localStorage.removeItem(
-        STORAGE_KEY
-    );
-
-
-    sectionInput.value = '';
-
-    currentSectionData = null;
-
-
-    showMessage(
-        'Saved section cleared.',
-        'info'
-    );
-
-
-    showNoRoutine(
-        'Enter a section',
-        'Type your section and click "Show Routine".'
-    );
-
-}
-
-
-// ============================================================
-// DISPLAY ROUTINE
-// ============================================================
-
-function displayRoutine(data) {
-
-    const classes =
-        data.classes || [];
-
-
-    if (classes.length === 0) {
 
         showNoRoutine(
-            'No Classes Found',
-            `No classes for section "${data.section || 'Unknown'}".`
+            'Teacher Not Found',
+            `No data for "${initials}".`
+        );
+
+    }
+}
+
+
+// ============================================================
+// ROOM LOADING
+// ============================================================
+
+async function loadRoom(roomName) {
+
+    try {
+
+        setStatus(
+            'loading',
+            'Loading...'
+        );
+
+
+        const clean =
+            roomName
+                .toUpperCase()
+                .replace(/\s+/g, '');
+
+
+        console.log(
+            '🔍 Searching for room:',
+            clean
+        );
+
+
+        if (!routineData) {
+
+            const resp =
+                await fetch(COMBINED_URL);
+
+
+            if (!resp.ok) {
+                throw new Error(
+                    'Combined data not found'
+                );
+            }
+
+
+            routineData =
+                await resp.json();
+
+
+            updateMeta(
+                routineData
+            );
+        }
+
+
+        const sections =
+            routineData.sections || {};
+
+
+        const allClasses = [];
+
+
+        for (
+            const [secKey, secData]
+            of Object.entries(sections)
+        ) {
+
+            const classes =
+                Array.isArray(secData)
+                    ? secData
+                    : secData?.classes;
+
+
+            if (!Array.isArray(classes)) {
+                continue;
+            }
+
+
+            for (const cls of classes) {
+
+                const room =
+                    String(
+                        cls.room || ''
+                    )
+                        .toUpperCase()
+                        .replace(/\s+/g, '');
+
+
+                if (
+                    room.includes(clean)
+                ) {
+
+                    const enriched = {
+                        ...cls,
+                        _section: secKey
+                    };
+
+
+                    allClasses.push(
+                        enriched
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        const uniqueClasses =
+            removeDuplicateClasses(
+                allClasses
+            );
+
+
+        if (
+            uniqueClasses.length === 0
+        ) {
+
+            throw new Error(
+                `No classes found for room "${roomName}".`
+            );
+
+        }
+
+
+        currentSearchTerm =
+            clean;
+
+
+        currentClasses =
+            uniqueClasses;
+
+
+        displayRoomRoutine(
+            clean,
+            uniqueClasses
+        );
+
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            roomName
+        );
+
+
+        savedSectionSpan.textContent =
+            roomName;
+
+
+        savedChip.style.display =
+            'inline-flex';
+
+
+        setStatus(
+            'ready',
+            'Ready'
+        );
+
+
+        hideMessage();
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            '❌ Failed to load room:',
+            error
+        );
+
+
+        setStatus(
+            'error',
+            'Error'
+        );
+
+
+        showMessage(
+            error.message,
+            'error'
+        );
+
+
+        showNoRoutine(
+            'Room Not Found',
+            `No data for "${roomName}".`
+        );
+
+    }
+}
+
+
+// ============================================================
+// DISPLAY WRAPPERS
+// ============================================================
+
+function displaySection(
+    sectionKey,
+    classes
+) {
+
+    displayRoutine(
+        classes,
+        sectionKey,
+        false,
+        'section'
+    );
+}
+
+
+function displayTeacherRoutine(
+    initials,
+    classes
+) {
+
+    displayRoutine(
+        classes,
+        initials,
+        true,
+        'teacher'
+    );
+}
+
+
+function displayRoomRoutine(
+    roomName,
+    classes
+) {
+
+    displayRoutine(
+        classes,
+        roomName,
+        true,
+        'room'
+    );
+}
+
+
+// ============================================================
+// GENERIC DISPLAY ROUTINE
+// ============================================================
+
+function displayRoutine(
+    classes,
+    title,
+    showComment,
+    mode
+) {
+
+    routineContainer.innerHTML = '';
+
+
+    if (
+        !classes ||
+        classes.length === 0
+    ) {
+
+        showNoRoutine(
+            'No Data',
+            'No classes found.'
         );
 
         return;
+    }
+
+
+    // ALWAYS sort before display.
+    classes =
+        sortClasses(
+            normalizeClasses(classes)
+        );
+
+
+    const teachers =
+        [
+            ...new Set(
+                classes
+                    .map(c => c.teacher)
+                    .filter(
+                        t =>
+                            t &&
+                            t !== '?' &&
+                            t !== 'TBA'
+                    )
+            )
+        ];
+
+
+    const total =
+        classes.length;
+
+
+    const uniqueDays =
+        [
+            ...new Set(
+                classes
+                    .map(c => normalizeDay(c.day))
+                    .filter(
+                        d =>
+                            DAYS.includes(d)
+                    )
+            )
+        ];
+
+
+    const perWeek =
+        uniqueDays.length;
+
+
+    const batches =
+        [
+            ...new Set(
+                classes
+                    .map(
+                        c =>
+                            c.batch ||
+                            c.group?.split('_')[0] ||
+                            'Unknown'
+                    )
+            )
+        ];
+
+
+    const batchDisplay =
+        batches.length === 1
+            ? batches[0]
+            : 'Various';
+
+
+    let html = '';
+
+
+    // ========================================================
+    // ENROLLED CARD
+    // ========================================================
+
+    const icon =
+        mode === 'teacher'
+            ? 'fa-chalkboard-teacher'
+            : (
+                mode === 'room'
+                    ? 'fa-door-open'
+                    : 'fa-user-graduate'
+            );
+
+
+    const label =
+        mode === 'teacher'
+            ? 'Teacher'
+            : (
+                mode === 'room'
+                    ? 'Room'
+                    : 'Student'
+            );
+
+
+    const cleanVersion =
+        String(
+            versionNumber?.textContent ||
+            '5.0'
+        ).replace(/^v/i, '');
+
+
+    html += `
+        <div class="enrolled-card">
+
+            <div class="card-title">
+
+                <h3>
+                    <i class="fas ${icon}"></i>
+                    ${escapeHtml(label)} ·
+                    ${escapeHtml(title)}
+                </h3>
+
+                <button
+                    class="cr-btn"
+                    onclick="downloadSection()"
+                >
+                    <i class="fas fa-download"></i>
+                </button>
+
+            </div>
+
+
+            <div class="course-meta">
+
+                <div class="meta-row">
+                    <span>Total Classes</span>
+                    <strong>${total}</strong>
+                </div>
+
+
+                <div class="meta-row">
+                    <span>Active Days</span>
+                    <strong>${perWeek}</strong>
+                </div>
+
+
+                <div class="meta-row">
+                    <span>Routine Version</span>
+                    <strong>v${escapeHtml(cleanVersion)}</strong>
+                </div>
+
+
+                ${
+                    batchDisplay !== 'Various'
+                        ? `
+                            <div class="meta-row">
+                                <span>Batch</span>
+                                <strong>
+                                    ${escapeHtml(batchDisplay)}
+                                </strong>
+                            </div>
+                          `
+                        : ''
+                }
+
+
+                ${
+                    mode === 'teacher' ||
+                    mode === 'room'
+                        ? `
+                            <div class="meta-row">
+                                <span>Sections</span>
+
+                                <strong>
+                                    ${
+                                        [
+                                            ...new Set(
+                                                classes.map(
+                                                    c =>
+                                                        c._section ||
+                                                        c.section ||
+                                                        c.group ||
+                                                        '?'
+                                                )
+                                            )
+                                        ]
+                                            .map(
+                                                escapeHtml
+                                            )
+                                            .join(', ')
+                                    }
+                                </strong>
+
+                            </div>
+                          `
+                        : ''
+                }
+
+            </div>
+
+
+            <div class="download-row">
+
+                <span>
+                    <i class="fas fa-download"></i>
+                    Download PDF for
+                    ${escapeHtml(title)}
+                </span>
+
+                <button
+                    class="download-btn"
+                    onclick="downloadSection()"
+                >
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+
+    // ========================================================
+    // TEACHER ROW
+    // ========================================================
+
+    html += `
+        <div class="teacher-row">
+    `;
+
+
+    if (teachers.length > 0) {
+
+        teachers.forEach(t => {
+
+            const initial =
+                String(t)
+                    .substring(0, 2)
+                    .toUpperCase();
+
+
+            html += `
+                <div class="teacher">
+
+                    <div class="avatar">
+
+                        <span>
+                            ${escapeHtml(initial)}
+                        </span>
+
+                        <span class="online"></span>
+
+                    </div>
+
+                    <span>
+                        ${escapeHtml(t)}
+                    </span>
+
+                </div>
+            `;
+
+        });
+
+    }
+
+    else {
+
+        html += `
+            <div class="teacher blank">
+
+                <div class="avatar">?</div>
+
+                <span>No teachers</span>
+
+            </div>
+        `;
 
     }
 
 
-    const batch =
-        data.batch ||
-        extractBatchFromSection(
-            data.section
-        );
+    html += `</div>`;
 
 
-    const section =
-        data.section || 'Unknown';
+    // ========================================================
+    // VIEW TABS
+    // ========================================================
 
-
-    let html =
-        buildProfile(
-            batch,
-            section,
-            classes
-        );
-
-
-    // Keep Enrolled Courses exactly in this part
-    html +=
-        buildCourses(classes);
-
-
-    // Keep Day View / Week View exactly below courses
     html += `
-
         <div class="view-tabs">
 
             <button
@@ -605,7 +1563,6 @@ function displayRoutine(data) {
 
 
         <div id="viewContent"></div>
-
     `;
 
 
@@ -613,13 +1570,15 @@ function displayRoutine(data) {
         html;
 
 
-    renderDayView(classes);
+    // Default Day View
+    renderDayView(
+        classes,
+        showComment,
+        mode
+    );
 
 
-    // --------------------------------------------------------
-    // View buttons
-    // --------------------------------------------------------
-
+    // Tabs
     document
         .querySelectorAll('.view-tab')
         .forEach(tab => {
@@ -632,13 +1591,11 @@ function displayRoutine(data) {
                         .querySelectorAll(
                             '.view-tab'
                         )
-                        .forEach(t => {
-
+                        .forEach(t =>
                             t.classList.remove(
                                 'active'
-                            );
-
-                        });
+                            )
+                        );
 
 
                     this.classList.add(
@@ -652,13 +1609,19 @@ function displayRoutine(data) {
                     ) {
 
                         renderDayView(
-                            classes
+                            classes,
+                            showComment,
+                            mode
                         );
 
-                    } else {
+                    }
+
+                    else {
 
                         renderWeekView(
-                            classes
+                            classes,
+                            showComment,
+                            mode
                         );
 
                     }
@@ -672,329 +1635,834 @@ function displayRoutine(data) {
 
 
 // ============================================================
-// STUDENT PROFILE
-// ============================================================
-//
-// Kept in the same structure as the existing UI:
-//
-// Student 70_N
-//
-// Batch: 70
-// Section: 70_N
-// Total Classes: 10
-// Version: v5.0
-// Classes/Week: 4
-//
-// 10 Classes
-// 4 Days
-// Sat, Sun, Tue, Wed
-// Active Days
+// DAY VIEW
 // ============================================================
 
-function buildProfile(
-    batch,
-    section,
-    classes
+function renderDayView(
+    classes,
+    showComment,
+    mode
 ) {
 
-    const total =
-        classes.length;
-
-
-    const uniqueDays =
-        [
-            ...new Set(
-                classes
-                    .map(c => c.day)
-                    .filter(day =>
-                        DAYS.includes(day)
-                    )
-            )
-        ]
-        .sort(
-            (a, b) =>
-                DAY_ORDER[a] -
-                DAY_ORDER[b]
+    const container =
+        document.getElementById(
+            'viewContent'
         );
 
 
-    const perWeek =
-        uniqueDays.length;
+    if (!container) return;
 
 
-    return `
-
-        <div class="student-profile">
-
-            <div class="profile-top">
-
-                <div>
-
-                    <div class="profile-name">
-
-                        <i class="fas fa-user-graduate"></i>
-
-                        Student
-
-                        <span class="badge">
-                            ${escapeHtml(section)}
-                        </span>
-
-                    </div>
+    const grouped = {};
 
 
-                    <div class="profile-details">
-
-                        <span>
-                            <i class="fas fa-layer-group"></i>
-                            Batch:
-                            <strong>
-                                ${escapeHtml(batch)}
-                            </strong>
-                        </span>
-
-
-                        <span>
-                            <i class="fas fa-tag"></i>
-                            Section:
-                            <strong>
-                                ${escapeHtml(section)}
-                            </strong>
-                        </span>
-
-
-                        <span>
-                            <i class="fas fa-book"></i>
-                            Total Classes:
-                            <strong>
-                                ${total}
-                            </strong>
-                        </span>
-
-
-                        <span>
-                            <i class="fas fa-code-branch"></i>
-                            Version:
-                            <strong>
-                                v${escapeHtml(
-                                    versionNumber.textContent ||
-                                    '5.0'
-                                )}
-                            </strong>
-                        </span>
-
-
-                        <span>
-                            <i class="fas fa-calendar-alt"></i>
-                            Classes/Week:
-                            <strong>
-                                ${perWeek}
-                            </strong>
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="profile-stats">
-
-                    <div class="stat-item">
-
-                        <div class="num">
-                            ${total}
-                        </div>
-
-                        <div class="label">
-                            Classes
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-item">
-
-                        <div class="num">
-                            ${perWeek}
-                        </div>
-
-                        <div class="label">
-                            Days
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-item">
-
-                        <div class="num">
-                            ${uniqueDays
-                                .map(day =>
-                                    day.substring(0, 3)
-                                )
-                                .join(', ')
-                            }
-                        </div>
-
-                        <div class="label">
-                            Active Days
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-// ============================================================
-// ENROLLED COURSES
-// ============================================================
-//
-// This section remains above Day View / Week View.
-// ============================================================
-
-function buildCourses(classes) {
-
-    const courseMap = {};
+    DAYS.forEach(day => {
+        grouped[day] = [];
+    });
 
 
     for (const cls of classes) {
 
-        if (!courseMap[cls.course]) {
+        const day =
+            normalizeDay(cls.day);
 
-            courseMap[cls.course] = {
 
-                course:
-                    cls.course,
+        if (!grouped[day]) {
+            grouped[day] = [];
+        }
 
-                teacher:
-                    cls.teacher ||
-                    'TBA',
 
-                type:
-                    cls.type ||
-                    'Theory'
+        grouped[day].push(
+            cls
+        );
 
-            };
+    }
 
+
+    let html =
+        `<div class="day-grid">`;
+
+
+    for (const day of DAYS) {
+
+        if (
+            !grouped[day] ||
+            grouped[day].length === 0
+        ) {
+            continue;
+        }
+
+
+        // IMPORTANT:
+        // Exact fixed chronological sorting.
+        const sorted =
+            sortClasses(
+                grouped[day]
+            );
+
+
+        html += `
+            <div class="day-card">
+
+                <div class="day-card-header">
+
+                    <span>
+                        <i class="fas fa-calendar-alt"></i>
+                        ${day}
+                    </span>
+
+                    <span>
+                        ${sorted.length} classes
+                    </span>
+
+                </div>
+
+
+                <div class="day-card-body">
+        `;
+
+
+        for (const cls of sorted) {
+
+            const isLab =
+                normalizeClassType(
+                    cls.type
+                ) === 'Lab';
+
+
+            const typeClass =
+                isLab
+                    ? 'type-lab'
+                    : 'type-theory';
+
+
+            const typeLabel =
+                isLab
+                    ? 'Lab'
+                    : 'Theory';
+
+
+            const comment =
+                getDisplayComment(
+                    cls,
+                    showComment,
+                    mode
+                );
+
+
+            const timeDisplay =
+                cls.start &&
+                cls.end
+                    ? `${cls.start} – ${cls.end}`
+                    : (
+                        cls.time ||
+                        'TBA'
+                    );
+
+
+            html += `
+                <div class="class-item">
+
+                    <div class="time">
+
+                        <i class="far fa-clock"></i>
+
+                        ${escapeHtml(
+                            timeDisplay
+                        )}
+
+                    </div>
+
+
+                    <div class="course">
+
+                        ${escapeHtml(
+                            cls.course
+                        )}
+
+                        ${
+                            comment
+                                ? `
+                                    <span
+                                        style="
+                                            font-size:0.8rem;
+                                            color:var(--muted);
+                                        "
+                                    >
+                                        ${escapeHtml(comment)}
+                                    </span>
+                                  `
+                                : ''
+                        }
+
+                    </div>
+
+
+                    <div class="details">
+
+                        <span>
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            ${escapeHtml(
+                                cls.teacher || '?'
+                            )}
+                        </span>
+
+
+                        <span>
+                            <i class="fas fa-door-open"></i>
+                            ${escapeHtml(
+                                cls.room || '?'
+                            )}
+                        </span>
+
+
+                        <span>
+                            <span
+                                class="type-tag ${typeClass}"
+                            >
+                                ${typeLabel}
+                            </span>
+                        </span>
+
+                    </div>
+
+                </div>
+            `;
+
+        }
+
+
+        html += `
+                </div>
+            </div>
+        `;
+
+    }
+
+
+    html += `</div>`;
+
+
+    container.innerHTML =
+        html;
+}
+
+
+// ============================================================
+// WEEK VIEW
+// ============================================================
+
+function renderWeekView(
+    classes,
+    showComment,
+    mode
+) {
+
+    const container =
+        document.getElementById(
+            'viewContent'
+        );
+
+
+    if (!container) return;
+
+
+    const grouped = {};
+
+
+    DAYS.forEach(day => {
+        grouped[day] = [];
+    });
+
+
+    for (const cls of classes) {
+
+        const day =
+            normalizeDay(cls.day);
+
+
+        if (!grouped[day]) {
+            grouped[day] = [];
+        }
+
+
+        grouped[day].push(
+            cls
+        );
+
+    }
+
+
+    // Build unique time slots
+    const timeSlots = [];
+
+
+    for (const cls of classes) {
+
+        const slot =
+            getClassTimeSlot(cls);
+
+
+        if (
+            slot &&
+            !timeSlots.includes(slot)
+        ) {
+            timeSlots.push(slot);
         }
 
     }
 
 
-    const courses =
-        Object.values(courseMap);
+    // NEVER use .sort() alone for routine times.
+    timeSlots.sort(
+        (a, b) =>
+            getTimeOrder(a) -
+            getTimeOrder(b)
+    );
 
 
     let html = `
+        <div class="week-view">
 
-        <div class="course-section">
+            <table class="week-table">
 
-            <div class="course-header">
+                <thead>
 
-                <h4>
-                    <i class="fas fa-list-ul"></i>
-                    Enrolled Courses
-                </h4>
+                    <tr>
 
-                <span class="count">
-                    ${courses.length} courses
-                </span>
-
-            </div>
-
-
-            <div class="course-grid">
-
+                        <th>Time</th>
     `;
 
 
-    for (const course of courses) {
-
-        const typeClass =
-            course.type === 'Lab'
-                ? 'type-lab'
-                : 'type-theory';
-
+    for (const day of DAYS) {
 
         html += `
-
-            <div class="course-tag">
-
-                <span class="code">
-                    ${escapeHtml(
-                        course.course
-                    )}
-                </span>
-
-
-                <span class="teacher">
-                    ${escapeHtml(
-                        course.teacher
-                    )}
-                </span>
-
-
-                <span
-                    class="type-tag ${typeClass}"
-                >
-                    ${escapeHtml(
-                        course.type
-                    )}
-                </span>
-
-            </div>
-
+            <th>
+                ${day.substring(0, 3)}
+            </th>
         `;
 
     }
 
 
     html += `
+                    </tr>
 
-            </div>
+                </thead>
 
-        </div>
-
+                <tbody>
     `;
 
 
-    return html;
+    for (const slot of timeSlots) {
+
+        html += `
+            <tr>
+
+                <td class="time-col">
+                    ${escapeHtml(slot)}
+                </td>
+        `;
+
+
+        for (const day of DAYS) {
+
+            const dayClasses =
+                grouped[day] || [];
+
+
+            const matching =
+                dayClasses.filter(
+                    c =>
+                        getClassTimeSlot(c) ===
+                        slot
+                );
+
+
+            if (
+                matching.length > 0
+            ) {
+
+                html += `<td>`;
+
+
+                const sortedMatching =
+                    sortClasses(
+                        matching
+                    );
+
+
+                for (
+                    const cls
+                    of sortedMatching
+                ) {
+
+                    const isLab =
+                        normalizeClassType(
+                            cls.type
+                        ) === 'Lab';
+
+
+                    const typeClass =
+                        isLab
+                            ? 'type-lab'
+                            : 'type-theory';
+
+
+                    const typeLabel =
+                        isLab
+                            ? 'Lab'
+                            : 'Theory';
+
+
+                    const comment =
+                        getDisplayComment(
+                            cls,
+                            showComment,
+                            mode
+                        );
+
+
+                    html += `
+                        <div
+                            style="
+                                margin-bottom:4px;
+                            "
+                        >
+
+                            <strong>
+                                ${escapeHtml(
+                                    cls.course
+                                )}
+                            </strong>
+
+
+                            ${
+                                comment
+                                    ? `
+                                        <span
+                                            style="
+                                                font-size:0.7rem;
+                                                color:var(--muted);
+                                            "
+                                        >
+                                            ${escapeHtml(comment)}
+                                        </span>
+                                      `
+                                    : ''
+                            }
+
+
+                            <span
+                                class="type-tag ${typeClass}"
+                                style="
+                                    font-size:0.65rem;
+                                "
+                            >
+                                ${typeLabel}
+                            </span>
+
+
+                            <br>
+
+
+                            <span
+                                style="
+                                    font-size:0.8rem;
+                                    color:var(--muted);
+                                "
+                            >
+                                ${escapeHtml(
+                                    cls.teacher || '?'
+                                )}
+                                •
+                                ${escapeHtml(
+                                    cls.room || '?'
+                                )}
+                            </span>
+
+                        </div>
+                    `;
+
+                }
+
+
+                html += `</td>`;
+
+            }
+
+            else {
+
+                html += `
+                    <td
+                        style="
+                            color:var(--soft);
+                        "
+                    >
+                        —
+                    </td>
+                `;
+
+            }
+
+        }
+
+
+        html += `</tr>`;
+
+    }
+
+
+    html += `
+                </tbody>
+
+            </table>
+
+        </div>
+    `;
+
+
+    container.innerHTML =
+        html;
+}
+
+
+// ============================================================
+// COMMENT / SUBSECTION LABEL
+// ============================================================
+
+function getDisplayComment(
+    cls,
+    showComment,
+    mode
+) {
+
+    // Teacher / Room mode:
+    // Show section.
+    if (showComment) {
+
+        const sec =
+            cls._section ||
+            cls.section ||
+            cls.group ||
+            '';
+
+
+        return sec
+            ? `(${sec})`
+            : '';
+    }
+
+
+    // ========================================================
+    // NEW JSON FORMAT
+    // ========================================================
+
+    let sub =
+        cls.sub_section ??
+        cls.subSection ??
+        cls.subsection ??
+        'Main';
+
+
+    sub =
+        String(sub).trim();
+
+
+    // Main = NO "(N)"
+    if (
+        !sub ||
+        sub.toLowerCase() === 'main'
+    ) {
+        return '';
+    }
+
+
+    let sectionLetter =
+        cls.section_letter ||
+        extractSectionLetter(
+            cls.section
+        );
+
+
+    sectionLetter =
+        String(
+            sectionLetter || ''
+        )
+            .trim()
+            .charAt(0)
+            .toUpperCase();
+
+
+    // sub_section = "1" → (N1)
+    if (/^\d+$/.test(sub)) {
+
+        return sectionLetter
+            ? `(${sectionLetter}${sub})`
+            : `(${sub})`;
+
+    }
+
+
+    // sub_section = "N1" → (N1)
+    if (
+        /^[A-Za-z]\d+$/.test(sub)
+    ) {
+
+        return `(${sub.toUpperCase()})`;
+
+    }
+
+
+    // ========================================================
+    // OLD JSON FORMAT FALLBACK
+    // ========================================================
+
+    const group =
+        cls.group ||
+        '';
+
+
+    if (group) {
+
+        const parts =
+            group.split('_');
+
+
+        if (parts.length > 1) {
+
+            const suffix =
+                parts.slice(1).join('_');
+
+
+            const match =
+                suffix.match(
+                    /^([A-Z]+)(\d+)$/i
+                );
+
+
+            if (match) {
+
+                return `(${match[1].toUpperCase()}${match[2]})`;
+
+            }
+
+
+            if (
+                suffix &&
+                suffix.toLowerCase() !== 'main'
+            ) {
+
+                return `(${suffix})`;
+
+            }
+
+        }
+
+    }
+
+
+    return '';
+}
+
+
+// ============================================================
+// NORMALIZE CLASSES
+// ============================================================
+
+function normalizeClasses(classes) {
+
+    if (!Array.isArray(classes)) {
+        return [];
+    }
+
+
+    return classes.map(cls => {
+
+        const section =
+            cls.section ||
+            cls.section_name ||
+            '';
+
+
+        let subSection =
+            cls.sub_section ??
+            cls.subSection ??
+            cls.subsection ??
+            'Main';
+
+
+        if (
+            subSection === '' ||
+            subSection === null ||
+            subSection === undefined
+        ) {
+            subSection = 'Main';
+        }
+
+
+        if (
+            String(subSection)
+                .toLowerCase() ===
+            'main'
+        ) {
+            subSection = 'Main';
+        }
+
+
+        const sectionLetter =
+            cls.section_letter ||
+            extractSectionLetter(
+                section
+            );
+
+
+        return {
+
+            ...cls,
+
+            day:
+                normalizeDay(
+                    cls.day
+                ),
+
+            time:
+                normalizeTime(
+                    cls.time
+                ),
+
+            course:
+                String(
+                    cls.course ||
+                    cls.course_code ||
+                    ''
+                ).trim(),
+
+            teacher:
+                String(
+                    cls.teacher ||
+                    cls.faculty ||
+                    ''
+                ).trim(),
+
+            room:
+                String(
+                    cls.room ||
+                    cls.room_no ||
+                    ''
+                ).trim(),
+
+            section,
+
+            sub_section:
+                String(
+                    subSection
+                ).trim(),
+
+            section_letter:
+                sectionLetter,
+
+            batch:
+                cls.batch ||
+                extractBatchFromSection(
+                    section
+                ),
+
+            type:
+                normalizeClassType(
+                    cls.type ||
+                    cls.class_type ||
+                    ''
+                )
+
+        };
+
+    });
 
 }
 
 
 // ============================================================
-// SORT CLASSES
+// DAY NORMALIZATION
 // ============================================================
-//
-// JSON order doesn't matter.
-//
-// UI ALWAYS:
-//
-// Saturday
-// Sunday
-// Monday
-// Tuesday
-// Wednesday
-// Thursday
-// Friday
-//
-// And inside each day:
-//
-// 08:30
-// 10:00
-// 11:30
-// 01:00
-// 02:30
-// 04:00
+
+function normalizeDay(day) {
+
+    if (!day) return '';
+
+
+    const value =
+        String(day)
+            .trim()
+            .toLowerCase();
+
+
+    const map = {
+
+        saturday: 'Saturday',
+        sunday: 'Sunday',
+        monday: 'Monday',
+        tuesday: 'Tuesday',
+        wednesday: 'Wednesday',
+        thursday: 'Thursday',
+        friday: 'Friday'
+
+    };
+
+
+    return map[value] ||
+        String(day).trim();
+}
+
+
+// ============================================================
+// TIME NORMALIZATION
+// ============================================================
+
+function normalizeTime(time) {
+
+    if (!time) return '';
+
+
+    return String(time)
+        .trim()
+        .replace(/\s+/g, '')
+        .replace(/[–—]/g, '-');
+
+}
+
+
+// ============================================================
+// CLASS TYPE NORMALIZATION
+// ============================================================
+
+function normalizeClassType(type) {
+
+    if (!type) return '';
+
+
+    const value =
+        String(type)
+            .trim()
+            .toLowerCase();
+
+
+    if (value.includes('lab')) {
+        return 'Lab';
+    }
+
+
+    if (value.includes('theory')) {
+        return 'Theory';
+    }
+
+
+    return String(type).trim();
+}
+
+
+// ============================================================
+// SORT CLASSES
 // ============================================================
 
 function sortClasses(classes) {
@@ -1002,54 +2470,44 @@ function sortClasses(classes) {
     return [...classes].sort(
         (a, b) => {
 
-            // ------------------------------------------------
-            // DAY
-            // ------------------------------------------------
-
             const dayA =
-                DAY_ORDER[a.day] ?? 999;
+                DAY_ORDER[
+                    normalizeDay(a.day)
+                ] ?? 999;
 
 
             const dayB =
-                DAY_ORDER[b.day] ?? 999;
+                DAY_ORDER[
+                    normalizeDay(b.day)
+                ] ?? 999;
 
 
             if (dayA !== dayB) {
-
                 return dayA - dayB;
-
             }
 
 
-            // ------------------------------------------------
-            // TIME
-            // ------------------------------------------------
-
             const timeA =
-                getTimeOrder(a.time);
+                getTimeOrder(
+                    getClassTimeSlot(a)
+                );
 
 
             const timeB =
-                getTimeOrder(b.time);
+                getTimeOrder(
+                    getClassTimeSlot(b)
+                );
 
 
             if (timeA !== timeB) {
-
                 return timeA - timeB;
-
             }
 
-
-            // ------------------------------------------------
-            // COURSE
-            // ------------------------------------------------
 
             return String(
                 a.course || ''
             ).localeCompare(
-                String(
-                    b.course || ''
-                )
+                String(b.course || '')
             );
 
         }
@@ -1059,49 +2517,43 @@ function sortClasses(classes) {
 
 
 // ============================================================
-// GET TIME ORDER
+// TIME ORDER
 // ============================================================
 
 function getTimeOrder(time) {
 
-    if (!time) return 9999;
+    const normalized =
+        normalizeTime(time);
 
 
-    // Exact routine slot
     if (
         Object.prototype.hasOwnProperty.call(
             TIME_ORDER,
-            time
+            normalized
         )
     ) {
 
-        return TIME_ORDER[time];
+        return TIME_ORDER[
+            normalized
+        ];
 
     }
 
 
-    // --------------------------------------------------------
-    // Fallback for custom time
-    // --------------------------------------------------------
-
-    const minutes =
-        getTimeStartMinutes(time);
-
-
-    return minutes === 999999
-        ? 9999
-        : minutes;
+    return getTimeStartMinutes(
+        normalized
+    );
 
 }
 
 
 // ============================================================
-// TIME TO MINUTES
+// TIME START MINUTES
 // ============================================================
 
 function getTimeStartMinutes(time) {
 
-    if (!time) return 999999;
+    if (!time) return 9999;
 
 
     const match =
@@ -1110,32 +2562,18 @@ function getTimeStartMinutes(time) {
         );
 
 
-    if (!match) return 999999;
+    if (!match) return 9999;
 
 
     let hour =
-        parseInt(
-            match[1],
-            10
-        );
+        Number(match[1]);
 
 
     const minute =
-        parseInt(
-            match[2],
-            10
-        );
+        Number(match[2]);
 
 
-    // Routine uses:
-    //
-    // 11:30
-    // 01:00
-    // 02:30
-    // 04:00
-    //
-    // Therefore 01-05 means afternoon.
-
+    // 01:00 / 02:30 / 04:00 = PM
     if (
         hour >= 1 &&
         hour <= 5
@@ -1155,627 +2593,253 @@ function getTimeStartMinutes(time) {
 
 
 // ============================================================
-// GET SUB SECTION LABEL
-// ============================================================
-//
-// JSON:
-//
-// section: "70_N"
-// sub_section: "Main"
-//      -> nothing
-//
-// sub_section: "1"
-//      -> (N1)
-//
-// sub_section: "2"
-//      -> (N2)
-//
-// For another section:
-//
-// 70_F + 1 -> (F1)
-// 70_F + 2 -> (F2)
+// CLASS TIME SLOT
 // ============================================================
 
-function getSubSectionLabel(cls) {
+function getClassTimeSlot(cls) {
 
     if (
-        !cls.sub_section ||
-        cls.sub_section === 'Main'
+        cls.start &&
+        cls.end
     ) {
 
-        return '';
+        return normalizeTime(
+            `${cls.start}-${cls.end}`
+        );
 
     }
 
 
-    let sectionLetter =
-        cls.section_letter;
+    return normalizeTime(
+        cls.time || ''
+    );
+
+}
 
 
-    // If section_letter isn't present,
-    // extract it from 70_N.
-    if (!sectionLetter) {
+// ============================================================
+// SECTION HELPERS
+// ============================================================
 
-        const match =
-            String(
-                cls.section || ''
-            ).match(
-                /^\d+_([A-Z])/
+function getBaseSection(section) {
+
+    const value =
+        String(
+            section || ''
+        )
+            .trim()
+            .toUpperCase();
+
+
+    // 70_N1 -> 70_N
+    // 70_N2 -> 70_N
+    // But 70_N remains 70_N.
+
+    return value.replace(
+        /_\d+$/,
+        ''
+    );
+
+}
+
+
+function extractBatchFromSection(
+    section
+) {
+
+    const match =
+        String(
+            section || ''
+        ).match(
+            /^(\d+)/
+        );
+
+
+    return match
+        ? match[1]
+        : '';
+}
+
+
+function extractSectionLetter(
+    section
+) {
+
+    const value =
+        String(
+            section || ''
+        ).trim();
+
+
+    const match =
+        value.match(
+            /^\d+[_\-\s]*([A-Za-z])/
+        );
+
+
+    if (match) {
+        return match[1]
+            .toUpperCase();
+    }
+
+
+    const fallback =
+        value.match(
+            /([A-Za-z])$/
+        );
+
+
+    return fallback
+        ? fallback[1].toUpperCase()
+        : '';
+
+}
+
+
+// ============================================================
+// REMOVE DUPLICATES
+// ============================================================
+
+function removeDuplicateClasses(
+    classes
+) {
+
+    const seen =
+        new Set();
+
+
+    const result = [];
+
+
+    for (
+        const cls of classes
+    ) {
+
+        const key = [
+
+            cls.day || '',
+
+            getClassTimeSlot(cls),
+
+            cls.course || '',
+
+            cls.teacher || '',
+
+            cls.room || '',
+
+            cls.sub_section ||
+                cls.subSection ||
+                '',
+
+            cls.section ||
+                cls._section ||
+                ''
+
+        ].join('|');
+
+
+        if (seen.has(key)) {
+            continue;
+        }
+
+
+        seen.add(key);
+
+        result.push(cls);
+
+    }
+
+
+    return result;
+}
+
+
+// ============================================================
+// UPDATE META
+// ============================================================
+
+function updateMeta(data) {
+
+    if (!data) return;
+
+
+    if (
+        data.version &&
+        versionNumber
+    ) {
+
+        versionNumber.textContent =
+            String(data.version)
+                .replace(/^v/i, '');
+
+    }
+
+
+    if (
+        data.updated_at &&
+        lastUpdated
+    ) {
+
+        const date =
+            new Date(
+                data.updated_at
             );
 
 
-        if (match) {
-
-            sectionLetter =
-                match[1];
-
-        }
+        lastUpdated.textContent =
+            'Updated: ' +
+            date.toLocaleString();
 
     }
-
-
-    // --------------------------------------------------------
-    // Normal section
-    // --------------------------------------------------------
-
-    if (sectionLetter) {
-
-        return `(${sectionLetter}${cls.sub_section})`;
-
-    }
-
-
-    // --------------------------------------------------------
-    // Special section fallback
-    // --------------------------------------------------------
-
-    return `(${cls.sub_section})`;
 
 }
 
 
 // ============================================================
-// DAY VIEW
+// HANDLERS
 // ============================================================
 
-function renderDayView(classes) {
+function handleClearSection() {
 
-    const container =
-        document.getElementById(
-            'viewContent'
-        );
-
-
-    if (!container) return;
+    localStorage.removeItem(
+        STORAGE_KEY
+    );
 
 
-    const sortedClasses =
-        sortClasses(classes);
+    savedChip.style.display =
+        'none';
 
 
-    const grouped = {};
+    sectionInput.value = '';
 
 
-    // --------------------------------------------------------
-    // Group by day
-    // --------------------------------------------------------
-
-    for (const cls of sortedClasses) {
-
-        if (!grouped[cls.day]) {
-
-            grouped[cls.day] = [];
-
-        }
+    showMessage(
+        'Saved search cleared.',
+        'info'
+    );
 
 
-        grouped[cls.day].push(cls);
+    loadRoutineData();
 
-    }
-
-
-    let html =
-        '<div class="day-grid">';
+}
 
 
-    // --------------------------------------------------------
-    // ALWAYS use Saturday -> Friday
-    // --------------------------------------------------------
+function downloadSection() {
 
-    for (const day of DAYS) {
-
-        if (!grouped[day]) continue;
+    const label =
+        currentSearchTerm ||
+        'routine';
 
 
-        const sorted =
-            sortClasses(
-                grouped[day]
-            );
-
-
-        html += `
-
-            <div class="day-card">
-
-                <div class="day-card-header">
-
-                    <span class="day-name">
-
-                        <i class="fas fa-calendar-alt"></i>
-
-                        ${day}
-
-                    </span>
-
-
-                    <span class="count">
-
-                        ${sorted.length}
-                        ${sorted.length === 1
-                            ? 'class'
-                            : 'classes'
-                        }
-
-                    </span>
-
-                </div>
-
-
-                <div class="day-card-body">
-
-        `;
-
-
-        // ----------------------------------------------------
-        // TIME ORDER IS ALREADY SORTED
-        // ----------------------------------------------------
-
-        for (const cls of sorted) {
-
-            html +=
-                buildClassItem(
-                    cls
-                );
-
-        }
-
-
-        html += `
-
-                </div>
-
-            </div>
-
-        `;
-
-    }
-
-
-    html += '</div>';
-
-
-    container.innerHTML =
-        html;
+    alert(
+        `Download PDF for ${label} (coming soon)`
+    );
 
 }
 
 
 // ============================================================
-// CLASS ITEM
-// ============================================================
-
-function buildClassItem(cls) {
-
-    const type =
-        cls.type === 'Lab'
-            ? 'Lab'
-            : 'Theory';
-
-
-    const typeClass =
-        type === 'Lab'
-            ? 'type-lab'
-            : 'type-theory';
-
-
-    // --------------------------------------------------------
-    // Section label
-    //
-    // Main:
-    //      nothing
-    //
-    // Lab sub section 1:
-    //      (N1)
-    //
-    // Lab sub section 2:
-    //      (N2)
-    // --------------------------------------------------------
-
-    const subLabel =
-        getSubSectionLabel(cls);
-
-
-    const subHtml =
-        subLabel
-            ? `
-                <span class="sub-section">
-                    ${escapeHtml(subLabel)}
-                </span>
-              `
-            : '';
-
-
-    return `
-
-        <div class="class-item">
-
-            <div class="time">
-
-                <i class="far fa-clock"></i>
-
-                ${escapeHtml(
-                    cls.time || 'TBA'
-                )}
-
-            </div>
-
-
-            <div class="course">
-
-                <span class="course-code">
-
-                    ${escapeHtml(
-                        cls.course
-                    )}
-
-                </span>
-
-
-                ${subHtml}
-
-            </div>
-
-
-            <div class="details">
-
-                <span>
-
-                    <i class="fas fa-chalkboard-teacher"></i>
-
-                    ${escapeHtml(
-                        cls.teacher || 'TBA'
-                    )}
-
-                </span>
-
-
-                <span>
-
-                    <i class="fas fa-door-open"></i>
-
-                    ${escapeHtml(
-                        cls.room || 'TBA'
-                    )}
-
-                </span>
-
-
-                <span>
-
-                    <span
-                        class="type-tag ${typeClass}"
-                    >
-                        ${type}
-                    </span>
-
-                </span>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-// ============================================================
-// WEEK VIEW
-// ============================================================
-
-function renderWeekView(classes) {
-
-    const container =
-        document.getElementById(
-            'viewContent'
-        );
-
-
-    if (!container) return;
-
-
-    const grouped = {};
-
-
-    for (const cls of classes) {
-
-        if (!grouped[cls.day]) {
-
-            grouped[cls.day] = [];
-
-        }
-
-
-        grouped[cls.day].push(cls);
-
-    }
-
-
-    // --------------------------------------------------------
-    // Collect unique times
-    // --------------------------------------------------------
-
-    const times =
-        [
-            ...new Set(
-                classes
-                    .map(c => c.time)
-                    .filter(
-                        t =>
-                            t &&
-                            t !== 'TBA'
-                    )
-            )
-        ]
-        .sort(
-            (a, b) =>
-                getTimeOrder(a) -
-                getTimeOrder(b)
-        );
-
-
-    if (times.length === 0) {
-
-        times.push('TBA');
-
-    }
-
-
-    let html = `
-
-        <div class="week-view">
-
-            <table class="week-table">
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Time
-                        </th>
-
-    `;
-
-
-    // --------------------------------------------------------
-    // Day headers
-    // --------------------------------------------------------
-
-    for (const day of DAYS) {
-
-        html += `
-
-            <th>
-                ${day.substring(0, 3)}
-            </th>
-
-        `;
-
-    }
-
-
-    html += `
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-    `;
-
-
-    // --------------------------------------------------------
-    // TIME ROWS
-    // --------------------------------------------------------
-
-    for (const time of times) {
-
-        html += `
-
-            <tr>
-
-                <td class="time-col">
-
-                    ${escapeHtml(time)}
-
-                </td>
-
-        `;
-
-
-        // ----------------------------------------------------
-        // DAYS
-        // ----------------------------------------------------
-
-        for (const day of DAYS) {
-
-            const dayClasses =
-                grouped[day] || [];
-
-
-            const matching =
-                dayClasses.filter(
-                    cls =>
-                        cls.time === time
-                );
-
-
-            if (
-                matching.length > 0
-            ) {
-
-                html += `<td>`;
-
-
-                const sorted =
-                    sortClasses(
-                        matching
-                    );
-
-
-                for (const cls of sorted) {
-
-                    const type =
-                        cls.type === 'Lab'
-                            ? 'Lab'
-                            : 'Theory';
-
-
-                    const typeClass =
-                        type === 'Lab'
-                            ? 'type-lab'
-                            : 'type-theory';
-
-
-                    const subLabel =
-                        getSubSectionLabel(
-                            cls
-                        );
-
-
-                    html += `
-
-                        <div
-                            class="week-class"
-                            style="margin-bottom:6px;"
-                        >
-
-                            <strong>
-
-                                ${escapeHtml(
-                                    cls.course
-                                )}
-
-                            </strong>
-
-
-                            ${
-                                subLabel
-                                    ? `
-                                        <span
-                                            class="sub-section"
-                                        >
-                                            ${escapeHtml(
-                                                subLabel
-                                            )}
-                                        </span>
-                                      `
-                                    : ''
-                            }
-
-
-                            <span
-                                class="type-tag ${typeClass}"
-                                style="
-                                    font-size:0.65rem;
-                                "
-                            >
-                                ${type}
-                            </span>
-
-
-                            <br>
-
-
-                            <span
-                                style="
-                                    font-size:0.8rem;
-                                    color:var(--gray-600);
-                                "
-                            >
-
-                                ${escapeHtml(
-                                    cls.teacher ||
-                                    'TBA'
-                                )}
-
-                                •
-
-                                ${escapeHtml(
-                                    cls.room ||
-                                    'TBA'
-                                )}
-
-                            </span>
-
-                        </div>
-
-                    `;
-
-                }
-
-
-                html += `</td>`;
-
-            } else {
-
-                html += `
-
-                    <td
-                        style="
-                            color:var(--gray-200);
-                        "
-                    >
-                        —
-                    </td>
-
-                `;
-
-            }
-
-        }
-
-
-        html += `
-
-            </tr>
-
-        `;
-
-    }
-
-
-    html += `
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    `;
-
-
-    container.innerHTML =
-        html;
-
-}
-
-
-// ============================================================
-// NO ROUTINE
+// UI HELPERS
 // ============================================================
 
 function showNoRoutine(
@@ -1806,45 +2870,49 @@ function showNoRoutine(
 }
 
 
-// ============================================================
-// STATUS
-// ============================================================
-
 function setStatus(
     type,
     text
 ) {
 
-    statusBadge.className =
-        'status ' + type;
+    if (statusBadge) {
+        statusBadge.className =
+            'status ' + type;
+    }
 
 
-    statusText.textContent =
-        text;
+    if (statusText) {
+        statusText.textContent =
+            text;
+    }
 
 }
 
-
-// ============================================================
-// MESSAGE
-// ============================================================
 
 function showMessage(
     text,
     type
 ) {
 
+    if (!message) return;
+
+
     message.textContent =
         text;
 
 
+    message.style.display =
+        'block';
+
+
     message.className =
-        'show ' + type;
+        type;
 
 
     setTimeout(
         () => {
-            message.className = '';
+            message.style.display =
+                'none';
         },
         5000
     );
@@ -1852,13 +2920,12 @@ function showMessage(
 }
 
 
-// ============================================================
-// HIDE MESSAGE
-// ============================================================
-
 function hideMessage() {
 
-    message.className = '';
+    if (message) {
+        message.style.display =
+            'none';
+    }
 
 }
 
@@ -1874,9 +2941,7 @@ function escapeHtml(text) {
         text === undefined ||
         text === ''
     ) {
-
         return '-';
-
     }
 
 
@@ -1891,5 +2956,56 @@ function escapeHtml(text) {
 
 
     return div.innerHTML;
-
 }
+
+
+// ============================================================
+// AUTO REFRESH
+// ============================================================
+
+setInterval(
+    () => {
+
+        if (!document.hidden) {
+
+            const saved =
+                localStorage.getItem(
+                    STORAGE_KEY
+                );
+
+
+            if (!saved) return;
+
+
+            if (
+                currentMode ===
+                'section'
+            ) {
+
+                loadSection(saved);
+
+            }
+
+            else if (
+                currentMode ===
+                'teacher'
+            ) {
+
+                loadTeacher(saved);
+
+            }
+
+            else if (
+                currentMode ===
+                'room'
+            ) {
+
+                loadRoom(saved);
+
+            }
+
+        }
+
+    },
+    5 * 60 * 1000
+);
