@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "PDS",
-      "room": "PDS",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE324",
+      "teacher": "TAS",
+      "room": "KT-504",
+      "type": "Lab",
       "batch": "66",
-      "section": "E"
+      "section": "E",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE324",
+      "teacher": "TAS",
+      "room": "KT-504",
+      "type": "Lab",
+      "batch": "66",
+      "section": "E",
+      "sub_section": "2"
     }
   ]
 }

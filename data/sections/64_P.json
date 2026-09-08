@@ -3,7 +3,7 @@
   "batch": "64",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE473",
       "teacher": "GR",
@@ -14,23 +14,12 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE473",
       "teacher": "GR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE473",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "room": "KT-504",
+      "type": "Lab",
       "batch": "64",
       "section": "P",
       "sub_section": "Main"

@@ -3,7 +3,7 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE431",
       "teacher": "MSS",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE432",
       "teacher": "IJN",
@@ -25,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE413",
       "teacher": "PB",
@@ -36,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE413",
       "teacher": "PB",
@@ -47,56 +47,23 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE432",
       "teacher": "IJN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-501(B)",
+      "type": "Lab",
       "batch": "65",
       "section": "I",
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE431",
       "teacher": "MSS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE431",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE432",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "I",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "room": "KT-501(B)",
+      "type": "Lab",
       "batch": "65",
       "section": "I",
       "sub_section": "Main"

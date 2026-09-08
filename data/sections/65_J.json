@@ -3,7 +3,7 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE441",
       "teacher": "MHD",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE442",
       "teacher": "FFZ",
@@ -25,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE413",
       "teacher": "MAIT",
@@ -36,7 +36,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE413",
       "teacher": "MAIT",
@@ -47,56 +47,23 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE441",
       "teacher": "MHD",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-501(B)",
+      "type": "Lab",
       "batch": "65",
       "section": "J",
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE442",
       "teacher": "FFZ",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE441",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE442",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "room": "KT-501(B)",
+      "type": "Lab",
       "batch": "65",
       "section": "J",
       "sub_section": "Main"

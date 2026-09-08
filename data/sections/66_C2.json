@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "AAM",
-      "room": "AAM",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "FFZ",
+      "room": "KT-501(B)",
+      "type": "Lab",
       "batch": "66",
-      "section": "C"
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "FFZ",
+      "room": "KT-501(B)",
+      "type": "Lab",
+      "batch": "66",
+      "section": "C",
+      "sub_section": "2"
     }
   ]
 }

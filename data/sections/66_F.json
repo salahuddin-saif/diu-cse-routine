@@ -4,7 +4,7 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "11:30-01:00",
+      "time": "01:00-02:30",
       "course": "CSE323",
       "teacher": "FFN",
       "room": "KT-220",
@@ -15,28 +15,28 @@
     },
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE324",
+      "time": "01:00-02:30",
+      "course": "CSE323",
       "teacher": "FFN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-513",
+      "type": "Lab",
       "batch": "66",
       "section": "F",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
       "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE324",
-      "teacher": "FFN",
-      "room": "COM",
-      "type": "Theory",
+      "time": "02:30-04:00",
+      "course": "CSE316",
+      "teacher": "SBA",
+      "room": "KT-501(A)",
+      "type": "Lab",
       "batch": "66",
       "section": "F",
-      "sub_section": "1"
+      "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "04:00-05:30",
       "course": "CSE326",
       "teacher": "MUH",
@@ -47,51 +47,51 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE316",
-      "teacher": "SBA",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE323",
-      "teacher": "FFN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE324",
       "teacher": "FFN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-016",
+      "type": "Lab",
+      "batch": "66",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "FFN",
+      "room": "G1-016",
+      "type": "Lab",
+      "batch": "66",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "FFN",
+      "room": "G1-016",
+      "type": "Lab",
+      "batch": "66",
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "FFN",
+      "room": "G1-016",
+      "type": "Lab",
       "batch": "66",
       "section": "F",
       "sub_section": "2"
     },
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE324",
-      "teacher": "FFN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "F",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE326",
       "teacher": "MUH",
@@ -102,33 +102,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE316",
       "teacher": "SBA",
       "room": "G1-026",
-      "type": "Theory",
-      "batch": "66",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE323",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "F",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE326",
-      "teacher": "TBA",
-      "room": "TBA",
       "type": "Theory",
       "batch": "66",
       "section": "F",

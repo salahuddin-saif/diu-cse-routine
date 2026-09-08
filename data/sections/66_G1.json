@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "TI",
-      "room": "TI",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE324",
+      "teacher": "HMK",
+      "room": "G1-021",
+      "type": "Lab",
       "batch": "66",
-      "section": "G"
+      "section": "G",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE324",
+      "teacher": "HMK",
+      "room": "G1-021",
+      "type": "Lab",
+      "batch": "66",
+      "section": "G",
+      "sub_section": "1"
     }
   ]
 }

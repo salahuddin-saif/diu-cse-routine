@@ -3,7 +3,7 @@
   "batch": "65",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE432",
       "teacher": "FH",
@@ -14,7 +14,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE431",
       "teacher": "SN",
@@ -25,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE413",
       "teacher": "THT",
@@ -36,18 +36,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE432",
       "teacher": "FH",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-504",
+      "type": "Lab",
       "batch": "65",
       "section": "E",
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE413",
       "teacher": "THT",
@@ -58,12 +58,12 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE431",
       "teacher": "SN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-501(A)",
+      "type": "Lab",
       "batch": "65",
       "section": "E",
       "sub_section": "Main"

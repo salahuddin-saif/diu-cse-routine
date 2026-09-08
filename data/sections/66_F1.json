@@ -3,14 +3,26 @@
   "batch": "66",
   "classes": [
     {
-      "day": "Monday",
+      "day": "Saturday",
       "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "FTJ",
-      "room": "FTJ",
-      "type": "Theory",
+      "course": "CSE324",
+      "teacher": "FFN",
+      "room": "G1-016",
+      "type": "Lab",
       "batch": "66",
-      "section": "F"
+      "section": "F",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "FFN",
+      "room": "G1-016",
+      "type": "Lab",
+      "batch": "66",
+      "section": "F",
+      "sub_section": "1"
     }
   ]
 }

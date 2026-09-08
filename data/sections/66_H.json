@@ -36,7 +36,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE326",
+      "teacher": "MMB",
+      "room": "KT-304",
+      "type": "Theory",
+      "batch": "66",
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE316",
       "teacher": "SBA",
@@ -49,17 +60,6 @@
     {
       "day": "Monday",
       "time": "01:00-02:30",
-      "course": "CSE326",
-      "teacher": "MMB",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "66",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "01:00-02:30",
       "course": "CSE323",
       "teacher": "FRN",
       "room": "KT-221",
@@ -69,7 +69,18 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE323",
+      "teacher": "FRN",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "66",
+      "section": "H",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE328",
       "teacher": "MIS",
@@ -80,103 +91,48 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE324",
       "teacher": "FRN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "H",
-      "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE324",
-      "teacher": "FRN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "H",
-      "sub_section": "2"
-    },
-    {
-      "day": "Thursday",
-      "time": "11:30-01:00",
-      "course": "CSE323",
-      "teacher": "FRN",
-      "room": "KT-305",
-      "type": "Theory",
-      "batch": "66",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE324",
-      "teacher": "FRN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-510",
+      "type": "Lab",
       "batch": "66",
       "section": "H",
       "sub_section": "1"
     },
     {
-      "day": "Thursday",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE324",
+      "teacher": "FRN",
+      "room": "KT-504",
+      "type": "Lab",
+      "batch": "66",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE324",
       "teacher": "FRN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-510",
+      "type": "Lab",
       "batch": "66",
       "section": "H",
       "sub_section": "1"
     },
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE328",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE324",
+      "teacher": "FRN",
+      "room": "KT-504",
+      "type": "Lab",
       "batch": "66",
       "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE316",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "CSE326",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "01:00-02:30",
-      "course": "CSE323",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "H",
-      "sub_section": "Main"
+      "sub_section": "2"
     }
   ]
 }
