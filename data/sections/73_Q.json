@@ -1,182 +1,101 @@
 {
   "section": "73_Q",
-  "batch": "73",
   "classes": [
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "ENG101",
-      "teacher": "ENT_2",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "MAT101",
-      "teacher": "AMN",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
     {
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "MHS",
       "room": "KT-513",
-      "type": "Lab",
+      "section": "73_Q",
+      "sub_section": "Main",
       "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "MSJ",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "MAT101",
-      "teacher": "AMN",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE112",
-      "teacher": "MHS",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ENT_2",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE115",
-      "teacher": "MSJ",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "MHS",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "MSJ",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "MAT101",
-      "teacher": "AMN",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE112",
-      "teacher": "MHS",
-      "room": "ANX1-202",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "ENG101",
-      "teacher": "ENT_2",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE115",
-      "teacher": "MSJ",
-      "room": "ANX1-210",
-      "type": "Theory",
-      "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
+      "section_letter": "Q",
+      "type": "Lab"
     },
     {
       "day": "Saturday",
       "time": "11:30-01:00",
       "course": "ENG101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "ENT_2",
+      "room": "ANX1-208",
+      "section": "73_Q",
+      "sub_section": "Main",
       "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
+      "section_letter": "Q",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
       "time": "01:00-02:30",
       "course": "MAT101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "AMN",
+      "room": "ANX1-208",
+      "section": "73_Q",
+      "sub_section": "Main",
       "batch": "73",
-      "section": "Q",
-      "sub_section": "Main"
+      "section_letter": "Q",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "MSJ",
+      "room": "ANX1-202",
+      "section": "73_Q",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "Q",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "MAT101",
+      "teacher": "AMN",
+      "room": "ANX1-202",
+      "section": "73_Q",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "Q",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "ENT_2",
+      "room": "ANX1-210",
+      "section": "73_Q",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "Q",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE115",
+      "teacher": "MSJ",
+      "room": "ANX1-210",
+      "section": "73_Q",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "Q",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE112",
+      "teacher": "MHS",
+      "room": "ANX1-202",
+      "section": "73_Q",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "Q",
+      "type": "Theory"
     }
   ]
 }

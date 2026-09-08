@@ -1,160 +1,53 @@
 {
   "section": "67_N",
-  "batch": "67",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE322",
-      "teacher": "NHE",
-      "room": "G1-006",
-      "type": "Lab",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE322",
-      "teacher": "NHE",
-      "room": "G1-004",
-      "type": "Lab",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
+      "day": "Monday",
+      "time": "08:30-10:00",
       "course": "CSE317",
       "teacher": "RYS",
-      "room": "KT-220",
-      "type": "Theory",
+      "room": "KT-513",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE322",
-      "teacher": "NHE",
-      "room": "G1-006",
-      "type": "Lab",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "ACT327",
-      "teacher": "FNT_3",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
+      "day": "Monday",
       "time": "11:30-01:00",
-      "course": "CSE322",
-      "teacher": "NHE",
-      "room": "G1-004",
-      "type": "Lab",
+      "course": "CSE315",
+      "teacher": "MMB",
+      "room": "KT-513",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "2"
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE321",
       "teacher": "NHE",
       "room": "KT-517(A)",
-      "type": "Theory",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "RYS",
-      "room": "KT-513",
-      "type": "Lab",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE315",
-      "teacher": "MMB",
-      "room": "KT-513",
-      "type": "Lab",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "ACT327",
-      "teacher": "FNT_3",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "NHE",
-      "room": "KT-318(B)",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE315",
-      "teacher": "MMB",
-      "room": "KT-318(B)",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
-      "time": "11:30-01:00",
+      "time": "01:00-04:00",
       "course": "CSE322",
       "teacher": "NHE",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-006",
+      "section": "67_N",
+      "sub_section": "1",
       "batch": "67",
-      "section": "N",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE322",
-      "teacher": "NHE",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "1"
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -162,10 +55,11 @@
       "course": "CSE317",
       "teacher": "RYS",
       "room": "KT-220",
-      "type": "Theory",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
@@ -173,54 +67,47 @@
       "course": "ACT327",
       "teacher": "FNT_3",
       "room": "KT-220",
-      "type": "Theory",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
-      "time": "11:30-01:00",
+      "time": "11:30-02:30",
       "course": "CSE322",
       "teacher": "NHE",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-004",
+      "section": "67_N",
+      "sub_section": "2",
       "batch": "67",
-      "section": "N",
-      "sub_section": "2"
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE322",
-      "teacher": "NHE",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
+      "day": "Wednesday",
       "time": "08:30-10:00",
-      "course": "CSE317",
-      "teacher": "RYS",
-      "room": "COM",
-      "type": "Theory",
+      "course": "CSE321",
+      "teacher": "NHE",
+      "room": "KT-318(B)",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
-      "day": "Monday",
+      "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE315",
       "teacher": "MMB",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-318(B)",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
@@ -228,32 +115,11 @@
       "course": "ACT327",
       "teacher": "FNT_3",
       "room": "KT-515",
-      "type": "Theory",
+      "section": "67_N",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE317",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "ACT327",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     }
   ]
 }

@@ -1,149 +1,77 @@
 {
   "section": "65_H",
-  "batch": "65",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE432",
-      "teacher": "IJN",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE413",
       "teacher": "IST",
       "room": "KT-222",
-      "type": "Theory",
+      "section": "65_H",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE432",
+      "teacher": "IJN",
+      "room": "KT-221",
+      "section": "65_H",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "H",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE431",
       "teacher": "SN",
       "room": "KT-304",
-      "type": "Theory",
+      "section": "65_H",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Tuesday",
       "time": "11:30-01:00",
       "course": "CSE413",
       "teacher": "IST",
       "room": "KT-306",
-      "type": "Theory",
+      "section": "65_H",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE432",
-      "teacher": "IJN",
-      "room": "KT-501(B)",
-      "type": "Lab",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
+      "day": "Tuesday",
       "time": "01:00-02:30",
       "course": "CSE431",
       "teacher": "SN",
       "room": "KT-510",
-      "type": "Lab",
+      "section": "65_H",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Lab"
     },
     {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE432",
-      "teacher": "IJN",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE413",
-      "teacher": "IST",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
+      "day": "Tuesday",
       "time": "02:30-04:00",
-      "course": "CSE431",
-      "teacher": "SN",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE413",
-      "teacher": "IST",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
       "course": "CSE432",
       "teacher": "IJN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-501(B)",
+      "section": "65_H",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE431",
-      "teacher": "SN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Lab"
     }
   ]
 }

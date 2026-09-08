@@ -1,39 +1,17 @@
 {
   "section": "RE_C",
-  "batch": "RE",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "DMZ",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "RE",
-      "section": "C",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "C",
-      "sub_section": "Main"
-    },
-    {
       "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE491",
       "teacher": "DMZ",
       "room": "KT-217",
-      "type": "Theory",
-      "batch": "Unknown",
-      "section": "C",
-      "sub_section": "Main"
+      "section": "RE_C",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
     }
   ]
 }

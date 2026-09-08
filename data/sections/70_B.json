@@ -1,17 +1,41 @@
 {
   "section": "70_B",
-  "batch": "70",
   "classes": [
     {
-      "day": "Saturday",
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "SMAH",
+      "room": "KT-201",
+      "section": "70_B",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "B",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "MAT211",
+      "teacher": "MPL",
+      "room": "ANX1-207",
+      "section": "70_B",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "B",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "BNS101",
       "teacher": "SMN",
-      "room": "ANX1-202",
-      "type": "Theory",
+      "room": "ANX1-208",
+      "section": "70_B",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -19,164 +43,47 @@
       "course": "CSE212",
       "teacher": "SR",
       "room": "KT-501(B)",
-      "type": "Lab",
+      "section": "70_B",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Lab"
     },
     {
       "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "G1-008",
+      "section": "70_B",
+      "sub_section": "1",
+      "batch": "70",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "SMAH",
       "room": "KT-208",
-      "type": "Theory",
+      "section": "70_B",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "G1-008",
-      "type": "Lab",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "G1-008",
-      "type": "Lab",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "MAT211",
       "teacher": "MPL",
       "room": "ANX1-204",
-      "type": "Theory",
+      "section": "70_B",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "BNS101",
-      "teacher": "SMN",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "SMAH",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "G1-009",
-      "type": "Lab",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "G1-009",
-      "type": "Lab",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "MAT211",
-      "teacher": "MPL",
-      "room": "ANX1-207",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE212",
-      "teacher": "SR",
-      "room": "KT-503",
-      "type": "Lab",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE212",
-      "teacher": "SR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "SMAH",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
@@ -184,109 +91,35 @@
       "course": "BNS101",
       "teacher": "SMN",
       "room": "ANX1-202",
-      "type": "Theory",
+      "section": "70_B",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "MAT211",
-      "teacher": "MPL",
-      "room": "ANX1-204",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "SMAH",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "MAT211",
-      "teacher": "MPL",
-      "room": "ANX1-207",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "BNS101",
-      "teacher": "SMN",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
-      "time": "10:00-11:30",
+      "time": "11:30-01:00",
       "course": "CSE212",
       "teacher": "SR",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-503",
+      "section": "70_B",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",
-      "time": "08:30-10:00",
+      "time": "08:30-11:30",
       "course": "CSE214",
       "teacher": "SNK",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-009",
+      "section": "70_B",
+      "sub_section": "2",
       "batch": "70",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE212",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE213",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "70",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Lab"
     }
   ]
 }

@@ -1,72 +1,65 @@
 {
   "section": "65_A",
-  "batch": "65",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "THT",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE431",
-      "teacher": "SMAH",
-      "room": "KT-504",
-      "type": "Lab",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE432",
-      "teacher": "SR",
-      "room": "KT-504",
-      "type": "Lab",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE431",
       "teacher": "SMAH",
       "room": "KT-208",
-      "type": "Theory",
+      "section": "65_A",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE413",
       "teacher": "THT",
       "room": "KT-515",
-      "type": "Theory",
+      "section": "65_A",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE432",
       "teacher": "SR",
       "room": "KT-501(A)",
-      "type": "Lab",
+      "section": "65_A",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE431",
+      "teacher": "SMAH",
+      "room": "KT-504",
+      "section": "65_A",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "A",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE432",
+      "teacher": "SR",
+      "room": "KT-504",
+      "section": "65_A",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "A",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -74,76 +67,11 @@
       "course": "CSE413",
       "teacher": "THT",
       "room": "KT-515",
-      "type": "Theory",
+      "section": "65_A",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE431",
-      "teacher": "SMAH",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE432",
-      "teacher": "SR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE431",
-      "teacher": "SMAH",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE413",
-      "teacher": "THT",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE432",
-      "teacher": "SR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     }
   ]
 }

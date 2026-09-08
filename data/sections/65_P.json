@@ -1,17 +1,29 @@
 {
   "section": "65_P",
-  "batch": "65",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE413",
-      "teacher": "NT-7",
-      "room": "KT-216",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE471",
+      "teacher": "FZA",
+      "room": "IOT LAB- KT-502",
+      "section": "65_P",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
+      "section_letter": "P",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE472",
+      "teacher": "FZA",
+      "room": "IOT LAB- KT-502",
+      "section": "65_P",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "P",
+      "type": "Lab"
     },
     {
       "day": "Saturday",
@@ -19,10 +31,11 @@
       "course": "CSE471",
       "teacher": "FZA",
       "room": "KT-303",
-      "type": "Theory",
+      "section": "65_P",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
+      "section_letter": "P",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -30,120 +43,35 @@
       "course": "CSE472",
       "teacher": "FZA",
       "room": "KT-303",
-      "type": "Theory",
+      "section": "65_P",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
+      "section_letter": "P",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE413",
+      "teacher": "NT-7",
+      "room": "KT-216",
+      "section": "65_P",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "P",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE413",
       "teacher": "NT-7",
       "room": "KT-208",
-      "type": "Theory",
+      "section": "65_P",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE471",
-      "teacher": "FZA",
-      "room": "IOT LAB-",
-      "type": "Lab",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE472",
-      "teacher": "FZA",
-      "room": "IOT LAB-",
-      "type": "Lab",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE413",
-      "teacher": "NT",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE413",
-      "teacher": "NT",
-      "room": "KT-208",
-      "type": "Theory",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE472",
-      "teacher": "FZA",
-      "room": "FZA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE471",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE472",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "P",
-      "sub_section": "Main"
+      "section_letter": "P",
+      "type": "Theory"
     }
   ]
 }

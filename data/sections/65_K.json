@@ -1,160 +1,77 @@
 {
   "section": "65_K",
-  "batch": "65",
   "classes": [
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE441",
       "teacher": "MHD",
       "room": "KT-217",
-      "type": "Theory",
+      "section": "65_K",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE442",
       "teacher": "FFZ",
       "room": "KT-318(A)",
-      "type": "Theory",
+      "section": "65_K",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE413",
       "teacher": "NT-4",
       "room": "KT-318(A)",
-      "type": "Theory",
+      "section": "65_K",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE413",
       "teacher": "NT-4",
       "room": "KT-217",
-      "type": "Theory",
+      "section": "65_K",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE442",
-      "teacher": "FFZ",
-      "room": "KT-501(A)",
-      "type": "Lab",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
+      "day": "Tuesday",
       "time": "11:30-01:00",
       "course": "CSE441",
       "teacher": "MHD",
       "room": "KT-501(B)",
-      "type": "Lab",
+      "section": "65_K",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE441",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE442",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE441",
-      "teacher": "MHD",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE413",
-      "teacher": "NT",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",
       "time": "02:30-04:00",
       "course": "CSE442",
       "teacher": "FFZ",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-501(A)",
+      "section": "65_K",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE441",
-      "teacher": "MHD",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Lab"
     }
   ]
 }

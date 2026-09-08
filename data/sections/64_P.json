@@ -1,61 +1,29 @@
 {
   "section": "64_P",
-  "batch": "64",
   "classes": [
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE473",
-      "teacher": "GR",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE473",
-      "teacher": "GR",
-      "room": "KT-504",
-      "type": "Lab",
-      "batch": "64",
-      "section": "P",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE473",
-      "teacher": "GR",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "P",
-      "sub_section": "Main"
-    },
     {
       "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE473",
       "teacher": "GR",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-504",
+      "section": "64_P",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "P",
-      "sub_section": "Main"
+      "section_letter": "P",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE473",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "GR",
+      "room": "KT-303",
+      "section": "64_P",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "P",
-      "sub_section": "Main"
+      "section_letter": "P",
+      "type": "Theory"
     }
   ]
 }

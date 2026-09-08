@@ -1,105 +1,29 @@
 {
   "section": "65_J",
-  "batch": "65",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE441",
-      "teacher": "MHD",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE442",
-      "teacher": "FFZ",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "MAIT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "MAIT",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE441",
       "teacher": "MHD",
       "room": "KT-501(B)",
-      "type": "Lab",
+      "section": "65_J",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
+      "section_letter": "J",
+      "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE442",
       "teacher": "FFZ",
       "room": "KT-501(B)",
-      "type": "Lab",
+      "section": "65_J",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE441",
-      "teacher": "MHD",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE442",
-      "teacher": "FFZ",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "MAIT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
+      "section_letter": "J",
+      "type": "Lab"
     },
     {
       "day": "Monday",
@@ -107,65 +31,47 @@
       "course": "CSE413",
       "teacher": "MAIT",
       "room": "KT-221",
-      "type": "Theory",
+      "section": "65_J",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE441",
-      "teacher": "MHD",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE442",
-      "teacher": "FFZ",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
+      "section_letter": "J",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE441",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "MHD",
+      "room": "KT-217",
+      "section": "65_J",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
+      "section_letter": "J",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE442",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "FFZ",
+      "room": "KT-222",
+      "section": "65_J",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
+      "section_letter": "J",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "MAIT",
+      "room": "KT-223",
+      "section": "65_J",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "J",
-      "sub_section": "Main"
+      "section_letter": "J",
+      "type": "Theory"
     }
   ]
 }

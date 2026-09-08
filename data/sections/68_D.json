@@ -1,28 +1,29 @@
 {
   "section": "68_D",
-  "batch": "68",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE228",
+      "teacher": "MIS",
+      "room": "KT-219",
+      "section": "68_D",
+      "sub_section": "Main",
+      "batch": "68",
+      "section_letter": "D",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE227",
       "teacher": "SH",
       "room": "KT-318(A)",
-      "type": "Theory",
+      "section": "68_D",
+      "sub_section": "Main",
       "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE223",
-      "teacher": "SMTS",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
+      "section_letter": "D",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -30,10 +31,11 @@
       "course": "CSE228",
       "teacher": "MIS",
       "room": "KT-201",
-      "type": "Theory",
+      "section": "68_D",
+      "sub_section": "Main",
       "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
+      "section_letter": "D",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -41,131 +43,59 @@
       "course": "CSE225",
       "teacher": "BCD",
       "room": "KT-222",
-      "type": "Theory",
+      "section": "68_D",
+      "sub_section": "Main",
       "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
+      "section_letter": "D",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE223",
-      "teacher": "SMTS",
-      "room": "KT-516",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE228",
-      "teacher": "MIS",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE225",
-      "teacher": "BCD",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
+      "time": "08:30-10:00",
       "course": "CSE227",
       "teacher": "SH",
       "room": "KT-318(A)",
-      "type": "Theory",
+      "section": "68_D",
+      "sub_section": "Main",
       "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
+      "section_letter": "D",
+      "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE224",
-      "teacher": "LR",
-      "room": "SH-103",
-      "type": "Lab",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE224",
-      "teacher": "LR",
-      "room": "SH-103",
-      "type": "Lab",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
+      "course": "CSE223",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "section": "68_D",
+      "sub_section": "Main",
+      "batch": "68",
+      "section_letter": "D",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-11:30",
       "course": "CSE224",
       "teacher": "LR",
       "room": "SH-103",
-      "type": "Lab",
+      "section": "68_D",
+      "sub_section": "1",
       "batch": "68",
-      "section": "D",
-      "sub_section": "1"
+      "section_letter": "D",
+      "type": "Lab"
     },
     {
-      "day": "Monday",
-      "time": "11:30-01:00",
+      "day": "Thursday",
+      "time": "11:30-02:30",
       "course": "CSE224",
       "teacher": "LR",
       "room": "SH-103",
-      "type": "Lab",
+      "section": "68_D",
+      "sub_section": "2",
       "batch": "68",
-      "section": "D",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE228",
-      "teacher": "MIS",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE228",
-      "teacher": "MIS",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE225",
-      "teacher": "BCD",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
+      "section_letter": "D",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",
@@ -173,98 +103,23 @@
       "course": "CSE223",
       "teacher": "SMTS",
       "room": "KT-516",
-      "type": "Theory",
+      "section": "68_D",
+      "sub_section": "Main",
       "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE224",
-      "teacher": "LR",
-      "room": "LR",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE224",
-      "teacher": "LR",
-      "room": "LR",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE228",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE225",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE227",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE223",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
+      "section_letter": "D",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
       "time": "11:30-01:00",
       "course": "CSE225",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "BCD",
+      "room": "KT-303",
+      "section": "68_D",
+      "sub_section": "Main",
       "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE223",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "68",
-      "section": "D",
-      "sub_section": "Main"
+      "section_letter": "D",
+      "type": "Theory"
     }
   ]
 }

@@ -1,39 +1,29 @@
 {
   "section": "70_N",
-  "batch": "70",
   "classes": [
-    {
-      "day": "Saturday",
-      "time": "11:30-02:30",
-      "course": "CSE214",
-      "teacher": "NSL",
-      "room": "G1-008",
-      "type": "Lab",
-      "batch": "70",
-      "section": "N",
-      "sub_section": "1"
-    },
     {
       "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE213",
       "teacher": "NSL",
       "room": "KT-516",
-      "type": "Theory",
+      "section": "70_N",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-02:30",
       "course": "CSE214",
       "teacher": "NSL",
-      "room": "G1-005",
-      "type": "Lab",
+      "room": "G1-008",
+      "section": "70_N",
+      "sub_section": "1",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -41,33 +31,47 @@
       "course": "MAT211",
       "teacher": "MNM",
       "room": "ANX1-103",
-      "type": "Theory",
+      "section": "70_N",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
-    
-        {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE213",
+    {
+      "day": "Sunday",
+      "time": "11:30-02:30",
+      "course": "CSE214",
       "teacher": "NSL",
-      "room": "KT-516",
-      "type": "Theory",
+      "room": "G1-005",
+      "section": "70_N",
+      "sub_section": "2",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",
       "time": "01:00-02:30",
       "course": "CSE212",
       "teacher": "TI",
-      " room": "KT-303",
-      "type": "Theory",
+      "room": "KT-303",
+      "section": "70_N",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "MAT211",
+      "teacher": "MNM",
+      "room": "ANX1-208",
+      "section": "70_N",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -75,47 +79,47 @@
       "course": "BNS101",
       "teacher": "BNS_3",
       "room": "ANX1-201",
-      "type": "Theory",
+      "section": "70_N",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
-    },  
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "MAT211",
-      "teacher": "MNM",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
-
-       
-        {
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "NSL",
+      "room": "KT-516",
+      "section": "70_N",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
       "day": "Wednesday",
       "time": "10:00-11:30",
       "course": "BNS101",
       "teacher": "BNS_3",
       "room": "ANX1-208",
-      "type": "Theory",
+      "section": "70_N",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
-
-        
-        {
+    {
       "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE212",
       "teacher": "TI",
       "room": "KT-216",
-      "type": "Theory",
+      "section": "70_N",
+      "sub_section": "Main",
       "batch": "70",
-      "section": "N",
-      "sub_section": "Main"
-        }
+      "section_letter": "N",
+      "type": "Theory"
+    }
   ]
 }

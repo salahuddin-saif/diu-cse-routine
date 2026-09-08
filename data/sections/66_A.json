@@ -1,138 +1,41 @@
 {
   "section": "66_A",
-  "batch": "66",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE316",
-      "teacher": "MMRN",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE328",
-      "teacher": "NNM",
-      "room": "KT-306",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE324",
-      "teacher": "NJO",
-      "room": "G1-022",
-      "type": "Lab",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE324",
-      "teacher": "NJO",
-      "room": "G1-002",
-      "type": "Lab",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE324",
-      "teacher": "NJO",
-      "room": "G1-002",
-      "type": "Lab",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE326",
       "teacher": "MUH",
       "room": "KT-216",
-      "type": "Theory",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE316",
-      "teacher": "MMRN",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE323",
       "teacher": "NJO",
       "room": "KT-513",
-      "type": "Lab",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Lab"
     },
     {
-      "day": "Sunday",
-      "time": "11:30-01:00",
+      "day": "Monday",
+      "time": "11:30-02:30",
       "course": "CSE324",
       "teacher": "NJO",
       "room": "G1-022",
-      "type": "Lab",
+      "section": "66_A",
+      "sub_section": "1",
       "batch": "66",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE328",
-      "teacher": "NNM",
-      "room": "KT-305",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE323",
-      "teacher": "NJO",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE326",
-      "teacher": "MUH",
-      "room": "KT-307",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -140,10 +43,11 @@
       "course": "CSE328",
       "teacher": "NNM",
       "room": "KT-306",
-      "type": "Theory",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
@@ -151,54 +55,11 @@
       "course": "CSE316",
       "teacher": "MMRN",
       "room": "G1-027",
-      "type": "Theory",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE326",
-      "teacher": "MUH",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE323",
-      "teacher": "NJO",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE324",
-      "teacher": "NJO",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE324",
-      "teacher": "NJO",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "1"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -206,10 +67,11 @@
       "course": "CSE316",
       "teacher": "MMRN",
       "room": "KT-220",
-      "type": "Theory",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -217,32 +79,23 @@
       "course": "CSE328",
       "teacher": "NNM",
       "room": "KT-305",
-      "type": "Theory",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
-      "time": "11:30-01:00",
+      "time": "01:00-04:00",
       "course": "CSE324",
       "teacher": "NJO",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-002",
+      "section": "66_A",
+      "sub_section": "2",
       "batch": "66",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE324",
-      "teacher": "NJO",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "2"
+      "section_letter": "A",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -250,10 +103,11 @@
       "course": "CSE323",
       "teacher": "NJO",
       "room": "KT-307",
-      "type": "Theory",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
@@ -261,54 +115,11 @@
       "course": "CSE326",
       "teacher": "MUH",
       "room": "KT-307",
-      "type": "Theory",
+      "section": "66_A",
+      "sub_section": "Main",
       "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE328",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE316",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE316",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE328",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "66",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     }
   ]
 }

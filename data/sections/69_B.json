@@ -1,248 +1,101 @@
 {
   "section": "69_B",
-  "batch": "69",
   "classes": [
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "AOL101",
+      "teacher": "MIN",
+      "room": "KT-514",
+      "section": "69_B",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "B",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-05:30",
+      "course": "CSE216",
+      "teacher": "NAB",
+      "room": "KT-810",
+      "section": "69_B",
+      "sub_section": "2",
+      "batch": "69",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-05:30",
+      "course": "CSE222",
+      "teacher": "MTN",
+      "room": "G1-003",
+      "section": "69_B",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "AOL101",
+      "teacher": "MIN",
+      "room": "G1-027",
+      "section": "69_B",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "B",
+      "type": "Theory"
+    },
     {
       "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE215",
       "teacher": "NAB",
       "room": "KT-318(B)",
-      "type": "Theory",
+      "section": "69_B",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "SH-103",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "KT-810",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "SH-103",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "KT-810",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "AOL101",
-      "teacher": "MIN",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "AOL101",
-      "teacher": "MIN",
-      "room": "KT-514",
-      "type": "Theory",
+      "time": "02:30-05:30",
+      "course": "CSE216",
+      "teacher": "NAB",
+      "room": "SH-103",
+      "section": "69_B",
+      "sub_section": "1",
       "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Tuesday",
       "time": "01:00-02:30",
       "course": "CSE221",
       "teacher": "MTN",
       "room": "KT-318(A)",
-      "type": "Theory",
+      "section": "69_B",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "G1-003",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "G1-001",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "G1-003",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "G1-001",
-      "type": "Lab",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE215",
-      "teacher": "NAB",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE221",
-      "teacher": "MTN",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "AOL101",
-      "teacher": "MIN",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "NAB",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE216",
-      "teacher": "NAB",
-      "room": "NAB",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "AOL101",
-      "teacher": "MIN",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "1"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
-      "time": "02:30-04:00",
+      "time": "02:30-05:30",
       "course": "CSE222",
       "teacher": "MTN",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-001",
+      "section": "69_B",
+      "sub_section": "2",
       "batch": "69",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
-      "time": "04:00-05:30",
-      "course": "CSE222",
-      "teacher": "MTN",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "2"
+      "section_letter": "B",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -250,10 +103,11 @@
       "course": "CSE215",
       "teacher": "NAB",
       "room": "KT-216",
-      "type": "Theory",
+      "section": "69_B",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
@@ -261,43 +115,11 @@
       "course": "CSE221",
       "teacher": "MTN",
       "room": "KT-216",
-      "type": "Theory",
+      "section": "69_B",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE215",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "AOL101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE221",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     }
   ]
 }

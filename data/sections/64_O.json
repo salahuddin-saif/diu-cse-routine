@@ -1,61 +1,41 @@
 {
   "section": "64_O",
-  "batch": "64",
   "classes": [
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE437",
+      "teacher": "NT-8",
+      "room": "KT-223",
+      "section": "64_O",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "O",
+      "type": "Theory"
+    },
     {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE438",
       "teacher": "PPC",
       "room": "KT-222",
-      "type": "Theory",
+      "section": "64_O",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE437",
-      "teacher": "NT-8",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE438",
-      "teacher": "PPC",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE437",
       "teacher": "NT-8",
       "room": "KT-501(B)",
-      "type": "Lab",
+      "section": "64_O",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE437",
-      "teacher": "NT",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -63,54 +43,11 @@
       "course": "CSE438",
       "teacher": "PPC",
       "room": "KT-218",
-      "type": "Theory",
+      "section": "64_O",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE437",
-      "teacher": "NT",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE438",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE437",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE438",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Theory"
     }
   ]
 }

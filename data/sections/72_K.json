@@ -1,28 +1,29 @@
 {
   "section": "72_K",
-  "batch": "72",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "ENG102",
-      "teacher": "NAT",
-      "room": "ANX1-208",
-      "type": "Theory",
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "PHY101",
+      "teacher": "SSK",
+      "room": "KT-518",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Monday",
       "time": "02:30-04:00",
-      "course": "MAT102",
-      "teacher": "MMR",
-      "room": "ANX1-202",
-      "type": "Theory",
+      "course": "CSE113",
+      "teacher": "JRY",
+      "room": "KT-216",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -30,10 +31,11 @@
       "course": "MAT102",
       "teacher": "MMR",
       "room": "ANX1-103",
-      "type": "Theory",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -41,98 +43,23 @@
       "course": "ENG102",
       "teacher": "NAT",
       "room": "ANX1-302",
-      "type": "Theory",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE113",
-      "teacher": "JRY",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "PHY101",
-      "teacher": "SSK",
-      "room": "KT-515",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE113",
-      "teacher": "JRY",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "PHY101",
-      "teacher": "SSK",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
       "time": "01:00-02:30",
-      "course": "CSE114",
-      "teacher": "JRY",
-      "room": "G1-021",
-      "type": "Lab",
+      "course": "ENG102",
+      "teacher": "NAT",
+      "room": "ANX1-208",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "JRY",
-      "room": "G1-021",
-      "type": "Lab",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE114",
-      "teacher": "JRY",
-      "room": "G1-021",
-      "type": "Lab",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE114",
-      "teacher": "JRY",
-      "room": "G1-021",
-      "type": "Lab",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "1"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
@@ -140,43 +67,11 @@
       "course": "MAT102",
       "teacher": "MMR",
       "room": "ANX1-202",
-      "type": "Theory",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "ENG102",
-      "teacher": "NAT",
-      "room": "ANX1-208",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE113",
-      "teacher": "JRY",
-      "room": "KT-216",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "PHY101",
-      "teacher": "SSK",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -184,10 +79,11 @@
       "course": "CSE113",
       "teacher": "JRY",
       "room": "KT-216",
-      "type": "Theory",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -195,98 +91,35 @@
       "course": "PHY101",
       "teacher": "SSK",
       "room": "KT-515",
-      "type": "Theory",
+      "section": "72_K",
+      "sub_section": "Main",
       "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
-      "time": "08:30-10:00",
+      "time": "11:30-02:30",
       "course": "CSE114",
       "teacher": "JRY",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-021",
+      "section": "72_K",
+      "sub_section": "1",
       "batch": "72",
-      "section": "K",
-      "sub_section": "2"
+      "section_letter": "K",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
-      "time": "10:00-11:30",
+      "time": "08:30-11:30",
       "course": "CSE114",
       "teacher": "JRY",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-021",
+      "section": "72_K",
+      "sub_section": "2",
       "batch": "72",
-      "section": "K",
-      "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE114",
-      "teacher": "JRY",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "01:00-02:30",
-      "course": "CSE114",
-      "teacher": "JRY",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "MAT102",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "ENG102",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE113",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "PHY101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "72",
-      "section": "K",
-      "sub_section": "Main"
+      "section_letter": "K",
+      "type": "Lab"
     }
   ]
 }

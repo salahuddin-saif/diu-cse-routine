@@ -1,105 +1,53 @@
 {
   "section": "65_O",
-  "batch": "65",
   "classes": [
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "NT-5",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
     {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE453",
       "teacher": "NT-7",
       "room": "KT-219",
-      "type": "Theory",
+      "section": "65_O",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE413",
-      "teacher": "NT-5",
-      "room": "KT-222",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
       "time": "02:30-04:00",
-      "course": "CSE454",
-      "teacher": "DMR",
-      "room": "KT-307",
-      "type": "Theory",
+      "course": "CSE413",
+      "teacher": "NT-5",
+      "room": "KT-218",
+      "section": "65_O",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE453",
       "teacher": "NT-7",
       "room": "KT-510",
-      "type": "Lab",
+      "section": "65_O",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE454",
-      "teacher": "DMR",
-      "room": "KT-305",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "NT",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE453",
-      "teacher": "NT",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE413",
-      "teacher": "NT",
+      "teacher": "NT-5",
       "room": "KT-222",
-      "type": "Theory",
+      "section": "65_O",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
@@ -107,21 +55,11 @@
       "course": "CSE454",
       "teacher": "DMR",
       "room": "KT-307",
-      "type": "Theory",
+      "section": "65_O",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE453",
-      "teacher": "NT",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -129,65 +67,11 @@
       "course": "CSE454",
       "teacher": "DMR",
       "room": "KT-305",
-      "type": "Theory",
+      "section": "65_O",
+      "sub_section": "Main",
       "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE453",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE413",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE454",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE454",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "65",
-      "section": "O",
-      "sub_section": "Main"
+      "section_letter": "O",
+      "type": "Theory"
     }
   ]
 }

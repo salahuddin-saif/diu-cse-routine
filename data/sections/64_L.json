@@ -1,6 +1,5 @@
 {
   "section": "64_L",
-  "batch": "64",
   "classes": [
     {
       "day": "Saturday",
@@ -8,43 +7,11 @@
       "course": "CSE443",
       "teacher": "MTN",
       "room": "KT-223",
-      "type": "Theory",
+      "section": "64_L",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE443",
-      "teacher": "MTN",
-      "room": "KT-224",
-      "type": "Theory",
-      "batch": "64",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE443",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE443",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "L",
-      "sub_section": "Main"
+      "section_letter": "L",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
@@ -52,10 +19,11 @@
       "course": "CSE443",
       "teacher": "MTN",
       "room": "KT-224",
-      "type": "Theory",
+      "section": "64_L",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "L",
-      "sub_section": "Main"
+      "section_letter": "L",
+      "type": "Theory"
     }
   ]
 }

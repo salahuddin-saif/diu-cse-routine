@@ -1,50 +1,17 @@
 {
   "section": "63_H",
-  "batch": "63",
   "classes": [
     {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "DMQ",
-      "room": "G1-027",
-      "type": "Theory",
-      "batch": "63",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "DMY",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "63",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE491",
-      "teacher": "DMQ",
-      "room": "KT-219",
-      "type": "Theory",
-      "batch": "63",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
       "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE491",
       "teacher": "DMQ",
       "room": "G1-027",
-      "type": "Theory",
+      "section": "63_H",
+      "sub_section": "Main",
       "batch": "63",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
@@ -52,10 +19,11 @@
       "course": "CSE491",
       "teacher": "DMY",
       "room": "KT-219",
-      "type": "Theory",
+      "section": "63_H",
+      "sub_section": "Main",
       "batch": "63",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
@@ -63,21 +31,11 @@
       "course": "CSE491",
       "teacher": "DMQ",
       "room": "KT-219",
-      "type": "Theory",
+      "section": "63_H",
+      "sub_section": "Main",
       "batch": "63",
-      "section": "H",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "63",
-      "section": "H",
-      "sub_section": "Main"
+      "section_letter": "H",
+      "type": "Theory"
     }
   ]
 }

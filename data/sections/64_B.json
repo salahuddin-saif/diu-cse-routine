@@ -1,61 +1,17 @@
 {
   "section": "64_B",
-  "batch": "64",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE438",
-      "teacher": "MSK",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE437",
       "teacher": "MUM",
       "room": "KT-303",
-      "type": "Theory",
+      "section": "64_B",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE438",
-      "teacher": "MSK",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE437",
-      "teacher": "MUM",
-      "room": "KT-303",
-      "type": "Theory",
-      "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE438",
-      "teacher": "MSK",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Monday",
@@ -63,43 +19,35 @@
       "course": "CSE438",
       "teacher": "MSK",
       "room": "KT-218",
-      "type": "Theory",
+      "section": "64_B",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE437",
       "teacher": "MUM",
       "room": "KT-303",
-      "type": "Theory",
+      "section": "64_B",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE438",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "teacher": "MSK",
+      "room": "KT-220",
+      "section": "64_B",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE437",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     }
   ]
 }

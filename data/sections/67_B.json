@@ -1,17 +1,53 @@
 {
   "section": "67_B",
-  "batch": "67",
   "classes": [
+    {
+      "day": "Monday",
+      "time": "02:30-05:30",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "G1-014",
+      "section": "67_B",
+      "sub_section": "1",
+      "batch": "67",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "G1-017",
+      "section": "67_B",
+      "sub_section": "2",
+      "batch": "67",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE315",
+      "teacher": "AS",
+      "room": "KT-201",
+      "section": "67_B",
+      "sub_section": "Main",
+      "batch": "67",
+      "section_letter": "B",
+      "type": "Theory"
+    },
     {
       "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE317",
       "teacher": "MRR",
       "room": "KT-318(B)",
-      "type": "Theory",
+      "section": "67_B",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -19,208 +55,47 @@
       "course": "ACT327",
       "teacher": "FNT_1",
       "room": "KT-318(B)",
-      "type": "Theory",
+      "section": "67_B",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE315",
       "teacher": "AS",
       "room": "KT-201",
-      "type": "Theory",
+      "section": "67_B",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "ACT327",
       "teacher": "FNT_1",
       "room": "KT-501(A)",
-      "type": "Lab",
+      "section": "67_B",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Lab"
     },
     {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE315",
-      "teacher": "AS",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "G1-014",
-      "type": "Lab",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "G1-014",
-      "type": "Lab",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "G1-017",
-      "type": "Lab",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "G1-017",
-      "type": "Lab",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE317",
-      "teacher": "MRR",
-      "room": "KT-518",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
+      "day": "Thursday",
       "time": "02:30-04:00",
       "course": "CSE321",
       "teacher": "STA",
       "room": "KT-518",
-      "type": "Theory",
+      "section": "67_B",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE321",
-      "teacher": "STA",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE315",
-      "teacher": "AS",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "AS",
-      "room": "KT-201",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "ACT327",
-      "teacher": "FNT_1",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "04:00-05:30",
-      "course": "CSE321",
-      "teacher": "STA",
-      "room": "KT-514",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
@@ -228,76 +103,23 @@
       "course": "CSE317",
       "teacher": "MRR",
       "room": "KT-518",
-      "type": "Theory",
+      "section": "67_B",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
-      "day": "Thursday",
-      "time": "11:30-01:00",
+      "day": "Wednesday",
+      "time": "04:00-05:30",
       "course": "CSE321",
       "teacher": "STA",
-      "room": "KT-518",
-      "type": "Theory",
+      "room": "KT-514",
+      "section": "67_B",
+      "sub_section": "Main",
       "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE315",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE317",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "ACT327",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Thursday",
-      "time": "02:30-04:00",
-      "course": "CSE321",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "67",
-      "section": "B",
-      "sub_section": "Main"
+      "section_letter": "B",
+      "type": "Theory"
     }
   ]
 }

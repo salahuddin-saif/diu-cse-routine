@@ -1,237 +1,77 @@
 {
   "section": "69_A",
-  "batch": "69",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "AOL101",
-      "teacher": "AAM",
-      "room": "G1-026",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE216",
-      "teacher": "MSU",
-      "room": "KT-809",
-      "type": "Lab",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "CSE216",
-      "teacher": "MSU",
-      "room": "KT-809",
-      "type": "Lab",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE222",
-      "teacher": "SEA",
-      "room": "G1-008",
-      "type": "Lab",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "SEA",
-      "room": "G1-008",
-      "type": "Lab",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE216",
-      "teacher": "MSU",
-      "room": "KT-809",
-      "type": "Lab",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE225",
       "teacher": "MSU",
       "room": "KT-218",
-      "type": "Theory",
+      "section": "69_A",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE221",
       "teacher": "SEA",
       "room": "KT-517(A)",
-      "type": "Theory",
+      "section": "69_A",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "11:30-01:00",
+      "day": "Monday",
+      "time": "02:30-05:30",
       "course": "CSE216",
       "teacher": "MSU",
       "room": "KT-809",
-      "type": "Lab",
+      "section": "69_A",
+      "sub_section": "2",
       "batch": "69",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE222",
-      "teacher": "SEA",
-      "room": "G1-013",
-      "type": "Lab",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "CSE221",
-      "teacher": "SEA",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "AOL101",
-      "teacher": "AAM",
-      "room": "KT-224",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE225",
-      "teacher": "MSU",
-      "room": "KT-223",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE222",
-      "teacher": "SEA",
-      "room": "G1-013",
-      "type": "Lab",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "2"
+      "section_letter": "A",
+      "type": "Lab"
     },
     {
       "day": "Sunday",
-      "time": "11:30-01:00",
+      "time": "01:00-02:30",
       "course": "AOL101",
       "teacher": "AAM",
       "room": "G1-026",
-      "type": "Theory",
+      "section": "69_A",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
+      "time": "08:30-11:30",
       "course": "CSE222",
       "teacher": "SEA",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-008",
+      "section": "69_A",
+      "sub_section": "1",
       "batch": "69",
-      "section": "A",
-      "sub_section": "1"
+      "section_letter": "A",
+      "type": "Lab"
     },
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "SEA",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
+      "day": "Tuesday",
+      "time": "11:30-02:30",
       "course": "CSE216",
       "teacher": "MSU",
-      "room": "MSU",
-      "type": "Theory",
+      "room": "KT-809",
+      "section": "69_A",
+      "sub_section": "1",
       "batch": "69",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE225",
-      "teacher": "MSU",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE216",
-      "teacher": "MSU",
-      "room": "MSU",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "02:30-04:00",
-      "course": "CSE221",
-      "teacher": "SEA",
-      "room": "KT-217",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -239,10 +79,23 @@
       "course": "CSE225",
       "teacher": "MSU",
       "room": "KT-223",
-      "type": "Theory",
+      "section": "69_A",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE221",
+      "teacher": "SEA",
+      "room": "KT-217",
+      "section": "69_A",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
@@ -250,43 +103,23 @@
       "course": "AOL101",
       "teacher": "AAM",
       "room": "KT-224",
-      "type": "Theory",
+      "section": "69_A",
+      "sub_section": "Main",
       "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",
-      "time": "08:30-10:00",
+      "time": "11:30-02:30",
       "course": "CSE222",
       "teacher": "SEA",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-013",
+      "section": "69_A",
+      "sub_section": "2",
       "batch": "69",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE222",
-      "teacher": "SEA",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "AOL101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "69",
-      "section": "A",
-      "sub_section": "Main"
+      "section_letter": "A",
+      "type": "Lab"
     }
   ]
 }
