@@ -133,6 +133,160 @@
       "batch": "70",
       "section": "C",
       "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "MAT211",
+      "teacher": "SAR",
+      "room": "ANX1-207",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "MAT211",
+      "teacher": "SAR",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "NSL",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "NSL",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "1"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE212",
+      "teacher": "DMR",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE213",
+      "teacher": "SI",
+      "room": "KT-514",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "BNS101",
+      "teacher": "SMN",
+      "room": "ANX1-207",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "BNS101",
+      "teacher": "SMN",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "NSL",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "NSL",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE213",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE213",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "C",
+      "sub_section": "Main"
     }
   ]
 }

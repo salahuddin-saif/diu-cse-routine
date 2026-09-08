@@ -67,6 +67,94 @@
       "batch": "65",
       "section": "N",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE453",
+      "teacher": "NT",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE413",
+      "teacher": "NT",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE413",
+      "teacher": "NT",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE454",
+      "teacher": "MSK",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE453",
+      "teacher": "NT",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE453",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE413",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE454",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "65",
+      "section": "N",
+      "sub_section": "Main"
     }
   ]
 }

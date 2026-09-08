@@ -12,6 +12,17 @@
       "batch": "RE",
       "section": "B",
       "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMD",
+      "room": "G1-027",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "B",
+      "sub_section": "Main"
     }
   ]
 }

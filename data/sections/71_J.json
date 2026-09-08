@@ -199,6 +199,215 @@
       "batch": "71",
       "section": "J",
       "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE121",
+      "teacher": "MTF",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "MFI",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE123",
+      "teacher": "HHP",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "PHY103",
+      "teacher": "MFI",
+      "room": "MFI",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "PHY103",
+      "teacher": "MFI",
+      "room": "MFI",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE123",
+      "teacher": "HHP",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE122",
+      "teacher": "MTF",
+      "room": "MTF",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE122",
+      "teacher": "MTF",
+      "room": "MTF",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "PHY102",
+      "teacher": "MFI",
+      "room": "KT-221",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE124",
+      "teacher": "HHP",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE124",
+      "teacher": "HHP",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "HHP",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "HHP",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "2"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "MTF",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE121",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE123",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE123",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "71",
+      "section": "J",
+      "sub_section": "Main"
     }
   ]
 }

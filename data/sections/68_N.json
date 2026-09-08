@@ -133,6 +133,138 @@
       "batch": "68",
       "section": "N",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE228",
+      "teacher": "NT",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE224",
+      "teacher": "RYS",
+      "room": "RYS",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE228",
+      "teacher": "NT",
+      "room": "KT-219",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE224",
+      "teacher": "RYS",
+      "room": "RYS",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE225",
+      "teacher": "NT",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE227",
+      "teacher": "ZZM",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE225",
+      "teacher": "NT",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE223",
+      "teacher": "RYS",
+      "room": "KT-217",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "CSE227",
+      "teacher": "ZZM",
+      "room": "KT-223",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE228",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE223",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE228",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "N",
+      "sub_section": "Main"
     }
   ]
 }

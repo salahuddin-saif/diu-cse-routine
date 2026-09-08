@@ -133,6 +133,160 @@
       "batch": "70",
       "section": "M",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": "PPC",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE214",
+      "teacher": "PPC",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "2"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "PPC",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "1"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "PPC",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "1"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE213",
+      "teacher": "PPC",
+      "room": "KT-216",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "MAT211",
+      "teacher": "MNM",
+      "room": "ANX1-103",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "BNS101",
+      "teacher": "BNS_3",
+      "room": "ANX1-209",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE213",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "BNS101",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "MAT211",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "M",
+      "sub_section": "Main"
     }
   ]
 }

@@ -89,6 +89,94 @@
       "batch": "73",
       "section": "C",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE115",
+      "teacher": "PDS",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "ENG101",
+      "teacher": "SMH",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "MAT101",
+      "teacher": "MRN",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "MRN",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE112",
+      "teacher": "TBA",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "CSE115",
+      "teacher": "PDS",
+      "room": "ANX1-102",
+      "type": "Theory",
+      "batch": "73",
+      "section": "C",
+      "sub_section": "Main"
     }
   ]
 }

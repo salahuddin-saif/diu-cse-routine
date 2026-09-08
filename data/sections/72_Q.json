@@ -133,6 +133,138 @@
       "batch": "72",
       "section": "Q",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "MAR",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE114",
+      "teacher": "MAR",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE114",
+      "teacher": "MAR",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE114",
+      "teacher": "MAR",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "MAT102",
+      "teacher": "NRM",
+      "room": "ANX1-204",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "ENG102",
+      "teacher": "ENT_6",
+      "room": "ANX1-204",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "PHY101",
+      "teacher": "MRI",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE113",
+      "teacher": "MAR",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "ENG102",
+      "teacher": "ENT_6",
+      "room": "ANX1-403",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "MAT102",
+      "teacher": "NRM",
+      "room": "ANX1-403",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "PHY101",
+      "teacher": "MRI",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE113",
+      "teacher": "MAR",
+      "room": "KT-224",
+      "type": "Theory",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "Main"
     }
   ]
 }

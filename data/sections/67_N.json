@@ -133,6 +133,127 @@
       "batch": "67",
       "section": "N",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE322",
+      "teacher": "NHE",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE322",
+      "teacher": "NHE",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE317",
+      "teacher": "RYS",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "ACT327",
+      "teacher": "FNT_3",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE322",
+      "teacher": "NHE",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE322",
+      "teacher": "NHE",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE317",
+      "teacher": "RYS",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE315",
+      "teacher": "MMB",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "ACT327",
+      "teacher": "FNT_3",
+      "room": "KT-515",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE317",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "ACT327",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "67",
+      "section": "N",
+      "sub_section": "Main"
     }
   ]
 }

@@ -45,6 +45,61 @@
       "batch": "64",
       "section": "B",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE438",
+      "teacher": "MSK",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "64",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE438",
+      "teacher": "MSK",
+      "room": "KT-218",
+      "type": "Theory",
+      "batch": "64",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE437",
+      "teacher": "MUM",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "64",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE438",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE437",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "64",
+      "section": "B",
+      "sub_section": "Main"
     }
   ]
 }

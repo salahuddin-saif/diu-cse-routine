@@ -12,6 +12,17 @@
       "batch": "63",
       "section": "J",
       "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMQ",
+      "room": "KT-303",
+      "type": "Theory",
+      "batch": "63",
+      "section": "J",
+      "sub_section": "Main"
     }
   ]
 }

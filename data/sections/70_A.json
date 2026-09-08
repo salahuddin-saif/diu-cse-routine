@@ -133,6 +133,149 @@
       "batch": "70",
       "section": "A",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "DMR",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "FMA",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "FMA",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE213",
+      "teacher": "FMA",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE212",
+      "teacher": "DMR",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE214",
+      "teacher": "FMA",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE214",
+      "teacher": "FMA",
+      "room": "COM",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "2"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "MAT211",
+      "teacher": "SAR",
+      "room": "ANX1-101",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "BNS101",
+      "teacher": "SMN",
+      "room": "ANX1-208",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "04:00-05:30",
+      "course": "CSE213",
+      "teacher": "FMA",
+      "room": "KT-222",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "MAT211",
+      "teacher": "SAR",
+      "room": "ANX1-203",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "BNS101",
+      "teacher": "SMN",
+      "room": "ANX1-203",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "70",
+      "section": "A",
+      "sub_section": "Main"
     }
   ]
 }

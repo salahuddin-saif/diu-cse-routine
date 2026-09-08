@@ -23,6 +23,39 @@
       "batch": "63",
       "section": "B",
       "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "63",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "63",
+      "section": "B",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMP",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "63",
+      "section": "B",
+      "sub_section": "Main"
     }
   ]
 }

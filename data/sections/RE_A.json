@@ -45,6 +45,61 @@
       "batch": "RE",
       "section": "A",
       "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE447",
+      "teacher": "FAF",
+      "room": "KT-305",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE447",
+      "teacher": "FAF",
+      "room": "KT-307",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMT",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE447",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "A",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE491",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "Unknown",
+      "section": "A",
+      "sub_section": "Main"
     }
   ]
 }

@@ -133,6 +133,138 @@
       "batch": "68",
       "section": "G",
       "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE223",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE224",
+      "teacher": "MDA",
+      "room": "MDA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "1"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE227",
+      "teacher": "HH",
+      "room": "KT-201",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE228",
+      "teacher": "NSL",
+      "room": "KT-220",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE225",
+      "teacher": "LR",
+      "room": "G1-026",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE223",
+      "teacher": "SMTS",
+      "room": "KT-516",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE224",
+      "teacher": "MDA",
+      "room": "MDA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "2"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "CSE227",
+      "teacher": "HH",
+      "room": "KT-208",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE227",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE228",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE225",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "CSE227",
+      "teacher": "TBA",
+      "room": "TBA",
+      "type": "Theory",
+      "batch": "68",
+      "section": "G",
+      "sub_section": "Main"
     }
   ]
 }
