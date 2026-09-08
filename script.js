@@ -1,184 +1,452 @@
 /* =========================================================
-   DIU CSE ROUTINE - FULL SCRIPT
+   DIU CSE ROUTINE
+   FULL UPDATED SCRIPT
    ========================================================= */
 
-const DATA_URL = "./data/routine.json";
-
 const DAYS = [
-    "Saturday",
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday"
+    'Saturday',
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday'
 ];
-
-/*
- * IMPORTANT:
- * Only normal DIU time slots are used here.
- *
- * Lab:
- * 11:30-02:30 = 11:30-01:00 + 01:00-02:30
- *
- * So Lab will NOT get its own separate column.
- */
-const TIME_SLOTS = [
-    "08:30-10:00",
-    "10:00-11:30",
-    "11:30-01:00",
-    "01:00-02:30",
-    "02:30-04:00",
-    "04:00-05:30"
-];
-
-const DAY_ORDER = {};
-DAYS.forEach((day, index) => {
-    DAY_ORDER[day] = index;
-});
-
-const TIME_ORDER = {};
-TIME_SLOTS.forEach((time, index) => {
-    TIME_ORDER[time] = index;
-});
-
-
-let routineData = null;
-let currentMode = "section";
-let currentSelection = "";
-let searchTimer = null;
 
 
 /* =========================================================
-   INITIALIZE
+   STANDARD TIME SLOTS
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-    initializeApp();
-});
+const TIME_ORDER = {
+    '08:30-10:00': 0,
+    '10:00-11:30': 1,
+    '11:30-01:00': 2,
+    '01:00-02:30': 3,
+    '02:30-04:00': 4,
+    '04:00-05:30': 5
+};
+
+const DISPLAY_TIME_SLOTS = [
+    '08:30-10:00',
+    '10:00-11:30',
+    '11:30-01:00',
+    '01:00-02:30',
+    '02:30-04:00',
+    '04:00-05:30'
+];
 
 
-async function initializeApp() {
+/* =========================================================
+   GLOBAL STATE
+   ========================================================= */
 
-    setupEvents();
+let routineData = null;
 
-    await loadRoutineData();
+let currentMode = 'section';
+let currentQuery = '';
+let currentView = 'day';
+let currentSection = '';
+let currentSemester = 'Summer 2026';
 
-    restoreSavedSelection();
+let autoRefreshTimer = null;
 
+
+/* =========================================================
+   BASIC HELPERS
+   ========================================================= */
+
+function escapeHtml(value) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
+        return '';
+    }
+
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+
+function normalizeText(value) {
+    return String(value || '')
+        .trim()
+        .replace(/\s+/g, ' ');
+}
+
+
+function normalizeDay(day) {
+    if (!day) return '';
+
+    const value = String(day)
+        .trim()
+        .toLowerCase();
+
+    const map = {
+        saturday: 'Saturday',
+        sunday: 'Sunday',
+        monday: 'Monday',
+        tuesday: 'Tuesday',
+        wednesday: 'Wednesday',
+        thursday: 'Thursday',
+        friday: 'Friday',
+
+        sat: 'Saturday',
+        sun: 'Sunday',
+        mon: 'Monday',
+        tue: 'Tuesday',
+        tues: 'Tuesday',
+        wed: 'Wednesday',
+        thu: 'Thursday',
+        thur: 'Thursday',
+        thurs: 'Thursday',
+        fri: 'Friday'
+    };
+
+    return map[value] || normalizeText(day);
+}
+
+
+function normalizeTime(time) {
+    if (!time) return '';
+
+    return String(time)
+        .trim()
+        .replace(/\s+/g, '')
+        .replace(/[–—]/g, '-');
 }
 
 
 /* =========================================================
-   EVENTS
+   TIME HELPERS
    ========================================================= */
 
-function setupEvents() {
+function getTimeStartMinutes(time) {
+    const normalized =
+        normalizeTime(time);
 
-    const showBtn = document.getElementById("showRoutineBtn");
+    const match = normalized.match(
+        /^(\d{1,2}):(\d{2})-(\d{1,2}):(\d{2})$/
+    );
 
-    if (showBtn) {
-        showBtn.addEventListener("click", () => {
-            showSelectedRoutine();
-        });
+    if (!match) {
+        return 99999;
     }
 
+    const hour =
+        parseInt(match[1], 10);
 
-    const sectionInput = document.getElementById("sectionInput");
+    const minute =
+        parseInt(match[2], 10);
 
-    if (sectionInput) {
-
-        sectionInput.addEventListener("keydown", (event) => {
-
-            if (event.key === "Enter") {
-                event.preventDefault();
-                showSelectedRoutine();
-            }
-
-        });
-
-    }
+    return (
+        hour * 60 +
+        minute
+    );
+}
 
 
-    const clearBtn = document.getElementById("clearSectionBtn");
-
-    if (clearBtn) {
-
-        clearBtn.addEventListener("click", () => {
-
-            localStorage.removeItem("diuRoutineSelection");
-
-            currentSelection = "";
-
-            if (sectionInput) {
-                sectionInput.value = "";
-            }
-
-            setMessage("Saved routine cleared.");
-
-            renderWelcome();
-
-        });
-
-    }
-
+function getTimeOrder(time) {
+    const normalized =
+        normalizeTime(time);
 
     /*
-     * Search icon / search input
-     */
-    const searchInput = document.getElementById("searchInput");
+       IMPORTANT:
+       11:30-02:30 is a two-slot LAB.
 
-    if (searchInput) {
+       It starts at:
+       11:30-01:00
 
-        searchInput.addEventListener("input", () => {
+       Therefore it must be sorted at slot 3.
+    */
 
-            clearTimeout(searchTimer);
-
-            searchTimer = setTimeout(() => {
-
-                performSearch(searchInput.value);
-
-            }, 200);
-
-        });
-
-
-        searchInput.addEventListener("keydown", (event) => {
-
-            if (event.key === "Enter") {
-
-                event.preventDefault();
-
-                performSearch(searchInput.value);
-
-            }
-
-        });
-
+    if (
+        normalized ===
+        '11:30-02:30'
+    ) {
+        return TIME_ORDER[
+            '11:30-01:00'
+        ];
     }
 
+    if (
+        Object.prototype.hasOwnProperty.call(
+            TIME_ORDER,
+            normalized
+        )
+    ) {
+        return TIME_ORDER[
+            normalized
+        ];
+    }
+
+    return getTimeStartMinutes(
+        normalized
+    );
+}
+
+
+function getClassTimeSlot(cls) {
+    return normalizeTime(
+        cls?.time ||
+        cls?.timeslot ||
+        cls?.time_slot ||
+        cls?.slot ||
+        ''
+    );
+}
+
+
+function getSlotIndex(slot) {
+    return DISPLAY_TIME_SLOTS.indexOf(
+        normalizeTime(slot)
+    );
+}
+
+
+/* =========================================================
+   LAB HELPERS
+   ========================================================= */
+
+function isTwoSlotLab(cls) {
+    if (!cls) {
+        return false;
+    }
+
+    const type =
+        normalizeClassType(
+            cls.type
+        );
+
+    const time =
+        getClassTimeSlot(cls);
+
+    return (
+        type === 'Lab' &&
+        time === '11:30-02:30'
+    );
+}
+
+
+function getLabSpanInfo(cls) {
+    if (
+        !isTwoSlotLab(cls)
+    ) {
+        return null;
+    }
+
+    return {
+        startSlot:
+            '11:30-01:00',
+
+        endSlot:
+            '01:00-02:30',
+
+        colspan: 2,
+
+        startIndex:
+            getSlotIndex(
+                '11:30-01:00'
+            )
+    };
+}
+
+
+/* =========================================================
+   CLASS FIELD HELPERS
+   ========================================================= */
+
+function normalizeClassType(type) {
+    const value =
+        String(type || '')
+            .trim()
+            .toLowerCase();
+
+    if (
+        value.includes('lab')
+    ) {
+        return 'Lab';
+    }
+
+    if (
+        value.includes('theory')
+    ) {
+        return 'Theory';
+    }
+
+    return type || '';
+}
+
+
+function getCourseCode(cls) {
+    return normalizeText(
+        cls?.course_code ||
+        cls?.courseCode ||
+        cls?.code ||
+        cls?.course ||
+        ''
+    );
+}
+
+
+function getCourseName(cls) {
+    return normalizeText(
+        cls?.course_name ||
+        cls?.courseName ||
+        cls?.name ||
+        cls?.title ||
+        ''
+    );
+}
+
+
+function getTeacher(cls) {
+    return normalizeText(
+        cls?.teacher ||
+        cls?.teacher_name ||
+        cls?.teacherName ||
+        cls?.faculty ||
+        ''
+    );
+}
+
+
+function getRoom(cls) {
+    return normalizeText(
+        cls?.room ||
+        cls?.room_no ||
+        cls?.roomNo ||
+        cls?.location ||
+        ''
+    );
+}
+
+
+function getComment(cls) {
+    return normalizeText(
+        cls?.comment ||
+        cls?.remarks ||
+        cls?.note ||
+        ''
+    );
+}
+
+
+function getSubsection(cls) {
+    return normalizeText(
+        cls?.subsection ||
+        cls?.sub_section ||
+        cls?.section ||
+        cls?.lab_section ||
+        ''
+    );
+}
+
+
+/* =========================================================
+   SUBSECTION DISPLAY
+   ========================================================= */
+
+function getDisplaySubsection(cls) {
+    const subsection =
+        getSubsection(cls);
+
+    if (!subsection) {
+        return '';
+    }
+
+    const type =
+        normalizeClassType(
+            cls.type
+        );
 
     /*
-     * Mode navigation
-     */
-    document.addEventListener("click", (event) => {
+       Main section:
+       N -> hidden
 
-        const modeButton = event.target.closest("[data-mode]");
+       Lab:
+       N1 -> (N1)
+       N2 -> (N2)
+    */
 
-        if (!modeButton) {
-            return;
+    if (
+        subsection.toUpperCase() ===
+        'N'
+    ) {
+        return '';
+    }
+
+    if (
+        currentSection &&
+        subsection.toUpperCase() ===
+        currentSection.toUpperCase()
+    ) {
+        return '';
+    }
+
+    if (
+        type === 'Lab' &&
+        !subsection.startsWith('(')
+    ) {
+        return `(${subsection})`;
+    }
+
+    return subsection.startsWith('(')
+        ? subsection
+        : `(${subsection})`;
+}
+
+
+/* =========================================================
+   SORTING
+   ========================================================= */
+
+function sortClasses(classes) {
+    return [...classes].sort(
+        (a, b) => {
+
+            const dayA =
+                DAYS.indexOf(
+                    normalizeDay(
+                        a.day
+                    )
+                );
+
+            const dayB =
+                DAYS.indexOf(
+                    normalizeDay(
+                        b.day
+                    )
+                );
+
+            if (dayA !== dayB) {
+                return dayA - dayB;
+            }
+
+            const timeA =
+                getTimeOrder(
+                    getClassTimeSlot(a)
+                );
+
+            const timeB =
+                getTimeOrder(
+                    getClassTimeSlot(b)
+                );
+
+            if (timeA !== timeB) {
+                return timeA - timeB;
+            }
+
+            return getCourseCode(a)
+                .localeCompare(
+                    getCourseCode(b)
+                );
         }
-
-        const mode = modeButton.dataset.mode;
-
-        if (!mode) {
-            return;
-        }
-
-        switchMode(mode);
-
-    });
-
+    );
 }
 
 
@@ -187,414 +455,64 @@ function setupEvents() {
    ========================================================= */
 
 async function loadRoutineData() {
-
-    setStatus("Loading", "loading");
-
     try {
 
-        const response = await fetch(
-            `${DATA_URL}?v=${Date.now()}`,
-            {
-                cache: "no-store"
-            }
-        );
+        const response =
+            await fetch(
+                `data/routine.json?t=${Date.now()}`,
+                {
+                    cache: 'no-store'
+                }
+            );
 
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
+            throw new Error(
+                `HTTP ${response.status}`
+            );
         }
 
-        routineData = await response.json();
+        routineData =
+            await response.json();
 
-        setStatus("Online", "online");
+        currentSemester =
+            routineData?.semester ||
+            routineData?.metadata?.semester ||
+            getSemester();
 
-        updateHeader();
+        initializeUI();
 
-        populateSearchData();
+        startAutoRefresh();
 
     } catch (error) {
 
-        console.error("Routine loading error:", error);
-
-        setStatus("Offline", "error");
-
-        showError(
-            "Could not load routine data.",
-            "Please check your internet connection or data/routine.json."
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-function updateHeader() {
-
-    if (!routineData) {
-        return;
-    }
-
-
-    const versionElement =
-        document.getElementById("versionNumber");
-
-    if (versionElement) {
-
-        const version =
-            routineData.version ??
-            routineData.meta?.version ??
-            "5.0";
-
-        versionElement.textContent =
-            String(version).replace(/^v/i, "");
-
-    }
-
-
-    const updatedElement =
-        document.getElementById("lastUpdated");
-
-    if (updatedElement) {
-
-        const updated =
-            routineData.updated_at ??
-            routineData.meta?.updated_at ??
-            "";
-
-        if (updated) {
-
-            updatedElement.textContent =
-                `Updated ${formatUpdatedDate(updated)}`;
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   STATUS
-   ========================================================= */
-
-function setStatus(text, type = "online") {
-
-    const statusText =
-        document.getElementById("statusText");
-
-    if (statusText) {
-        statusText.textContent = text;
-    }
-
-
-    const badge =
-        document.getElementById("statusBadge");
-
-    if (badge) {
-
-        badge.classList.remove(
-            "online",
-            "loading",
-            "error"
-        );
-
-        badge.classList.add(type);
-
-    }
-
-}
-
-
-/* =========================================================
-   MODE
-   ========================================================= */
-
-function switchMode(mode) {
-
-    const allowedModes = [
-        "section",
-        "teacher",
-        "room"
-    ];
-
-    if (!allowedModes.includes(mode)) {
-        mode = "section";
-    }
-
-    currentMode = mode;
-
-
-    document
-        .querySelectorAll("[data-mode]")
-        .forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.mode === mode
-            );
-
-        });
-
-
-    updateSearchUI();
-
-
-    const input =
-        document.getElementById("sectionInput");
-
-    if (input) {
-
-        if (mode === "section") {
-            input.placeholder = "e.g., 70_N";
-        }
-
-        if (mode === "teacher") {
-            input.placeholder = "e.g., NSL";
-        }
-
-        if (mode === "room") {
-            input.placeholder = "e.g., KT-516";
-        }
-
-    }
-
-
-    const label =
-        document.querySelector(".search-box label");
-
-    if (label) {
-
-        if (mode === "section") {
-
-            label.innerHTML =
-                `<i class="fas fa-user-graduate"></i> Enter your section`;
-
-        } else if (mode === "teacher") {
-
-            label.innerHTML =
-                `<i class="fas fa-chalkboard-teacher"></i> Search teacher`;
-
-        } else {
-
-            label.innerHTML =
-                `<i class="fas fa-door-open"></i> Search room`;
-
-        }
-
-    }
-
-
-    renderWelcome();
-
-}
-
-
-/* =========================================================
-   SEARCH UI
-   ========================================================= */
-
-function updateSearchUI() {
-
-    const input =
-        document.getElementById("sectionInput");
-
-    if (!input) {
-        return;
-    }
-
-    /*
-     * Search icon can be added by existing HTML.
-     * We keep the original input functional as well.
-     */
-
-}
-
-
-/* =========================================================
-   SHOW SELECTED ROUTINE
-   ========================================================= */
-
-function showSelectedRoutine() {
-
-    const input =
-        document.getElementById("sectionInput");
-
-    if (!input || !routineData) {
-        return;
-    }
-
-
-    const value =
-        input.value.trim();
-
-    if (!value) {
-
-        setMessage(
-            currentMode === "section"
-                ? "Please enter a section."
-                : currentMode === "teacher"
-                    ? "Please enter a teacher."
-                    : "Please enter a room."
-        );
-
-        return;
-
-    }
-
-
-    currentSelection = value;
-
-    saveSelection(value);
-
-    setMessage("");
-
-    renderCurrentMode();
-
-}
-
-
-/* =========================================================
-   SAVE / RESTORE
-   ========================================================= */
-
-function saveSelection(value) {
-
-    localStorage.setItem(
-        "diuRoutineSelection",
-        JSON.stringify({
-            mode: currentMode,
-            value: value
-        })
-    );
-
-}
-
-
-function restoreSavedSelection() {
-
-    try {
-
-        const saved =
-            JSON.parse(
-                localStorage.getItem(
-                    "diuRoutineSelection"
-                )
-            );
-
-        if (!saved) {
-
-            const oldValue =
-                localStorage.getItem("section");
-
-            if (oldValue) {
-
-                currentMode = "section";
-                currentSelection = oldValue;
-
-                const input =
-                    document.getElementById("sectionInput");
-
-                if (input) {
-                    input.value = oldValue;
-                }
-
-                renderCurrentMode();
-
-                return;
-
-            }
-
-            renderWelcome();
-
-            return;
-        }
-
-
-        currentMode =
-            saved.mode || "section";
-
-        currentSelection =
-            saved.value || "";
-
-
-        const input =
-            document.getElementById("sectionInput");
-
-        if (input) {
-            input.value = currentSelection;
-        }
-
-
-        switchMode(currentMode);
-
-
-        if (currentSelection) {
-            renderCurrentMode();
-        }
-
-    } catch (error) {
-
-        console.warn(
-            "Could not restore saved routine:",
+        console.error(
+            'Failed to load routine data:',
             error
         );
 
-        renderWelcome();
-
+        showError(
+            'Routine data could not be loaded. Please refresh the page.'
+        );
     }
-
 }
 
 
 /* =========================================================
-   RENDER CURRENT MODE
+   SEMESTER
    ========================================================= */
 
-function renderCurrentMode() {
+function getSemester() {
 
     if (!routineData) {
-        return;
+        return 'Summer 2026';
     }
 
-
-    if (!currentSelection) {
-
-        renderWelcome();
-
-        return;
-
-    }
-
-
-    if (currentMode === "section") {
-
-        renderSection(currentSelection);
-
-        return;
-
-    }
-
-
-    if (currentMode === "teacher") {
-
-        renderTeacher(currentSelection);
-
-        return;
-
-    }
-
-
-    if (currentMode === "room") {
-
-        renderRoom(currentSelection);
-
-        return;
-
-    }
-
+    return (
+        routineData.semester ||
+        routineData.metadata?.semester ||
+        routineData.version_name ||
+        'Summer 2026'
+    );
 }
 
 
@@ -608,946 +526,626 @@ function getAllClasses() {
         return [];
     }
 
+    if (
+        Array.isArray(
+            routineData.classes
+        )
+    ) {
+        return routineData.classes;
+    }
 
-    let sections =
+    const sections =
         routineData.sections;
 
+    if (!sections) {
+        return [];
+    }
 
-    if (Array.isArray(sections)) {
-        return normalizeClasses(sections);
+    const allClasses = [];
+
+    if (
+        Array.isArray(sections)
+    ) {
+
+        sections.forEach(
+            section => {
+
+                if (
+                    Array.isArray(
+                        section.classes
+                    )
+                ) {
+
+                    section.classes.forEach(
+                        cls => {
+
+                            allClasses.push({
+                                ...cls,
+
+                                section:
+                                    cls.section ||
+                                    section.section ||
+                                    section.name
+                            });
+
+                        }
+                    );
+                }
+            }
+        );
+
+        return allClasses;
+    }
+
+
+    if (
+        typeof sections ===
+        'object'
+    ) {
+
+        Object.entries(
+            sections
+        ).forEach(
+            ([sectionName, sectionData]) => {
+
+                if (
+                    Array.isArray(
+                        sectionData
+                    )
+                ) {
+
+                    sectionData.forEach(
+                        cls => {
+
+                            allClasses.push({
+                                ...cls,
+
+                                section:
+                                    cls.section ||
+                                    sectionName
+                            });
+
+                        }
+                    );
+
+                } else if (
+                    Array.isArray(
+                        sectionData?.classes
+                    )
+                ) {
+
+                    sectionData.classes.forEach(
+                        cls => {
+
+                            allClasses.push({
+                                ...cls,
+
+                                section:
+                                    cls.section ||
+                                    sectionName
+                            });
+
+                        }
+                    );
+                }
+            }
+        );
+    }
+
+    return allClasses;
+}
+
+
+/* =========================================================
+   GET SECTIONS
+   ========================================================= */
+
+function getSections() {
+
+    if (!routineData) {
+        return [];
+    }
+
+    const sections =
+        routineData.sections;
+
+    if (
+        Array.isArray(sections)
+    ) {
+
+        return sections
+            .map(
+                s =>
+                    typeof s ===
+                    'string'
+                        ? s
+                        : s.section ||
+                          s.name ||
+                          ''
+            )
+            .filter(Boolean)
+            .sort();
     }
 
 
     if (
         sections &&
-        typeof sections === "object"
+        typeof sections ===
+        'object'
     ) {
 
-        const all = [];
-
-        Object.entries(sections).forEach(
-            ([sectionName, classes]) => {
-
-                if (!Array.isArray(classes)) {
-                    return;
-                }
-
-                classes.forEach(item => {
-
-                    all.push({
-                        ...item,
-                        section:
-                            item.section ||
-                            sectionName
-                    });
-
-                });
-
-            }
-        );
-
-        return normalizeClasses(all);
-
+        return Object.keys(
+            sections
+        )
+            .filter(Boolean)
+            .sort();
     }
 
 
-    return [];
-
-}
-
-
-/* =========================================================
-   NORMALIZE CLASSES
-   ========================================================= */
-
-function normalizeClasses(classes) {
-
-    return classes
-        .map(item => {
-
-            const copy = {
-                ...item
-            };
-
-
-            copy.day =
-                normalizeDay(copy.day);
-
-
-            copy.time =
-                normalizeTime(copy.time);
-
-
-            copy.type =
-                normalizeType(copy.type);
-
-
-            copy.sub_section =
-                normalizeSubSection(
-                    copy.sub_section
-                );
-
-
-            return copy;
-
-        })
-        .filter(item => {
-
-            return (
-                item.day &&
-                item.time &&
-                item.course
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   NORMALIZE DAY
-   ========================================================= */
-
-function normalizeDay(day) {
-
-    if (!day) {
-        return "";
-    }
-
-
-    const value =
-        String(day)
-            .trim()
-            .toLowerCase();
-
-
-    const found =
-        DAYS.find(
-            item =>
-                item.toLowerCase() === value
-        );
-
-
-    return found || String(day).trim();
-
-}
-
-
-/* =========================================================
-   NORMALIZE TIME
-   ========================================================= */
-
-function normalizeTime(time) {
-
-    if (!time) {
-        return "";
-    }
-
-
-    let value =
-        String(time)
-            .trim()
-            .replace(/\s+/g, "")
-            .replace(/[–—]/g, "-");
-
-
-    /*
-     * Convert common formats to DIU format.
-     */
-    const replacements = {
-        "8:30-10:00": "08:30-10:00",
-        "08:30-10:00": "08:30-10:00",
-
-        "10:00-11:30": "10:00-11:30",
-
-        "11:30-01:00": "11:30-01:00",
-        "11:30-1:00": "11:30-01:00",
-
-        "01:00-02:30": "01:00-02:30",
-        "1:00-2:30": "01:00-02:30",
-
-        "02:30-04:00": "02:30-04:00",
-        "2:30-4:00": "02:30-04:00",
-
-        "04:00-05:30": "04:00-05:30",
-        "4:00-5:30": "04:00-05:30",
-
-        /*
-         * This is intentionally retained.
-         * Lab renderer will split it across 2 slots.
-         */
-        "11:30-02:30": "11:30-02:30",
-        "11:30-2:30": "11:30-02:30"
-    };
-
-
-    if (replacements[value]) {
-        return replacements[value];
-    }
-
-
-    return String(time).trim();
-
-}
-
-
-/* =========================================================
-   NORMALIZE TYPE
-   ========================================================= */
-
-function normalizeType(type) {
-
-    if (!type) {
-        return "Theory";
-    }
-
-
-    const value =
-        String(type)
-            .trim()
-            .toLowerCase();
-
-
-    if (value.includes("lab")) {
-        return "Lab";
-    }
-
-
-    return "Theory";
-
-}
-
-
-/* =========================================================
-   NORMALIZE SUB SECTION
-   ========================================================= */
-
-function normalizeSubSection(value) {
-
-    if (
-        value === undefined ||
-        value === null ||
-        value === ""
-    ) {
-        return "";
-    }
-
-
-    let text =
-        String(value).trim();
-
-
-    /*
-     * N1 / N2
-     */
-    text = text
-        .replace(/^N/i, "")
-        .trim();
-
-
-    /*
-     * Main should not be displayed.
-     */
-    if (
-        text.toLowerCase() === "main" ||
-        text === "0"
-    ) {
-        return "";
-    }
-
-
-    return text;
-
-}
-
-
-/* =========================================================
-   SECTION NAME
-   ========================================================= */
-
-function getSectionName(item) {
-
-    return (
-        item.section_name ||
-        item.section_full ||
-        item.section_id ||
-        item.section ||
-        ""
-    );
-
-}
-
-
-/* =========================================================
-   SECTION PARSER
-   ========================================================= */
-
-function parseSectionName(name) {
-
-    const value =
-        String(name || "")
-            .trim()
-            .toUpperCase();
-
-
-    /*
-     * Examples:
-     * 70_N
-     * 70N
-     * 70_N1
-     */
-
-    let match =
-        value.match(
-            /^(\d+)[_\-\s]?([A-Z]+)$/
-        );
-
-
-    if (match) {
-
-        return {
-            batch: match[1],
-            letter: match[2],
-            full: `${match[1]}_${match[2]}`
-        };
-
-    }
-
-
-    return {
-        batch: "",
-        letter: "",
-        full: value
-    };
-
-}
-
-
-/* =========================================================
-   GET CLASS SECTION
-   ========================================================= */
-
-function getClassSection(item) {
-
-    /*
-     * If JSON already contains a full section name.
-     */
-    if (
-        item.section_name &&
-        String(item.section_name).includes("_")
-    ) {
-
-        return String(item.section_name)
-            .trim()
-            .toUpperCase();
-
-    }
-
-
-    if (
-        item.section &&
-        String(item.section).includes("_")
-    ) {
-
-        return String(item.section)
-            .trim()
-            .toUpperCase();
-
-    }
-
-
-    const batch =
-        item.batch !== undefined &&
-        item.batch !== null
-            ? String(item.batch).trim()
-            : "";
-
-
-    const letter =
-        item.section_letter ||
-        (
-            item.section &&
-            !String(item.section).match(/^\d+$/)
-                ? String(item.section).trim()
-                : ""
-        );
-
-
-    if (batch && letter) {
-
-        return `${batch}_${letter}`
-            .toUpperCase();
-
-    }
-
-
-    return String(
-        item.section || ""
-    ).trim().toUpperCase();
-
-}
-
-
-/* =========================================================
-   FIND SECTION
-   ========================================================= */
-
-function findSectionClasses(section) {
-
-    const target =
-        String(section)
-            .trim()
-            .toUpperCase();
-
-
-    const targetParsed =
-        parseSectionName(target);
-
-
-    return getAllClasses()
-        .filter(item => {
-
-            const itemSection =
-                getClassSection(item);
-
-
-            if (itemSection === target) {
-                return true;
-            }
-
-
-            /*
-             * Compare normalized forms.
-             */
-            const parsed =
-                parseSectionName(itemSection);
-
-
-            return (
-                parsed.batch === targetParsed.batch &&
-                parsed.letter === targetParsed.letter &&
-                parsed.batch !== ""
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   FIND TEACHER
-   ========================================================= */
-
-function findTeacherClasses(teacher) {
-
-    const target =
-        String(teacher)
-            .trim()
-            .toUpperCase();
-
-
-    return getAllClasses()
-        .filter(item => {
-
-            const value =
-                String(
-                    item.teacher || ""
+    return [
+        ...new Set(
+            getAllClasses()
+                .map(
+                    cls =>
+                        cls.section
                 )
-                    .trim()
-                    .toUpperCase();
-
-
-            return (
-                value === target ||
-                value.includes(target)
-            );
-
-        });
-
+                .filter(Boolean)
+        )
+    ].sort();
 }
 
 
 /* =========================================================
-   FIND ROOM
+   FILTER
    ========================================================= */
 
-function findRoomClasses(room) {
+function filterClasses() {
 
-    const target =
-        String(room)
-            .trim()
-            .toUpperCase();
+    let classes =
+        getAllClasses();
 
+    const query =
+        normalizeText(
+            currentQuery
+        ).toLowerCase();
 
-    return getAllClasses()
-        .filter(item => {
-
-            const value =
-                String(
-                    item.room || ""
-                )
-                    .trim()
-                    .toUpperCase();
+    if (!query) {
+        return classes;
+    }
 
 
-            return (
-                value === target ||
-                value.includes(target)
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   SORT CLASSES
-   ========================================================= */
-
-function sortClasses(classes) {
-
-    return [...classes].sort(
-        (a, b) => {
-
-            const dayA =
-                DAY_ORDER[a.day] ??
-                999;
-
-
-            const dayB =
-                DAY_ORDER[b.day] ??
-                999;
-
-
-            if (dayA !== dayB) {
-                return dayA - dayB;
-            }
-
-
-            const timeA =
-                getTimeStartIndex(a.time);
-
-
-            const timeB =
-                getTimeStartIndex(b.time);
-
-
-            if (timeA !== timeB) {
-                return timeA - timeB;
-            }
-
-
-            /*
-             * Lab before Theory if same start time.
-             */
-            if (
-                a.type === "Lab" &&
-                b.type !== "Lab"
-            ) {
-                return -1;
-            }
-
-
-            if (
-                b.type === "Lab" &&
-                a.type !== "Lab"
-            ) {
-                return 1;
-            }
-
-
-            return String(a.course || "")
-                .localeCompare(
-                    String(b.course || "")
-                );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   TIME START INDEX
-   ========================================================= */
-
-function getTimeStartIndex(time) {
-
-    const value =
-        normalizeTime(time);
-
-
-    /*
-     * Direct normal slot.
-     */
     if (
-        Object.prototype.hasOwnProperty.call(
-            TIME_ORDER,
-            value
+        currentMode ===
+        'section'
+    ) {
+
+        classes =
+            classes.filter(
+                cls =>
+                    normalizeText(
+                        cls.section
+                    ).toLowerCase() ===
+                    query
+            );
+    }
+
+
+    else if (
+        currentMode ===
+        'teacher'
+    ) {
+
+        classes =
+            classes.filter(
+                cls =>
+                    getTeacher(cls)
+                        .toLowerCase()
+                        .includes(query)
+            );
+    }
+
+
+    else if (
+        currentMode ===
+        'room'
+    ) {
+
+        classes =
+            classes.filter(
+                cls =>
+                    getRoom(cls)
+                        .toLowerCase()
+                        .includes(query)
+            );
+    }
+
+    return classes;
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+function initializeUI() {
+
+    populateSectionSelect();
+
+    const savedSection =
+        localStorage.getItem(
+            'diuCseSelectedSection'
+        );
+
+    const sections =
+        getSections();
+
+
+    if (
+        savedSection &&
+        sections.includes(
+            savedSection
         )
     ) {
-        return TIME_ORDER[value];
+
+        currentSection =
+            savedSection;
+
+        currentMode =
+            'section';
+
+        currentQuery =
+            savedSection;
+
+    } else if (
+        sections.length
+    ) {
+
+        currentSection =
+            sections[0];
+
+        currentMode =
+            'section';
+
+        currentQuery =
+            currentSection;
     }
 
 
-    /*
-     * Lab 11:30-02:30 starts at
-     * 11:30-01:00.
-     */
-    if (value === "11:30-02:30") {
-        return 2;
-    }
+    updateInputValue();
 
-
-    /*
-     * Generic fallback:
-     * read starting HH:MM.
-     */
-    const match =
-        value.match(/^(\d{1,2}):(\d{2})-/);
-
-
-    if (!match) {
-        return 999;
-    }
-
-
-    let hour =
-        parseInt(match[1], 10);
-
-    const minute =
-        parseInt(match[2], 10);
-
-
-    /*
-     * DIU afternoon slots are represented
-     * using 01/02/04 instead of 13/14/16.
-     *
-     * Give them a manually ordered fallback.
-     */
-    const minutes =
-        hour * 60 + minute;
-
-
-    if (minutes === 8 * 60 + 30) return 0;
-    if (minutes === 10 * 60) return 1;
-    if (minutes === 11 * 60 + 30) return 2;
-    if (minutes === 13 * 60) return 3;
-    if (minutes === 14 * 60 + 30) return 4;
-    if (minutes === 16 * 60) return 5;
-
-
-    return 999;
-
+    renderRoutine();
 }
 
 
 /* =========================================================
-   GET LAB SPAN
+   SECTION SELECT
    ========================================================= */
 
-function getLabSpan(item) {
+function populateSectionSelect() {
+
+    const select =
+        document.getElementById(
+            'sectionSelect'
+        );
+
+    if (!select) {
+        return;
+    }
+
+    const sections =
+        getSections();
+
+    select.innerHTML =
+        sections
+            .map(
+                section => `
+                    <option value="${escapeHtml(section)}">
+                        ${escapeHtml(section)}
+                    </option>
+                `
+            )
+            .join('');
+
 
     if (
-        item.type !== "Lab"
+        currentSection &&
+        sections.includes(
+            currentSection
+        )
     ) {
-        return 1;
+
+        select.value =
+            currentSection;
     }
-
-
-    const time =
-        normalizeTime(item.time);
-
-
-    /*
-     * Main DIU lab:
-     *
-     * 11:30-02:30
-     *
-     * = 11:30-01:00
-     * + 01:00-02:30
-     */
-    if (
-        time === "11:30-02:30"
-    ) {
-        return 2;
-    }
-
-
-    /*
-     * Generic check for 2-slot lab.
-     */
-    if (
-        isTwoSlotTime(time)
-    ) {
-        return 2;
-    }
-
-
-    return 1;
-
 }
 
 
 /* =========================================================
-   CHECK TWO-SLOT TIME
+   INPUT
    ========================================================= */
 
-function isTwoSlotTime(time) {
+function updateInputValue() {
 
-    const value =
-        normalizeTime(time);
+    const input =
+        document.getElementById(
+            'sectionInput'
+        ) ||
+        document.getElementById(
+            'searchInput'
+        );
 
+    if (!input) {
+        return;
+    }
 
-    return (
-        value === "11:30-02:30"
-    );
-
+    input.value =
+        currentMode ===
+        'section'
+            ? currentSection
+            : currentQuery;
 }
 
 
 /* =========================================================
-   DISPLAY TIME
+   MODE
    ========================================================= */
 
-function displayTime(time) {
+function setMode(mode) {
 
-    return normalizeTime(time);
+    currentMode =
+        mode;
 
+    const input =
+        document.getElementById(
+            'sectionInput'
+        ) ||
+        document.getElementById(
+            'searchInput'
+        );
+
+    if (input) {
+
+        input.value =
+            mode === 'section'
+                ? currentSection
+                : '';
+    }
+
+    currentQuery =
+        mode === 'section'
+            ? currentSection
+            : '';
+
+    renderRoutine();
 }
 
 
 /* =========================================================
-   COURSE LABEL
+   SEARCH
    ========================================================= */
 
-function getCourseLabel(item) {
+function performSearch() {
 
-    let label =
-        escapeHTML(
-            String(item.course || "")
+    const input =
+        document.getElementById(
+            'sectionInput'
+        ) ||
+        document.getElementById(
+            'searchInput'
+        );
+
+    if (!input) {
+        return;
+    }
+
+    currentQuery =
+        normalizeText(
+            input.value
         );
 
 
-    /*
-     * Main section should NOT show (N).
-     *
-     * Lab subsection should show (N1)/(N2).
-     */
-    const sub =
-        normalizeSubSection(
-            item.sub_section
-        );
-
-
     if (
-        item.type === "Lab" &&
-        sub
+        currentMode ===
+        'section'
     ) {
 
-        label +=
-            ` <span class="sub-section">(N${escapeHTML(sub)})</span>`;
+        currentSection =
+            currentQuery;
 
+        localStorage.setItem(
+            'diuCseSelectedSection',
+            currentSection
+        );
     }
 
-
-    return label;
-
+    renderRoutine();
 }
 
 
 /* =========================================================
-   TEACHER LABEL
+   SECTION CHANGE
    ========================================================= */
 
-function getTeacherLabel(item) {
+function changeSection(value) {
 
-    return escapeHTML(
-        String(item.teacher || "TBA")
-            .trim()
+    currentSection =
+        value;
+
+    currentMode =
+        'section';
+
+    currentQuery =
+        value;
+
+    localStorage.setItem(
+        'diuCseSelectedSection',
+        value
     );
 
+    updateInputValue();
+
+    renderRoutine();
 }
 
 
 /* =========================================================
-   ROOM LABEL
+   VIEW
    ========================================================= */
 
-function getRoomLabel(item) {
+function setView(view) {
 
-    return escapeHTML(
-        String(item.room || "TBA")
-            .trim()
-    );
+    currentView =
+        view;
 
+    document
+        .querySelectorAll(
+            '[data-view]'
+        )
+        .forEach(
+            button => {
+
+                button.classList.toggle(
+                    'active',
+                    button.dataset.view ===
+                    view
+                );
+            }
+        );
+
+    renderRoutine();
 }
 
 
 /* =========================================================
-   TYPE LABEL
+   MAIN RENDER
    ========================================================= */
 
-function getTypeLabel(item) {
-
-    return escapeHTML(
-        String(item.type || "Theory")
-    );
-
-}
-
-
-/* =========================================================
-   RENDER SECTION
-   ========================================================= */
-
-function renderSection(section) {
+function renderRoutine() {
 
     const classes =
         sortClasses(
-            findSectionClasses(section)
+            filterClasses()
         );
-
-
-    if (!classes.length) {
-
-        showError(
-            "Section not found.",
-            `No routine found for "${section}".`
-        );
-
-        return;
-
-    }
-
 
     const container =
         document.getElementById(
-            "routineContainer"
+            'viewContent'
         );
-
 
     if (!container) {
         return;
     }
 
+    const showComment =
+        shouldShowComment();
 
-    container.innerHTML =
-        createSectionView(
-            section,
-            classes
+
+    if (!classes.length) {
+
+        container.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon">📚</div>
+
+                <h3>
+                    No routine found
+                </h3>
+
+                <p>
+                    No class was found for the selected
+                    ${escapeHtml(currentMode)}.
+                </p>
+            </div>
+        `;
+
+        updateHeader();
+
+        return;
+    }
+
+
+    if (
+        currentView ===
+        'week'
+    ) {
+
+        renderWeekView(
+            classes,
+            showComment,
+            currentMode
         );
 
+    } else {
+
+        renderDayView(
+            classes,
+            showComment,
+            currentMode
+        );
+    }
+
+    updateHeader();
 }
 
 
 /* =========================================================
-   CREATE SECTION VIEW
+   COMMENT
    ========================================================= */
 
-function createSectionView(
-    section,
-    classes
-) {
-
-    const grouped =
-        groupByDay(classes);
+function shouldShowComment() {
+    return true;
+}
 
 
-    let html = `
-        <div class="routine-header-card">
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-            <div>
-                <div class="routine-kicker">
-                    DIU CSE ROUTINE
-                </div>
+function updateHeader() {
 
-                <h2>
-                    Section ${escapeHTML(section)}
-                </h2>
+    const title =
+        document.getElementById(
+            'routineTitle'
+        );
 
-                <p>
-                    ${escapeHTML(getSemester())}
-                </p>
-            </div>
-
-            <button
-                class="download-btn"
-                onclick="downloadSection('${escapeJS(section)}')"
-                title="Download routine image"
-            >
-                <i class="fas fa-download"></i>
-                Download routine image
-            </button>
-
-        </div>
-
-        <div class="week-view">
-    `;
+    if (!title) {
+        return;
+    }
 
 
-    DAYS.forEach(day => {
+    if (
+        currentMode ===
+        'section'
+    ) {
 
-        const dayClasses =
-            grouped[day] || [];
+        title.textContent =
+            currentSection
+                ? `Section ${currentSection}`
+                : 'DIU CSE Routine';
 
+    }
 
-        html += `
-            <section class="day-card">
+    else if (
+        currentMode ===
+        'teacher'
+    ) {
 
-                <div class="day-card-header">
-                    <div>
-                        <h3>
-                            ${escapeHTML(day)}
-                        </h3>
+        title.textContent =
+            currentQuery
+                ? `Teacher: ${currentQuery}`
+                : 'Teacher Routine';
 
-                        <span>
-                            ${dayClasses.length}
-                            ${dayClasses.length === 1
-                                ? "class"
-                                : "classes"}
-                        </span>
-                    </div>
-                </div>
+    }
 
-                <div class="class-list">
-        `;
+    else if (
+        currentMode ===
+        'room'
+    ) {
 
-
-        if (!dayClasses.length) {
-
-            html += `
-                <div class="empty-day">
-                    No classes
-                </div>
-            `;
-
-        } else {
-
-            dayClasses.forEach(item => {
-
-                html += createClassCard(item);
-
-            });
-
-        }
-
-
-        html += `
-                </div>
-            </section>
-        `;
-
-    });
-
-
-    html += `
-        </div>
-    `;
-
-
-    return html;
-
+        title.textContent =
+            currentQuery
+                ? `Room: ${currentQuery}`
+                : 'Room Routine';
+    }
 }
 
 
@@ -1555,507 +1153,620 @@ function createSectionView(
    CLASS CARD
    ========================================================= */
 
-function createClassCard(item) {
+function createClassCard(
+    cls,
+    showComment = true,
+    mode = 'section'
+) {
 
-    const lab =
-        item.type === "Lab";
+    const type =
+        normalizeClassType(
+            cls.type
+        );
+
+    const code =
+        getCourseCode(cls);
+
+    const name =
+        getCourseName(cls);
+
+    const teacher =
+        getTeacher(cls);
+
+    const room =
+        getRoom(cls);
+
+    const time =
+        getClassTimeSlot(cls);
+
+    const subsection =
+        getDisplaySubsection(cls);
+
+    const comment =
+        getComment(cls);
 
 
-    return `
-        <article class="class-item ${lab ? "lab-class" : "theory-class"}">
-
-            <div class="class-time">
-                ${escapeHTML(displayTime(item.time))}
-            </div>
-
-            <div class="class-main">
-
-                <div class="course-name">
-                    ${getCourseLabel(item)}
-                </div>
-
-                <div class="class-meta">
-
-                    <span>
-                        <i class="fas fa-user"></i>
-                        ${getTeacherLabel(item)}
-                    </span>
-
-                    <span>
-                        <i class="fas fa-location-dot"></i>
-                        ${getRoomLabel(item)}
-                    </span>
-
-                    <span class="class-type">
-                        ${getTypeLabel(item)}
-                    </span>
-
-                </div>
-
-            </div>
-
-        </article>
+    let html = `
+        <div class="routine-class ${
+            type === 'Lab'
+                ? 'lab-class'
+                : 'theory-class'
+        }">
     `;
 
+
+    if (code) {
+
+        html += `
+            <div class="course-code">
+                ${escapeHtml(code)}
+            </div>
+        `;
+    }
+
+
+    if (name) {
+
+        html += `
+            <div class="course-name">
+                ${escapeHtml(name)}
+            </div>
+        `;
+    }
+
+
+    if (type) {
+
+        html += `
+            <div class="class-type">
+                ${escapeHtml(type)}
+            </div>
+        `;
+    }
+
+
+    if (subsection) {
+
+        html += `
+            <span class="subsection">
+                ${escapeHtml(subsection)}
+            </span>
+        `;
+    }
+
+
+    if (
+        mode !== 'teacher' &&
+        teacher
+    ) {
+
+        html += `
+            <div class="teacher">
+                ${escapeHtml(teacher)}
+            </div>
+        `;
+    }
+
+
+    if (
+        mode !== 'room' &&
+        room
+    ) {
+
+        html += `
+            <div class="room">
+                Room: ${escapeHtml(room)}
+            </div>
+        `;
+    }
+
+
+    if (time) {
+
+        html += `
+            <div class="class-time">
+                ${escapeHtml(time)}
+            </div>
+        `;
+    }
+
+
+    if (
+        showComment &&
+        comment
+    ) {
+
+        html += `
+            <div class="comment">
+                ${escapeHtml(comment)}
+            </div>
+        `;
+    }
+
+
+    html += `
+        </div>
+    `;
+
+    return html;
 }
 
 
 /* =========================================================
-   GROUP BY DAY
+   DAY VIEW
    ========================================================= */
 
-function groupByDay(classes) {
+function renderDayView(
+    classes,
+    showComment,
+    mode
+) {
+
+    const container =
+        document.getElementById(
+            'viewContent'
+        );
+
+    if (!container) {
+        return;
+    }
+
 
     const grouped = {};
 
+    DAYS.forEach(
+        day => {
+            grouped[day] = [];
+        }
+    );
 
-    DAYS.forEach(day => {
-        grouped[day] = [];
-    });
 
+    classes.forEach(
+        cls => {
 
-    sortClasses(classes)
-        .forEach(item => {
+            const day =
+                normalizeDay(
+                    cls.day
+                );
 
-            if (!grouped[item.day]) {
-                grouped[item.day] = [];
+            if (!grouped[day]) {
+                grouped[day] = [];
             }
 
-            grouped[item.day].push(item);
+            grouped[day].push(
+                cls
+            );
+        }
+    );
 
-        });
+
+    let html = '';
 
 
-    return grouped;
+    DAYS.forEach(
+        day => {
 
+            const dayClasses =
+                sortClasses(
+                    grouped[day] || []
+                );
+
+            if (
+                !dayClasses.length
+            ) {
+                return;
+            }
+
+
+            html += `
+                <section class="day-section">
+
+                    <div class="day-heading">
+                        ${escapeHtml(day)}
+                    </div>
+
+                    <div class="day-routine">
+            `;
+
+
+            dayClasses.forEach(
+                cls => {
+
+                    html +=
+                        createClassCard(
+                            cls,
+                            showComment,
+                            mode
+                        );
+                }
+            );
+
+
+            html += `
+                    </div>
+
+                </section>
+            `;
+        }
+    );
+
+
+    container.innerHTML =
+        html;
 }
 
 
 /* =========================================================
-   TEACHER VIEW
+   WEEK VIEW
    ========================================================= */
 
-function renderTeacher(teacher) {
-
-    const classes =
-        sortClasses(
-            findTeacherClasses(teacher)
-        );
-
-
-    if (!classes.length) {
-
-        showError(
-            "Teacher not found.",
-            `No routine found for "${teacher}".`
-        );
-
-        return;
-
-    }
-
+function renderWeekView(
+    classes,
+    showComment,
+    mode
+) {
 
     const container =
         document.getElementById(
-            "routineContainer"
+            'viewContent'
         );
 
-
-    container.innerHTML = `
-        <div class="routine-header-card">
-
-            <div>
-                <div class="routine-kicker">
-                    TEACHER ROUTINE
-                </div>
-
-                <h2>
-                    ${escapeHTML(teacher)}
-                </h2>
-
-                <p>
-                    ${classes.length}
-                    ${classes.length === 1 ? "class" : "classes"}
-                </p>
-            </div>
-
-            <button
-                class="download-btn"
-                onclick="downloadSearchResult('teacher', '${escapeJS(teacher)}')"
-            >
-                <i class="fas fa-download"></i>
-                Download routine image
-            </button>
-
-        </div>
-
-        <div class="day-grid">
-            ${createTeacherRoomCards(classes)}
-        </div>
-    `;
-
-}
-
-
-/* =========================================================
-   ROOM VIEW
-   ========================================================= */
-
-function renderRoom(room) {
-
-    const classes =
-        sortClasses(
-            findRoomClasses(room)
-        );
-
-
-    if (!classes.length) {
-
-        showError(
-            "Room not found.",
-            `No routine found for "${room}".`
-        );
-
+    if (!container) {
         return;
-
     }
 
 
-    const container =
-        document.getElementById(
-            "routineContainer"
-        );
+    const grouped = {};
+
+    DAYS.forEach(
+        day => {
+            grouped[day] = [];
+        }
+    );
 
 
-    container.innerHTML = `
-        <div class="routine-header-card">
+    classes.forEach(
+        cls => {
 
-            <div>
-                <div class="routine-kicker">
-                    ROOM ROUTINE
-                </div>
+            const day =
+                normalizeDay(
+                    cls.day
+                );
 
-                <h2>
-                    ${escapeHTML(room)}
-                </h2>
+            if (!grouped[day]) {
+                grouped[day] = [];
+            }
 
-                <p>
-                    ${classes.length}
-                    ${classes.length === 1 ? "class" : "classes"}
-                </p>
-            </div>
+            grouped[day].push(
+                cls
+            );
+        }
+    );
 
-            <button
-                class="download-btn"
-                onclick="downloadSearchResult('room', '${escapeJS(room)}')"
-            >
-                <i class="fas fa-download"></i>
-                Download routine image
-            </button>
 
-        </div>
+    /*
+       Track cells already occupied by rowspan.
+    */
 
-        <div class="day-grid">
-            ${createTeacherRoomCards(classes)}
-        </div>
+    const occupied = {};
+
+    DAYS.forEach(
+        day => {
+            occupied[day] = {};
+        }
+    );
+
+
+    let html = `
+        <div class="week-table-wrapper">
+
+            <table class="week-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th class="time-col">
+                            Time
+                        </th>
     `;
 
-}
+
+    DAYS.forEach(
+        day => {
+
+            html += `
+                <th>
+                    ${escapeHtml(day)}
+                </th>
+            `;
+        }
+    );
 
 
-/* =========================================================
-   TEACHER / ROOM CARDS
-   ========================================================= */
+    html += `
+                    </tr>
 
-function createTeacherRoomCards(classes) {
+                </thead>
 
-    const grouped =
-        groupByDay(classes);
-
-
-    let html = "";
+                <tbody>
+    `;
 
 
-    DAYS.forEach(day => {
+    /*
+       ONLY 6 standard rows.
+    */
 
-        const dayClasses =
-            grouped[day] || [];
+    for (
+        let slotIndex = 0;
+        slotIndex <
+        DISPLAY_TIME_SLOTS.length;
+        slotIndex++
+    ) {
+
+        const slot =
+            DISPLAY_TIME_SLOTS[
+                slotIndex
+            ];
 
 
         html += `
-            <section class="day-card">
+            <tr>
 
-                <div class="day-card-header">
-
-                    <div>
-                        <h3>
-                            ${escapeHTML(day)}
-                        </h3>
-
-                        <span>
-                            ${dayClasses.length}
-                            ${dayClasses.length === 1
-                                ? "class"
-                                : "classes"}
-                        </span>
-                    </div>
-
-                </div>
-
-                <div class="class-list">
+                <td class="time-col">
+                    ${escapeHtml(slot)}
+                </td>
         `;
 
 
-        if (!dayClasses.length) {
+        for (
+            const day of DAYS
+        ) {
 
-            html += `
-                <div class="empty-day">
-                    No classes
-                </div>
-            `;
+            /*
+               This slot is already occupied
+               by a previous rowspan.
+            */
 
-        } else {
+            if (
+                occupied[day][
+                    slotIndex
+                ]
+            ) {
+                continue;
+            }
 
-            dayClasses.forEach(item => {
+
+            const dayClasses =
+                sortClasses(
+                    grouped[day] || []
+                );
+
+
+            /*
+               Find two-slot LAB.
+            */
+
+            const spanningLab =
+                slot ===
+                '11:30-01:00'
+                    ? dayClasses.find(
+                        cls =>
+                            isTwoSlotLab(
+                                cls
+                            )
+                    )
+                    : null;
+
+
+            if (spanningLab) {
+
+                /*
+                   Occupy second slot.
+                */
+
+                if (
+                    slotIndex + 1 <
+                    DISPLAY_TIME_SLOTS.length
+                ) {
+
+                    occupied[day][
+                        slotIndex + 1
+                    ] = true;
+                }
+
 
                 html += `
-                    <article class="class-item">
-
-                        <div class="class-time">
-                            ${escapeHTML(item.time)}
-                        </div>
-
-                        <div class="class-main">
-
-                            <div class="course-name">
-                                ${getCourseLabel(item)}
-                            </div>
-
-                            <div class="class-meta">
-
-                                <span>
-                                    <i class="fas fa-user"></i>
-                                    ${getTeacherLabel(item)}
-                                </span>
-
-                                <span>
-                                    <i class="fas fa-location-dot"></i>
-                                    ${getRoomLabel(item)}
-                                </span>
-
-                                <span>
-                                    Section
-                                    ${escapeHTML(
-                                        getClassSection(item)
-                                    )}
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </article>
+                    <td
+                        class="routine-cell lab-cell"
+                        rowspan="2"
+                    >
+                        ${createClassCard(
+                            spanningLab,
+                            showComment,
+                            mode
+                        )}
+                    </td>
                 `;
 
-            });
+                continue;
+            }
 
+
+            /*
+               Normal classes.
+            */
+
+            const normalClasses =
+                dayClasses.filter(
+                    cls => {
+
+                        const classTime =
+                            getClassTimeSlot(
+                                cls
+                            );
+
+                        return (
+                            classTime ===
+                                slot &&
+                            !isTwoSlotLab(
+                                cls
+                            )
+                        );
+                    }
+                );
+
+
+            if (
+                normalClasses.length
+            ) {
+
+                html += `
+                    <td class="routine-cell">
+                `;
+
+
+                normalClasses.forEach(
+                    cls => {
+
+                        html +=
+                            createClassCard(
+                                cls,
+                                showComment,
+                                mode
+                            );
+                    }
+                );
+
+
+                html += `
+                    </td>
+                `;
+
+            } else {
+
+                html += `
+                    <td class="routine-cell empty-cell">
+                        —
+                    </td>
+                `;
+            }
         }
 
 
         html += `
-                </div>
-            </section>
+            </tr>
         `;
+    }
 
-    });
+
+    html += `
+                </tbody>
+
+            </table>
+
+        </div>
+    `;
 
 
-    return html;
-
+    container.innerHTML =
+        html;
 }
 
 
 /* =========================================================
-   DOWNLOAD SECTION AS PNG
+   DOWNLOAD ROUTINE
    ========================================================= */
 
-async function downloadSection(section) {
+async function downloadSection() {
 
     const classes =
         sortClasses(
-            findSectionClasses(section)
+            filterClasses()
         );
 
 
     if (!classes.length) {
 
         alert(
-            `No routine found for ${section}.`
+            'No routine available to download.'
         );
 
         return;
-
     }
 
 
-    await downloadRoutineTableImage(
-        section,
-        classes
+    /*
+       Load html2canvas.
+    */
+
+    if (
+        typeof html2canvas ===
+        'undefined'
+    ) {
+
+        await loadHtml2Canvas();
+    }
+
+
+    const card =
+        createRoutineDownloadCard(
+            classes,
+            currentMode
+        );
+
+
+    document.body.appendChild(
+        card
     );
 
-}
-
-
-/* =========================================================
-   DOWNLOAD SEARCH RESULT
-   ========================================================= */
-
-async function downloadSearchResult(
-    mode,
-    value
-) {
-
-    let classes = [];
-
-
-    if (mode === "teacher") {
-
-        classes =
-            sortClasses(
-                findTeacherClasses(value)
-            );
-
-    } else if (mode === "room") {
-
-        classes =
-            sortClasses(
-                findRoomClasses(value)
-            );
-
-    }
-
-
-    if (!classes.length) {
-
-        alert("No routine found.");
-
-        return;
-
-    }
-
-
-    await downloadRoutineTableImage(
-        value,
-        classes,
-        mode
-    );
-
-}
-
-
-/* =========================================================
-   DOWNLOAD ROUTINE TABLE IMAGE
-   ========================================================= */
-
-async function downloadRoutineTableImage(
-    title,
-    classes,
-    mode = "section"
-) {
 
     try {
 
-        /*
-         * Load html2canvas dynamically if it is not already loaded.
-         */
-        await ensureHtml2Canvas();
-
-
-        const exportWrapper =
-            document.createElement("div");
-
-
-        exportWrapper.id =
-            "routineExportWrapper";
-
-
-        exportWrapper.style.position =
-            "fixed";
-
-        exportWrapper.style.left =
-            "-100000px";
-
-        exportWrapper.style.top =
-            "0";
-
-        exportWrapper.style.width =
-            "1500px";
-
-        exportWrapper.style.background =
-            "#ffffff";
-
-        exportWrapper.style.padding =
-            "50px";
-
-        exportWrapper.style.boxSizing =
-            "border-box";
-
-        exportWrapper.style.fontFamily =
-            "Arial, Helvetica, sans-serif";
-
-
-        const table =
-            createDownloadTable(
-                title,
-                classes,
-                mode
-            );
-
-
-        exportWrapper.innerHTML =
-            table;
-
-
-        document.body.appendChild(
-            exportWrapper
-        );
-
-
-        /*
-         * Wait for browser to render.
-         */
-        await new Promise(resolve => {
-
-            requestAnimationFrame(() => {
-
-                requestAnimationFrame(resolve);
-
-            });
-
-        });
-
-
         const canvas =
             await html2canvas(
-                exportWrapper,
+                card,
                 {
-                    backgroundColor: "#ffffff",
+                    /*
+                       Dark background.
+                    */
+
+                    backgroundColor:
+                        '#0f172a',
+
                     scale: 2,
+
                     useCORS: true,
+
                     logging: false,
-                    width: exportWrapper.scrollWidth,
-                    height: exportWrapper.scrollHeight
+
+                    /*
+                       Better text rendering.
+                    */
+
+                    letterRendering: true
                 }
             );
 
 
         const link =
-            document.createElement("a");
+            document.createElement(
+                'a'
+            );
+
+
+        const sectionName =
+            currentSection ||
+            currentQuery ||
+            'routine';
 
 
         const safeName =
-            String(title)
-                .replace(/[^a-z0-9_-]+/gi, "_");
+            sectionName
+                .replace(
+                    /[^a-zA-Z0-9_-]+/g,
+                    '_'
+                );
 
 
         link.download =
@@ -2064,56 +1775,35 @@ async function downloadRoutineTableImage(
 
         link.href =
             canvas.toDataURL(
-                "image/png"
+                'image/png'
             );
 
 
         link.click();
 
-
-        exportWrapper.remove();
-
     } catch (error) {
 
         console.error(
-            "Image download failed:",
+            'Routine download failed:',
             error
         );
 
-        const wrapper =
-            document.getElementById(
-                "routineExportWrapper"
-            );
-
-        if (wrapper) {
-            wrapper.remove();
-        }
-
-
         alert(
-            "Could not create routine image."
+            'Could not generate routine image.'
         );
 
-    }
+    } finally {
 
+        card.remove();
+    }
 }
 
 
 /* =========================================================
-   LOAD HTML2CANVAS
+   HTML2CANVAS LOADER
    ========================================================= */
 
-function ensureHtml2Canvas() {
-
-    if (
-        typeof window.html2canvas ===
-        "function"
-    ) {
-
-        return Promise.resolve();
-
-    }
-
+function loadHtml2Canvas() {
 
     return new Promise(
         (resolve, reject) => {
@@ -2127,850 +1817,966 @@ function ensureHtml2Canvas() {
             if (existing) {
 
                 existing.addEventListener(
-                    "load",
+                    'load',
                     resolve
                 );
 
                 existing.addEventListener(
-                    "error",
+                    'error',
                     reject
                 );
 
                 return;
-
             }
 
 
             const script =
-                document.createElement("script");
+                document.createElement(
+                    'script'
+                );
 
 
             script.src =
-                "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+                'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
 
-
-            script.async = true;
 
             script.dataset.html2canvas =
-                "true";
+                'true';
 
 
             script.onload =
-                () => resolve();
-
+                resolve;
 
             script.onerror =
-                () => reject(
-                    new Error(
-                        "html2canvas failed to load"
-                    )
-                );
+                reject;
 
 
             document.head.appendChild(
                 script
             );
-
         }
     );
-
 }
 
 
 /* =========================================================
-   CREATE DOWNLOAD TABLE
+   DOWNLOAD IMAGE CARD
    ========================================================= */
 
-function createDownloadTable(
-    title,
+function createRoutineDownloadCard(
     classes,
-    mode = "section"
+    mode
 ) {
 
-    const grouped =
-        groupByDay(classes);
+    const wrapper =
+        document.createElement(
+            'div'
+        );
 
 
-    const semester =
-        getSemester();
+    /*
+       MAIN DOWNLOAD IMAGE
+       Dark premium UI.
+    */
+
+    wrapper.style.position =
+        'fixed';
+
+    wrapper.style.left =
+        '-100000px';
+
+    wrapper.style.top =
+        '0';
+
+    wrapper.style.width =
+        '1600px';
+
+    wrapper.style.padding =
+        '45px';
+
+    wrapper.style.boxSizing =
+        'border-box';
+
+    wrapper.style.background =
+        '#0f172a';
+
+    wrapper.style.color =
+        '#f8fafc';
+
+    wrapper.style.fontFamily =
+        'Arial, Helvetica, sans-serif';
 
 
-    let subtitle = "";
+    /*
+       Group by day.
+    */
+
+    const grouped = {};
 
 
-    if (mode === "section") {
+    DAYS.forEach(
+        day => {
+            grouped[day] = [];
+        }
+    );
 
-        subtitle =
-            `Section ${escapeHTML(title)}`;
 
-    } else if (mode === "teacher") {
+    classes.forEach(
+        cls => {
 
-        subtitle =
-            `Teacher: ${escapeHTML(title)}`;
+            const day =
+                normalizeDay(
+                    cls.day
+                );
 
-    } else if (mode === "room") {
+            if (!grouped[day]) {
+                grouped[day] = [];
+            }
 
-        subtitle =
-            `Room: ${escapeHTML(title)}`;
+            grouped[day].push(
+                cls
+            );
+        }
+    );
+
+
+    /*
+       Cell map.
+    */
+
+    const cellMap = {};
+
+
+    DAYS.forEach(
+        day => {
+
+            cellMap[day] = {};
+
+            DISPLAY_TIME_SLOTS.forEach(
+                slot => {
+
+                    cellMap[day][
+                        slot
+                    ] = [];
+                }
+            );
+        }
+    );
+
+
+    /*
+       Put classes into standard slots.
+    */
+
+    classes.forEach(
+        cls => {
+
+            const day =
+                normalizeDay(
+                    cls.day
+                );
+
+            if (!cellMap[day]) {
+                return;
+            }
+
+
+            const time =
+                getClassTimeSlot(
+                    cls
+                );
+
+
+            /*
+               Two-slot LAB:
+               11:30-02:30
+               becomes:
+               11:30-01:00 + 01:00-02:30
+            */
+
+            if (
+                isTwoSlotLab(cls)
+            ) {
+
+                cellMap[day][
+                    '11:30-01:00'
+                ].push({
+                    class: cls,
+                    colspan: 2,
+                    spanning: true
+                });
+
+                return;
+            }
+
+
+            /*
+               Normal class.
+            */
+
+            if (
+                cellMap[day][time]
+            ) {
+
+                cellMap[day][time].push({
+                    class: cls,
+                    colspan: 1,
+                    spanning: false
+                });
+            }
+        }
+    );
+
+
+    /* =====================================================
+       IMAGE HEADER
+       ===================================================== */
+
+    let html = `
+
+        <div
+            style="
+                margin-bottom:28px;
+                padding:25px 28px;
+                border-radius:18px;
+                background:#172554;
+                border:1px solid #334155;
+                box-shadow:0 8px 30px rgba(0,0,0,.25);
+            "
+        >
+
+            <div
+                style="
+                    font-size:31px;
+                    line-height:1.2;
+                    font-weight:800;
+                    color:#f8fafc;
+                    letter-spacing:.3px;
+                "
+            >
+                DAFFODIL INTERNATIONAL UNIVERSITY
+            </div>
+
+
+            <div
+                style="
+                    margin-top:8px;
+                    font-size:23px;
+                    font-weight:700;
+                    color:#60a5fa;
+                "
+            >
+                DIU CSE ROUTINE
+            </div>
+
+
+            <div
+                style="
+                    margin-top:14px;
+                    font-size:17px;
+                    color:#cbd5e1;
+                "
+            >
+    `;
+
+
+    if (
+        mode === 'section'
+    ) {
+
+        html += `
+            Section:
+            <strong
+                style="
+                    color:#ffffff;
+                "
+            >
+                ${escapeHtml(
+                    currentSection
+                )}
+            </strong>
+        `;
 
     } else {
 
-        subtitle =
-            escapeHTML(title);
-
+        html += `
+            ${escapeHtml(
+                currentMode
+            )}:
+            <strong
+                style="
+                    color:#ffffff;
+                "
+            >
+                ${escapeHtml(
+                    currentQuery
+                )}
+            </strong>
+        `;
     }
+
+
+    html += `
+
+                <span
+                    style="
+                        color:#64748b;
+                        padding:0 10px;
+                    "
+                >
+                    |
+                </span>
+
+                Semester:
+                <strong
+                    style="
+                        color:#ffffff;
+                    "
+                >
+                    ${escapeHtml(
+                        getSemester()
+                    )}
+                </strong>
+
+            </div>
+
+        </div>
+    `;
+
+
+    /* =====================================================
+       LEGEND
+       ===================================================== */
+
+    html += `
+
+        <div
+            style="
+                display:flex;
+                gap:12px;
+                margin-bottom:18px;
+                font-size:12px;
+            "
+        >
+
+            <div
+                style="
+                    padding:7px 13px;
+                    border-radius:20px;
+                    background:#1e3a8a;
+                    color:#bfdbfe;
+                    border:1px solid #3b82f6;
+                    font-weight:700;
+                "
+            >
+                THEORY
+            </div>
+
+
+            <div
+                style="
+                    padding:7px 13px;
+                    border-radius:20px;
+                    background:#4c1d95;
+                    color:#ddd6fe;
+                    border:1px solid #8b5cf6;
+                    font-weight:700;
+                "
+            >
+                LAB
+            </div>
+
+        </div>
+    `;
+
+
+    /* =====================================================
+       TABLE
+       ===================================================== */
+
+    html += `
+
+        <table
+            style="
+                width:100%;
+                border-collapse:separate;
+                border-spacing:0;
+                table-layout:fixed;
+                overflow:hidden;
+                border-radius:16px;
+                background:#111827;
+                border:1px solid #334155;
+            "
+        >
+
+            <thead>
+
+                <tr>
+
+                    <th
+                        style="
+                            width:125px;
+                            padding:15px 10px;
+                            border-right:1px solid #334155;
+                            border-bottom:1px solid #475569;
+                            background:#1e293b;
+                            color:#f8fafc;
+                            font-size:14px;
+                            font-weight:800;
+                        "
+                    >
+                        DAY
+                    </th>
+    `;
+
+
+    /*
+       Only 6 standard time columns.
+    */
+
+    DISPLAY_TIME_SLOTS.forEach(
+        slot => {
+
+            html += `
+                <th
+                    style="
+                        padding:15px 8px;
+                        border-right:1px solid #334155;
+                        border-bottom:1px solid #475569;
+                        background:#1e293b;
+                        color:#bfdbfe;
+                        font-size:13px;
+                        font-weight:800;
+                        text-align:center;
+                    "
+                >
+                    ${escapeHtml(slot)}
+                </th>
+            `;
+        }
+    );
+
+
+    html += `
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+    `;
+
+
+    /* =====================================================
+       TABLE ROWS
+       ===================================================== */
+
+    DAYS.forEach(
+        (day, dayIndex) => {
+
+            html += `
+                <tr>
+            `;
+
+
+            /*
+               Day cell.
+            */
+
+            const dayBackground =
+                dayIndex % 2 === 0
+                    ? '#172033'
+                    : '#141c2e';
+
+
+            html += `
+                <td
+                    style="
+                        padding:14px 8px;
+                        border-right:1px solid #334155;
+                        border-bottom:1px solid #334155;
+                        background:${dayBackground};
+                        color:#e2e8f0;
+                        text-align:center;
+                        vertical-align:middle;
+                        font-size:14px;
+                        font-weight:800;
+                    "
+                >
+                    ${escapeHtml(day)}
+                </td>
+            `;
+
+
+            const dayMap =
+                cellMap[day];
+
+
+            /*
+               Loop through 6 slots.
+            */
+
+            for (
+                let i = 0;
+                i <
+                DISPLAY_TIME_SLOTS.length;
+                i++
+            ) {
+
+                const slot =
+                    DISPLAY_TIME_SLOTS[i];
+
+
+                const cells =
+                    dayMap[slot] || [];
+
+
+                /*
+                   Find spanning Lab.
+                */
+
+                const spanningCell =
+                    cells.find(
+                        item =>
+                            item.spanning ===
+                            true
+                    );
+
+
+                if (
+                    spanningCell &&
+                    spanningCell.colspan === 2
+                ) {
+
+                    html += `
+                        <td
+                            colspan="2"
+                            style="
+                                padding:10px;
+                                border-right:1px solid #334155;
+                                border-bottom:1px solid #334155;
+                                background:#2e1065;
+                                vertical-align:middle;
+                                text-align:center;
+                            "
+                        >
+                            ${createDownloadClassHtml(
+                                spanningCell.class,
+                                mode
+                            )}
+                        </td>
+                    `;
+
+
+                    /*
+                       Skip:
+                       01:00-02:30
+                    */
+
+                    i += 1;
+
+                    continue;
+                }
+
+
+                /*
+                   Normal class cell.
+                */
+
+                if (
+                    cells.length
+                ) {
+
+                    html += `
+                        <td
+                            style="
+                                padding:9px;
+                                border-right:1px solid #334155;
+                                border-bottom:1px solid #334155;
+                                background:#111827;
+                                vertical-align:middle;
+                                text-align:center;
+                            "
+                        >
+                    `;
+
+
+                    cells.forEach(
+                        (item, index) => {
+
+                            if (
+                                index > 0
+                            ) {
+
+                                html += `
+                                    <div
+                                        style="
+                                            height:1px;
+                                            background:#334155;
+                                            margin:9px 0;
+                                        "
+                                    ></div>
+                                `;
+                            }
+
+
+                            html +=
+                                createDownloadClassHtml(
+                                    item.class,
+                                    mode
+                                );
+                        }
+                    );
+
+
+                    html += `
+                        </td>
+                    `;
+
+                } else {
+
+                    html += `
+                        <td
+                            style="
+                                padding:14px 8px;
+                                border-right:1px solid #334155;
+                                border-bottom:1px solid #334155;
+                                background:#0f172a;
+                                color:#475569;
+                                text-align:center;
+                                vertical-align:middle;
+                                font-size:14px;
+                            "
+                        >
+                            —
+                        </td>
+                    `;
+                }
+            }
+
+
+            html += `
+                </tr>
+            `;
+        }
+    );
+
+
+    html += `
+
+            </tbody>
+
+        </table>
+
+
+        <div
+            style="
+                margin-top:18px;
+                padding:13px;
+                text-align:center;
+                font-size:11px;
+                color:#64748b;
+            "
+        >
+            Generated from DIU CSE Routine
+        </div>
+
+    `;
+
+
+    wrapper.innerHTML =
+        html;
+
+
+    return wrapper;
+}
+
+
+/* =========================================================
+   DOWNLOAD CLASS CARD
+   ========================================================= */
+
+function createDownloadClassHtml(
+    cls,
+    mode
+) {
+
+    const type =
+        normalizeClassType(
+            cls.type
+        );
+
+    const code =
+        getCourseCode(cls);
+
+    const name =
+        getCourseName(cls);
+
+    const teacher =
+        getTeacher(cls);
+
+    const room =
+        getRoom(cls);
+
+    const time =
+        getClassTimeSlot(cls);
+
+    const subsection =
+        getDisplaySubsection(cls);
+
+    const comment =
+        getComment(cls);
+
+
+    /*
+       THEORY = blue
+       LAB = purple
+    */
+
+    const isLab =
+        type === 'Lab';
+
+
+    const cardBackground =
+        isLab
+            ? '#3b176d'
+            : '#123b70';
+
+
+    const cardBorder =
+        isLab
+            ? '#8b5cf6'
+            : '#3b82f6';
+
+
+    const badgeBackground =
+        isLab
+            ? '#6d28d9'
+            : '#1d4ed8';
 
 
     let html = `
 
-        <div style="
-            width:100%;
-            background:#ffffff;
-            color:#111827;
-        ">
+        <div
+            style="
+                padding:11px 10px;
+                border-radius:11px;
+                background:${cardBackground};
+                border:1px solid ${cardBorder};
+                color:#f8fafc;
+                font-family:Arial,Helvetica,sans-serif;
+                text-align:left;
+                box-shadow:0 3px 10px rgba(0,0,0,.2);
+            "
+        >
+    `;
 
-            <div style="
-                text-align:center;
-                padding:10px 0 30px 0;
-            ">
 
-                <div style="
-                    font-size:22px;
-                    font-weight:700;
-                    letter-spacing:1px;
-                    margin-bottom:8px;
-                ">
-                    DAFFODIL INTERNATIONAL UNIVERSITY
-                </div>
+    /*
+       COURSE CODE
+    */
 
-                <div style="
-                    font-size:18px;
+    if (code) {
+
+        html += `
+            <div
+                style="
+                    font-size:15px;
+                    line-height:1.2;
+                    font-weight:800;
+                    color:#ffffff;
+                    margin-bottom:5px;
+                "
+            >
+                ${escapeHtml(code)}
+            </div>
+        `;
+    }
+
+
+    /*
+       COURSE NAME
+    */
+
+    if (name) {
+
+        html += `
+            <div
+                style="
+                    font-size:12px;
+                    line-height:1.35;
                     font-weight:600;
+                    color:#e2e8f0;
+                    margin-bottom:7px;
+                "
+            >
+                ${escapeHtml(name)}
+            </div>
+        `;
+    }
+
+
+    /*
+       TYPE BADGE
+    */
+
+    if (type) {
+
+        html += `
+            <span
+                style="
+                    display:inline-block;
+                    padding:3px 7px;
+                    border-radius:5px;
+                    background:${badgeBackground};
+                    color:#ffffff;
+                    font-size:9px;
+                    font-weight:800;
+                    letter-spacing:.4px;
                     margin-bottom:6px;
-                ">
-                    Department of Computer Science & Engineering
-                </div>
-
-                <div style="
-                    font-size:28px;
-                    font-weight:800;
-                    margin-top:20px;
-                ">
-                    ${subtitle}
-                </div>
-
-                <div style="
-                    font-size:18px;
-                    margin-top:8px;
-                ">
-                    ${escapeHTML(semester)}
-                </div>
-
-            </div>
+                "
+            >
+                ${escapeHtml(
+                    type.toUpperCase()
+                )}
+            </span>
+        `;
+    }
 
 
-            <table style="
-                width:100%;
-                border-collapse:collapse;
-                table-layout:fixed;
-                font-size:15px;
-                background:#ffffff;
-            ">
+    /*
+       SUBSECTION
+    */
 
-                <thead>
-
-                    <tr>
-
-                        <th style="
-                            border:1px solid #1f2937;
-                            padding:14px 8px;
-                            background:#111827;
-                            color:#ffffff;
-                            width:105px;
-                            font-size:16px;
-                        ">
-                            Day
-                        </th>
-    `;
-
-
-    TIME_SLOTS.forEach(time => {
+    if (subsection) {
 
         html += `
-            <th style="
-                border:1px solid #1f2937;
-                padding:14px 6px;
-                background:#111827;
-                color:#ffffff;
-                font-size:14px;
-                line-height:1.3;
-            ">
-                ${escapeHTML(time)}
-            </th>
+            <div
+                style="
+                    font-size:10px;
+                    font-weight:700;
+                    color:#bfdbfe;
+                    margin-bottom:4px;
+                "
+            >
+                ${escapeHtml(
+                    subsection
+                )}
+            </div>
         `;
+    }
 
-    });
+
+    /*
+       TEACHER
+    */
+
+    if (
+        mode !== 'teacher' &&
+        teacher
+    ) {
+
+        html += `
+            <div
+                style="
+                    font-size:10px;
+                    line-height:1.3;
+                    color:#dbeafe;
+                    margin-top:3px;
+                "
+            >
+                👨‍🏫 ${escapeHtml(
+                    teacher
+                )}
+            </div>
+        `;
+    }
+
+
+    /*
+       ROOM
+    */
+
+    if (
+        mode !== 'room' &&
+        room
+    ) {
+
+        html += `
+            <div
+                style="
+                    font-size:10px;
+                    line-height:1.3;
+                    color:#dbeafe;
+                    margin-top:3px;
+                "
+            >
+                📍 ${escapeHtml(
+                    room
+                )}
+            </div>
+        `;
+    }
+
+
+    /*
+       TIME
+
+       For Lab:
+       11:30-02:30
+
+       It is still displayed as the
+       original full Lab time.
+    */
+
+    if (time) {
+
+        html += `
+            <div
+                style="
+                    margin-top:7px;
+                    padding-top:6px;
+                    border-top:1px solid rgba(255,255,255,.16);
+                    font-size:10px;
+                    font-weight:700;
+                    color:#ffffff;
+                "
+            >
+                🕐 ${escapeHtml(time)}
+            </div>
+        `;
+    }
+
+
+    /*
+       COMMENT
+    */
+
+    if (comment) {
+
+        html += `
+            <div
+                style="
+                    margin-top:5px;
+                    font-size:9px;
+                    line-height:1.3;
+                    color:#cbd5e1;
+                "
+            >
+                ${escapeHtml(
+                    comment
+                )}
+            </div>
+        `;
+    }
 
 
     html += `
-                    </tr>
-
-                </thead>
-
-                <tbody>
-    `;
-
-
-    DAYS.forEach(day => {
-
-        const dayClasses =
-            grouped[day] || [];
-
-
-        /*
-         * Keep classes indexed by their starting normal slot.
-         */
-        const slotMap = {};
-
-
-        dayClasses.forEach(item => {
-
-            const startIndex =
-                getTimeStartIndex(item.time);
-
-
-            if (
-                startIndex >= 0 &&
-                startIndex < TIME_SLOTS.length
-            ) {
-
-                if (!slotMap[startIndex]) {
-                    slotMap[startIndex] = [];
-                }
-
-                slotMap[startIndex].push(item);
-
-            }
-
-        });
-
-
-        html += `
-            <tr>
-
-                <td style="
-                    border:1px solid #1f2937;
-                    padding:12px 8px;
-                    text-align:center;
-                    vertical-align:middle;
-                    font-weight:800;
-                    font-size:17px;
-                    background:#f3f4f6;
-                ">
-                    ${escapeHTML(day)}
-                </td>
-        `;
-
-
-        let slotIndex = 0;
-
-
-        while (
-            slotIndex <
-            TIME_SLOTS.length
-        ) {
-
-            const items =
-                slotMap[slotIndex] || [];
-
-
-            /*
-             * If there is a 2-slot Lab beginning here,
-             * render it with colspan="2".
-             */
-            const lab =
-                items.find(
-                    item =>
-                        item.type === "Lab" &&
-                        getLabSpan(item) === 2
-                );
-
-
-            if (lab) {
-
-                html += `
-                    <td colspan="2" style="
-                        border:1px solid #1f2937;
-                        padding:10px;
-                        vertical-align:middle;
-                        text-align:center;
-                        background:#f9fafb;
-                    ">
-                        ${createExportClassHTML(lab)}
-                    </td>
-                `;
-
-
-                /*
-                 * Skip the second normal slot.
-                 */
-                slotIndex += 2;
-
-                continue;
-
-            }
-
-
-            /*
-             * Normal single-slot cell.
-             */
-            html += `
-                <td style="
-                    border:1px solid #1f2937;
-                    padding:10px;
-                    vertical-align:middle;
-                    text-align:center;
-                    background:#ffffff;
-                ">
-            `;
-
-
-            if (items.length) {
-
-                items.forEach(
-                    (item, index) => {
-
-                        html +=
-                            createExportClassHTML(
-                                item
-                            );
-
-
-                        if (
-                            index <
-                            items.length - 1
-                        ) {
-
-                            html += `
-                                <div style="
-                                    border-top:1px dashed #9ca3af;
-                                    margin:9px 0;
-                                "></div>
-                            `;
-
-                        }
-
-                    }
-                );
-
-            } else {
-
-                html += `
-                    <span style="
-                        color:#9ca3af;
-                        font-size:13px;
-                    ">
-                        —
-                    </span>
-                `;
-
-            }
-
-
-            html += `
-                </td>
-            `;
-
-
-            slotIndex++;
-
-        }
-
-
-        html += `
-            </tr>
-        `;
-
-    });
-
-
-    html += `
-                </tbody>
-
-            </table>
-
-
-            <div style="
-                text-align:center;
-                font-size:13px;
-                color:#6b7280;
-                margin-top:18px;
-            ">
-                Generated from DIU CSE Routine
-            </div>
-
         </div>
     `;
 
 
     return html;
-
-}
-
-
-/* =========================================================
-   EXPORT CLASS HTML
-   ========================================================= */
-
-function createExportClassHTML(item) {
-
-    const course =
-        getPlainCourseLabel(item);
-
-
-    const teacher =
-        escapeHTML(
-            String(
-                item.teacher || "TBA"
-            ).trim()
-        );
-
-
-    const room =
-        escapeHTML(
-            String(
-                item.room || "TBA"
-            ).trim()
-        );
-
-
-    const type =
-        escapeHTML(
-            String(
-                item.type || "Theory"
-            )
-        );
-
-
-    const time =
-        escapeHTML(
-            String(
-                item.time || ""
-            )
-        );
-
-
-    return `
-        <div style="
-            line-height:1.35;
-            min-width:0;
-        ">
-
-            <div style="
-                font-size:17px;
-                font-weight:800;
-                margin-bottom:5px;
-                word-break:break-word;
-            ">
-                ${course}
-            </div>
-
-            <div style="
-                font-size:13px;
-                font-weight:600;
-                margin-bottom:3px;
-            ">
-                ${teacher}
-            </div>
-
-            <div style="
-                font-size:12px;
-                margin-bottom:3px;
-            ">
-                ${room}
-            </div>
-
-            <div style="
-                font-size:11px;
-                font-weight:700;
-                text-transform:uppercase;
-                letter-spacing:.5px;
-                margin-bottom:3px;
-            ">
-                ${type}
-            </div>
-
-            ${
-                item.type === "Lab"
-                    ? `
-                        <div style="
-                            font-size:11px;
-                            color:#374151;
-                        ">
-                            ${time}
-                        </div>
-                    `
-                    : ""
-            }
-
-        </div>
-    `;
-
-}
-
-
-/* =========================================================
-   PLAIN COURSE LABEL FOR EXPORT
-   ========================================================= */
-
-function getPlainCourseLabel(item) {
-
-    let label =
-        escapeHTML(
-            String(item.course || "")
-        );
-
-
-    const sub =
-        normalizeSubSection(
-            item.sub_section
-        );
-
-
-    /*
-     * Main Theory:
-     * CSE213
-     *
-     * Lab:
-     * CSE214 (N1)
-     */
-    if (
-        item.type === "Lab" &&
-        sub
-    ) {
-
-        label +=
-            ` (N${escapeHTML(sub)})`;
-
-    }
-
-
-    return label;
-
-}
-
-
-/* =========================================================
-   SEMESTER
-   ========================================================= */
-
-function getSemester() {
-
-    /*
-     * If scraper already stores semester,
-     * use it.
-     */
-    if (
-        routineData &&
-        routineData.semester
-    ) {
-
-        return String(
-            routineData.semester
-        );
-
-    }
-
-
-    if (
-        routineData &&
-        routineData.meta &&
-        routineData.meta.semester
-    ) {
-
-        return String(
-            routineData.meta.semester
-        );
-
-    }
-
-
-    /*
-     * Current DIU routine:
-     * Effective from July 2026.
-     */
-    return "Summer 2026";
-
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-function performSearch(query) {
-
-    if (!routineData) {
-        return;
-    }
-
-
-    const value =
-        String(query || "").trim();
-
-
-    if (!value) {
-
-        renderWelcome();
-
-        return;
-
-    }
-
-
-    const results =
-        getSearchResults(value);
-
-
-    renderSearchResults(
-        value,
-        results
-    );
-
-}
-
-
-/* =========================================================
-   SEARCH RESULTS
-   ========================================================= */
-
-function getSearchResults(query) {
-
-    const target =
-        query.toLowerCase();
-
-
-    return getAllClasses()
-        .filter(item => {
-
-            const searchable = [
-
-                item.course,
-                item.teacher,
-                item.room,
-                item.section,
-                item.section_name,
-                item.section_letter,
-                item.batch,
-                item.day,
-                item.time,
-                item.type
-
-            ]
-                .filter(Boolean)
-                .join(" ")
-                .toLowerCase();
-
-
-            return searchable.includes(
-                target
-            );
-
-        })
-        .sort((a, b) => {
-
-            const dayA =
-                DAY_ORDER[a.day] ?? 999;
-
-            const dayB =
-                DAY_ORDER[b.day] ?? 999;
-
-            if (dayA !== dayB) {
-                return dayA - dayB;
-            }
-
-            return (
-                getTimeStartIndex(a.time) -
-                getTimeStartIndex(b.time)
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   RENDER SEARCH RESULTS
-   ========================================================= */
-
-function renderSearchResults(
-    query,
-    results
-) {
-
-    const container =
-        document.getElementById(
-            "routineContainer"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    if (!results.length) {
-
-        showError(
-            "No result found.",
-            `Nothing matched "${query}".`
-        );
-
-        return;
-
-    }
-
-
-    container.innerHTML = `
-
-        <div class="routine-header-card">
-
-            <div>
-
-                <div class="routine-kicker">
-                    SEARCH RESULTS
-                </div>
-
-                <h2>
-                    ${escapeHTML(query)}
-                </h2>
-
-                <p>
-                    ${results.length}
-                    ${results.length === 1
-                        ? "result"
-                        : "results"}
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="day-grid">
-
-            ${createTeacherRoomCards(results)}
-
-        </div>
-    `;
-
-}
-
-
-/* =========================================================
-   SEARCH DATA
-   ========================================================= */
-
-function populateSearchData() {
-
-    /*
-     * Supports datalist if index.html contains it.
-     */
-
-    const datalist =
-        document.getElementById(
-            "searchSuggestions"
-        );
-
-
-    if (!datalist || !routineData) {
-        return;
-    }
-
-
-    const values =
-        new Set();
-
-
-    getAllClasses()
-        .forEach(item => {
-
-            [
-                item.section,
-                item.section_name,
-                item.teacher,
-                item.room,
-                item.course
-            ]
-                .filter(Boolean)
-                .forEach(value => {
-
-                    values.add(
-                        String(value).trim()
-                    );
-
-                });
-
-        });
-
-
-    datalist.innerHTML =
-        [...values]
-            .sort(
-                (a, b) =>
-                    a.localeCompare(b)
-            )
-            .map(
-                value =>
-                    `<option value="${escapeHTML(value)}"></option>`
-            )
-            .join("");
-
-}
-
-
-/* =========================================================
-   WELCOME
-   ========================================================= */
-
-function renderWelcome() {
-
-    const container =
-        document.getElementById(
-            "routineContainer"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    container.innerHTML = `
-
-        <div class="loading-state">
-
-            <div class="spinner"></div>
-
-            <h3>
-                ${currentMode === "section"
-                    ? "Enter your section"
-                    : currentMode === "teacher"
-                        ? "Search for a teacher"
-                        : "Search for a room"}
-            </h3>
-
-            <p>
-                ${currentMode === "section"
-                    ? "Example: 70_N"
-                    : currentMode === "teacher"
-                        ? "Example: NSL"
-                        : "Example: KT-516"}
-            </p>
-
-        </div>
-
-    `;
-
 }
 
 
@@ -2978,16 +2784,12 @@ function renderWelcome() {
    ERROR
    ========================================================= */
 
-function showError(
-    title,
-    message
-) {
+function showError(message) {
 
     const container =
         document.getElementById(
-            "routineContainer"
+            'viewContent'
         );
-
 
     if (!container) {
         return;
@@ -2995,164 +2797,409 @@ function showError(
 
 
     container.innerHTML = `
+        <div class="error-state">
 
-        <div class="loading-state">
-
-            <div style="
-                font-size:42px;
-                margin-bottom:12px;
-            ">
-                <i class="fas fa-circle-exclamation"></i>
+            <div class="error-icon">
+                ⚠️
             </div>
 
             <h3>
-                ${escapeHTML(title)}
+                Error
             </h3>
 
             <p>
-                ${escapeHTML(message)}
+                ${escapeHtml(message)}
             </p>
 
         </div>
-
     `;
-
 }
 
 
 /* =========================================================
-   MESSAGE
+   AUTO REFRESH
    ========================================================= */
 
-function setMessage(text) {
+function startAutoRefresh() {
 
-    const element =
+    if (
+        autoRefreshTimer
+    ) {
+
+        clearInterval(
+            autoRefreshTimer
+        );
+    }
+
+
+    /*
+       Every 5 minutes.
+    */
+
+    autoRefreshTimer =
+        setInterval(
+            async () => {
+
+                try {
+
+                    const response =
+                        await fetch(
+                            `data/routine.json?t=${Date.now()}`,
+                            {
+                                cache:
+                                    'no-store'
+                            }
+                        );
+
+
+                    if (
+                        !response.ok
+                    ) {
+                        return;
+                    }
+
+
+                    const newData =
+                        await response.json();
+
+
+                    routineData =
+                        newData;
+
+
+                    currentSemester =
+                        getSemester();
+
+
+                    populateSectionSelect();
+
+                    renderRoutine();
+
+                } catch (error) {
+
+                    console.warn(
+                        'Auto refresh failed:',
+                        error
+                    );
+                }
+
+            },
+            5 * 60 * 1000
+        );
+}
+
+
+/* =========================================================
+   CLEAR SAVED ROUTINE
+   ========================================================= */
+
+function clearSavedRoutine() {
+
+    localStorage.removeItem(
+        'diuCseSelectedSection'
+    );
+
+
+    currentSection =
+        '';
+
+    currentQuery =
+        '';
+
+
+    const input =
         document.getElementById(
-            "message"
+            'sectionInput'
+        ) ||
+        document.getElementById(
+            'searchInput'
         );
 
 
-    if (!element) {
+    if (input) {
+        input.value = '';
+    }
+
+
+    renderRoutine();
+}
+
+
+/* =========================================================
+   SEARCH TOGGLE
+   ========================================================= */
+
+function toggleSearch() {
+
+    const searchBox =
+        document.getElementById(
+            'searchBox'
+        );
+
+
+    if (!searchBox) {
         return;
     }
 
 
-    element.textContent =
-        text || "";
+    searchBox.classList.toggle(
+        'active'
+    );
 
+
+    if (
+        searchBox.classList.contains(
+            'active'
+        )
+    ) {
+
+        const input =
+            searchBox.querySelector(
+                'input'
+            );
+
+
+        if (input) {
+
+            setTimeout(
+                () =>
+                    input.focus(),
+                50
+            );
+        }
+    }
 }
 
 
 /* =========================================================
-   DATE FORMAT
+   EVENT LISTENERS
    ========================================================= */
 
-function formatUpdatedDate(value) {
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
 
-    try {
+        /*
+           SECTION SELECT
+        */
 
-        const date =
-            new Date(value);
+        const sectionSelect =
+            document.getElementById(
+                'sectionSelect'
+            );
 
 
-        if (Number.isNaN(date.getTime())) {
-            return String(value);
+        if (sectionSelect) {
+
+            sectionSelect.addEventListener(
+                'change',
+                event => {
+
+                    changeSection(
+                        event.target.value
+                    );
+                }
+            );
         }
 
 
-        return date.toLocaleString(
-            "en-BD",
-            {
-                day: "2-digit",
-                month: "short",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit"
-            }
-        );
+        /*
+           SEARCH INPUT
+        */
 
-    } catch {
+        const searchInput =
+            document.getElementById(
+                'sectionInput'
+            ) ||
+            document.getElementById(
+                'searchInput'
+            );
 
-        return String(value);
 
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                'keydown',
+                event => {
+
+                    if (
+                        event.key ===
+                        'Enter'
+                    ) {
+
+                        performSearch();
+                    }
+                }
+            );
+        }
+
+
+        /*
+           SEARCH BUTTON
+        */
+
+        const searchButton =
+            document.getElementById(
+                'searchButton'
+            ) ||
+            document.getElementById(
+                'searchBtn'
+            );
+
+
+        if (searchButton) {
+
+            searchButton.addEventListener(
+                'click',
+                performSearch
+            );
+        }
+
+
+        /*
+           DOWNLOAD BUTTON
+        */
+
+        const downloadButton =
+            document.getElementById(
+                'downloadButton'
+            ) ||
+            document.getElementById(
+                'downloadBtn'
+            );
+
+
+        if (downloadButton) {
+
+            downloadButton.addEventListener(
+                'click',
+                downloadSection
+            );
+        }
+
+
+        /*
+           CLEAR BUTTON
+        */
+
+        const clearButton =
+            document.getElementById(
+                'clearSaved'
+            ) ||
+            document.getElementById(
+                'clearButton'
+            );
+
+
+        if (clearButton) {
+
+            clearButton.addEventListener(
+                'click',
+                clearSavedRoutine
+            );
+        }
+
+
+        /*
+           SEARCH TOGGLE
+        */
+
+        const searchToggle =
+            document.getElementById(
+                'searchToggle'
+            ) ||
+            document.getElementById(
+                'searchIcon'
+            );
+
+
+        if (searchToggle) {
+
+            searchToggle.addEventListener(
+                'click',
+                toggleSearch
+            );
+        }
+
+
+        /*
+           VIEW BUTTONS
+        */
+
+        document
+            .querySelectorAll(
+                '[data-view]'
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        'click',
+                        () => {
+
+                            setView(
+                                button.dataset.view
+                            );
+                        }
+                    );
+                }
+            );
+
+
+        /*
+           MODE BUTTONS
+        */
+
+        document
+            .querySelectorAll(
+                '[data-mode]'
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        'click',
+                        () => {
+
+                            setMode(
+                                button.dataset.mode
+                            );
+                        }
+                    );
+                }
+            );
+
+
+        /*
+           LOAD ROUTINE
+        */
+
+        loadRoutineData();
     }
-
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
-
-function escapeHTML(value) {
-
-    return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-/* =========================================================
-   ESCAPE JS
-   ========================================================= */
-
-function escapeJS(value) {
-
-    return String(value ?? "")
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'")
-        .replace(/"/g, '\\"')
-        .replace(/\n/g, "\\n")
-        .replace(/\r/g, "\\r");
-
-}
+);
 
 
 /* =========================================================
    GLOBAL FUNCTIONS
    ========================================================= */
 
-window.showSelectedRoutine =
-    showSelectedRoutine;
-
-window.switchMode =
-    switchMode;
-
 window.downloadSection =
     downloadSection;
 
-window.downloadSearchResult =
-    downloadSearchResult;
+window.setView =
+    setView;
+
+window.setMode =
+    setMode;
+
+window.changeSection =
+    changeSection;
 
 window.performSearch =
     performSearch;
 
+window.toggleSearch =
+    toggleSearch;
 
-/* =========================================================
-   DEBUG HELPERS
-   ========================================================= */
-
-window.DIU_ROUTINE_DEBUG = {
-
-    getAllClasses,
-
-    findSectionClasses,
-
-    findTeacherClasses,
-
-    findRoomClasses,
-
-    sortClasses,
-
-    getLabSpan,
-
-    getSemester,
-
-    routineData: () =>
-        routineData
-
-};
+window.clearSavedRoutine =
+    clearSavedRoutine;
