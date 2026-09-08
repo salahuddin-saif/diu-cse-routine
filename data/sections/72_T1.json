@@ -1,0 +1,28 @@
+{
+  "section": "72_T1",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE114",
+      "teacher": "MIH",
+      "room": "G1-007",
+      "type": "Lab",
+      "batch": "72",
+      "section": "T",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE114",
+      "teacher": "MIH",
+      "room": "G1-007",
+      "type": "Lab",
+      "batch": "72",
+      "section": "T",
+      "sub_section": "1"
+    }
+  ]
+}

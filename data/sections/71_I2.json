@@ -3,14 +3,70 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE114",
-      "teacher": "MA",
-      "room": "TRA",
-      "type": "Theory",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE122",
+      "teacher": "MTF",
+      "room": "KT-810",
+      "type": "Lab",
       "batch": "71",
-      "section": "I"
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE122",
+      "teacher": "MTF",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "71",
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "MHS",
+      "room": "G1-011",
+      "type": "Lab",
+      "batch": "71",
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "MHS",
+      "room": "G1-011",
+      "type": "Lab",
+      "batch": "71",
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "PHY103",
+      "teacher": "MFI",
+      "room": "KT-815",
+      "type": "Lab",
+      "batch": "71",
+      "section": "I",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "PHY103",
+      "teacher": "MFI",
+      "room": "KT-815",
+      "type": "Lab",
+      "batch": "71",
+      "section": "I",
+      "sub_section": "2"
     }
   ]
 }

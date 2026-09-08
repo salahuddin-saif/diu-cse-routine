@@ -1,0 +1,28 @@
+{
+  "section": "72_D1",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE114",
+      "teacher": "SI",
+      "room": "KT-503",
+      "type": "Lab",
+      "batch": "72",
+      "section": "D",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE114",
+      "teacher": "SI",
+      "room": "KT-503",
+      "type": "Lab",
+      "batch": "72",
+      "section": "D",
+      "sub_section": "1"
+    }
+  ]
+}

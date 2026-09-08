@@ -4,28 +4,17 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
+      "time": "01:00-02:30",
       "course": "PHY103",
       "teacher": "PNT_2",
-      "room": "2",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "PHY103",
-      "teacher": "PNT_2",
-      "room": "2",
-      "type": "Theory",
+      "room": "KT-815",
+      "type": "Lab",
       "batch": "71",
       "section": "L",
       "sub_section": "2"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE123",
       "teacher": "JHJ",
@@ -36,51 +25,40 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE121",
-      "teacher": "EEE_5",
-      "room": "KT-304",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
+      "day": "Saturday",
       "time": "08:30-10:00",
-      "course": "PHY102",
+      "course": "PHY103",
       "teacher": "PNT_2",
-      "room": "KT-306",
-      "type": "Theory",
+      "room": "KT-815",
+      "type": "Lab",
       "batch": "71",
       "section": "L",
-      "sub_section": "Main"
+      "sub_section": "1"
     },
     {
-      "day": "Monday",
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "PHY103",
+      "teacher": "PNT_2",
+      "room": "KT-815",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
       "time": "11:30-01:00",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "COM",
-      "type": "Theory",
+      "course": "PHY103",
+      "teacher": "PNT_2",
+      "room": "KT-815",
+      "type": "Lab",
       "batch": "71",
       "section": "L",
       "sub_section": "2"
     },
     {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "2"
-    },
-    {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE121",
       "teacher": "EEE_5",
@@ -91,29 +69,117 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "G1-004",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE122",
+      "teacher": "EEE_5",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE122",
+      "teacher": "EEE_5",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "PHY102",
       "teacher": "PNT_2",
-      "room": "COM",
+      "room": "KT-306",
       "type": "Theory",
       "batch": "71",
       "section": "L",
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE122",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE121",
       "teacher": "EEE_5",
-      "room": "5",
+      "room": "KT-304",
       "type": "Theory",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "PHY102",
+      "teacher": "PNT_2",
+      "room": "KT-503",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "G1-004",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "71",
       "section": "L",
       "sub_section": "1"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE122",
+      "teacher": "EEE_5",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE122",
+      "teacher": "EEE_5",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "CSE123",
       "teacher": "JHJ",
@@ -124,59 +190,15 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "11:30-01:00",
       "course": "CSE124",
       "teacher": "JHJ",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-003",
+      "type": "Lab",
       "batch": "71",
       "section": "L",
       "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "01:00-02:30",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "1"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE122",
-      "teacher": "EEE_5",
-      "room": "5",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE123",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE121",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "71",
-      "section": "L",
-      "sub_section": "Main"
     }
   ]
 }

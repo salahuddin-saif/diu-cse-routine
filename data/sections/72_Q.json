@@ -4,50 +4,17 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "MAR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "Q",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE114",
-      "teacher": "MAR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "Q",
-      "sub_section": "1"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE114",
-      "teacher": "MAR",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "Q",
-      "sub_section": "2"
-    },
-    {
-      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE114",
       "teacher": "MAR",
-      "room": "COM",
-      "type": "Theory",
+      "room": "G1-004",
+      "type": "Lab",
       "batch": "72",
       "section": "Q",
       "sub_section": "2"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "MAT102",
       "teacher": "NRM",
@@ -58,7 +25,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "04:00-05:30",
       "course": "ENG102",
       "teacher": "ENT_6",
@@ -69,7 +36,40 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "MAR",
+      "room": "G1-004",
+      "type": "Lab",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE114",
+      "teacher": "MAR",
+      "room": "G1-004",
+      "type": "Lab",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-01:00",
+      "course": "CSE114",
+      "teacher": "MAR",
+      "room": "G1-004",
+      "type": "Lab",
+      "batch": "72",
+      "section": "Q",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "PHY101",
       "teacher": "MRI",
@@ -80,7 +80,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "04:00-05:30",
       "course": "CSE113",
       "teacher": "MAR",
@@ -91,7 +91,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "ENG102",
       "teacher": "ENT_6",
@@ -102,7 +102,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "MAT102",
       "teacher": "NRM",
@@ -113,7 +113,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "08:30-10:00",
       "course": "PHY101",
       "teacher": "MRI",
@@ -124,7 +124,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE113",
       "teacher": "MAR",

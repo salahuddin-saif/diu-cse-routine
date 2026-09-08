@@ -1,0 +1,28 @@
+{
+  "section": "72_F2",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE114",
+      "teacher": "FAF",
+      "room": "KT-503",
+      "type": "Lab",
+      "batch": "72",
+      "section": "F",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE114",
+      "teacher": "FAF",
+      "room": "KT-503",
+      "type": "Lab",
+      "batch": "72",
+      "section": "F",
+      "sub_section": "2"
+    }
+  ]
+}

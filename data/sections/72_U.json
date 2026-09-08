@@ -4,7 +4,51 @@
   "classes": [
     {
       "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "ENG102",
+      "teacher": "ENT_7",
+      "room": "ANX1-401",
+      "type": "Theory",
+      "batch": "72",
+      "section": "U",
+      "sub_section": "Main"
+    },
+    {
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE114",
+      "teacher": "YI",
+      "room": "G1-017",
+      "type": "Lab",
+      "batch": "72",
+      "section": "U",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "CSE114",
+      "teacher": "YI",
+      "room": "G1-017",
+      "type": "Lab",
+      "batch": "72",
+      "section": "U",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
       "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "YI",
+      "room": "G1-017",
+      "type": "Lab",
+      "batch": "72",
+      "section": "U",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
       "course": "CSE113",
       "teacher": "YI",
       "room": "KT-518",
@@ -16,9 +60,20 @@
     {
       "day": "Saturday",
       "time": "10:00-11:30",
+      "course": "CSE114",
+      "teacher": "YI",
+      "room": "G1-017",
+      "type": "Lab",
+      "batch": "72",
+      "section": "U",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "ENG102",
       "teacher": "ENT_7",
-      "room": "ANX1-401",
+      "room": "ANX1-302",
       "type": "Theory",
       "batch": "72",
       "section": "U",
@@ -26,50 +81,6 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "YI",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE114",
-      "teacher": "YI",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "1"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE114",
-      "teacher": "YI",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "2"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE114",
-      "teacher": "YI",
-      "room": "COM",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "2"
-    },
-    {
-      "day": "Monday",
       "time": "04:00-05:30",
       "course": "CSE113",
       "teacher": "YI",
@@ -80,29 +91,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "ENG102",
-      "teacher": "ENT_7",
-      "room": "ANX1-302",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "PHY101",
-      "teacher": "MRI",
-      "room": "KT-220",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "MAT102",
       "teacher": "ALH",
@@ -113,19 +102,19 @@
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "04:00-05:30",
+      "day": "Sunday",
+      "time": "11:30-01:00",
       "course": "PHY101",
       "teacher": "MRI",
-      "room": "KT-219",
+      "room": "KT-220",
       "type": "Theory",
       "batch": "72",
       "section": "U",
       "sub_section": "Main"
     },
     {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
+      "day": "Monday",
+      "time": "01:00-02:30",
       "course": "MAT102",
       "teacher": "ALH",
       "room": "ANX1-208",
@@ -135,33 +124,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE113",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "ENG102",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "72",
-      "section": "U",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
+      "day": "Monday",
+      "time": "04:00-05:30",
       "course": "PHY101",
-      "teacher": "TBA",
-      "room": "TBA",
+      "teacher": "MRI",
+      "room": "KT-219",
       "type": "Theory",
       "batch": "72",
       "section": "U",

@@ -29,14 +29,14 @@
       "time": "08:30-10:00",
       "course": "CSE112",
       "teacher": "MFH",
-      "room": "COM",
-      "type": "Theory",
+      "room": "KT-504",
+      "type": "Lab",
       "batch": "73",
       "section": "A",
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "ENG101",
       "teacher": "ASA",
@@ -47,7 +47,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE115",
       "teacher": "AUA",
@@ -58,7 +58,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE112",
       "teacher": "MFH",
@@ -69,7 +69,7 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "MAT101",
       "teacher": "MRN",
@@ -80,55 +80,11 @@
       "sub_section": "Main"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE115",
       "teacher": "AUA",
       "room": "ANX1-102",
-      "type": "Theory",
-      "batch": "73",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "ENG101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "73",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "MAT101",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "73",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE112",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "73",
-      "section": "A",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE112",
-      "teacher": "TBA",
-      "room": "TBA",
       "type": "Theory",
       "batch": "73",
       "section": "A",

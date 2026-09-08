@@ -1,0 +1,28 @@
+{
+  "section": "72_G2",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "MAIT",
+      "room": "G1-012",
+      "type": "Lab",
+      "batch": "72",
+      "section": "G",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE114",
+      "teacher": "MAIT",
+      "room": "G1-012",
+      "type": "Lab",
+      "batch": "72",
+      "section": "G",
+      "sub_section": "2"
+    }
+  ]
+}

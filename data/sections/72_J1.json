@@ -1,0 +1,28 @@
+{
+  "section": "72_J1",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "JRY",
+      "room": "G1-020",
+      "type": "Lab",
+      "batch": "72",
+      "section": "J",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE114",
+      "teacher": "JRY",
+      "room": "G1-020",
+      "type": "Lab",
+      "batch": "72",
+      "section": "J",
+      "sub_section": "1"
+    }
+  ]
+}

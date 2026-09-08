@@ -1,0 +1,28 @@
+{
+  "section": "72_R2",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE114",
+      "teacher": "MSA",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "72",
+      "section": "R",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "CSE114",
+      "teacher": "MSA",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "72",
+      "section": "R",
+      "sub_section": "2"
+    }
+  ]
+}

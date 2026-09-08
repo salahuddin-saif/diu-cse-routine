@@ -3,14 +3,70 @@
   "batch": "71",
   "classes": [
     {
-      "day": "Wednesday",
+      "day": "Saturday",
       "time": "08:30-10:00",
-      "course": "CSE114",
-      "teacher": "MAIT",
-      "room": "MAIT",
-      "type": "Theory",
+      "course": "PHY103",
+      "teacher": "PNT_2",
+      "room": "KT-815",
+      "type": "Lab",
       "batch": "71",
-      "section": "L"
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "PHY103",
+      "teacher": "PNT_2",
+      "room": "KT-815",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE122",
+      "teacher": "EEE_5",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE122",
+      "teacher": "EEE_5",
+      "room": "KT-809",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "71",
+      "section": "L",
+      "sub_section": "1"
     }
   ]
 }

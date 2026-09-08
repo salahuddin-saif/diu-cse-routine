@@ -1,0 +1,28 @@
+{
+  "section": "72_L1",
+  "batch": "72",
+  "classes": [
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE114",
+      "teacher": "MA",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "72",
+      "section": "L",
+      "sub_section": "1"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE114",
+      "teacher": "MA",
+      "room": "G1-003",
+      "type": "Lab",
+      "batch": "72",
+      "section": "L",
+      "sub_section": "1"
+    }
+  ]
+}

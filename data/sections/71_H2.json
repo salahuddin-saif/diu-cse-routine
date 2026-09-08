@@ -5,12 +5,68 @@
     {
       "day": "Saturday",
       "time": "11:30-01:00",
-      "course": "CSE114",
-      "teacher": "MHN",
-      "room": "MHN",
-      "type": "Theory",
+      "course": "CSE122",
+      "teacher": "AKM",
+      "room": "KT-810",
+      "type": "Lab",
       "batch": "71",
-      "section": "H"
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE122",
+      "teacher": "AKM",
+      "room": "KT-810",
+      "type": "Lab",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "PHY103",
+      "teacher": "MAM",
+      "room": "KT-815",
+      "type": "Lab",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "PHY103",
+      "teacher": "MAM",
+      "room": "KT-815",
+      "type": "Lab",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE124",
+      "teacher": "MMRN",
+      "room": "G1-009",
+      "type": "Lab",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "2"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE124",
+      "teacher": "MMRN",
+      "room": "G1-009",
+      "type": "Lab",
+      "batch": "71",
+      "section": "H",
+      "sub_section": "2"
     }
   ]
 }
