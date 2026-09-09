@@ -105,3 +105,49 @@ main{padding:14px 18px}
  main{padding:12px 14px}.course-meta{gap:7px 12px}.teacher-row{gap:14px}
  .date-item{min-width:60px}.class-row{grid-template-columns:62px 1fr}.break-card{margin-left:62px}
 }
+
+/* =========================
+   TODAY GREEN DOT
+   ========================= */
+
+.today-dot {
+    width: 9px;
+    height: 9px;
+    min-width: 9px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.day-section.today {
+    border-left: 3px solid #22c55e;
+}
+
+.today-column {
+    background: rgba(34, 197, 94, 0.06);
+}
+
+.week-day-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Routine/source link */
+
+.routine-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.routine-link:hover {
+    text-decoration: underline;
+}
