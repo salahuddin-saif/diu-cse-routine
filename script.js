@@ -1,2380 +1,3137 @@
-/* =========================================================
-   DIU CSE ROUTINE - FULL JAVASCRIPT
-   ========================================================= */
+// ============================================================
+// DIU CSE ROUTINE
+// FULL UPDATED SCRIPT
+// Section / Teacher / Room / Empty Room Modes
+// ============================================================
+//
+// Features
+// ------------------------------------------------------------
+// - Section specific JSON loading
+// - Combined routine.json fallback
+// - Main section + N1/N2 support
+// - Teacher mode
+// - Room mode
+// - Empty room detection
+// - Routine/source link support
+// - Dynamic semester detection
+// - Today green indicator
+// - Correct day ordering
+// - Correct time ordering
+// - Proper Week View table
+// - Proper 2-slot Lab rowspan
+// - Professional PNG download design
+// - LocalStorage
+// - Auto refresh
+// - html2canvas download
+// ============================================================
 
-const STORAGE_KEY = 'diu_cse_section';
-const MODE_KEY = 'diu_cse_mode';
+(() => {
+    "use strict";
 
-const DAYS = [
-    'Saturday',
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday'
-];
+    // ============================================================
+    // CONFIG
+    // ============================================================
 
-const DAY_ORDER = {
-    Saturday: 0,
-    Sunday: 1,
-    Monday: 2,
-    Tuesday: 3,
-    Wednesday: 4,
-    Thursday: 5,
-    Friday: 6
-};
+    const STORAGE_KEY = "diu_cse_section";
+    const MODE_KEY = "diu_cse_mode";
 
-const TIME_SLOTS = [
-    '08:30-10:00',
-    '10:00-11:30',
-    '11:30-01:00',
-    '01:00-02:30',
-    '02:30-04:00',
-    '04:00-05:30'
-];
+    const SECTION_BASE_URL = "./data/sections/";
+    const COMBINED_URL = "./data/routine.json?t=" + Date.now();
 
-let routineData = null;
-let currentSection = '';
-let currentMode = localStorage.getItem(MODE_KEY) || 'section';
-let refreshTimer = null;
+    const DAYS = [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+    ];
 
+    const TIME_SLOTS = [
+        "08:30-10:00",
+        "10:00-11:30",
+        "11:30-01:00",
+        "01:00-02:30",
+        "02:30-04:00",
+        "04:00-05:30"
+    ];
 
-/* =========================================================
-   BASIC HELPERS
-   ========================================================= */
+    const DAY_INDEX = {};
+    DAYS.forEach((day, index) => {
+        DAY_INDEX[day] = index;
+    });
 
-function normalizeText(value) {
-    return String(value ?? '')
-        .trim()
-        .replace(/\s+/g, ' ');
-}
+    const TIME_INDEX = {};
+    TIME_SLOTS.forEach((time, index) => {
+        TIME_INDEX[time] = index;
+    });
 
-function normalizeSection(value) {
-    return normalizeText(value)
-        .toUpperCase()
-        .replace(/\s+/g, '_');
-}
+    // ============================================================
+    // DOM
+    // ============================================================
 
-function getBaseSection(section) {
-    return normalizeSection(section).replace(/_\d+$/, '');
-}
+    const sectionInput =
+        document.querySelector("#sectionInput") ||
+        document.querySelector("#searchInput");
 
-function normalizeDay(value) {
-    const text = normalizeText(value).toLowerCase();
+    const loadBtn =
+        document.querySelector("#loadSectionBtn") ||
+        document.querySelector("#loadBtn");
 
-    const map = {
-        sat: 'Saturday',
-        saturday: 'Saturday',
-        sun: 'Sunday',
-        sunday: 'Sunday',
-        mon: 'Monday',
-        monday: 'Monday',
-        tue: 'Tuesday',
-        tues: 'Tuesday',
-        tuesday: 'Tuesday',
-        wed: 'Wednesday',
-        wednesday: 'Wednesday',
-        thu: 'Thursday',
-        thur: 'Thursday',
-        thurs: 'Thursday',
-        thursday: 'Thursday',
-        fri: 'Friday',
-        friday: 'Friday'
-    };
+    const clearBtn =
+        document.querySelector("#clearBtn");
 
-    return map[text] || value;
-}
+    const savedChip =
+        document.querySelector("#savedSection");
 
-function normalizeTime(value) {
-    if (!value) return '';
+    const routineContainer =
+        document.querySelector("#routineContainer") ||
+        document.querySelector("#routine");
 
-    return String(value)
-        .trim()
-        .replace(/\s+/g, '')
-        .replace(/[–—]/g, '-');
-}
+    const statusEl =
+        document.querySelector("#status");
 
-function normalizeClassType(value) {
-    const type = normalizeText(value).toLowerCase();
+    const versionEl =
+        document.querySelector("#version");
 
-    if (type.includes('lab')) return 'Lab';
-    if (type.includes('theory')) return 'Theory';
+    const lastUpdatedEl =
+        document.querySelector("#lastUpdated");
 
-    return value ? normalizeText(value) : 'Theory';
-}
+    const messageEl =
+        document.querySelector("#message");
 
-function getTimeStartMinutes(time) {
-    if (!time) return 99999;
+    const searchIcon =
+        document.querySelector("#searchIcon");
 
-    const normalized = normalizeTime(time);
-    const firstPart = normalized.split('-')[0];
+    const studentNav =
+        document.querySelector("#studentMode") ||
+        document.querySelector('[data-mode="section"]');
 
-    const match = firstPart.match(/^(\d{1,2}):(\d{2})$/);
+    const teacherNav =
+        document.querySelector("#teacherMode") ||
+        document.querySelector('[data-mode="teacher"]');
 
-    if (!match) return 99999;
+    const roomNav =
+        document.querySelector("#roomMode") ||
+        document.querySelector('[data-mode="room"]');
 
-    let hour = parseInt(match[1], 10);
-    const minute = parseInt(match[2], 10);
+    const emptyRoomNav =
+        document.querySelector("#emptyRoomMode") ||
+        document.querySelector('[data-mode="empty-room"]');
 
-    if (hour < 8) {
-        hour += 12;
-    }
+    // ============================================================
+    // STATE
+    // ============================================================
 
-    return hour * 60 + minute;
-}
+    let routineData = null;
+    let currentMode = localStorage.getItem(MODE_KEY) || "section";
+    let currentSearchTerm = "";
+    let currentClasses = [];
+    let currentRooms = [];
 
-function getTimeOrder(time) {
-    const normalized = normalizeTime(time);
+    // ============================================================
+    // INIT
+    // ============================================================
 
-    const index = TIME_SLOTS.indexOf(normalized);
+    document.addEventListener("DOMContentLoaded", init);
 
-    if (index !== -1) return index;
+    async function init() {
+        setupEvents();
+        applyModeUI();
 
-    if (normalized === '11:30-02:30') return 2;
+        const savedSection = localStorage.getItem(STORAGE_KEY);
 
-    return 999;
-}
-
-function getClassTimeSlot(time) {
-    const normalized = normalizeTime(time);
-
-    if (normalized === '11:30-02:30') {
-        return {
-            start: 2,
-            span: 2
-        };
-    }
-
-    const index = TIME_SLOTS.indexOf(normalized);
-
-    if (index !== -1) {
-        return {
-            start: index,
-            span: 1
-        };
-    }
-
-    return {
-        start: -1,
-        span: 1
-    };
-}
-
-
-/* =========================================================
-   SUBSECTION / COMMENT
-   ========================================================= */
-
-function getDisplayComment(cls, mode = currentMode) {
-    if (!cls) return '';
-
-    if (mode === 'teacher' || mode === 'room') {
-        const section =
-            cls.section ||
-            cls.section_name ||
-            cls.sectionName ||
-            '';
-
-        return section ? `(${section})` : '';
-    }
-
-    if (mode === 'empty-room') {
-        return '';
-    }
-
-    const section =
-        cls.section ||
-        cls.section_name ||
-        cls.sectionName ||
-        '';
-
-    const subsection =
-        cls.sub_section ??
-        cls.subSection ??
-        cls.subsection ??
-        cls.subsection_name ??
-        '';
-
-    if (!subsection || String(subsection).toLowerCase() === 'main') {
-        return '';
-    }
-
-    const sec = String(section).toUpperCase();
-    const sub = String(subsection).toUpperCase();
-
-    if (/^\d+$/.test(sub)) {
-        const lastLetter = sec.match(/[A-Z]$/);
-
-        if (lastLetter) {
-            return `(${lastLetter[0]}${sub})`;
+        if (savedSection && sectionInput) {
+            sectionInput.value = savedSection;
+            currentSearchTerm = savedSection;
         }
 
-        return `(${sub})`;
+        await loadRoutineData();
+
+        if (savedSection && currentMode === "section") {
+            await loadSection(savedSection, false);
+        } else if (currentMode === "teacher" && savedSection) {
+            currentSearchTerm = savedSection;
+            displayTeacherRoutine(savedSection);
+        } else if (currentMode === "room" && savedSection) {
+            currentSearchTerm = savedSection;
+            displayRoomRoutine(savedSection);
+        } else if (currentMode === "empty-room") {
+            displayEmptyRooms("");
+        }
     }
 
-    if (/^[A-Z]\d+$/.test(sub)) {
-        return `(${sub})`;
+    // ============================================================
+    // EVENTS
+    // ============================================================
+
+    function setupEvents() {
+        if (loadBtn) {
+            loadBtn.addEventListener("click", handleSearch);
+        }
+
+        if (searchIcon) {
+            searchIcon.addEventListener("click", handleSearch);
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener("click", clearSearch);
+        }
+
+        if (sectionInput) {
+            sectionInput.addEventListener("keydown", event => {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    handleSearch();
+                }
+            });
+
+            sectionInput.addEventListener("input", () => {
+                if (currentMode === "empty-room") {
+                    currentSearchTerm = sectionInput.value.trim();
+                }
+            });
+        }
+
+        if (studentNav) {
+            studentNav.addEventListener("click", () => {
+                setMode("section");
+            });
+        }
+
+        if (teacherNav) {
+            teacherNav.addEventListener("click", () => {
+                setMode("teacher");
+            });
+        }
+
+        if (roomNav) {
+            roomNav.addEventListener("click", () => {
+                setMode("room");
+            });
+        }
+
+        if (emptyRoomNav) {
+            emptyRoomNav.addEventListener("click", () => {
+                setMode("empty-room");
+            });
+        }
     }
 
-    return `(${sub})`;
-}
+    // ============================================================
+    // MODE
+    // ============================================================
 
+    function setMode(mode) {
+        currentMode = mode;
+        localStorage.setItem(MODE_KEY, mode);
 
-/* =========================================================
-   NORMALIZE CLASS DATA
-   ========================================================= */
+        applyModeUI();
 
-function normalizeClasses(classes, fallbackSection = '') {
-    if (!Array.isArray(classes)) return [];
+        if (!sectionInput) return;
 
-    return classes.map(item => {
-        const section =
-            item.section ||
-            item.section_name ||
-            item.sectionName ||
-            fallbackSection ||
-            '';
+        if (mode === "section") {
+            sectionInput.placeholder = "Enter section (e.g., 70_N)";
+        }
 
-        const subSection =
-            item.sub_section ??
-            item.subSection ??
-            item.subsection ??
-            item.subsection_name ??
-            'Main';
+        if (mode === "teacher") {
+            sectionInput.placeholder = "Enter teacher initials (e.g., NSL)";
+        }
 
-        const course =
-            item.course ||
-            item.course_code ||
-            item.courseCode ||
-            '';
+        if (mode === "room") {
+            sectionInput.placeholder = "Enter room (e.g., KT-516)";
+        }
 
-        const teacher =
-            item.teacher ||
-            item.faculty ||
-            item.teacher_initials ||
-            '';
-
-        const room =
-            item.room ||
-            item.room_no ||
-            item.roomNumber ||
-            '';
-
-        const type =
-            item.type ||
-            item.class_type ||
-            item.classClassType ||
-            'Theory';
-
-        return {
-            ...item,
-
-            day: normalizeDay(item.day || item.weekday || ''),
-            time: normalizeTime(item.time || item.time_slot || item.timeSlot || ''),
-            course: normalizeText(course),
-            teacher: normalizeText(teacher),
-            room: normalizeText(room),
-            type: normalizeClassType(type),
-
-            section: normalizeSection(section),
-            sub_section: normalizeText(subSection)
-        };
-    });
-}
-
-
-/* =========================================================
-   EXTRACT CLASSES
-   ========================================================= */
-
-function extractClassesFromData(data, fallbackSection = '') {
-    if (!data) return [];
-
-    if (Array.isArray(data)) {
-        return normalizeClasses(data, fallbackSection);
+        if (mode === "empty-room") {
+            sectionInput.placeholder = "Enter day or room (optional)";
+            displayEmptyRooms(sectionInput.value.trim());
+        }
     }
 
-    if (Array.isArray(data.classes)) {
-        return normalizeClasses(data.classes, fallbackSection);
-    }
+    function applyModeUI() {
+        const navs = [
+            [studentNav, "section"],
+            [teacherNav, "teacher"],
+            [roomNav, "room"],
+            [emptyRoomNav, "empty-room"]
+        ];
 
-    if (Array.isArray(data.routine)) {
-        return normalizeClasses(data.routine, fallbackSection);
-    }
+        navs.forEach(([element, mode]) => {
+            if (!element) return;
 
-    if (Array.isArray(data.schedule)) {
-        return normalizeClasses(data.schedule, fallbackSection);
-    }
-
-    if (data.sections && typeof data.sections === 'object') {
-        let result = [];
-
-        Object.entries(data.sections).forEach(([sectionName, sectionData]) => {
-            result = result.concat(
-                extractClassesFromData(sectionData, sectionName)
+            element.classList.toggle(
+                "active",
+                currentMode === mode
             );
         });
-
-        return result;
     }
 
-    return [];
-}
+    // ============================================================
+    // SEARCH
+    // ============================================================
 
+    async function handleSearch() {
+        if (!sectionInput) return;
 
-/* =========================================================
-   MERGE SUB SECTIONS
-   ========================================================= */
+        const value = sectionInput.value.trim();
 
-function mergeSubSections(baseSection) {
-    if (!routineData || !routineData.sections) {
+        if (!value && currentMode !== "empty-room") {
+            showMessage("Please enter a search value.", "warning");
+            return;
+        }
+
+        currentSearchTerm = value;
+
+        if (currentMode === "section") {
+            await loadSection(value, true);
+        }
+
+        if (currentMode === "teacher") {
+            displayTeacherRoutine(value);
+        }
+
+        if (currentMode === "room") {
+            displayRoomRoutine(value);
+        }
+
+        if (currentMode === "empty-room") {
+            displayEmptyRooms(value);
+        }
+    }
+
+    // ============================================================
+    // NORMALIZATION
+    // ============================================================
+
+    function normalizeSearch(value) {
+        return String(value || "")
+            .trim()
+            .toUpperCase()
+            .replace(/\s+/g, "_");
+    }
+
+    function normalizeDay(day) {
+        const value = String(day || "")
+            .trim()
+            .toLowerCase();
+
+        const map = {
+            saturday: "Saturday",
+            sat: "Saturday",
+
+            sunday: "Sunday",
+            sun: "Sunday",
+
+            monday: "Monday",
+            mon: "Monday",
+
+            tuesday: "Tuesday",
+            tue: "Tuesday",
+            tues: "Tuesday",
+
+            wednesday: "Wednesday",
+            wed: "Wednesday",
+
+            thursday: "Thursday",
+            thu: "Thursday",
+            thur: "Thursday",
+            thurs: "Thursday",
+
+            friday: "Friday",
+            fri: "Friday"
+        };
+
+        return map[value] || capitalizeFirst(value);
+    }
+
+    function normalizeTime(time) {
+        if (!time) return "";
+
+        let value = String(time)
+            .trim()
+            .replace(/\s+/g, "")
+            .replace(/[–—]/g, "-");
+
+        value = value.replace(/\./g, ":");
+
+        const parts = value.split("-");
+
+        if (parts.length !== 2) {
+            return String(time).trim();
+        }
+
+        return `${normalizeClock(parts[0])}-${normalizeClock(parts[1])}`;
+    }
+
+    function normalizeClock(clock) {
+        let value = String(clock)
+            .trim()
+            .toUpperCase();
+
+        value = value.replace(/\s+/g, "");
+
+        let match = value.match(/^(\d{1,2})(?::?(\d{2}))?(AM|PM)?$/);
+
+        if (!match) {
+            return value;
+        }
+
+        let hour = parseInt(match[1], 10);
+        let minute = parseInt(match[2] || "00", 10);
+        const meridiem = match[3];
+
+        if (meridiem === "AM" && hour === 12) {
+            hour = 0;
+        }
+
+        if (meridiem === "PM" && hour !== 12) {
+            hour += 12;
+        }
+
+        // Routine uses academic 12-hour notation.
+        // Keep 01:00 etc. as expected by the standard slots.
+        if (!meridiem) {
+            return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+        }
+
+        // Convert afternoon values to routine's displayed format.
+        if (hour === 13) return `01:${String(minute).padStart(2, "0")}`;
+        if (hour === 14) return `02:${String(minute).padStart(2, "0")}`;
+        if (hour === 15) return `03:${String(minute).padStart(2, "0")}`;
+        if (hour === 16) return `04:${String(minute).padStart(2, "0")}`;
+        if (hour === 17) return `05:${String(minute).padStart(2, "0")}`;
+
+        return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+    }
+
+    function normalizeClassType(type) {
+        const value = String(type || "")
+            .trim()
+            .toLowerCase();
+
+        if (value.includes("lab")) return "Lab";
+        if (value.includes("theory")) return "Theory";
+        if (value.includes("class")) return "Theory";
+
+        return type ? capitalizeFirst(String(type)) : "";
+    }
+
+    // ============================================================
+    // FETCH JSON
+    // ============================================================
+
+    async function fetchJson(url) {
+        const response = await fetch(url, {
+            cache: "no-store"
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        return await response.json();
+    }
+
+    // ============================================================
+    // LOAD MAIN ROUTINE
+    // ============================================================
+
+    async function loadRoutineData() {
+        setStatus("Loading routine...");
+
+        try {
+            routineData = await fetchJson(COMBINED_URL);
+
+            updateMeta(routineData);
+            setStatus("Routine loaded");
+
+            return routineData;
+        } catch (error) {
+            console.error("Combined routine failed:", error);
+
+            try {
+                const firstSection = await findFirstSection();
+
+                if (firstSection) {
+                    routineData = firstSection.data;
+                    updateMeta(routineData);
+                    setStatus("Routine loaded");
+                    return routineData;
+                }
+            } catch (fallbackError) {
+                console.error(fallbackError);
+            }
+
+            setStatus("Failed to load routine");
+            showMessage(
+                "Could not load routine data.",
+                "error"
+            );
+
+            return null;
+        }
+    }
+
+    async function findFirstSection() {
+        const candidates = [
+            "70_N",
+            "70_N1",
+            "70_N2"
+        ];
+
+        for (const section of candidates) {
+            try {
+                const data = await fetchJson(
+                    `${SECTION_BASE_URL}${section}.json?t=${Date.now()}`
+                );
+
+                return {
+                    section,
+                    data
+                };
+            } catch (_) {}
+        }
+
+        return null;
+    }
+
+    // ============================================================
+    // LOAD SECTION
+    // ============================================================
+
+    async function loadSection(section, save = true) {
+        const normalized = normalizeSearch(section);
+
+        if (!normalized) return;
+
+        setStatus(`Loading ${normalized}...`);
+
+        let data = null;
+        let loadedFrom = "";
+
+        const baseSection = getBaseSection(normalized);
+
+        const urls = [
+            `${SECTION_BASE_URL}${normalized}.json?t=${Date.now()}`,
+            `${SECTION_BASE_URL}${baseSection}.json?t=${Date.now()}`
+        ];
+
+        for (const url of urls) {
+            try {
+                data = await fetchJson(url);
+                loadedFrom = url;
+                break;
+            } catch (_) {}
+        }
+
+        // Combined fallback
+        if (!data && routineData) {
+            data = findSectionInCombined(
+                routineData,
+                normalized
+            );
+
+            if (data) {
+                loadedFrom = "combined";
+            }
+        }
+
+        // Main section may contain N1/N2
+        if (data) {
+            const classes = extractClassesFromData(data);
+
+            if (classes.length === 0) {
+                const merged = mergeSubSections(
+                    baseSection,
+                    data
+                );
+
+                if (merged.length > 0) {
+                    data = {
+                        ...data,
+                        classes: merged
+                    };
+                }
+            }
+        }
+
+        // If N1/N2 requested but only main section exists
+        if (!data && routineData) {
+            const merged = mergeSubSections(
+                baseSection,
+                routineData
+            );
+
+            if (merged.length > 0) {
+                data = {
+                    section: normalized,
+                    classes: merged
+                };
+                loadedFrom = "combined";
+            }
+        }
+
+        if (!data) {
+            setStatus("Section not found");
+
+            showMessage(
+                `Routine not found for "${normalized}".`,
+                "error"
+            );
+
+            currentClasses = [];
+            return;
+        }
+
+        currentSearchTerm = normalized;
+
+        if (save) {
+            localStorage.setItem(
+                STORAGE_KEY,
+                normalized
+            );
+        }
+
+        updateSavedChip(normalized);
+
+        const classes = normalizeClasses(
+            extractClassesFromData(data),
+            normalized
+        );
+
+        currentClasses = classes;
+
+        displaySection(
+            normalized,
+            classes,
+            data,
+            loadedFrom
+        );
+
+        setStatus(
+            `${normalized} loaded`
+        );
+    }
+
+    // ============================================================
+    // FIND SECTION IN COMBINED DATA
+    // ============================================================
+
+    function findSectionInCombined(data, section) {
+        const target = normalizeSearch(section);
+        const base = getBaseSection(target);
+
+        if (!data || typeof data !== "object") {
+            return null;
+        }
+
+        if (Array.isArray(data)) {
+            return null;
+        }
+
+        const sections =
+            data.sections ||
+            data.data ||
+            data.routines ||
+            null;
+
+        if (sections && typeof sections === "object") {
+            const keys = Object.keys(sections);
+
+            const exactKey = keys.find(
+                key => normalizeSearch(key) === target
+            );
+
+            if (exactKey) {
+                return sections[exactKey];
+            }
+
+            const baseKey = keys.find(
+                key => normalizeSearch(key) === base
+            );
+
+            if (baseKey) {
+                return sections[baseKey];
+            }
+        }
+
+        const directKeys = Object.keys(data);
+
+        const exactKey = directKeys.find(
+            key => normalizeSearch(key) === target
+        );
+
+        if (exactKey) {
+            return data[exactKey];
+        }
+
+        const baseKey = directKeys.find(
+            key => normalizeSearch(key) === base
+        );
+
+        if (baseKey) {
+            return data[baseKey];
+        }
+
+        return null;
+    }
+
+    // ============================================================
+    // MERGE SUB SECTIONS
+    // ============================================================
+
+    function mergeSubSections(baseSection, sourceData) {
+        const result = [];
+        const targetBase = normalizeSearch(baseSection);
+
+        if (!sourceData || typeof sourceData !== "object") {
+            return result;
+        }
+
+        const possibleSections =
+            sourceData.sections ||
+            sourceData.data ||
+            sourceData.routines ||
+            sourceData;
+
+        if (
+            !possibleSections ||
+            typeof possibleSections !== "object" ||
+            Array.isArray(possibleSections)
+        ) {
+            return result;
+        }
+
+        Object.keys(possibleSections).forEach(key => {
+            const normalizedKey = normalizeSearch(key);
+
+            if (
+                normalizedKey === targetBase ||
+                getBaseSection(normalizedKey) === targetBase
+            ) {
+                const classes =
+                    extractClassesFromData(
+                        possibleSections[key]
+                    );
+
+                classes.forEach(cls => {
+                    result.push({
+                        ...cls,
+                        section:
+                            cls.section ||
+                            key
+                    });
+                });
+            }
+        });
+
+        return deduplicateRawClasses(result);
+    }
+
+    // ============================================================
+    // EXTRACT CLASSES
+    // ============================================================
+
+    function extractClassesFromData(data) {
+        if (!data) return [];
+
+        if (Array.isArray(data)) {
+            return data;
+        }
+
+        if (typeof data !== "object") {
+            return [];
+        }
+
+        const directKeys = [
+            "classes",
+            "routine",
+            "schedule",
+            "entries",
+            "items"
+        ];
+
+        for (const key of directKeys) {
+            if (Array.isArray(data[key])) {
+                return data[key];
+            }
+        }
+
+        if (data.sections && typeof data.sections === "object") {
+            const result = [];
+
+            Object.keys(data.sections).forEach(section => {
+                const classes = extractClassesFromData(
+                    data.sections[section]
+                );
+
+                classes.forEach(cls => {
+                    result.push({
+                        ...cls,
+                        section:
+                            cls.section ||
+                            section
+                    });
+                });
+            });
+
+            return result;
+        }
+
         return [];
     }
 
-    let result = [];
+    // ============================================================
+    // NORMALIZE CLASSES
+    // ============================================================
 
-    Object.entries(routineData.sections).forEach(
-        ([sectionName, sectionData]) => {
-
-            if (
-                normalizeSection(sectionName) === normalizeSection(baseSection) ||
-                getBaseSection(sectionName) === getBaseSection(baseSection)
-            ) {
-                result = result.concat(
-                    extractClassesFromData(sectionData, sectionName)
-                );
-            }
+    function normalizeClasses(classes, fallbackSection = "") {
+        if (!Array.isArray(classes)) {
+            return [];
         }
-    );
 
-    return removeDuplicateClasses(result);
-}
+        return classes
+            .map(cls => {
+                const section =
+                    cls.section ||
+                    cls._section ||
+                    cls.sub_section ||
+                    cls.subSection ||
+                    fallbackSection ||
+                    "";
 
+                const normalizedSection =
+                    normalizeSearch(section);
 
-/* =========================================================
-   REMOVE DUPLICATES
-   ========================================================= */
+                return {
+                    ...cls,
 
-function removeDuplicateClasses(classes) {
-    const map = new Map();
+                    day: normalizeDay(
+                        cls.day ||
+                        cls.weekday ||
+                        cls.day_name
+                    ),
 
-    classes.forEach(cls => {
-        const key = [
-            normalizeDay(cls.day),
-            normalizeTime(cls.time),
-            normalizeText(cls.course).toUpperCase(),
-            normalizeText(cls.teacher).toUpperCase(),
-            normalizeText(cls.room).toUpperCase(),
-            normalizeText(cls.sub_section).toUpperCase(),
-            normalizeText(cls.section).toUpperCase()
-        ].join('|');
+                    time: normalizeTime(
+                        cls.time ||
+                        cls.slot ||
+                        cls.class_time
+                    ),
 
-        if (!map.has(key)) {
-            map.set(key, cls);
-        }
-    });
+                    course:
+                        cls.course ||
+                        cls.course_code ||
+                        cls.subject ||
+                        cls.code ||
+                        "",
 
-    return Array.from(map.values());
-}
+                    teacher:
+                        cls.teacher ||
+                        cls.faculty ||
+                        cls.instructor ||
+                        "",
 
+                    room:
+                        cls.room ||
+                        cls.room_no ||
+                        cls.roomNumber ||
+                        "",
 
-/* =========================================================
-   SORT CLASSES
-   ========================================================= */
+                    section:
+                        normalizedSection,
 
-function sortClasses(classes) {
-    return [...classes].sort((a, b) => {
+                    sub_section:
+                        normalizeSearch(
+                            cls.sub_section ||
+                            cls.subSection ||
+                            ""
+                        ),
 
-        const dayA = DAY_ORDER[normalizeDay(a.day)] ?? 999;
-        const dayB = DAY_ORDER[normalizeDay(b.day)] ?? 999;
+                    section_letter:
+                        cls.section_letter ||
+                        cls.sectionLetter ||
+                        "",
+
+                    batch:
+                        cls.batch ||
+                        extractBatchFromSection(
+                            normalizedSection
+                        ),
+
+                    type:
+                        normalizeClassType(
+                            cls.type ||
+                            cls.class_type ||
+                            cls.classType ||
+                            ""
+                        )
+                };
+            })
+            .filter(cls => cls.day && cls.time)
+            .sort(sortClasses);
+    }
+
+    // ============================================================
+    // SORT
+    // ============================================================
+
+    function sortClasses(a, b) {
+        const dayA = DAY_INDEX[a.day] ?? 99;
+        const dayB = DAY_INDEX[b.day] ?? 99;
 
         if (dayA !== dayB) {
             return dayA - dayB;
         }
 
-        const timeA = getTimeStartMinutes(a.time);
-        const timeB = getTimeStartMinutes(b.time);
-
-        if (timeA !== timeB) {
-            return timeA - timeB;
-        }
-
-        return String(a.course || '').localeCompare(
-            String(b.course || '')
-        );
-    });
-}
-
-
-/* =========================================================
-   ROUTINE URL
-   ========================================================= */
-
-function getRoutineLink(data = routineData) {
-    if (!data) return '';
-
-    const directKeys = [
-        'routine_url',
-        'routineUrl',
-        'source_url',
-        'sourceUrl',
-        'notice_url',
-        'noticeUrl',
-        'pdf_url',
-        'pdfUrl',
-        'url',
-        'link',
-        'source'
-    ];
-
-    for (const key of directKeys) {
-        if (data[key]) {
-            return data[key];
-        }
+        return getTimeStartMinutes(a.time) -
+            getTimeStartMinutes(b.time);
     }
 
-    const nestedKeys = ['meta', 'metadata'];
-
-    for (const parent of nestedKeys) {
-        if (data[parent] && typeof data[parent] === 'object') {
-
-            for (const key of directKeys) {
-                if (data[parent][key]) {
-                    return data[parent][key];
-                }
-            }
-        }
-    }
-
-    return '';
-}
-
-
-/* =========================================================
-   LOAD JSON
-   ========================================================= */
-
-async function fetchJSON(url) {
-    const response = await fetch(url, {
-        cache: 'no-store'
-    });
-
-    if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-    }
-
-    return await response.json();
-}
-
-async function loadRoutine(section) {
-    const normalized = normalizeSection(section);
-    const baseSection = getBaseSection(normalized);
-
-    let data = null;
-
-    /* -----------------------------------------
-       1. Exact section JSON
-       ----------------------------------------- */
-
-    try {
-        data = await fetchJSON(
-            `./data/sections/${normalized}.json?t=${Date.now()}`
-        );
-    } catch (error) {
-        data = null;
-    }
-
-    /* -----------------------------------------
-       2. Base section JSON
-       ----------------------------------------- */
-
-    if (!data && baseSection !== normalized) {
-        try {
-            data = await fetchJSON(
-                `./data/sections/${baseSection}.json?t=${Date.now()}`
-            );
-        } catch (error) {
-            data = null;
-        }
-    }
-
-    /* -----------------------------------------
-       3. Combined routine JSON
-       ----------------------------------------- */
-
-    if (!data) {
-        try {
-            data = await fetchJSON(
-                `./data/routine.json?t=${Date.now()}`
-            );
-        } catch (error) {
-            throw new Error('Routine data could not be loaded.');
-        }
-    }
-
-    routineData = data;
-
-    currentSection = normalized;
-
-    updateLastUpdated(data);
-
-    return data;
-}
-
-
-/* =========================================================
-   GET CURRENT SECTION CLASSES
-   ========================================================= */
-
-function getSectionClasses(section) {
-    const normalized = normalizeSection(section);
-    const baseSection = getBaseSection(normalized);
-
-    let classes = [];
-
-    if (routineData?.sections) {
-
-        Object.entries(routineData.sections).forEach(
-            ([sectionName, sectionData]) => {
-
-                const normalizedName =
-                    normalizeSection(sectionName);
-
-                if (
-                    normalizedName === normalized ||
-                    getBaseSection(normalizedName) === baseSection
-                ) {
-                    classes = classes.concat(
-                        extractClassesFromData(
-                            sectionData,
-                            sectionName
-                        )
-                    );
-                }
-            }
-        );
-    }
-
-    if (!classes.length) {
-        classes = extractClassesFromData(
-            routineData,
-            normalized
-        );
-    }
-
-    return removeDuplicateClasses(classes);
-}
-
-
-/* =========================================================
-   TEACHER MODE
-   ========================================================= */
-
-function getTeacherClasses(query) {
-    const search = normalizeText(query).toUpperCase();
-
-    let result = [];
-
-    if (!routineData?.sections) {
-        return result;
-    }
-
-    Object.entries(routineData.sections).forEach(
-        ([sectionName, sectionData]) => {
-
-            const classes = extractClassesFromData(
-                sectionData,
-                sectionName
-            );
-
-            classes.forEach(cls => {
-
-                const teacher = normalizeText(
-                    cls.teacher ||
-                    cls.faculty ||
-                    cls.teacher_initials ||
-                    ''
-                ).toUpperCase();
-
-                if (
-                    teacher === search ||
-                    teacher.includes(search)
-                ) {
-                    result.push(cls);
-                }
-            });
-        }
-    );
-
-    return removeDuplicateClasses(result);
-}
-
-
-/* =========================================================
-   ROOM MODE
-   ========================================================= */
-
-function getRoomClasses(query) {
-    const search = normalizeText(query)
-        .replace(/\s+/g, '')
-        .toUpperCase();
-
-    let result = [];
-
-    if (!routineData?.sections) {
-        return result;
-    }
-
-    Object.entries(routineData.sections).forEach(
-        ([sectionName, sectionData]) => {
-
-            const classes = extractClassesFromData(
-                sectionData,
-                sectionName
-            );
-
-            classes.forEach(cls => {
-
-                const room = normalizeText(
-                    cls.room ||
-                    cls.room_no ||
-                    cls.roomNumber ||
-                    ''
-                )
-                    .replace(/\s+/g, '')
-                    .toUpperCase();
-
-                if (
-                    room === search ||
-                    room.includes(search)
-                ) {
-                    result.push(cls);
-                }
-            });
-        }
-    );
-
-    return removeDuplicateClasses(result);
-}
-
-
-/* =========================================================
-   EMPTY ROOM MODE
-   ========================================================= */
-
-function getAllClasses() {
-    let result = [];
-
-    if (!routineData?.sections) {
-        return extractClassesFromData(routineData);
-    }
-
-    Object.entries(routineData.sections).forEach(
-        ([sectionName, sectionData]) => {
-
-            result = result.concat(
-                extractClassesFromData(
-                    sectionData,
-                    sectionName
-                )
-            );
-        }
-    );
-
-    return removeDuplicateClasses(result);
-}
-
-function getAllRooms(classes) {
-    const rooms = new Set();
-
-    classes.forEach(cls => {
-
-        const room = normalizeText(
-            cls.room ||
-            cls.room_no ||
-            cls.roomNumber ||
-            ''
-        );
-
-        if (room) {
-            rooms.add(room);
-        }
-    });
-
-    return Array.from(rooms).sort();
-}
-
-function getEmptyRooms(query = '') {
-    const allClasses = getAllClasses();
-    const allRooms = getAllRooms(allClasses);
-
-    const search = normalizeText(query).toUpperCase();
-
-    let selectedDays = DAYS;
-
-    if (search) {
-        const matchingDay = DAYS.find(
-            day => day.toUpperCase().startsWith(search)
-        );
-
-        if (matchingDay) {
-            selectedDays = [matchingDay];
-        }
-    }
-
-    const result = [];
-
-    selectedDays.forEach(day => {
-
-        TIME_SLOTS.forEach(timeSlot => {
-
-            const occupied = new Set();
-
-            allClasses.forEach(cls => {
-
-                if (
-                    normalizeDay(cls.day) !== day
-                ) {
-                    return;
-                }
-
-                const classSlot = getClassTimeSlot(cls.time);
-
-                if (classSlot.start === -1) {
-                    return;
-                }
-
-                const classSlots = [];
-
-                for (
-                    let i = classSlot.start;
-                    i < classSlot.start + classSlot.span;
-                    i++
-                ) {
-                    classSlots.push(i);
-                }
-
-                const currentSlot =
-                    TIME_SLOTS.indexOf(timeSlot);
-
-                if (classSlots.includes(currentSlot)) {
-
-                    const room = normalizeText(
-                        cls.room ||
-                        cls.room_no ||
-                        cls.roomNumber ||
-                        ''
-                    );
-
-                    if (room) {
-                        occupied.add(room);
-                    }
-                }
-            });
-
-            allRooms.forEach(room => {
-
-                if (!occupied.has(room)) {
-
-                    result.push({
-                        day,
-                        time: timeSlot,
-                        course: 'EMPTY',
-                        teacher: '',
-                        room,
-                        type: 'Empty Room',
-                        section: '',
-                        sub_section: 'Main'
-                    });
-                }
-            });
-        });
-    });
-
-    return result;
-}
-
-
-/* =========================================================
-   UPDATE UI
-   ========================================================= */
-
-function setStatus(text, type = 'success') {
-
-    const statusText =
-        document.getElementById('statusText');
-
-    const statusBadge =
-        document.getElementById('statusBadge');
-
-    if (statusText) {
-        statusText.textContent = text;
-    }
-
-    if (statusBadge) {
-        statusBadge.className = `status-badge ${type}`;
-    }
-}
-
-function updateLastUpdated(data) {
-
-    const versionNumber =
-        document.getElementById('versionNumber');
-
-    const lastUpdated =
-        document.getElementById('lastUpdated');
-
-    if (versionNumber) {
-
-        versionNumber.textContent =
-            data?.version ||
-            data?.metadata?.version ||
-            data?.meta?.version ||
-            '1.0';
-    }
-
-    if (lastUpdated) {
-
-        const value =
-            data?.last_updated ||
-            data?.lastUpdated ||
-            data?.updated_at ||
-            data?.updatedAt ||
-            data?.metadata?.last_updated ||
-            data?.metadata?.lastUpdated ||
-            data?.meta?.last_updated ||
-            data?.meta?.lastUpdated;
-
-        if (value) {
-            lastUpdated.textContent = value;
-        }
-    }
-}
-
-function updateSavedChip() {
-
-    const savedSection =
-        document.getElementById('savedSection');
-
-    const savedChip =
-        document.getElementById('savedChip');
-
-    const saved =
-        localStorage.getItem(STORAGE_KEY);
-
-    if (savedSection) {
-        savedSection.textContent = saved || '';
-    }
-
-    if (savedChip) {
-        savedChip.style.display =
-            saved ? 'inline-flex' : 'none';
-    }
-}
-
-
-/* =========================================================
-   MODE
-   ========================================================= */
-
-function setMode(mode) {
-
-    currentMode = mode;
-
-    localStorage.setItem(
-        MODE_KEY,
-        mode
-    );
-
-    const input =
-        document.getElementById('sectionInput');
-
-    if (!input) return;
-
-    if (mode === 'teacher') {
-
-        input.placeholder =
-            'Enter teacher initials (e.g., NSL)';
-
-    } else if (mode === 'room') {
-
-        input.placeholder =
-            'Enter room (e.g., KT-516)';
-
-    } else if (mode === 'empty-room') {
-
-        input.placeholder =
-            'Enter day or room (optional)';
-
-    } else {
-
-        input.placeholder =
-            'Enter section (e.g., 70_N)';
-    }
-
-    document
-        .querySelectorAll('.nav-item')
-        .forEach(item => {
-            item.classList.remove('active');
+    function getTimeStartMinutes(time) {
+        const slot = getClassTimeSlot({
+            time
         });
 
-    let activeItem = null;
+        if (!slot) return 9999;
 
-    if (mode === 'section') {
-        activeItem =
-            document.querySelector(
-                '.nav-item:first-child'
-            );
+        return slot.start;
     }
 
-    if (mode === 'teacher') {
-        const icon =
-            document.querySelector(
-                '.nav-item .fa-address-card'
-            );
+    // ============================================================
+    // TIME SLOT
+    // ============================================================
 
-        activeItem =
-            icon?.closest('.nav-item');
-    }
+    function getClassTimeSlot(cls) {
+        let time = normalizeTime(cls.time);
 
-    if (mode === 'room') {
-        const icon =
-            document.querySelector(
-                '.nav-item .fa-door-open'
-            );
+        const parts = time.split("-");
 
-        activeItem =
-            icon?.closest('.nav-item');
-    }
-
-    if (mode === 'empty-room') {
-
-        activeItem =
-            document.querySelector(
-                '.nav-item[data-mode="empty-room"]'
-            ) ||
-            document.querySelector(
-                '.nav-item[data-mode="empty"]'
-            ) ||
-            document
-                .querySelector('.fa-door-closed')
-                ?.closest('.nav-item');
-    }
-
-    activeItem?.classList.add('active');
-}
-
-
-/* =========================================================
-   RENDER ROUTINE
-   ========================================================= */
-
-function renderRoutine(classes, title = '') {
-
-    const container =
-        document.getElementById('routineContainer');
-
-    if (!container) return;
-
-    container.innerHTML = '';
-
-    classes = sortClasses(classes);
-
-    if (!classes.length) {
-
-        container.innerHTML = `
-            <div class="empty-state">
-                <i class="fas fa-calendar-times"></i>
-                <h3>No routine found</h3>
-                <p>No classes are available for this search.</p>
-            </div>
-        `;
-
-        return;
-    }
-
-    const wrapper =
-        document.createElement('div');
-
-    wrapper.className = 'routine-wrapper';
-
-    const heading =
-        document.createElement('div');
-
-    heading.className = 'routine-heading';
-
-    heading.innerHTML = `
-        <div>
-            <h2>${escapeHTML(title)}</h2>
-            <p>${classes.length} class${classes.length === 1 ? '' : 'es'}</p>
-        </div>
-    `;
-
-    wrapper.appendChild(heading);
-
-    const table =
-        document.createElement('table');
-
-    table.className = 'routine-table';
-
-    table.innerHTML = `
-        <thead>
-            <tr>
-                <th>Day</th>
-                <th>Time</th>
-                <th>Course</th>
-                <th>Teacher</th>
-                <th>Room</th>
-                <th>Type</th>
-            </tr>
-        </thead>
-    `;
-
-    const tbody =
-        document.createElement('tbody');
-
-    classes.forEach(cls => {
-
-        const tr =
-            document.createElement('tr');
-
-        tr.innerHTML = `
-            <td>${escapeHTML(cls.day || '')}</td>
-            <td>${escapeHTML(cls.time || '')}</td>
-            <td>
-                <strong>${escapeHTML(cls.course || '')}</strong>
-                ${
-                    getDisplayComment(cls)
-                        ? `<small>${escapeHTML(
-                            getDisplayComment(cls)
-                        )}</small>`
-                        : ''
-                }
-            </td>
-            <td>${escapeHTML(cls.teacher || '')}</td>
-            <td>${escapeHTML(cls.room || '')}</td>
-            <td>
-                <span class="type-badge ${normalizeClassType(cls.type).toLowerCase()}">
-                    ${escapeHTML(normalizeClassType(cls.type))}
-                </span>
-            </td>
-        `;
-
-        tbody.appendChild(tr);
-    });
-
-    table.appendChild(tbody);
-
-    wrapper.appendChild(table);
-    container.appendChild(wrapper);
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
-
-function escapeHTML(value) {
-    return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
-
-
-/* =========================================================
-   CREATE DOWNLOAD IMAGE CARD
-   ========================================================= */
-
-function createRoutineDownloadCard(classes, title) {
-
-    const card =
-        document.createElement('div');
-
-    card.id = 'routineDownloadCard';
-
-    card.style.cssText = `
-        width: 1600px;
-        box-sizing: border-box;
-        background: #f4f6fa;
-        padding: 40px;
-        font-family: Arial, Helvetica, sans-serif;
-        color: #172033;
-    `;
-
-    const sorted =
-        sortClasses(classes);
-
-    /* -----------------------------------------
-       TODAY
-       ----------------------------------------- */
-
-    const todayIndex =
-        new Date().getDay();
-
-    const todayName =
-        todayIndex === 0
-            ? 'Sunday'
-            : DAYS[todayIndex === 0 ? 0 : todayIndex];
-
-    /* -----------------------------------------
-       HEADER
-       ----------------------------------------- */
-
-    const header =
-        document.createElement('div');
-
-    header.style.cssText = `
-        background: #172033;
-        color: #ffffff;
-        border-radius: 18px 18px 0 0;
-        padding: 30px 34px;
-        box-sizing: border-box;
-    `;
-
-    header.innerHTML = `
-        <div style="
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: .3px;
-            margin-bottom: 8px;
-        ">
-            DIU CSE Routine
-        </div>
-
-        <div style="
-            font-size: 21px;
-            font-weight: 500;
-            opacity: .92;
-        ">
-            ${escapeHTML(title)}
-        </div>
-    `;
-
-    card.appendChild(header);
-
-
-    /* -----------------------------------------
-       TABLE WRAPPER
-       ----------------------------------------- */
-
-    const tableWrap =
-        document.createElement('div');
-
-    tableWrap.style.cssText = `
-        background: #ffffff;
-        padding: 24px;
-        box-sizing: border-box;
-        border-radius: 0 0 18px 18px;
-    `;
-
-
-    /* -----------------------------------------
-       TABLE
-       ----------------------------------------- */
-
-    const table =
-        document.createElement('table');
-
-    table.style.cssText = `
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        table-layout: fixed;
-        background: #ffffff;
-        border: 1px solid #d7dce5;
-        border-radius: 12px;
-        overflow: hidden;
-    `;
-
-
-    /* -----------------------------------------
-       COLUMN WIDTH
-       ----------------------------------------- */
-
-    const colgroup =
-        document.createElement('colgroup');
-
-    const dayCol =
-        document.createElement('col');
-
-    dayCol.style.width = '145px';
-
-    colgroup.appendChild(dayCol);
-
-    TIME_SLOTS.forEach(() => {
-
-        const col =
-            document.createElement('col');
-
-        col.style.width = '1fr';
-
-        colgroup.appendChild(col);
-    });
-
-    table.appendChild(colgroup);
-
-
-    /* -----------------------------------------
-       HEADER ROW
-       ----------------------------------------- */
-
-    const thead =
-        document.createElement('thead');
-
-    const headerRow =
-        document.createElement('tr');
-
-    const dayHeader =
-        document.createElement('th');
-
-    dayHeader.textContent = 'DAY';
-
-    dayHeader.style.cssText = `
-        background: #202b42;
-        color: #ffffff;
-        height: 68px;
-        padding: 12px;
-        font-size: 17px;
-        font-weight: 800;
-        text-align: center;
-        vertical-align: middle;
-        border-right: 1px solid #46516a;
-        border-bottom: 1px solid #46516a;
-    `;
-
-    headerRow.appendChild(dayHeader);
-
-
-    TIME_SLOTS.forEach(slot => {
-
-        const th =
-            document.createElement('th');
-
-        th.textContent = slot;
-
-        th.style.cssText = `
-            background: #202b42;
-            color: #ffffff;
-            height: 68px;
-            padding: 10px 6px;
-            font-size: 15px;
-            font-weight: 800;
-            text-align: center;
-            vertical-align: middle;
-            border-right: 1px solid #46516a;
-            border-bottom: 1px solid #46516a;
-        `;
-
-        headerRow.appendChild(th);
-    });
-
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-
-
-    /* -----------------------------------------
-       BUILD CELL MAP
-       ----------------------------------------- */
-
-    const cellMap = {};
-
-    DAYS.forEach(day => {
-        cellMap[day] = {};
-
-        TIME_SLOTS.forEach(slot => {
-            cellMap[day][slot] = [];
-        });
-    });
-
-
-    sorted.forEach(cls => {
-
-        const day =
-            normalizeDay(cls.day);
-
-        if (!cellMap[day]) return;
-
-        const slotInfo =
-            getClassTimeSlot(cls.time);
-
-        if (slotInfo.start < 0) return;
-
-        const slot =
-            TIME_SLOTS[slotInfo.start];
-
-        if (!cellMap[day][slot]) {
-            cellMap[day][slot] = [];
+        if (parts.length !== 2) {
+            return null;
         }
 
-        cellMap[day][slot].push(cls);
-    });
+        const start = parseAcademicTime(parts[0]);
+        const end = parseAcademicTime(parts[1]);
 
-
-    /* -----------------------------------------
-       BODY
-       ----------------------------------------- */
-
-    const tbody =
-        document.createElement('tbody');
-
-    DAYS.forEach(day => {
-
-        const tr =
-            document.createElement('tr');
-
-        /* DAY CELL */
-
-        const dayCell =
-            document.createElement('td');
-
-        const isToday =
-            day === todayName;
-
-        dayCell.style.cssText = `
-            background: ${isToday ? '#ecfdf3' : '#f8fafc'};
-            color: ${isToday ? '#166534' : '#172033'};
-            min-height: 100px;
-            padding: 14px 10px;
-            text-align: center;
-            vertical-align: middle;
-            font-size: 18px;
-            font-weight: 800;
-            border-right: 1px solid #d7dce5;
-            border-bottom: 1px solid #d7dce5;
-        `;
-
-        dayCell.innerHTML = `
-            <div>${escapeHTML(day)}</div>
-            ${
-                isToday
-                    ? `
-                        <div style="
-                            margin-top: 7px;
-                            display: inline-block;
-                            padding: 4px 9px;
-                            border-radius: 999px;
-                            background: #dcfce7;
-                            color: #166534;
-                            font-size: 11px;
-                            font-weight: 800;
-                            letter-spacing: .5px;
-                        ">
-                            TODAY
-                        </div>
-                    `
-                    : ''
-            }
-        `;
-
-        tr.appendChild(dayCell);
-
-
-        /* -----------------------------------------
-           TIME CELLS
-           ----------------------------------------- */
-
-        for (let i = 0; i < TIME_SLOTS.length; i++) {
-
-            const slot =
-                TIME_SLOTS[i];
-
-            /*
-             * If a 11:30-02:30 lab already occupies
-             * 11:30-01:00 + 01:00-02:30,
-             * skip the second slot.
-             */
-
-            if (
-                i === 3 &&
-                cellMap[day]['11:30-01:00']?.some(
-                    cls => normalizeTime(cls.time) === '11:30-02:30'
-                )
-            ) {
-                continue;
-            }
-
-
-            let classesHere =
-                cellMap[day][slot] || [];
-
-
-            /* -----------------------------------------
-               CHECK TWO SLOT LAB
-               ----------------------------------------- */
-
-            const twoSlotLab =
-                classesHere.find(
-                    cls =>
-                        normalizeTime(cls.time) === '11:30-02:30'
-                );
-
-
-            const td =
-                document.createElement('td');
-
-            const hasClass =
-                classesHere.length > 0;
-
-
-            /* -----------------------------------------
-               NORMAL CELL
-               ----------------------------------------- */
-
-            if (!twoSlotLab) {
-
-                td.style.cssText = `
-                    height: 105px;
-                    padding: 8px;
-                    text-align: center;
-                    vertical-align: middle;
-                    border-right: 1px solid #d7dce5;
-                    border-bottom: 1px solid #d7dce5;
-                    background: ${hasClass ? '#f8fbff' : '#ffffff'};
-                `;
-
-                if (hasClass) {
-
-                    td.innerHTML =
-                        buildDownloadCellContent(
-                            classesHere,
-                            false
-                        );
-
-                } else {
-
-                    td.innerHTML = `
-                        <span style="
-                            color: #c4cad4;
-                            font-size: 20px;
-                            font-weight: 400;
-                        ">
-                            —
-                        </span>
-                    `;
-                }
-
-                tr.appendChild(td);
-
-            } else {
-
-                /* -----------------------------------------
-                   TWO SLOT LAB CELL
-                   ----------------------------------------- */
-
-                td.colSpan = 2;
-
-                td.style.cssText = `
-                    height: 105px;
-                    padding: 8px;
-                    text-align: center;
-                    vertical-align: middle;
-                    border-right: 1px solid #d7dce5;
-                    border-bottom: 1px solid #d7dce5;
-                    background: #fff8e8;
-                `;
-
-                td.innerHTML =
-                    buildDownloadCellContent(
-                        [twoSlotLab],
-                        true
-                    );
-
-                tr.appendChild(td);
-            }
+        if (
+            Number.isNaN(start) ||
+            Number.isNaN(end)
+        ) {
+            return null;
         }
 
-        tbody.appendChild(tr);
-    });
-
-    table.appendChild(tbody);
-
-    tableWrap.appendChild(table);
-
-
-    /* -----------------------------------------
-       LEGEND
-       ----------------------------------------- */
-
-    const legend =
-        document.createElement('div');
-
-    legend.style.cssText = `
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 28px;
-        padding: 22px 8px 6px;
-        font-size: 14px;
-        color: #4b5563;
-        font-weight: 600;
-    `;
-
-    legend.innerHTML = `
-        <span style="
-            display:flex;
-            align-items:center;
-            gap:7px;
-        ">
-            <span style="
-                width:14px;
-                height:14px;
-                border-radius:4px;
-                background:#f8fbff;
-                border:1px solid #d7dce5;
-                display:inline-block;
-            "></span>
-            Theory
-        </span>
-
-        <span style="
-            display:flex;
-            align-items:center;
-            gap:7px;
-        ">
-            <span style="
-                width:14px;
-                height:14px;
-                border-radius:4px;
-                background:#fff8e8;
-                border:1px solid #e7d9b5;
-                display:inline-block;
-            "></span>
-            Lab
-        </span>
-
-        <span style="
-            display:flex;
-            align-items:center;
-            gap:7px;
-        ">
-            <span style="
-                width:14px;
-                height:14px;
-                border-radius:4px;
-                background:#ecfdf3;
-                border:1px solid #b7e4c7;
-                display:inline-block;
-            "></span>
-            Today
-        </span>
-    `;
-
-    tableWrap.appendChild(legend);
-
-
-    /* -----------------------------------------
-       FOOTER
-       ----------------------------------------- */
-
-    const footer =
-        document.createElement('div');
-
-    footer.style.cssText = `
-        text-align: center;
-        padding: 14px 0 2px;
-        color: #8a93a3;
-        font-size: 12px;
-        font-weight: 500;
-    `;
-
-    footer.textContent =
-        'Daffodil International University • CSE';
-
-    tableWrap.appendChild(footer);
-
-    card.appendChild(tableWrap);
-
-    return card;
-}
-
-
-/* =========================================================
-   DOWNLOAD CELL CONTENT
-   ========================================================= */
-
-function buildDownloadCellContent(classes, isLab = false) {
-
-    if (!classes || !classes.length) {
-        return `
-            <span style="
-                color:#c4cad4;
-                font-size:20px;
-            ">—</span>
-        `;
+        return {
+            start,
+            end,
+            label: time
+        };
     }
 
-    return classes.map(cls => {
+    function parseAcademicTime(value) {
+        const [hRaw, mRaw] = String(value)
+            .split(":");
 
-        const comment =
-            getDisplayComment(
-                cls,
-                currentMode
-            );
+        let h = parseInt(hRaw, 10);
+        const m = parseInt(mRaw || "0", 10);
 
-        const type =
-            normalizeClassType(cls.type);
+        if (Number.isNaN(h)) return NaN;
 
-        const lab =
-            type === 'Lab' ||
-            isLab;
-
-        const bg =
-            lab ? '#fff1cf' : '#eaf4ff';
-
-        const border =
-            lab ? '#e8d09b' : '#c8ddf3';
-
-        const accent =
-            lab ? '#8a5a00' : '#1d4f91';
-
-        return `
-            <div style="
-                width:100%;
-                box-sizing:border-box;
-                background:${bg};
-                border:1px solid ${border};
-                border-radius:10px;
-                padding:10px 8px;
-                margin:${classes.length > 1 ? '3px 0' : '0'};
-                line-height:1.25;
-            ">
-
-                <div style="
-                    font-size:18px;
-                    font-weight:800;
-                    color:#172033;
-                    margin-bottom:5px;
-                ">
-                    ${escapeHTML(cls.course || '—')}
-                    ${
-                        comment
-                            ? `
-                                <span style="
-                                    font-size:13px;
-                                    font-weight:700;
-                                    color:${accent};
-                                    margin-left:4px;
-                                ">
-                                    ${escapeHTML(comment)}
-                                </span>
-                            `
-                            : ''
-                    }
-                </div>
-
-                ${
-                    cls.teacher
-                        ? `
-                            <div style="
-                                font-size:13px;
-                                font-weight:600;
-                                color:#4b5563;
-                                margin-bottom:3px;
-                            ">
-                                ${escapeHTML(cls.teacher)}
-                            </div>
-                        `
-                        : ''
-                }
-
-                ${
-                    cls.room
-                        ? `
-                            <div style="
-                                font-size:13px;
-                                font-weight:700;
-                                color:${accent};
-                            ">
-                                ${escapeHTML(cls.room)}
-                            </div>
-                        `
-                        : ''
-                }
-
-                <div style="
-                    margin-top:5px;
-                    font-size:10px;
-                    font-weight:800;
-                    letter-spacing:.4px;
-                    color:${accent};
-                ">
-                    ${escapeHTML(type)}
-                </div>
-
-            </div>
-        `;
-    }).join('');
-}
-
-
-/* =========================================================
-   DOWNLOAD SECTION
-   ========================================================= */
-
-async function downloadSection() {
-
-    if (!routineData) {
-        alert('Please load a routine first.');
-        return;
-    }
-
-    const container =
-        document.getElementById('routineContainer');
-
-    if (!container) return;
-
-    const classes =
-        getClassesForCurrentMode();
-
-    if (!classes.length) {
-        alert('No routine data available.');
-        return;
-    }
-
-    const title =
-        getCurrentTitle();
-
-    const card =
-        createRoutineDownloadCard(
-            classes,
-            title
-        );
-
-    card.style.position = 'fixed';
-    card.style.left = '-100000px';
-    card.style.top = '0';
-    card.style.zIndex = '-1';
-
-    document.body.appendChild(card);
-
-    try {
-
-        if (!window.html2canvas) {
-
-            await loadHtml2Canvas();
+        // Academic routine:
+        // 08, 10, 11, 01, 02, 04, 05
+        // 01/02 after noon should remain ordered after 11.
+        if (h >= 1 && h <= 5) {
+            h += 12;
         }
 
-        const canvas =
-            await html2canvas(card, {
-                backgroundColor: '#f4f6fa',
-                scale: 2,
-                useCORS: true,
-                logging: false
-            });
-
-        const link =
-            document.createElement('a');
-
-        const fileName =
-            normalizeSection(
-                currentSection ||
-                'routine'
-            );
-
-        link.download =
-            `DIU-CSE-Routine-${fileName}.png`;
-
-        link.href =
-            canvas.toDataURL('image/png');
-
-        link.click();
-
-    } catch (error) {
-
-        console.error(
-            'Download image error:',
-            error
-        );
-
-        alert(
-            'Could not create routine image.'
-        );
-
-    } finally {
-
-        card.remove();
+        return h * 60 + m;
     }
-}
 
+    // ============================================================
+    // LAB
+    // ============================================================
 
-/* =========================================================
-   LOAD HTML2CANVAS
-   ========================================================= */
+    function isTwoSlotLab(cls) {
+        return (
+            normalizeClassType(cls.type) === "Lab" &&
+            normalizeTime(cls.time) === "11:30-02:30"
+        );
+    }
 
-function loadHtml2Canvas() {
+    // ============================================================
+    // DISPLAY SECTION
+    // ============================================================
 
-    return new Promise((resolve, reject) => {
+    function displaySection(
+        section,
+        classes,
+        data,
+        loadedFrom
+    ) {
+        if (!routineContainer) return;
 
-        if (window.html2canvas) {
-            resolve();
+        currentClasses = classes;
+
+        if (classes.length === 0) {
+            showNoRoutine(section);
             return;
         }
 
-        const script =
-            document.createElement('script');
+        const semester =
+            detectSemester(data);
 
-        script.src =
-            'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+        const sourceLink =
+            getRoutineLink(data);
 
-        script.onload =
-            () => resolve();
+        routineContainer.innerHTML = `
+            <div class="routine-summary">
+                <div class="summary-main">
+                    <div class="summary-label">SECTION</div>
+                    <div class="summary-value">
+                        ${escapeHtml(section)}
+                    </div>
+                </div>
 
-        script.onerror =
-            () => reject(
-                new Error(
-                    'html2canvas could not be loaded'
+                <div class="summary-info">
+                    <span>
+                        ${escapeHtml(semester)}
+                    </span>
+
+                    <span>
+                        ${classes.length} Classes
+                    </span>
+                </div>
+            </div>
+
+            ${createRoutineLinkHtml(sourceLink)}
+
+            <div class="routine-actions">
+                <button
+                    type="button"
+                    class="routine-tab active"
+                    data-tab="day"
+                >
+                    Day View
+                </button>
+
+                <button
+                    type="button"
+                    class="routine-tab"
+                    data-tab="week"
+                >
+                    Week View
+                </button>
+
+                <button
+                    type="button"
+                    class="routine-download-btn"
+                    id="downloadRoutineBtn"
+                >
+                    Download PNG
+                </button>
+            </div>
+
+            <div id="routineView"></div>
+        `;
+
+        const view = routineContainer.querySelector(
+            "#routineView"
+        );
+
+        renderDayView(
+            view,
+            classes,
+            section
+        );
+
+        const tabs =
+            routineContainer.querySelectorAll(
+                ".routine-tab"
+            );
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(item =>
+                    item.classList.remove("active")
+                );
+
+                tab.classList.add("active");
+
+                if (tab.dataset.tab === "week") {
+                    renderWeekView(
+                        view,
+                        classes,
+                        section
+                    );
+                } else {
+                    renderDayView(
+                        view,
+                        classes,
+                        section
+                    );
+                }
+            });
+        });
+
+        const downloadBtn =
+            routineContainer.querySelector(
+                "#downloadRoutineBtn"
+            );
+
+        if (downloadBtn) {
+            downloadBtn.addEventListener(
+                "click",
+                () => downloadSection(
+                    section,
+                    classes,
+                    data
                 )
             );
-
-        document.head.appendChild(script);
-    });
-}
-
-
-/* =========================================================
-   GET CURRENT MODE CLASSES
-   ========================================================= */
-
-function getClassesForCurrentMode() {
-
-    const input =
-        document.getElementById('sectionInput');
-
-    const value =
-        input?.value?.trim() || '';
-
-    if (currentMode === 'teacher') {
-        return sortClasses(
-            getTeacherClasses(value)
-        );
+        }
     }
 
-    if (currentMode === 'room') {
-        return sortClasses(
-            getRoomClasses(value)
-        );
-    }
+    // ============================================================
+    // DAY VIEW
+    // ============================================================
 
-    if (currentMode === 'empty-room') {
-        return sortClasses(
-            getEmptyRooms(value)
-        );
-    }
+    function renderDayView(
+        container,
+        classes,
+        section
+    ) {
+        if (!container) return;
 
-    return sortClasses(
-        getSectionClasses(
-            currentSection || value
-        )
-    );
-}
+        const grouped = {};
 
+        DAYS.forEach(day => {
+            grouped[day] = [];
+        });
 
-/* =========================================================
-   CURRENT TITLE
-   ========================================================= */
-
-function getCurrentTitle() {
-
-    const input =
-        document.getElementById('sectionInput');
-
-    const value =
-        input?.value?.trim() || '';
-
-    if (currentMode === 'teacher') {
-
-        return `Teacher: ${value}`;
-    }
-
-    if (currentMode === 'room') {
-
-        return `Room: ${value}`;
-    }
-
-    if (currentMode === 'empty-room') {
-
-        return value
-            ? `Empty Room: ${value}`
-            : 'Empty Room';
-    }
-
-    return `Section: ${currentSection || value}`;
-}
-
-
-/* =========================================================
-   SHOW ROUTINE
-   ========================================================= */
-
-async function showRoutine() {
-
-    const input =
-        document.getElementById('sectionInput');
-
-    const value =
-        input?.value?.trim() || '';
-
-    if (!value && currentMode !== 'empty-room') {
-
-        setStatus(
-            'Please enter a value.',
-            'error'
-        );
-
-        return;
-    }
-
-    try {
-
-        setStatus(
-            'Loading routine...',
-            'loading'
-        );
-
-        if (
-            currentMode === 'teacher' ||
-            currentMode === 'room' ||
-            currentMode === 'empty-room'
-        ) {
-
-            if (!routineData) {
-
-                await loadRoutine(
-                    localStorage.getItem(
-                        STORAGE_KEY
-                    ) || '70_N'
-                );
+        classes.forEach(cls => {
+            if (!grouped[cls.day]) {
+                grouped[cls.day] = [];
             }
 
-        } else {
+            grouped[cls.day].push(cls);
+        });
 
-            const normalized =
-                normalizeSection(value);
+        let html = "";
 
-            localStorage.setItem(
-                STORAGE_KEY,
-                normalized
+        DAYS.forEach(day => {
+            const dayClasses = grouped[day];
+
+            const today =
+                isToday(day);
+
+            html += `
+                <section class="day-card">
+                    <div class="day-card-header">
+                        <div>
+                            <span class="day-name">
+                                ${escapeHtml(day)}
+                            </span>
+
+                            ${
+                                today
+                                    ? `<span class="today-dot"></span>`
+                                    : ""
+                            }
+                        </div>
+
+                        <span class="day-count">
+                            ${dayClasses.length}
+                        </span>
+                    </div>
+            `;
+
+            if (dayClasses.length === 0) {
+                html += `
+                    <div class="empty-day">
+                        No class
+                    </div>
+                `;
+            } else {
+                dayClasses.forEach(cls => {
+                    html += createClassCard(
+                        cls,
+                        section
+                    );
+                });
+            }
+
+            html += `</section>`;
+        });
+
+        container.innerHTML = html;
+    }
+
+    function createClassCard(
+        cls,
+        section
+    ) {
+        const comment =
+            getDisplayComment(
+                cls,
+                section
             );
 
-            await loadRoutine(
-                normalized
-            );
+        const lab =
+            normalizeClassType(cls.type) === "Lab";
+
+        return `
+            <article class="class-item ${lab ? "lab-class" : ""}">
+                <div class="class-time">
+                    ${escapeHtml(cls.time)}
+                </div>
+
+                <div class="class-main">
+                    <div class="class-course">
+                        ${escapeHtml(cls.course)}
+                        ${comment
+                            ? `<span class="class-section">
+                                ${escapeHtml(comment)}
+                               </span>`
+                            : ""}
+                    </div>
+
+                    <div class="class-details">
+                        <span>
+                            ${escapeHtml(cls.teacher || "—")}
+                        </span>
+
+                        <span>
+                            ${escapeHtml(cls.room || "—")}
+                        </span>
+
+                        ${
+                            cls.type
+                                ? `<span class="class-type">
+                                    ${escapeHtml(cls.type)}
+                                   </span>`
+                                : ""
+                        }
+                    </div>
+                </div>
+            </article>
+        `;
+    }
+
+    // ============================================================
+    // WEEK TABLE MODEL
+    // ============================================================
+
+    function buildWeekTableModel(classes) {
+        const model = {};
+
+        DAYS.forEach(day => {
+            model[day] = {};
+
+            TIME_SLOTS.forEach((slot, index) => {
+                model[day][index] = [];
+            });
+        });
+
+        classes.forEach(cls => {
+            const day = normalizeDay(cls.day);
+
+            if (!model[day]) return;
+
+            const normalizedTime =
+                normalizeTime(cls.time);
+
+            // 2-slot lab
+            if (isTwoSlotLab(cls)) {
+                model[day][2].push(cls);
+
+                // Mark the second slot as occupied by
+                // the same lab.
+                model[day][3].push({
+                    ...cls,
+                    __continuedLab: true
+                });
+
+                return;
+            }
+
+            const index =
+                TIME_INDEX[normalizedTime];
+
+            if (
+                index !== undefined
+            ) {
+                model[day][index].push(cls);
+            }
+        });
+
+        return model;
+    }
+
+    // ============================================================
+    // WEEK VIEW
+    // ============================================================
+
+    function renderWeekView(
+        container,
+        classes,
+        section
+    ) {
+        if (!container) return;
+
+        const model =
+            buildWeekTableModel(classes);
+
+        let html = `
+            <div class="week-table-wrapper">
+                <table class="week-routine-table">
+                    <colgroup>
+                        <col class="time-col">
+                        ${DAYS.map(() =>
+                            `<col class="day-col">`
+                        ).join("")}
+                    </colgroup>
+
+                    <thead>
+                        <tr>
+                            <th>TIME</th>
+                            ${DAYS.map(day => `
+                                <th class="${isToday(day) ? "today-header" : ""}">
+                                    <span>
+                                        ${escapeHtml(day.slice(0, 3))}
+                                    </span>
+                                    ${
+                                        isToday(day)
+                                            ? `<i class="today-mini-dot"></i>`
+                                            : ""
+                                    }
+                                </th>
+                            `).join("")}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+        `;
+
+        for (
+            let slotIndex = 0;
+            slotIndex < TIME_SLOTS.length;
+            slotIndex++
+        ) {
+            const slot = TIME_SLOTS[slotIndex];
+
+            html += `
+                <tr>
+                    <th class="time-cell">
+                        ${escapeHtml(slot)}
+                    </th>
+            `;
+
+            DAYS.forEach(day => {
+                const classesAtSlot =
+                    model[day]?.[slotIndex] || [];
+
+                // If this is second half of a 2-slot lab,
+                // don't create another TD.
+                if (
+                    slotIndex === 3 &&
+                    model[day]?.[2]?.some(
+                        isTwoSlotLab
+                    )
+                ) {
+                    return;
+                }
+
+                // 2-slot lab starts at 11:30
+                const labs =
+                    slotIndex === 2
+                        ? classesAtSlot.filter(
+                            isTwoSlotLab
+                        )
+                        : [];
+
+                if (labs.length > 0) {
+                    const lab = labs[0];
+
+                    const overlap =
+                        classesAtSlot.filter(
+                            cls => cls !== lab
+                        );
+
+                    html += `
+                        <td
+                            rowspan="2"
+                            class="
+                                routine-cell
+                                lab-cell
+                                ${isToday(day) ? "today-cell" : ""}
+                            "
+                        >
+                            ${createWeekClassHtml(
+                                lab,
+                                section,
+                                overlap
+                            )}
+                        </td>
+                    `;
+
+                    return;
+                }
+
+                if (classesAtSlot.length === 0) {
+                    html += `
+                        <td
+                            class="
+                                routine-cell
+                                empty-cell
+                                ${isToday(day) ? "today-cell" : ""}
+                        ">
+                            <span class="empty-mark">—</span>
+                        </td>
+                    `;
+
+                    return;
+                }
+
+                html += `
+                    <td
+                        class="
+                            routine-cell
+                            ${isToday(day) ? "today-cell" : ""}
+                        "
+                    >
+                        ${classesAtSlot
+                            .map(cls =>
+                                createWeekClassHtml(
+                                    cls,
+                                    section
+                                )
+                            )
+                            .join("")}
+                    </td>
+                `;
+            });
+
+            html += `</tr>`;
         }
 
-        let classes = [];
+        html += `
+                    </tbody>
+                </table>
+            </div>
+        `;
 
-        if (currentMode === 'teacher') {
+        container.innerHTML = html;
+    }
 
-            classes =
-                getTeacherClasses(value);
-
-        } else if (currentMode === 'room') {
-
-            classes =
-                getRoomClasses(value);
-
-        } else if (currentMode === 'empty-room') {
-
-            classes =
-                getEmptyRooms(value);
-
-        } else {
-
-            classes =
-                getSectionClasses(
-                    currentSection
-                );
-        }
-
-        classes =
-            sortClasses(classes);
-
-        const title =
-            getCurrentTitle();
-
-        renderRoutine(
-            classes,
-            title
-        );
-
-        setStatus(
-            `${classes.length} class${classes.length === 1 ? '' : 'es'} found`,
-            'success'
-        );
-
-        updateSavedChip();
-
-    } catch (error) {
-
-        console.error(error);
-
-        setStatus(
-            'Failed to load routine.',
-            'error'
-        );
-
-        const container =
-            document.getElementById(
-                'routineContainer'
+    function createWeekClassHtml(
+        cls,
+        section,
+        overlap = []
+    ) {
+        const comment =
+            getDisplayComment(
+                cls,
+                section
             );
 
-        if (container) {
+        const lab =
+            normalizeClassType(cls.type) === "Lab";
 
-            container.innerHTML = `
-                <div class="empty-state">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Could not load routine</h3>
-                    <p>
-                        Please check your section or try again.
-                    </p>
+        let html = `
+            <div class="
+                week-class
+                ${lab ? "week-lab" : "week-theory"}
+            ">
+                <div class="week-course">
+                    ${escapeHtml(cls.course)}
+                    ${
+                        comment
+                            ? `<small>
+                                ${escapeHtml(comment)}
+                               </small>`
+                            : ""
+                    }
+                </div>
+
+                <div class="week-teacher">
+                    ${escapeHtml(cls.teacher || "—")}
+                </div>
+
+                <div class="week-room">
+                    ${escapeHtml(cls.room || "—")}
+                </div>
+
+                ${
+                    lab
+                        ? `<span class="week-type">LAB</span>`
+                        : ""
+                }
+            </div>
+        `;
+
+        if (overlap.length > 0) {
+            html += `
+                <div class="week-overlap">
+                    +${overlap.length} overlap
                 </div>
             `;
         }
-    }
-}
 
-
-/* =========================================================
-   CLEAR SECTION
-   ========================================================= */
-
-function clearSection() {
-
-    localStorage.removeItem(
-        STORAGE_KEY
-    );
-
-    const input =
-        document.getElementById('sectionInput');
-
-    if (input) {
-        input.value = '';
+        return html;
     }
 
-    currentSection = '';
+    // ============================================================
+    // TEACHER MODE
+    // ============================================================
 
-    const container =
-        document.getElementById(
-            'routineContainer'
+    function displayTeacherRoutine(search) {
+        if (!routineData) return;
+
+        const term =
+            normalizeSearch(search);
+
+        const classes =
+            getAllRoutineClasses()
+                .filter(cls => {
+                    const teacher =
+                        normalizeSearch(
+                            cls.teacher
+                        );
+
+                    return (
+                        teacher === term ||
+                        teacher.includes(term)
+                    );
+                })
+                .map(cls => ({
+                    ...cls,
+                    _section:
+                        cls.section ||
+                        cls._section ||
+                        ""
+                }));
+
+        currentClasses = classes;
+        currentSearchTerm = search;
+
+        if (classes.length === 0) {
+            showNoRoutine(
+                `Teacher: ${search}`
+            );
+            return;
+        }
+
+        displayGenericRoutine(
+            `Teacher: ${search}`,
+            classes,
+            "teacher"
+        );
+    }
+
+    // ============================================================
+    // ROOM MODE
+    // ============================================================
+
+    function displayRoomRoutine(search) {
+        if (!routineData) return;
+
+        const term =
+            normalizeSearch(search);
+
+        const classes =
+            getAllRoutineClasses()
+                .filter(cls => {
+                    const room =
+                        normalizeSearch(
+                            cls.room
+                        );
+
+                    return (
+                        room === term ||
+                        room.includes(term)
+                    );
+                })
+                .map(cls => ({
+                    ...cls,
+                    _section:
+                        cls.section ||
+                        cls._section ||
+                        ""
+                }));
+
+        currentClasses = classes;
+        currentSearchTerm = search;
+
+        if (classes.length === 0) {
+            showNoRoutine(
+                `Room: ${search}`
+            );
+            return;
+        }
+
+        displayGenericRoutine(
+            `Room: ${search}`,
+            classes,
+            "room"
+        );
+    }
+
+    // ============================================================
+    // GENERIC ROUTINE
+    // ============================================================
+
+    function displayGenericRoutine(
+        title,
+        classes,
+        mode
+    ) {
+        if (!routineContainer) return;
+
+        const normalized =
+            normalizeClasses(
+                classes
+            );
+
+        routineContainer.innerHTML = `
+            <div class="routine-summary">
+                <div class="summary-main">
+                    <div class="summary-label">
+                        ${escapeHtml(
+                            mode.toUpperCase()
+                        )}
+                    </div>
+
+                    <div class="summary-value">
+                        ${escapeHtml(title.replace(
+                            /^[^:]+:\s*/,
+                            ""
+                        ))}
+                    </div>
+                </div>
+
+                <div class="summary-info">
+                    <span>
+                        ${normalized.length} Classes
+                    </span>
+                </div>
+            </div>
+
+            <div class="routine-actions">
+                <button
+                    type="button"
+                    class="routine-tab active"
+                    data-tab="day"
+                >
+                    Day View
+                </button>
+
+                <button
+                    type="button"
+                    class="routine-tab"
+                    data-tab="week"
+                >
+                    Week View
+                </button>
+            </div>
+
+            <div id="routineView"></div>
+        `;
+
+        const view =
+            routineContainer.querySelector(
+                "#routineView"
+            );
+
+        renderDayView(
+            view,
+            normalized,
+            ""
         );
 
-    if (container) {
-        container.innerHTML = '';
-    }
+        const tabs =
+            routineContainer.querySelectorAll(
+                ".routine-tab"
+            );
 
-    updateSavedChip();
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t =>
+                    t.classList.remove("active")
+                );
 
-    setStatus(
-        'Section cleared.',
-        'success'
-    );
-}
+                tab.classList.add("active");
 
-
-/* =========================================================
-   AUTO REFRESH
-   ========================================================= */
-
-function startAutoRefresh() {
-
-    if (refreshTimer) {
-        clearInterval(refreshTimer);
-    }
-
-    refreshTimer =
-        setInterval(async () => {
-
-            try {
-
-                if (
-                    currentMode === 'section' &&
-                    currentSection
-                ) {
-
-                    await loadRoutine(
-                        currentSection
+                if (tab.dataset.tab === "week") {
+                    renderWeekView(
+                        view,
+                        normalized,
+                        ""
                     );
-                } else if (routineData) {
-
-                    await loadRoutine(
-                        localStorage.getItem(
-                            STORAGE_KEY
-                        ) || '70_N'
+                } else {
+                    renderDayView(
+                        view,
+                        normalized,
+                        ""
                     );
                 }
+            });
+        });
+    }
 
-                const classes =
-                    getClassesForCurrentMode();
+    // ============================================================
+    // EMPTY ROOM
+    // ============================================================
 
-                renderRoutine(
-                    classes,
-                    getCurrentTitle()
-                );
+    function displayEmptyRooms(filter = "") {
+        if (!routineContainer) return;
 
-                setStatus(
-                    `${classes.length} class${classes.length === 1 ? '' : 'es'} found`,
-                    'success'
-                );
+        const classes =
+            getAllRoutineClasses();
 
-            } catch (error) {
+        const rooms =
+            getAllRooms(classes);
 
-                console.error(
-                    'Auto refresh failed:',
-                    error
-                );
+        currentRooms = rooms;
+
+        const dayFilter =
+            getDayFromInput(filter);
+
+        const roomFilter =
+            normalizeSearch(filter);
+
+        let html = `
+            <div class="empty-room-header">
+                <div>
+                    <div class="summary-label">
+                        EMPTY ROOMS
+                    </div>
+
+                    <h2>
+                        Available Rooms
+                    </h2>
+                </div>
+
+                <div class="empty-room-total">
+                    ${rooms.length} rooms
+                </div>
+            </div>
+        `;
+
+        DAYS.forEach(day => {
+            if (
+                dayFilter &&
+                day !== dayFilter
+            ) {
+                return;
             }
 
-        }, 5 * 60 * 1000);
-}
+            const occupied = new Set();
 
+            classes
+                .filter(cls => cls.day === day)
+                .forEach(cls => {
+                    splitRooms(cls.room)
+                        .forEach(room => {
+                            occupied.add(
+                                normalizeRoom(room)
+                            );
+                        });
+                });
 
-/* =========================================================
-   NAVIGATION EVENTS
-   ========================================================= */
-
-function setupNavigation() {
-
-    document
-        .querySelectorAll('.nav-item')
-        .forEach(item => {
-
-            item.addEventListener(
-                'click',
-                () => {
-
-                    const mode =
-                        item.dataset.mode;
-
-                    if (mode) {
-                        setMode(mode);
-                        return;
-                    }
-
-                    if (
-                        item
-                            .querySelector(
-                                '.fa-address-card'
-                            )
-                    ) {
-
-                        setMode('teacher');
-                        return;
-                    }
-
-                    if (
-                        item
-                            .querySelector(
-                                '.fa-door-open'
-                            )
-                    ) {
-
-                        setMode('room');
-                        return;
-                    }
-
-                    if (
-                        item
-                            .querySelector(
-                                '.fa-door-closed'
-                            )
-                    ) {
-
-                        setMode('empty-room');
-                        return;
-                    }
-
-                    if (
-                        item ===
-                        document.querySelector(
-                            '.nav-item:first-child'
+            let available =
+                rooms.filter(
+                    room =>
+                        !occupied.has(
+                            normalizeRoom(room)
                         )
-                    ) {
+                );
 
-                        setMode('section');
-                    }
-                }
-            );
+            if (
+                roomFilter &&
+                !dayFilter
+            ) {
+                available =
+                    available.filter(room =>
+                        normalizeSearch(room)
+                            .includes(roomFilter)
+                    );
+            }
+
+            html += `
+                <section class="empty-room-card">
+                    <div class="empty-room-card-header">
+                        <div>
+                            ${escapeHtml(day)}
+
+                            ${
+                                isToday(day)
+                                    ? `<span class="today-dot"></span>`
+                                    : ""
+                            }
+                        </div>
+
+                        <span>
+                            ${available.length}
+                        </span>
+                    </div>
+
+                    <div class="room-list">
+                        ${
+                            available.length
+                                ? available
+                                    .map(room => `
+                                        <span class="room-pill">
+                                            ${escapeHtml(room)}
+                                        </span>
+                                    `)
+                                    .join("")
+                                : `
+                                    <div class="no-room">
+                                        No available room
+                                    </div>
+                                `
+                        }
+                    </div>
+                </section>
+            `;
         });
-}
 
+        routineContainer.innerHTML = html;
+    }
 
-/* =========================================================
-   SEARCH ICON
-   ========================================================= */
+    function getAllRooms(classes) {
+        const set = new Set();
 
-function setupSearchIcon() {
+        classes.forEach(cls => {
+            splitRooms(cls.room)
+                .forEach(room => {
+                    const normalized =
+                        normalizeRoom(room);
 
-    const searchIcon =
-        document.querySelector(
-            '.search-input-wrap i'
-        );
+                    if (normalized) {
+                        set.add(normalized);
+                    }
+                });
+        });
 
-    if (!searchIcon) return;
+        return Array.from(set)
+            .sort(naturalSort);
+    }
 
-    searchIcon.addEventListener(
-        'click',
-        showRoutine
-    );
-}
+    function splitRooms(room) {
+        if (!room) return [];
 
+        return String(room)
+            .split(/[,/]+/)
+            .map(item => item.trim())
+            .filter(Boolean);
+    }
 
-/* =========================================================
-   ENTER KEY
-   ========================================================= */
+    function normalizeRoom(room) {
+        return String(room || "")
+            .trim()
+            .toUpperCase()
+            .replace(/\s+/g, " ");
+    }
 
-function setupInput() {
+    function getDayFromInput(input) {
+        const value =
+            String(input || "")
+                .trim()
+                .toLowerCase();
 
-    const input =
-        document.getElementById(
-            'sectionInput'
-        );
+        if (!value) return null;
 
-    if (!input) return;
+        const found =
+            DAYS.find(day =>
+                day.toLowerCase() === value
+            );
 
-    input.addEventListener(
-        'keydown',
-        event => {
+        if (found) return found;
 
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                showRoutine();
+        return DAYS.find(day =>
+            day
+                .toLowerCase()
+                .startsWith(value)
+        ) || null;
+    }
+
+    // ============================================================
+    // ALL ROUTINE CLASSES
+    // ============================================================
+
+    function getAllRoutineClasses() {
+        if (!routineData) return [];
+
+        let all = [];
+
+        if (Array.isArray(routineData)) {
+            all = routineData;
+        } else if (
+            routineData.sections &&
+            typeof routineData.sections === "object"
+        ) {
+            Object.keys(
+                routineData.sections
+            ).forEach(section => {
+                const classes =
+                    extractClassesFromData(
+                        routineData.sections[section]
+                    );
+
+                classes.forEach(cls => {
+                    all.push({
+                        ...cls,
+                        section:
+                            cls.section ||
+                            section
+                    });
+                });
+            });
+        } else {
+            const extracted =
+                extractClassesFromData(
+                    routineData
+                );
+
+            if (extracted.length) {
+                all = extracted;
+            } else {
+                Object.keys(routineData)
+                    .forEach(key => {
+                        if (
+                            typeof routineData[key] ===
+                            "object"
+                        ) {
+                            const classes =
+                                extractClassesFromData(
+                                    routineData[key]
+                                );
+
+                            classes.forEach(cls => {
+                                all.push({
+                                    ...cls,
+                                    section:
+                                        cls.section ||
+                                        key
+                                });
+                            });
+                        }
+                    });
             }
         }
-    );
-}
 
-
-/* =========================================================
-   INITIAL LOAD
-   ========================================================= */
-
-async function initialize() {
-
-    setupNavigation();
-    setupSearchIcon();
-    setupInput();
-
-    const showButton =
-        document.getElementById(
-            'showRoutineBtn'
-        );
-
-    if (showButton) {
-
-        showButton.addEventListener(
-            'click',
-            showRoutine
+        return normalizeClasses(
+            deduplicateRawClasses(all)
         );
     }
 
+    // ============================================================
+    // SECTION COMMENT
+    // ============================================================
 
-    const clearButton =
-        document.getElementById(
-            'clearSectionBtn'
-        );
-
-    if (clearButton) {
-
-        clearButton.addEventListener(
-            'click',
-            clearSection
-        );
-    }
-
-
-    setMode(
-        localStorage.getItem(
-            MODE_KEY
-        ) || 'section'
-    );
-
-    updateSavedChip();
-
-
-    /* -----------------------------------------
-       Restore saved section
-       ----------------------------------------- */
-
-    const savedSection =
-        localStorage.getItem(
-            STORAGE_KEY
-        );
-
-    const input =
-        document.getElementById(
-            'sectionInput'
-        );
-
-    if (
-        savedSection &&
-        input &&
-        currentMode === 'section'
+    function getDisplayComment(
+        cls,
+        currentSection = ""
     ) {
-
-        input.value =
-            savedSection;
-
-        try {
-
-            await loadRoutine(
-                savedSection
+        const section =
+            normalizeSearch(
+                cls.section ||
+                cls._section ||
+                cls.sub_section ||
+                ""
             );
 
-            const classes =
-                getSectionClasses(
-                    savedSection
+        if (!section) {
+            return "";
+        }
+
+        const current =
+            normalizeSearch(
+                currentSection
+            );
+
+        // In main section mode don't show
+        // section label for same/main section.
+        if (
+            current &&
+            section === current
+        ) {
+            return "";
+        }
+
+        const base =
+            getBaseSection(
+                current || section
+            );
+
+        if (
+            section === base
+        ) {
+            return "";
+        }
+
+        if (
+            section.startsWith(base + "_")
+        ) {
+            return `(${section.slice(
+                base.length + 1
+            )})`;
+        }
+
+        const suffix =
+            section.match(
+                /(?:^|_)(N\d+)$/
+            );
+
+        if (suffix) {
+            return `(${suffix[1]})`;
+        }
+
+        return `(${section})`;
+    }
+
+    // ============================================================
+    // BASE SECTION
+    // ============================================================
+
+    function getBaseSection(section) {
+        return normalizeSearch(section)
+            .replace(/_\d+$/, "");
+    }
+
+    function extractBatchFromSection(section) {
+        const value =
+            normalizeSearch(section);
+
+        const match =
+            value.match(/^(\d+)/);
+
+        return match
+            ? match[1]
+            : "";
+    }
+
+    function extractSectionLetter(section) {
+        const value =
+            normalizeSearch(section);
+
+        const match =
+            value.match(/_(N|[A-Z])(?:\d+)?$/);
+
+        return match
+            ? match[1]
+            : "";
+    }
+
+    // ============================================================
+    // DUPLICATES
+    // ============================================================
+
+    function deduplicateRawClasses(classes) {
+        const map = new Map();
+
+        classes.forEach(cls => {
+            const key = [
+                cls.day,
+                cls.time,
+                cls.course,
+                cls.teacher,
+                cls.room,
+                cls.sub_section,
+                cls.section,
+                cls._section
+            ]
+                .map(value =>
+                    normalizeSearch(value)
+                )
+                .join("|");
+
+            if (!map.has(key)) {
+                map.set(key, cls);
+            }
+        });
+
+        return Array.from(map.values());
+    }
+
+    // ============================================================
+    // META
+    // ============================================================
+
+    function detectSemester(data) {
+        const explicit =
+            data?.semester ||
+            data?.meta?.semester ||
+            data?.metadata?.semester;
+
+        if (explicit) {
+            return String(explicit);
+        }
+
+        const date =
+            data?.updated ||
+            data?.updatedAt ||
+            data?.lastUpdated ||
+            data?.meta?.updated ||
+            data?.metadata?.updated;
+
+        const parsed =
+            date
+                ? new Date(date)
+                : new Date();
+
+        const month =
+            parsed.getMonth() + 1;
+
+        if (month >= 1 && month <= 4) {
+            return "Spring";
+        }
+
+        if (month >= 5 && month <= 8) {
+            return "Summer";
+        }
+
+        return "Fall";
+    }
+
+    function updateMeta(data) {
+        if (!data) return;
+
+        const meta =
+            data.meta ||
+            data.metadata ||
+            data;
+
+        const version =
+            meta.version ||
+            meta.dataVersion ||
+            "";
+
+        const updated =
+            meta.updated ||
+            meta.updatedAt ||
+            meta.lastUpdated ||
+            "";
+
+        if (versionEl) {
+            versionEl.textContent =
+                version
+                    ? `v${version}`
+                    : "";
+        }
+
+        if (lastUpdatedEl) {
+            lastUpdatedEl.textContent =
+                updated
+                    ? formatDate(updated)
+                    : "";
+        }
+    }
+
+    function formatDate(value) {
+        const date =
+            new Date(value);
+
+        if (Number.isNaN(
+            date.getTime()
+        )) {
+            return String(value);
+        }
+
+        return date.toLocaleDateString(
+            "en-BD",
+            {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+    }
+
+    // ============================================================
+    // SOURCE LINK
+    // ============================================================
+
+    function getRoutineLink(data) {
+        if (!data) return "";
+
+        const candidates = [
+            data.routineLink,
+            data.routineUrl,
+            data.source,
+            data.sourceUrl,
+            data.officialUrl,
+            data.pdfUrl,
+            data.url,
+
+            data.meta?.routineLink,
+            data.meta?.routineUrl,
+            data.meta?.source,
+            data.meta?.sourceUrl,
+            data.meta?.officialUrl,
+            data.meta?.pdfUrl,
+            data.meta?.url,
+
+            data.metadata?.routineLink,
+            data.metadata?.routineUrl,
+            data.metadata?.source,
+            data.metadata?.sourceUrl,
+            data.metadata?.officialUrl,
+            data.metadata?.pdfUrl,
+            data.metadata?.url
+        ];
+
+        return candidates.find(
+            value =>
+                typeof value === "string" &&
+                value.trim()
+        ) || "";
+    }
+
+    function createRoutineLinkHtml(url) {
+        if (!url) return "";
+
+        return `
+            <div class="routine-source">
+                <a
+                    href="${escapeAttribute(url)}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Official Routine Source
+                </a>
+            </div>
+        `;
+    }
+
+    // ============================================================
+    // TODAY
+    // ============================================================
+
+    function isToday(day) {
+        const jsDay =
+            new Date().getDay();
+
+        // JS:
+        // 0 Sunday
+        // 1 Monday
+        // ...
+        // 6 Saturday
+
+        const map = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ];
+
+        return map[jsDay] === day;
+    }
+
+    // ============================================================
+    // DOWNLOAD PNG
+    // ============================================================
+
+    async function downloadSection(
+        section,
+        classes,
+        data
+    ) {
+        try {
+            setStatus("Preparing PNG...");
+
+            await loadHtml2Canvas();
+
+            const card =
+                createRoutineDownloadCard(
+                    section,
+                    classes,
+                    data
                 );
 
-            renderRoutine(
-                classes,
-                `Section: ${savedSection}`
+            document.body.appendChild(card);
+
+            // Give browser a moment to calculate layout.
+            await new Promise(resolve =>
+                requestAnimationFrame(() =>
+                    requestAnimationFrame(resolve)
+                )
             );
 
-            setStatus(
-                `${classes.length} class${classes.length === 1 ? '' : 'es'} found`,
-                'success'
-            );
+            const canvas =
+                await window.html2canvas(
+                    card,
+                    {
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: false,
+                        backgroundColor: "#F8FAFC",
+                        logging: false,
+                        imageTimeout: 15000,
+                        width: card.scrollWidth,
+                        height: card.scrollHeight,
+                        windowWidth: card.scrollWidth
+                    }
+                );
 
+            const link =
+                document.createElement("a");
+
+            link.download =
+                `DIU-CSE-Routine-${section}.png`;
+
+            link.href =
+                canvas.toDataURL(
+                    "image/png",
+                    1.0
+                );
+
+            link.click();
+
+            card.remove();
+
+            setStatus("PNG downloaded");
         } catch (error) {
-
             console.error(
-                'Initial load failed:',
+                "PNG download error:",
+                error
+            );
+
+            showMessage(
+                "Could not generate PNG.",
+                "error"
+            );
+
+            setStatus("PNG failed");
+        }
+    }
+
+    // ============================================================
+    // HTML2CANVAS
+    // ============================================================
+
+    function loadHtml2Canvas() {
+        if (window.html2canvas) {
+            return Promise.resolve();
+        }
+
+        return new Promise(
+            (resolve, reject) => {
+                const script =
+                    document.createElement(
+                        "script"
+                    );
+
+                script.src =
+                    "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+
+                script.onload =
+                    () => resolve();
+
+                script.onerror =
+                    () => reject(
+                        new Error(
+                            "html2canvas could not load"
+                        )
+                    );
+
+                document.head.appendChild(
+                    script
+                );
+            }
+        );
+    }
+
+    // ============================================================
+    // DOWNLOAD CARD
+    // ============================================================
+
+    function createRoutineDownloadCard(
+        section,
+        classes,
+        data
+    ) {
+        const semester =
+            detectSemester(data);
+
+        const version =
+            data?.version ||
+            data?.meta?.version ||
+            data?.metadata?.version ||
+            "";
+
+        const updated =
+            data?.updated ||
+            data?.updatedAt ||
+            data?.lastUpdated ||
+            data?.meta?.updated ||
+            data?.metadata?.updated ||
+            "";
+
+        const model =
+            buildWeekTableModel(classes);
+
+        const wrapper =
+            document.createElement("div");
+
+        wrapper.style.position = "fixed";
+        wrapper.style.left = "-100000px";
+        wrapper.style.top = "0";
+        wrapper.style.width = "1680px";
+        wrapper.style.boxSizing = "border-box";
+        wrapper.style.padding = "48px";
+        wrapper.style.background = "#F8FAFC";
+        wrapper.style.fontFamily =
+            "Arial, Helvetica, sans-serif";
+        wrapper.style.color = "#0F172A";
+        wrapper.style.zIndex = "-9999";
+
+        const rows =
+            TIME_SLOTS.map(
+                (slot, slotIndex) => {
+                    let row = `
+                        <tr>
+                            <td style="
+                                width:155px;
+                                min-width:155px;
+                                padding:18px 14px;
+                                text-align:center;
+                                vertical-align:middle;
+                                background:#F1F5F9;
+                                border-right:1px solid #CBD5E1;
+                                border-bottom:1px solid #CBD5E1;
+                                color:#475569;
+                                font-size:16px;
+                                font-weight:700;
+                                white-space:nowrap;
+                            ">
+                                ${escapeHtml(slot)}
+                            </td>
+                    `;
+
+                    DAYS.forEach(day => {
+                        const list =
+                            model[day]?.[slotIndex] ||
+                            [];
+
+                        // second half of rowspan
+                        if (
+                            slotIndex === 3 &&
+                            model[day]?.[2]?.some(
+                                isTwoSlotLab
+                            )
+                        ) {
+                            return;
+                        }
+
+                        const today =
+                            isToday(day);
+
+                        const labs =
+                            slotIndex === 2
+                                ? list.filter(
+                                    isTwoSlotLab
+                                )
+                                : [];
+
+                        if (labs.length) {
+                            const lab =
+                                labs[0];
+
+                            const overlap =
+                                list.filter(
+                                    item =>
+                                        item !== lab
+                                );
+
+                            row += `
+                                <td
+                                    rowspan="2"
+                                    style="
+                                        width:calc((100% - 155px) / 7);
+                                        padding:12px;
+                                        vertical-align:top;
+                                        background:${today ? "#ECFDF5" : "#FFFBEB"};
+                                        border-right:1px solid #CBD5E1;
+                                        border-bottom:1px solid #CBD5E1;
+                                    "
+                                >
+                                    ${createDownloadClassHtml(
+                                        lab,
+                                        section,
+                                        true,
+                                        overlap
+                                    )}
+                                </td>
+                            `;
+
+                            return;
+                        }
+
+                        if (!list.length) {
+                            row += `
+                                <td style="
+                                    width:calc((100% - 155px) / 7);
+                                    height:92px;
+                                    text-align:center;
+                                    vertical-align:middle;
+                                    background:${today ? "#F0FDF4" : "#FFFFFF"};
+                                    border-right:1px solid #CBD5E1;
+                                    border-bottom:1px solid #CBD5E1;
+                                    color:#CBD5E1;
+                                    font-size:22px;
+                                ">
+                                    —
+                                </td>
+                            `;
+
+                            return;
+                        }
+
+                        row += `
+                            <td style="
+                                width:calc((100% - 155px) / 7);
+                                padding:12px;
+                                vertical-align:top;
+                                background:${today ? "#ECFDF5" : "#FFFFFF"};
+                                border-right:1px solid #CBD5E1;
+                                border-bottom:1px solid #CBD5E1;
+                            ">
+                                ${list
+                                    .map(cls =>
+                                        createDownloadClassHtml(
+                                            cls,
+                                            section,
+                                            false
+                                        )
+                                    )
+                                    .join("")}
+                            </td>
+                        `;
+                    });
+
+                    row += "</tr>";
+
+                    return row;
+                }
+            ).join("");
+
+        const dayHeaders =
+            DAYS.map(day => {
+                const today =
+                    isToday(day);
+
+                return `
+                    <th style="
+                        height:62px;
+                        padding:12px 8px;
+                        text-align:center;
+                        vertical-align:middle;
+                        background:${today ? "#DCFCE7" : "#E2E8F0"};
+                        border-right:1px solid #CBD5E1;
+                        border-bottom:1px solid #CBD5E1;
+                        color:${today ? "#166534" : "#334155"};
+                        font-size:17px;
+                        font-weight:800;
+                    ">
+                        ${escapeHtml(day)}
+                        ${
+                            today
+                                ? `<div style="
+                                    margin-top:5px;
+                                    font-size:11px;
+                                    font-weight:700;
+                                    letter-spacing:1px;
+                                ">TODAY</div>`
+                                : ""
+                        }
+                    </th>
+                `;
+            }).join("");
+
+        wrapper.innerHTML = `
+            <div style="
+                background:#FFFFFF;
+                border:1px solid #E2E8F0;
+                border-radius:24px;
+                overflow:hidden;
+                box-shadow:0 12px 30px rgba(15,23,42,0.08);
+            ">
+
+                <!-- HEADER -->
+                <div style="
+                    padding:36px 42px;
+                    background:#0F172A;
+                    color:#FFFFFF;
+                ">
+                    <div style="
+                        font-size:18px;
+                        font-weight:800;
+                        letter-spacing:2px;
+                        color:#93C5FD;
+                        margin-bottom:8px;
+                    ">
+                        DIU
+                    </div>
+
+                    <div style="
+                        font-size:32px;
+                        line-height:1.2;
+                        font-weight:800;
+                        margin-bottom:7px;
+                    ">
+                        Daffodil International University
+                    </div>
+
+                    <div style="
+                        font-size:19px;
+                        color:#CBD5E1;
+                        font-weight:600;
+                    ">
+                        Department of Computer Science & Engineering
+                    </div>
+
+                    <div style="
+                        margin-top:26px;
+                        display:flex;
+                        gap:10px;
+                        align-items:center;
+                    ">
+                        <span style="
+                            display:inline-block;
+                            padding:10px 18px;
+                            border-radius:999px;
+                            background:#2563EB;
+                            color:#FFFFFF;
+                            font-size:16px;
+                            font-weight:800;
+                        ">
+                            SECTION ${escapeHtml(section)}
+                        </span>
+
+                        <span style="
+                            display:inline-block;
+                            padding:10px 18px;
+                            border-radius:999px;
+                            background:#1E293B;
+                            border:1px solid #475569;
+                            color:#E2E8F0;
+                            font-size:16px;
+                            font-weight:700;
+                        ">
+                            ${escapeHtml(semester)}
+                        </span>
+
+                        ${
+                            version
+                                ? `
+                                    <span style="
+                                        display:inline-block;
+                                        padding:10px 18px;
+                                        border-radius:999px;
+                                        background:#1E293B;
+                                        border:1px solid #475569;
+                                        color:#E2E8F0;
+                                        font-size:16px;
+                                        font-weight:700;
+                                    ">
+                                        v${escapeHtml(version)}
+                                    </span>
+                                `
+                                : ""
+                        }
+                    </div>
+                </div>
+
+                <!-- TITLE -->
+                <div style="
+                    padding:28px 42px 20px;
+                    background:#FFFFFF;
+                ">
+                    <div style="
+                        font-size:25px;
+                        font-weight:800;
+                        color:#0F172A;
+                    ">
+                        Class Routine
+                    </div>
+
+                    <div style="
+                        margin-top:6px;
+                        color:#64748B;
+                        font-size:15px;
+                    ">
+                        Weekly schedule • ${classes.length} classes
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <div style="
+                    padding:0 28px 30px;
+                    background:#FFFFFF;
+                ">
+                    <table style="
+                        width:100%;
+                        table-layout:fixed;
+                        border-collapse:separate;
+                        border-spacing:0;
+                        border:1px solid #CBD5E1;
+                        border-radius:14px;
+                        overflow:hidden;
+                        background:#FFFFFF;
+                    ">
+                        <colgroup>
+                            <col style="width:155px;">
+                            ${DAYS.map(() =>
+                                `<col style="width:auto;">`
+                            ).join("")}
+                        </colgroup>
+
+                        <thead>
+                            <tr>
+                                <th style="
+                                    height:62px;
+                                    padding:12px;
+                                    background:#1E293B;
+                                    color:#FFFFFF;
+                                    border-right:1px solid #475569;
+                                    border-bottom:1px solid #475569;
+                                    font-size:16px;
+                                    font-weight:800;
+                                ">
+                                    TIME
+                                </th>
+
+                                ${dayHeaders}
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- LEGEND -->
+                <div style="
+                    padding:20px 42px;
+                    border-top:1px solid #E2E8F0;
+                    background:#F8FAFC;
+                    display:flex;
+                    align-items:center;
+                    gap:26px;
+                    font-size:14px;
+                    color:#475569;
+                    font-weight:600;
+                ">
+                    <span>
+                        <span style="
+                            display:inline-block;
+                            width:12px;
+                            height:12px;
+                            border-radius:3px;
+                            background:#EFF6FF;
+                            border:1px solid #BFDBFE;
+                            margin-right:7px;
+                        "></span>
+                        Theory
+                    </span>
+
+                    <span>
+                        <span style="
+                            display:inline-block;
+                            width:12px;
+                            height:12px;
+                            border-radius:3px;
+                            background:#FFFBEB;
+                            border:1px solid #FDE68A;
+                            margin-right:7px;
+                        "></span>
+                        Lab
+                    </span>
+
+                    <span>
+                        <span style="
+                            display:inline-block;
+                            width:12px;
+                            height:12px;
+                            border-radius:3px;
+                            background:#DCFCE7;
+                            border:1px solid #BBF7D0;
+                            margin-right:7px;
+                        "></span>
+                        Today
+                    </span>
+                </div>
+
+                <!-- FOOTER -->
+                <div style="
+                    padding:22px 42px 26px;
+                    background:#0F172A;
+                    color:#94A3B8;
+                    font-size:13px;
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                ">
+                    <span>
+                        Generated by DIU CSE Routine
+                    </span>
+
+                    <span>
+                        ${
+                            updated
+                                ? `Last updated: ${escapeHtml(
+                                    formatDate(updated)
+                                )} • `
+                                : ""
+                        }
+                        Generated:
+                        ${escapeHtml(
+                            new Date().toLocaleString(
+                                "en-BD"
+                            )
+                        )}
+                    </span>
+                </div>
+
+            </div>
+        `;
+
+        return wrapper;
+    }
+
+    // ============================================================
+    // DOWNLOAD CLASS HTML
+    // ============================================================
+
+    function createDownloadClassHtml(
+        cls,
+        section,
+        isLab = false,
+        overlap = []
+    ) {
+        const comment =
+            getDisplayComment(
+                cls,
+                section
+            );
+
+        const background =
+            isLab
+                ? "#FFFBEB"
+                : "#EFF6FF";
+
+        const border =
+            isLab
+                ? "#FDE68A"
+                : "#BFDBFE";
+
+        const accent =
+            isLab
+                ? "#D97706"
+                : "#2563EB";
+
+        const type =
+            isLab
+                ? "LAB"
+                : "THEORY";
+
+        let html = `
+            <div style="
+                padding:13px 14px;
+                margin-bottom:${overlap.length ? "7px" : "0"};
+                background:${background};
+                border:1px solid ${border};
+                border-left:4px solid ${accent};
+                border-radius:10px;
+                box-sizing:border-box;
+            ">
+                <div style="
+                    font-size:18px;
+                    line-height:1.25;
+                    font-weight:800;
+                    color:#0F172A;
+                    margin-bottom:7px;
+                ">
+                    ${escapeHtml(cls.course)}
+                    ${
+                        comment
+                            ? `<span style="
+                                font-size:13px;
+                                color:#64748B;
+                                font-weight:700;
+                                margin-left:4px;
+                            ">
+                                ${escapeHtml(comment)}
+                               </span>`
+                            : ""
+                    }
+                </div>
+
+                <div style="
+                    font-size:14px;
+                    color:#334155;
+                    font-weight:700;
+                    line-height:1.45;
+                ">
+                    ${escapeHtml(
+                        cls.teacher || "Teacher —"
+                    )}
+                </div>
+
+                <div style="
+                    margin-top:4px;
+                    font-size:14px;
+                    color:#475569;
+                    font-weight:600;
+                ">
+                    Room:
+                    ${escapeHtml(
+                        cls.room || "—"
+                    )}
+                </div>
+
+                <div style="
+                    margin-top:9px;
+                    font-size:10px;
+                    font-weight:900;
+                    letter-spacing:1px;
+                    color:${accent};
+                ">
+                    ${type}
+                </div>
+            </div>
+        `;
+
+        if (overlap.length) {
+            html += `
+                <div style="
+                    padding:8px 10px;
+                    border-radius:8px;
+                    background:#FEF2F2;
+                    border:1px solid #FECACA;
+                    color:#B91C1C;
+                    font-size:11px;
+                    font-weight:800;
+                ">
+                    ${overlap.length} overlapping class
+                </div>
+            `;
+        }
+
+        return html;
+    }
+
+    // ============================================================
+    // SAVED CHIP
+    // ============================================================
+
+    function updateSavedChip(section) {
+        if (!savedChip) return;
+
+        savedChip.textContent =
+            section
+                ? `Saved: ${section}`
+                : "";
+    }
+
+    // ============================================================
+    // STATUS
+    // ============================================================
+
+    function setStatus(message) {
+        if (!statusEl) return;
+
+        statusEl.textContent =
+            message;
+    }
+
+    function showMessage(
+        message,
+        type = "info"
+    ) {
+        if (!messageEl) return;
+
+        messageEl.textContent =
+            message;
+
+        messageEl.className =
+            `message ${type}`;
+
+        messageEl.style.display =
+            "block";
+
+        clearTimeout(
+            showMessage._timer
+        );
+
+        showMessage._timer =
+            setTimeout(() => {
+                if (messageEl) {
+                    messageEl.style.display =
+                        "none";
+                }
+            }, 5000);
+    }
+
+    function showNoRoutine(name) {
+        if (!routineContainer) return;
+
+        routineContainer.innerHTML = `
+            <div class="no-routine">
+                <div class="no-routine-icon">
+                    📅
+                </div>
+
+                <h3>
+                    No routine found
+                </h3>
+
+                <p>
+                    No classes were found for
+                    <strong>
+                        ${escapeHtml(name)}
+                    </strong>.
+                </p>
+            </div>
+        `;
+    }
+
+    // ============================================================
+    // CLEAR
+    // ============================================================
+
+    function clearSearch() {
+        if (sectionInput) {
+            sectionInput.value = "";
+            sectionInput.focus();
+        }
+
+        currentSearchTerm = "";
+        currentClasses = [];
+
+        if (currentMode === "empty-room") {
+            displayEmptyRooms("");
+            return;
+        }
+
+        if (routineContainer) {
+            routineContainer.innerHTML = "";
+        }
+
+        setStatus("Ready");
+    }
+
+    // ============================================================
+    // NATURAL SORT
+    // ============================================================
+
+    function naturalSort(a, b) {
+        return String(a).localeCompare(
+            String(b),
+            undefined,
+            {
+                numeric: true,
+                sensitivity: "base"
+            }
+        );
+    }
+
+    // ============================================================
+    // HELPERS
+    // ============================================================
+
+    function capitalizeFirst(value) {
+        if (!value) return "";
+
+        return (
+            value.charAt(0).toUpperCase() +
+            value.slice(1)
+        );
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function escapeAttribute(value) {
+        return escapeHtml(value);
+    }
+
+    // ============================================================
+    // AUTO REFRESH
+    // ============================================================
+
+    setInterval(async () => {
+        try {
+            const previousMode =
+                currentMode;
+
+            await loadRoutineData();
+
+            if (
+                previousMode === "section"
+            ) {
+                const saved =
+                    localStorage.getItem(
+                        STORAGE_KEY
+                    );
+
+                if (saved) {
+                    await loadSection(
+                        saved,
+                        false
+                    );
+                }
+            }
+
+            if (
+                previousMode === "teacher" &&
+                currentSearchTerm
+            ) {
+                displayTeacherRoutine(
+                    currentSearchTerm
+                );
+            }
+
+            if (
+                previousMode === "room" &&
+                currentSearchTerm
+            ) {
+                displayRoomRoutine(
+                    currentSearchTerm
+                );
+            }
+
+            if (
+                previousMode === "empty-room"
+            ) {
+                displayEmptyRooms(
+                    currentSearchTerm
+                );
+            }
+        } catch (error) {
+            console.error(
+                "Auto refresh failed:",
                 error
             );
         }
-    }
+    }, 5 * 60 * 1000);
 
+    // ============================================================
+    // GLOBAL DOWNLOAD FUNCTION
+    // ============================================================
 
-    startAutoRefresh();
-}
+    window.downloadSection =
+        downloadSection;
 
-
-/* =========================================================
-   GLOBAL DOWNLOAD FUNCTION
-   ========================================================= */
-
-window.downloadSection =
-    downloadSection;
-
-
-/* =========================================================
-   START
-   ========================================================= */
-
-if (
-    document.readyState === 'loading'
-) {
-
-    document.addEventListener(
-        'DOMContentLoaded',
-        initialize
-    );
-
-} else {
-
-    initialize();
-}
+})();
