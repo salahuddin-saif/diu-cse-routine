@@ -8,23 +8,24 @@
 // ------------------------------------------------------------
 // - Section specific JSON loading
 // - Combined routine.json fallback
+// - Embedded subsection support
 // - Teacher mode
 // - Room mode
 // - Empty room detection
 // - Routine/source link support
 // - Dynamic semester detection
-// - Today green dot
+// - Today green indicator
 // - Correct day ordering
 // - Correct time ordering
 // - 6 standard time columns
 // - 11:30-02:30 Lab occupies TWO standard slots
-// - Lab colspan=2 in download
-// - Lab rowspan=2 in week view
+// - Lab colspan=2 in download image
+// - Lab rowspan=2 in Week View
 // - Main section = no subsection label
 // - Lab = (N1), (N2)
 // - Search
 // - Day View / Week View
-// - Stylish PNG download
+// - Fixed professional PNG download design
 // - LocalStorage
 // - Auto refresh
 // - Old JSON + new JSON support
@@ -209,8 +210,10 @@ document.addEventListener(
 
         updateModeUI();
 
+
         const saved =
             localStorage.getItem(STORAGE_KEY);
+
 
         if (saved) {
 
@@ -223,13 +226,17 @@ document.addEventListener(
             }
 
             if (savedChip) {
-                savedChip.style.display = 'inline-flex';
+                savedChip.style.display =
+                    'inline-flex';
             }
 
-        } else {
+        }
+
+        else {
 
             if (savedChip) {
-                savedChip.style.display = 'none';
+                savedChip.style.display =
+                    'none';
             }
 
         }
@@ -238,10 +245,14 @@ document.addEventListener(
         loadRoutineData();
 
 
+        // ----------------------------------------------------
         // Search icon
+        // ----------------------------------------------------
+
         if (searchIcon) {
 
-            searchIcon.style.cursor = 'pointer';
+            searchIcon.style.cursor =
+                'pointer';
 
             searchIcon.addEventListener(
                 'click',
@@ -251,7 +262,10 @@ document.addEventListener(
         }
 
 
+        // ----------------------------------------------------
         // Search button
+        // ----------------------------------------------------
+
         if (showRoutineBtn) {
 
             showRoutineBtn.addEventListener(
@@ -262,7 +276,10 @@ document.addEventListener(
         }
 
 
+        // ----------------------------------------------------
         // Clear button
+        // ----------------------------------------------------
+
         if (clearSectionBtn) {
 
             clearSectionBtn.addEventListener(
@@ -273,7 +290,10 @@ document.addEventListener(
         }
 
 
+        // ----------------------------------------------------
         // Enter key
+        // ----------------------------------------------------
+
         if (sectionInput) {
 
             sectionInput.addEventListener(
@@ -297,45 +317,61 @@ document.addEventListener(
         }
 
 
-        // Student / Section
+        // ----------------------------------------------------
+        // Student
+        // ----------------------------------------------------
+
         if (userBtn) {
 
             userBtn.addEventListener(
                 'click',
-                () => setMode('section')
+                () =>
+                    setMode('section')
             );
 
         }
 
 
+        // ----------------------------------------------------
         // Teacher
+        // ----------------------------------------------------
+
         if (teacherBtn) {
 
             teacherBtn.addEventListener(
                 'click',
-                () => setMode('teacher')
+                () =>
+                    setMode('teacher')
             );
 
         }
 
 
+        // ----------------------------------------------------
         // Room
+        // ----------------------------------------------------
+
         if (roomBtn) {
 
             roomBtn.addEventListener(
                 'click',
-                () => setMode('room')
+                () =>
+                    setMode('room')
             );
 
         }
 
 
-        // Empty room
+        // ----------------------------------------------------
+        // Empty Room
+        // ----------------------------------------------------
+
         if (emptyRoomBtn) {
 
             emptyRoomBtn.addEventListener(
                 'click',
-                () => setMode('empty-room')
+                () =>
+                    setMode('empty-room')
             );
 
         }
@@ -354,36 +390,48 @@ function setMode(mode) {
         return;
     }
 
+
     currentMode = mode;
+
 
     localStorage.setItem(
         MODE_KEY,
         mode
     );
 
+
     updateModeUI();
+
 
     if (routineContainer) {
         routineContainer.innerHTML = '';
     }
 
+
     if (savedChip) {
         savedChip.style.display = 'none';
     }
+
 
     if (sectionInput) {
         sectionInput.value = '';
     }
 
-    localStorage.removeItem(STORAGE_KEY);
+
+    localStorage.removeItem(
+        STORAGE_KEY
+    );
 
 
     if (mode === 'section') {
 
         if (sectionInput) {
+
             sectionInput.placeholder =
                 'Enter section (e.g., 70_N)';
+
         }
+
 
         loadRoutineData();
 
@@ -392,9 +440,12 @@ function setMode(mode) {
     else if (mode === 'teacher') {
 
         if (sectionInput) {
+
             sectionInput.placeholder =
                 'Enter teacher initials (e.g., NSL)';
+
         }
+
 
         showNoRoutine(
             'Teacher Mode',
@@ -406,9 +457,12 @@ function setMode(mode) {
     else if (mode === 'room') {
 
         if (sectionInput) {
+
             sectionInput.placeholder =
                 'Enter room (e.g., KT-516)';
+
         }
+
 
         showNoRoutine(
             'Room Mode',
@@ -420,9 +474,12 @@ function setMode(mode) {
     else if (mode === 'empty-room') {
 
         if (sectionInput) {
+
             sectionInput.placeholder =
                 'Enter day or room (optional)';
+
         }
+
 
         loadEmptyRooms();
 
@@ -438,24 +495,39 @@ function setMode(mode) {
 function updateModeUI() {
 
     const brand =
-        document.querySelector('.brand strong');
+        document.querySelector(
+            '.brand strong'
+        );
+
 
     if (brand) {
 
         if (currentMode === 'section') {
-            brand.textContent = 'Student';
+
+            brand.textContent =
+                'Student';
+
         }
 
         else if (currentMode === 'teacher') {
-            brand.textContent = 'Teacher';
+
+            brand.textContent =
+                'Teacher';
+
         }
 
         else if (currentMode === 'room') {
-            brand.textContent = 'Room';
+
+            brand.textContent =
+                'Room';
+
         }
 
         else {
-            brand.textContent = 'Empty Room';
+
+            brand.textContent =
+                'Empty Room';
+
         }
 
     }
@@ -473,7 +545,9 @@ function updateModeUI() {
         currentMode === 'section' &&
         userBtn
     ) {
+
         userBtn.classList.add('active');
+
     }
 
 
@@ -481,7 +555,9 @@ function updateModeUI() {
         currentMode === 'teacher' &&
         teacherBtn
     ) {
+
         teacherBtn.classList.add('active');
+
     }
 
 
@@ -489,7 +565,9 @@ function updateModeUI() {
         currentMode === 'room' &&
         roomBtn
     ) {
+
         roomBtn.classList.add('active');
+
     }
 
 
@@ -497,7 +575,9 @@ function updateModeUI() {
         currentMode === 'empty-room' &&
         emptyRoomBtn
     ) {
+
         emptyRoomBtn.classList.add('active');
+
     }
 
 }
@@ -568,9 +648,13 @@ function handleSearch() {
 async function fetchJson(url) {
 
     const response =
-        await fetch(url, {
-            cache: 'no-store'
-        });
+        await fetch(
+            url,
+            {
+                cache: 'no-store'
+            }
+        );
+
 
     if (!response.ok) {
 
@@ -579,6 +663,7 @@ async function fetchJson(url) {
         );
 
     }
+
 
     return response.json();
 
@@ -600,7 +685,9 @@ async function loadRoutineData() {
 
 
         const saved =
-            localStorage.getItem(STORAGE_KEY);
+            localStorage.getItem(
+                STORAGE_KEY
+            );
 
 
         if (
@@ -616,13 +703,19 @@ async function loadRoutineData() {
 
 
         routineData =
-            await fetchJson(COMBINED_URL);
+            await fetchJson(
+                COMBINED_URL
+            );
 
 
-        updateMeta(routineData);
+        updateMeta(
+            routineData
+        );
 
 
-        if (currentMode === 'teacher') {
+        if (
+            currentMode === 'teacher'
+        ) {
 
             showNoRoutine(
                 'Teacher Mode',
@@ -631,7 +724,9 @@ async function loadRoutineData() {
 
         }
 
-        else if (currentMode === 'room') {
+        else if (
+            currentMode === 'room'
+        ) {
 
             showNoRoutine(
                 'Room Mode',
@@ -640,7 +735,9 @@ async function loadRoutineData() {
 
         }
 
-        else if (currentMode === 'empty-room') {
+        else if (
+            currentMode === 'empty-room'
+        ) {
 
             await loadEmptyRooms();
 
@@ -650,6 +747,7 @@ async function loadRoutineData() {
 
             const sections =
                 routineData.sections || {};
+
 
             const keys =
                 Object.keys(sections);
@@ -665,37 +763,56 @@ async function loadRoutineData() {
 
 
             const firstBase =
-                getBaseSection(keys[0]);
+                getBaseSection(
+                    keys[0]
+                );
 
 
             const merged =
-                mergeSubSections(firstBase);
+                mergeSubSections(
+                    firstBase
+                );
 
 
             if (merged.length) {
 
                 if (sectionInput) {
-                    sectionInput.value = firstBase;
+
+                    sectionInput.value =
+                        firstBase;
+
                 }
+
 
                 if (savedSectionSpan) {
-                    savedSectionSpan.textContent = firstBase;
+
+                    savedSectionSpan.textContent =
+                        firstBase;
+
                 }
 
+
                 if (savedChip) {
-                    savedChip.style.display = 'inline-flex';
+
+                    savedChip.style.display =
+                        'inline-flex';
+
                 }
+
 
                 localStorage.setItem(
                     STORAGE_KEY,
                     firstBase
                 );
 
+
                 currentSearchTerm =
                     firstBase;
 
+
                 currentClasses =
                     merged;
+
 
                 displaySection(
                     firstBase,
@@ -730,15 +847,18 @@ async function loadRoutineData() {
             error
         );
 
+
         setStatus(
             'error',
             'Error'
         );
 
+
         showMessage(
             'Could not load routine data.',
             'error'
         );
+
 
         showNoRoutine(
             'Error',
@@ -754,7 +874,9 @@ async function loadRoutineData() {
 // LOAD SECTION
 // ============================================================
 
-async function loadSection(sectionKey) {
+async function loadSection(
+    sectionKey
+) {
 
     try {
 
@@ -771,14 +893,17 @@ async function loadSection(sectionKey) {
 
 
         const baseSection =
-            getBaseSection(normalized);
+            getBaseSection(
+                normalized
+            );
 
 
-        let sectionData = null;
+        let sectionData =
+            null;
 
 
         // ----------------------------------------------------
-        // FIRST: SECTION-SPECIFIC JSON
+        // SECTION-SPECIFIC JSON
         // ----------------------------------------------------
 
         const sectionUrls = [
@@ -790,12 +915,16 @@ async function loadSection(sectionKey) {
         ];
 
 
-        for (const url of sectionUrls) {
+        for (
+            const url of sectionUrls
+        ) {
 
             try {
 
                 sectionData =
-                    await fetchJson(url);
+                    await fetchJson(
+                        url
+                    );
 
                 break;
 
@@ -814,7 +943,7 @@ async function loadSection(sectionKey) {
 
 
         // ----------------------------------------------------
-        // FALLBACK: COMBINED JSON
+        // COMBINED FALLBACK
         // ----------------------------------------------------
 
         if (!sectionData) {
@@ -822,9 +951,13 @@ async function loadSection(sectionKey) {
             if (!routineData) {
 
                 routineData =
-                    await fetchJson(COMBINED_URL);
+                    await fetchJson(
+                        COMBINED_URL
+                    );
 
-                updateMeta(routineData);
+                updateMeta(
+                    routineData
+                );
 
             }
 
@@ -869,9 +1002,13 @@ async function loadSection(sectionKey) {
                             : data?.classes;
 
 
-                    if (Array.isArray(classes)) {
+                    if (
+                        Array.isArray(classes)
+                    ) {
 
-                        all.push(...classes);
+                        all.push(
+                            ...classes
+                        );
 
                     }
 
@@ -881,9 +1018,11 @@ async function loadSection(sectionKey) {
 
             sectionData = {
 
-                section: baseSection,
+                section:
+                    baseSection,
 
-                classes: all
+                classes:
+                    all
 
             };
 
@@ -902,7 +1041,9 @@ async function loadSection(sectionKey) {
 
         const classes =
             removeDuplicateClasses(
-                normalizeClasses(allClasses)
+                normalizeClasses(
+                    allClasses
+                )
             );
 
 
@@ -917,6 +1058,7 @@ async function loadSection(sectionKey) {
 
         currentSearchTerm =
             baseSection;
+
 
         currentClasses =
             classes;
@@ -935,14 +1077,18 @@ async function loadSection(sectionKey) {
 
 
         if (savedSectionSpan) {
+
             savedSectionSpan.textContent =
                 normalized;
+
         }
 
 
         if (savedChip) {
+
             savedChip.style.display =
                 'inline-flex';
+
         }
 
 
@@ -963,15 +1109,18 @@ async function loadSection(sectionKey) {
             error
         );
 
+
         setStatus(
             'error',
             'Error'
         );
 
+
         showMessage(
             error.message,
             'error'
         );
+
 
         showNoRoutine(
             'Section Not Found',
@@ -987,7 +1136,9 @@ async function loadSection(sectionKey) {
 // EXTRACT CLASSES
 // ============================================================
 
-function extractClassesFromData(data) {
+function extractClassesFromData(
+    data
+) {
 
     if (!data) {
         return [];
@@ -1022,14 +1173,21 @@ function extractClassesFromData(data) {
         const result = [];
 
 
-        Object.values(data.sections)
+        Object.values(
+            data.sections
+        )
             .forEach(
                 value => {
 
                     const classes =
-                        extractClassesFromData(value);
+                        extractClassesFromData(
+                            value
+                        );
 
-                    result.push(...classes);
+
+                    result.push(
+                        ...classes
+                    );
 
                 }
             );
@@ -1049,7 +1207,9 @@ function extractClassesFromData(data) {
 // MERGE SUBSECTIONS
 // ============================================================
 
-function mergeSubSections(baseSection) {
+function mergeSubSections(
+    baseSection
+) {
 
     if (!routineData) {
         return [];
@@ -1063,7 +1223,9 @@ function mergeSubSections(baseSection) {
     const all = [];
 
 
-    Object.entries(sections)
+    Object.entries(
+        sections
+    )
         .forEach(
             ([key, data]) => {
 
@@ -1074,7 +1236,9 @@ function mergeSubSections(baseSection) {
                 ) {
 
                     all.push(
-                        ...extractClassesFromData(data)
+                        ...extractClassesFromData(
+                            data
+                        )
                     );
 
                 }
@@ -1094,7 +1258,9 @@ function mergeSubSections(baseSection) {
 // TEACHER
 // ============================================================
 
-async function loadTeacher(initials) {
+async function loadTeacher(
+    initials
+) {
 
     try {
 
@@ -1107,9 +1273,13 @@ async function loadTeacher(initials) {
         if (!routineData) {
 
             routineData =
-                await fetchJson(COMBINED_URL);
+                await fetchJson(
+                    COMBINED_URL
+                );
 
-            updateMeta(routineData);
+            updateMeta(
+                routineData
+            );
 
         }
 
@@ -1127,12 +1297,16 @@ async function loadTeacher(initials) {
         const results = [];
 
 
-        Object.entries(sections)
+        Object.entries(
+            sections
+        )
             .forEach(
                 ([section, data]) => {
 
                     const classes =
-                        extractClassesFromData(data);
+                        extractClassesFromData(
+                            data
+                        );
 
 
                     classes.forEach(
@@ -1142,6 +1316,7 @@ async function loadTeacher(initials) {
                                 String(
                                     cls.teacher ||
                                     cls.faculty ||
+                                    cls.teacher_initials ||
                                     ''
                                 )
                                     .toUpperCase()
@@ -1152,7 +1327,9 @@ async function loadTeacher(initials) {
 
 
                             if (
-                                teacher.includes(clean)
+                                teacher.includes(
+                                    clean
+                                )
                             ) {
 
                                 results.push({
@@ -1177,7 +1354,9 @@ async function loadTeacher(initials) {
 
         const classes =
             removeDuplicateClasses(
-                normalizeClasses(results)
+                normalizeClasses(
+                    results
+                )
             );
 
 
@@ -1190,8 +1369,12 @@ async function loadTeacher(initials) {
         }
 
 
-        currentSearchTerm = clean;
-        currentClasses = classes;
+        currentSearchTerm =
+            clean;
+
+
+        currentClasses =
+            classes;
 
 
         displayTeacherRoutine(
@@ -1207,14 +1390,18 @@ async function loadTeacher(initials) {
 
 
         if (savedSectionSpan) {
+
             savedSectionSpan.textContent =
                 initials;
+
         }
 
 
         if (savedChip) {
+
             savedChip.style.display =
                 'inline-flex';
+
         }
 
 
@@ -1235,15 +1422,18 @@ async function loadTeacher(initials) {
             error
         );
 
+
         setStatus(
             'error',
             'Error'
         );
 
+
         showMessage(
             error.message,
             'error'
         );
+
 
         showNoRoutine(
             'Teacher Not Found',
@@ -1259,7 +1449,9 @@ async function loadTeacher(initials) {
 // ROOM
 // ============================================================
 
-async function loadRoom(roomName) {
+async function loadRoom(
+    roomName
+) {
 
     try {
 
@@ -1272,9 +1464,13 @@ async function loadRoom(roomName) {
         if (!routineData) {
 
             routineData =
-                await fetchJson(COMBINED_URL);
+                await fetchJson(
+                    COMBINED_URL
+                );
 
-            updateMeta(routineData);
+            updateMeta(
+                routineData
+            );
 
         }
 
@@ -1292,12 +1488,16 @@ async function loadRoom(roomName) {
         const results = [];
 
 
-        Object.entries(sections)
+        Object.entries(
+            sections
+        )
             .forEach(
                 ([section, data]) => {
 
                     const classes =
-                        extractClassesFromData(data);
+                        extractClassesFromData(
+                            data
+                        );
 
 
                     classes.forEach(
@@ -1318,7 +1518,9 @@ async function loadRoom(roomName) {
 
 
                             if (
-                                room.includes(clean)
+                                room.includes(
+                                    clean
+                                )
                             ) {
 
                                 results.push({
@@ -1343,7 +1545,9 @@ async function loadRoom(roomName) {
 
         const classes =
             removeDuplicateClasses(
-                normalizeClasses(results)
+                normalizeClasses(
+                    results
+                )
             );
 
 
@@ -1356,8 +1560,12 @@ async function loadRoom(roomName) {
         }
 
 
-        currentSearchTerm = clean;
-        currentClasses = classes;
+        currentSearchTerm =
+            clean;
+
+
+        currentClasses =
+            classes;
 
 
         displayRoomRoutine(
@@ -1373,14 +1581,18 @@ async function loadRoom(roomName) {
 
 
         if (savedSectionSpan) {
+
             savedSectionSpan.textContent =
                 roomName;
+
         }
 
 
         if (savedChip) {
+
             savedChip.style.display =
                 'inline-flex';
+
         }
 
 
@@ -1401,15 +1613,18 @@ async function loadRoom(roomName) {
             error
         );
 
+
         setStatus(
             'error',
             'Error'
         );
 
+
         showMessage(
             error.message,
             'error'
         );
+
 
         showNoRoutine(
             'Room Not Found',
@@ -1425,7 +1640,9 @@ async function loadRoom(roomName) {
 // EMPTY ROOM
 // ============================================================
 
-async function loadEmptyRooms(filter = '') {
+async function loadEmptyRooms(
+    filter = ''
+) {
 
     try {
 
@@ -1438,9 +1655,13 @@ async function loadEmptyRooms(filter = '') {
         if (!routineData) {
 
             routineData =
-                await fetchJson(COMBINED_URL);
+                await fetchJson(
+                    COMBINED_URL
+                );
 
-            updateMeta(routineData);
+            updateMeta(
+                routineData
+            );
 
         }
 
@@ -1450,10 +1671,13 @@ async function loadEmptyRooms(filter = '') {
 
 
         const rooms =
-            getAllRooms(allClasses);
+            getAllRooms(
+                allClasses
+            );
 
 
-        currentRooms = rooms;
+        currentRooms =
+            rooms;
 
 
         if (!rooms.length) {
@@ -1472,7 +1696,9 @@ async function loadEmptyRooms(filter = '') {
 
 
         const selectedDay =
-            getDayFromInput(filter);
+            getDayFromInput(
+                filter
+            );
 
 
         const emptyByDay = {};
@@ -1489,20 +1715,32 @@ async function loadEmptyRooms(filter = '') {
                     cls => {
 
                         const dayName =
-                            normalizeDay(cls.day);
+                            normalizeDay(
+                                cls.day
+                            );
 
 
-                        if (dayName !== day) {
+                        if (
+                            dayName !== day
+                        ) {
+
                             return;
+
                         }
 
 
                         const room =
-                            normalizeRoom(cls.room);
+                            normalizeRoom(
+                                cls.room
+                            );
 
 
                         if (room) {
-                            occupied.add(room);
+
+                            occupied.add(
+                                room
+                            );
+
                         }
 
                     }
@@ -1513,7 +1751,9 @@ async function loadEmptyRooms(filter = '') {
                     rooms.filter(
                         room =>
                             !occupied.has(
-                                normalizeRoom(room)
+                                normalizeRoom(
+                                    room
+                                )
                             )
                     );
 
@@ -1543,15 +1783,18 @@ async function loadEmptyRooms(filter = '') {
             error
         );
 
+
         setStatus(
             'error',
             'Error'
         );
 
+
         showMessage(
             error.message,
             'error'
         );
+
 
         showNoRoutine(
             'Empty Room',
@@ -1581,11 +1824,15 @@ function getAllRoutineClasses() {
     const all = [];
 
 
-    Object.entries(sections)
+    Object.entries(
+        sections
+    )
         .forEach(
             ([section, data]) => {
 
-                extractClassesFromData(data)
+                extractClassesFromData(
+                    data
+                )
                     .forEach(
                         cls => {
 
@@ -1618,7 +1865,9 @@ function getAllRoutineClasses() {
 // GET ROOMS
 // ============================================================
 
-function getAllRooms(classes) {
+function getAllRooms(
+    classes
+) {
 
     const rooms =
         new Set();
@@ -1639,7 +1888,9 @@ function getAllRooms(classes) {
 
 
             room
-                .split(/\s*[,/]\s*/)
+                .split(
+                    /\s*[,/]\s*/
+                )
                 .forEach(
                     value => {
 
@@ -1648,7 +1899,11 @@ function getAllRooms(classes) {
 
 
                         if (clean) {
-                            rooms.add(clean);
+
+                            rooms.add(
+                                clean
+                            );
+
                         }
 
                     }
@@ -1658,7 +1913,11 @@ function getAllRooms(classes) {
     );
 
 
-    return [...rooms].sort(naturalSort);
+    return [
+        ...rooms
+    ].sort(
+        naturalSort
+    );
 
 }
 
@@ -1682,11 +1941,17 @@ function displayEmptyRooms(
 
 
     if (selectedDay) {
-        daysToShow = [selectedDay];
+
+        daysToShow =
+            [selectedDay];
+
     }
 
 
-    if (filter && !selectedDay) {
+    if (
+        filter &&
+        !selectedDay
+    ) {
 
         daysToShow =
             daysToShow.filter(
@@ -1695,7 +1960,9 @@ function displayEmptyRooms(
                         room =>
                             room
                                 .toLowerCase()
-                                .includes(filter)
+                                .includes(
+                                    filter
+                                )
                     )
             );
 
@@ -1753,14 +2020,19 @@ function displayEmptyRooms(
                 emptyByDay[day] || [];
 
 
-            if (filter && !selectedDay) {
+            if (
+                filter &&
+                !selectedDay
+            ) {
 
                 emptyRooms =
                     emptyRooms.filter(
                         room =>
                             room
                                 .toLowerCase()
-                                .includes(filter)
+                                .includes(
+                                    filter
+                                )
                     );
 
             }
@@ -1773,9 +2045,11 @@ function displayEmptyRooms(
             html += `
 
                 <div
-                    class="day-card day-section ${
-                        isToday ? 'today' : ''
-                    }"
+                    class="
+                        day-card
+                        day-section
+                        ${isToday ? 'today' : ''}
+                    "
                 >
 
                     <div class="day-card-header">
@@ -1881,7 +2155,9 @@ function displayEmptyRooms(
     );
 
 
-    html += `</div>`;
+    html += `
+        </div>
+    `;
 
 
     routineContainer.innerHTML =
@@ -1894,7 +2170,9 @@ function displayEmptyRooms(
 // DAY FROM INPUT
 // ============================================================
 
-function getDayFromInput(value) {
+function getDayFromInput(
+    value
+) {
 
     const clean =
         String(value || '')
@@ -1910,15 +2188,16 @@ function getDayFromInput(value) {
     return DAYS.find(
         day =>
             day.toLowerCase() === clean ||
-            day.substring(0, 3).toLowerCase() ===
-                clean
+            day
+                .substring(0, 3)
+                .toLowerCase() === clean
     ) || '';
 
 }
 
 
 // ============================================================
-// DISPLAY
+// DISPLAY SECTION
 // ============================================================
 
 function displaySection(
@@ -1936,6 +2215,10 @@ function displaySection(
 }
 
 
+// ============================================================
+// DISPLAY TEACHER
+// ============================================================
+
 function displayTeacherRoutine(
     teacher,
     classes
@@ -1950,6 +2233,10 @@ function displayTeacherRoutine(
 
 }
 
+
+// ============================================================
+// DISPLAY ROOM
+// ============================================================
 
 function displayRoomRoutine(
     room,
@@ -1979,7 +2266,9 @@ function displayRoutine(
 
     classes =
         sortClasses(
-            normalizeClasses(classes)
+            normalizeClasses(
+                classes
+            )
         );
 
 
@@ -1999,41 +2288,44 @@ function displayRoutine(
     }
 
 
-    const teachers =
-        [
-            ...new Set(
-                classes
-                    .map(c => c.teacher)
-                    .filter(Boolean)
-            )
-        ];
-
-
-    const days =
-        [
-            ...new Set(
-                classes.map(
+    const teachers = [
+        ...new Set(
+            classes
+                .map(
                     c =>
-                        normalizeDay(c.day)
+                        c.teacher
                 )
-            )
-        ];
+                .filter(Boolean)
+        )
+    ];
 
 
-    const batch =
-        [
-            ...new Set(
-                classes
-                    .map(
-                        c =>
-                            c.batch ||
-                            extractBatchFromSection(
-                                c.section
-                            )
-                    )
-                    .filter(Boolean)
-            )
-        ];
+    const days = [
+        ...new Set(
+            classes
+                .map(
+                    c =>
+                        normalizeDay(
+                            c.day
+                        )
+                )
+        )
+    ];
+
+
+    const batch = [
+        ...new Set(
+            classes
+                .map(
+                    c =>
+                        c.batch ||
+                        extractBatchFromSection(
+                            c.section
+                        )
+                )
+                .filter(Boolean)
+        )
+    ];
 
 
     const cleanVersion =
@@ -2041,7 +2333,11 @@ function displayRoutine(
             versionNumber?.textContent ||
             routineData?.version ||
             '5.0'
-        ).replace(/^v/i, '');
+        )
+            .replace(
+                /^v/i,
+                ''
+            );
 
 
     const icon =
@@ -2063,9 +2359,9 @@ function displayRoutine(
     let html = '';
 
 
-    // ========================================================
+    // --------------------------------------------------------
     // CARD
-    // ========================================================
+    // --------------------------------------------------------
 
     html += `
 
@@ -2136,7 +2432,9 @@ function displayRoutine(
                     <span>Semester</span>
 
                     <strong>
-                        ${escapeHtml(getSemester())}
+                        ${escapeHtml(
+                            getSemester()
+                        )}
                     </strong>
 
                 </div>
@@ -2166,7 +2464,6 @@ function displayRoutine(
                 ${
                     mode === 'teacher' ||
                     mode === 'room'
-
                         ? `
 
                             <div class="meta-row">
@@ -2178,16 +2475,16 @@ function displayRoutine(
                                     ${escapeHtml(
                                         [
                                             ...new Set(
-                                                classes.map(
-                                                    c =>
-                                                        c._section ||
-                                                        c.section ||
-                                                        ''
-                                                )
+                                                classes
+                                                    .map(
+                                                        c =>
+                                                            c._section ||
+                                                            c.section ||
+                                                            ''
+                                                    )
                                             )
-                                        ]
-                                            .filter(Boolean)
-                                            .join(', ')
+                                                .filter(Boolean)
+                                                .join(', ')
                                     )}
 
                                 </strong>
@@ -2195,7 +2492,6 @@ function displayRoutine(
                             </div>
 
                           `
-
                         : ''
                 }
 
@@ -2233,9 +2529,9 @@ function displayRoutine(
     `;
 
 
-    // ========================================================
+    // --------------------------------------------------------
     // TEACHERS
-    // ========================================================
+    // --------------------------------------------------------
 
     html += `
         <div class="teacher-row">
@@ -2281,12 +2577,14 @@ function displayRoutine(
     }
 
 
-    html += `</div>`;
+    html += `
+        </div>
+    `;
 
 
-    // ========================================================
+    // --------------------------------------------------------
     // TABS
-    // ========================================================
+    // --------------------------------------------------------
 
     html += `
 
@@ -2335,7 +2633,9 @@ function displayRoutine(
 
 
     document
-        .querySelectorAll('.view-tab')
+        .querySelectorAll(
+            '.view-tab'
+        )
         .forEach(
             tab => {
 
@@ -2355,7 +2655,9 @@ function displayRoutine(
                             );
 
 
-                        tab.classList.add('active');
+                        tab.classList.add(
+                            'active'
+                        );
 
 
                         if (
@@ -2401,7 +2703,9 @@ function renderDayView(
 ) {
 
     const container =
-        document.getElementById('viewContent');
+        document.getElementById(
+            'viewContent'
+        );
 
 
     if (!container) {
@@ -2414,7 +2718,9 @@ function renderDayView(
 
     DAYS.forEach(
         day => {
+
             grouped[day] = [];
+
         }
     );
 
@@ -2423,11 +2729,17 @@ function renderDayView(
         cls => {
 
             const day =
-                normalizeDay(cls.day);
+                normalizeDay(
+                    cls.day
+                );
 
 
             if (grouped[day]) {
-                grouped[day].push(cls);
+
+                grouped[day].push(
+                    cls
+                );
+
             }
 
         }
@@ -2442,7 +2754,9 @@ function renderDayView(
         day => {
 
             const dayClasses =
-                sortClasses(grouped[day]);
+                sortClasses(
+                    grouped[day]
+                );
 
 
             if (!dayClasses.length) {
@@ -2457,9 +2771,11 @@ function renderDayView(
             html += `
 
                 <div
-                    class="day-card day-section ${
-                        today ? 'today' : ''
-                    }"
+                    class="
+                        day-card
+                        day-section
+                        ${today ? 'today' : ''}
+                    "
                 >
 
                     <div class="day-card-header">
@@ -2527,7 +2843,9 @@ function renderDayView(
 
 
                     const time =
-                        getClassTimeSlot(cls);
+                        getClassTimeSlot(
+                            cls
+                        );
 
 
                     html += `
@@ -2576,10 +2894,13 @@ function renderDayView(
 
                                 <span>
 
-                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <i
+                                        class="fas fa-chalkboard-teacher"
+                                    ></i>
 
                                     ${escapeHtml(
-                                        cls.teacher || '?'
+                                        cls.teacher ||
+                                        '?'
                                     )}
 
                                 </span>
@@ -2587,10 +2908,13 @@ function renderDayView(
 
                                 <span>
 
-                                    <i class="fas fa-door-open"></i>
+                                    <i
+                                        class="fas fa-door-open"
+                                    ></i>
 
                                     ${escapeHtml(
-                                        cls.room || '?'
+                                        cls.room ||
+                                        '?'
                                     )}
 
                                 </span>
@@ -2599,7 +2923,10 @@ function renderDayView(
                                 <span>
 
                                     <span
-                                        class="type-tag ${typeClass}"
+                                        class="
+                                            type-tag
+                                            ${typeClass}
+                                        "
                                     >
                                         ${typeLabel}
                                     </span>
@@ -2628,7 +2955,9 @@ function renderDayView(
     );
 
 
-    html += `</div>`;
+    html += `
+        </div>
+    `;
 
 
     container.innerHTML =
@@ -2648,7 +2977,9 @@ function renderWeekView(
 ) {
 
     const container =
-        document.getElementById('viewContent');
+        document.getElementById(
+            'viewContent'
+        );
 
 
     if (!container) {
@@ -2661,7 +2992,9 @@ function renderWeekView(
 
     DAYS.forEach(
         day => {
+
             grouped[day] = [];
+
         }
     );
 
@@ -2670,11 +3003,17 @@ function renderWeekView(
         cls => {
 
             const day =
-                normalizeDay(cls.day);
+                normalizeDay(
+                    cls.day
+                );
 
 
             if (grouped[day]) {
-                grouped[day].push(cls);
+
+                grouped[day].push(
+                    cls
+                );
+
             }
 
         }
@@ -2708,11 +3047,9 @@ function renderWeekView(
             html += `
 
                 <th
-                    class="${
-                        today
-                            ? 'today-column'
-                            : ''
-                    }"
+                    class="
+                        ${today ? 'today-column' : ''}
+                    "
                 >
 
                     <div class="week-day-header">
@@ -2748,7 +3085,6 @@ function renderWeekView(
 
                 </thead>
 
-
                 <tbody>
 
     `;
@@ -2762,7 +3098,9 @@ function renderWeekView(
         slot => {
 
             const slotIndex =
-                DISPLAY_TIME_SLOTS.indexOf(slot);
+                DISPLAY_TIME_SLOTS.indexOf(
+                    slot
+                );
 
 
             html += `
@@ -2783,11 +3121,15 @@ function renderWeekView(
                         isTodayDay(day);
 
 
-                    // The second half of a 2-slot lab
-                    // is occupied by rowspan from previous row.
+                    // ------------------------------------------------
+                    // Second half of two-slot lab
+                    // ------------------------------------------------
+
                     if (
                         slotIndex === 3 &&
-                        hasTwoSlotLab(grouped[day])
+                        hasTwoSlotLab(
+                            grouped[day]
+                        )
                     ) {
 
                         return;
@@ -2799,11 +3141,15 @@ function renderWeekView(
                         sortClasses(
                             grouped[day].filter(
                                 cls =>
-                                    getClassTimeSlot(cls) === slot ||
+                                    getClassTimeSlot(
+                                        cls
+                                    ) === slot ||
                                     (
                                         slot ===
                                             '11:30-01:00' &&
-                                        isTwoSlotLab(cls)
+                                        isTwoSlotLab(
+                                            cls
+                                        )
                                     )
                             )
                         );
@@ -2812,7 +3158,9 @@ function renderWeekView(
                     const lab =
                         matching.find(
                             cls =>
-                                isTwoSlotLab(cls)
+                                isTwoSlotLab(
+                                    cls
+                                )
                         );
 
 
@@ -2822,7 +3170,8 @@ function renderWeekView(
 
                     if (
                         lab &&
-                        slot === '11:30-01:00'
+                        slot ===
+                            '11:30-01:00'
                     ) {
 
                         const comment =
@@ -2857,6 +3206,7 @@ function renderWeekView(
                                 ${
                                     comment
                                         ? `
+
                                             <span
                                                 style="
                                                     font-size:.7rem;
@@ -2866,12 +3216,17 @@ function renderWeekView(
                                             >
                                                 ${escapeHtml(comment)}
                                             </span>
+
                                           `
                                         : ''
                                 }
 
+
                                 <span
-                                    class="type-tag type-lab"
+                                    class="
+                                        type-tag
+                                        type-lab
+                                    "
                                     style="
                                         font-size:.65rem;
                                     "
@@ -2879,7 +3234,9 @@ function renderWeekView(
                                     Lab
                                 </span>
 
+
                                 <br>
+
 
                                 <span
                                     style="
@@ -2889,13 +3246,15 @@ function renderWeekView(
                                 >
 
                                     ${escapeHtml(
-                                        lab.teacher || '?'
+                                        lab.teacher ||
+                                        '?'
                                     )}
 
                                     •
 
                                     ${escapeHtml(
-                                        lab.room || '?'
+                                        lab.room ||
+                                        '?'
                                     )}
 
                                 </span>
@@ -2919,11 +3278,13 @@ function renderWeekView(
                         html += `
 
                             <td
-                                class="${
-                                    isToday
-                                        ? 'today-column'
-                                        : ''
-                                }"
+                                class="
+                                    ${
+                                        isToday
+                                            ? 'today-column'
+                                            : ''
+                                    }
+                                "
                             >
 
                         `;
@@ -2960,9 +3321,11 @@ function renderWeekView(
                                             )}
                                         </strong>
 
+
                                         ${
                                             comment
                                                 ? `
+
                                                     <span
                                                         style="
                                                             font-size:.7rem;
@@ -2972,16 +3335,21 @@ function renderWeekView(
                                                     >
                                                         ${escapeHtml(comment)}
                                                     </span>
+
                                                   `
                                                 : ''
                                         }
 
+
                                         <span
-                                            class="type-tag ${
-                                                isLab
-                                                    ? 'type-lab'
-                                                    : 'type-theory'
-                                            }"
+                                            class="
+                                                type-tag
+                                                ${
+                                                    isLab
+                                                        ? 'type-lab'
+                                                        : 'type-theory'
+                                                }
+                                            "
                                             style="
                                                 font-size:.65rem;
                                             "
@@ -2993,7 +3361,9 @@ function renderWeekView(
                                             }
                                         </span>
 
+
                                         <br>
+
 
                                         <span
                                             style="
@@ -3003,13 +3373,15 @@ function renderWeekView(
                                         >
 
                                             ${escapeHtml(
-                                                cls.teacher || '?'
+                                                cls.teacher ||
+                                                '?'
                                             )}
 
                                             •
 
                                             ${escapeHtml(
-                                                cls.room || '?'
+                                                cls.room ||
+                                                '?'
                                             )}
 
                                         </span>
@@ -3022,7 +3394,9 @@ function renderWeekView(
                         );
 
 
-                        html += `</td>`;
+                        html += `
+                            </td>
+                        `;
 
                     }
 
@@ -3031,11 +3405,13 @@ function renderWeekView(
                         html += `
 
                             <td
-                                class="${
-                                    isToday
-                                        ? 'today-column'
-                                        : ''
-                                }"
+                                class="
+                                    ${
+                                        isToday
+                                            ? 'today-column'
+                                            : ''
+                                    }
+                                "
                                 style="
                                     color:var(--soft);
                                 "
@@ -3051,7 +3427,9 @@ function renderWeekView(
             );
 
 
-            html += `</tr>`;
+            html += `
+                </tr>
+            `;
 
         }
     );
@@ -3078,7 +3456,9 @@ function renderWeekView(
 // TWO SLOT LAB
 // ============================================================
 
-function isTwoSlotLab(cls) {
+function isTwoSlotLab(
+    cls
+) {
 
     if (!cls) {
         return false;
@@ -3086,11 +3466,15 @@ function isTwoSlotLab(cls) {
 
 
     const type =
-        normalizeClassType(cls.type);
+        normalizeClassType(
+            cls.type
+        );
 
 
     const time =
-        getClassTimeSlot(cls);
+        getClassTimeSlot(
+            cls
+        );
 
 
     return (
@@ -3102,7 +3486,9 @@ function isTwoSlotLab(cls) {
 }
 
 
-function hasTwoSlotLab(classes) {
+function hasTwoSlotLab(
+    classes
+) {
 
     return (
         Array.isArray(classes) &&
@@ -3125,7 +3511,10 @@ function getDisplayComment(
     mode
 ) {
 
+    // --------------------------------------------------------
     // Teacher / Room mode
+    // --------------------------------------------------------
+
     if (showComment) {
 
         const section =
@@ -3153,7 +3542,10 @@ function getDisplayComment(
         String(sub).trim();
 
 
+    // --------------------------------------------------------
     // Main = nothing
+    // --------------------------------------------------------
+
     if (
         !sub ||
         sub.toLowerCase() === 'main'
@@ -3166,7 +3558,9 @@ function getDisplayComment(
 
     let letter =
         cls.section_letter ||
-        extractSectionLetter(cls.section);
+        extractSectionLetter(
+            cls.section
+        );
 
 
     letter =
@@ -3176,7 +3570,10 @@ function getDisplayComment(
             .toUpperCase();
 
 
+    // --------------------------------------------------------
     // 1 => N1
+    // --------------------------------------------------------
+
     if (/^\d+$/.test(sub)) {
 
         return letter
@@ -3186,8 +3583,13 @@ function getDisplayComment(
     }
 
 
+    // --------------------------------------------------------
     // N1 => N1
-    if (/^[A-Za-z]\d+$/.test(sub)) {
+    // --------------------------------------------------------
+
+    if (
+        /^[A-Za-z]\d+$/.test(sub)
+    ) {
 
         return `(${sub.toUpperCase()})`;
 
@@ -3203,7 +3605,9 @@ function getDisplayComment(
 // NORMALIZE CLASSES
 // ============================================================
 
-function normalizeClasses(classes) {
+function normalizeClasses(
+    classes
+) {
 
     if (!Array.isArray(classes)) {
         return [];
@@ -3253,10 +3657,14 @@ function normalizeClasses(classes) {
                 ...cls,
 
                 day:
-                    normalizeDay(cls.day),
+                    normalizeDay(
+                        cls.day
+                    ),
 
                 time:
-                    normalizeTime(cls.time),
+                    normalizeTime(
+                        cls.time
+                    ),
 
                 course:
                     String(
@@ -3290,11 +3698,15 @@ function normalizeClasses(classes) {
 
                 section_letter:
                     cls.section_letter ||
-                    extractSectionLetter(section),
+                    extractSectionLetter(
+                        section
+                    ),
 
                 batch:
                     cls.batch ||
-                    extractBatchFromSection(section),
+                    extractBatchFromSection(
+                        section
+                    ),
 
                 type:
                     normalizeClassType(
@@ -3316,7 +3728,9 @@ function normalizeClasses(classes) {
 // DAY NORMALIZE
 // ============================================================
 
-function normalizeDay(day) {
+function normalizeDay(
+    day
+) {
 
     if (!day) {
         return '';
@@ -3331,13 +3745,26 @@ function normalizeDay(day) {
 
     const map = {
 
-        saturday: 'Saturday',
-        sunday: 'Sunday',
-        monday: 'Monday',
-        tuesday: 'Tuesday',
-        wednesday: 'Wednesday',
-        thursday: 'Thursday',
-        friday: 'Friday'
+        saturday:
+            'Saturday',
+
+        sunday:
+            'Sunday',
+
+        monday:
+            'Monday',
+
+        tuesday:
+            'Tuesday',
+
+        wednesday:
+            'Wednesday',
+
+        thursday:
+            'Thursday',
+
+        friday:
+            'Friday'
 
     };
 
@@ -3354,7 +3781,9 @@ function normalizeDay(day) {
 // TIME NORMALIZE
 // ============================================================
 
-function normalizeTime(time) {
+function normalizeTime(
+    time
+) {
 
     if (!time) {
         return '';
@@ -3363,8 +3792,14 @@ function normalizeTime(time) {
 
     return String(time)
         .trim()
-        .replace(/\s+/g, '')
-        .replace(/[–—]/g, '-');
+        .replace(
+            /\s+/g,
+            ''
+        )
+        .replace(
+            /[–—]/g,
+            '-'
+        );
 
 }
 
@@ -3373,7 +3808,9 @@ function normalizeTime(time) {
 // TYPE
 // ============================================================
 
-function normalizeClassType(type) {
+function normalizeClassType(
+    type
+) {
 
     if (!type) {
         return '';
@@ -3386,13 +3823,21 @@ function normalizeClassType(type) {
             .toLowerCase();
 
 
-    if (value.includes('lab')) {
+    if (
+        value.includes('lab')
+    ) {
+
         return 'Lab';
+
     }
 
 
-    if (value.includes('theory')) {
+    if (
+        value.includes('theory')
+    ) {
+
         return 'Theory';
+
     }
 
 
@@ -3405,48 +3850,72 @@ function normalizeClassType(type) {
 // SORT
 // ============================================================
 
-function sortClasses(classes) {
+function sortClasses(
+    classes
+) {
 
-    return [...classes].sort(
+    return [
+        ...classes
+    ].sort(
         (a, b) => {
 
             const dayA =
                 DAY_ORDER[
-                    normalizeDay(a.day)
+                    normalizeDay(
+                        a.day
+                    )
                 ] ?? 999;
 
 
             const dayB =
                 DAY_ORDER[
-                    normalizeDay(b.day)
+                    normalizeDay(
+                        b.day
+                    )
                 ] ?? 999;
 
 
-            if (dayA !== dayB) {
+            if (
+                dayA !== dayB
+            ) {
+
                 return dayA - dayB;
+
             }
 
 
             const timeA =
                 getTimeOrder(
-                    getClassTimeSlot(a)
+                    getClassTimeSlot(
+                        a
+                    )
                 );
 
 
             const timeB =
                 getTimeOrder(
-                    getClassTimeSlot(b)
+                    getClassTimeSlot(
+                        b
+                    )
                 );
 
 
-            if (timeA !== timeB) {
+            if (
+                timeA !== timeB
+            ) {
+
                 return timeA - timeB;
+
             }
 
 
-            return String(a.course || '')
+            return String(
+                a.course || ''
+            )
                 .localeCompare(
-                    String(b.course || '')
+                    String(
+                        b.course || ''
+                    )
                 );
 
         }
@@ -3459,15 +3928,19 @@ function sortClasses(classes) {
 // TIME ORDER
 // ============================================================
 
-function getTimeOrder(time) {
+function getTimeOrder(
+    time
+) {
 
     const normalized =
-        normalizeTime(time);
+        normalizeTime(
+            time
+        );
 
 
-    // Two-slot Lab starts at 11:30
     if (
-        normalized === '11:30-02:30'
+        normalized ===
+        '11:30-02:30'
     ) {
 
         return TIME_ORDER[
@@ -3484,7 +3957,9 @@ function getTimeOrder(time) {
         )
     ) {
 
-        return TIME_ORDER[normalized];
+        return TIME_ORDER[
+            normalized
+        ];
 
     }
 
@@ -3500,7 +3975,9 @@ function getTimeOrder(time) {
 // TIME START
 // ============================================================
 
-function getTimeStartMinutes(time) {
+function getTimeStartMinutes(
+    time
+) {
 
     if (!time) {
         return 9999;
@@ -3548,7 +4025,9 @@ function getTimeStartMinutes(time) {
 // CLASS TIME
 // ============================================================
 
-function getClassTimeSlot(cls) {
+function getClassTimeSlot(
+    cls
+) {
 
     if (
         cls.start &&
@@ -3573,12 +4052,19 @@ function getClassTimeSlot(cls) {
 // SECTION
 // ============================================================
 
-function getBaseSection(section) {
+function getBaseSection(
+    section
+) {
 
-    return String(section || '')
+    return String(
+        section || ''
+    )
         .trim()
         .toUpperCase()
-        .replace(/_\d+$/, '');
+        .replace(
+            /_\d+$/,
+            ''
+        );
 
 }
 
@@ -3587,11 +4073,17 @@ function getBaseSection(section) {
 // BATCH
 // ============================================================
 
-function extractBatchFromSection(section) {
+function extractBatchFromSection(
+    section
+) {
 
     const match =
-        String(section || '')
-            .match(/^(\d+)/);
+        String(
+            section || ''
+        )
+            .match(
+                /^(\d+)/
+            );
 
 
     return match
@@ -3605,10 +4097,14 @@ function extractBatchFromSection(section) {
 // SECTION LETTER
 // ============================================================
 
-function extractSectionLetter(section) {
+function extractSectionLetter(
+    section
+) {
 
     const value =
-        String(section || '').trim();
+        String(
+            section || ''
+        ).trim();
 
 
     const match =
@@ -3619,13 +4115,16 @@ function extractSectionLetter(section) {
 
     if (match) {
 
-        return match[1].toUpperCase();
+        return match[1]
+            .toUpperCase();
 
     }
 
 
     const fallback =
-        value.match(/([A-Za-z])$/);
+        value.match(
+            /([A-Za-z])$/
+        );
 
 
     return fallback
@@ -3639,7 +4138,9 @@ function extractSectionLetter(section) {
 // REMOVE DUPLICATE
 // ============================================================
 
-function removeDuplicateClasses(classes) {
+function removeDuplicateClasses(
+    classes
+) {
 
     const seen =
         new Set();
@@ -3655,7 +4156,9 @@ function removeDuplicateClasses(classes) {
 
                 cls.day || '',
 
-                getClassTimeSlot(cls),
+                getClassTimeSlot(
+                    cls
+                ),
 
                 cls.course || '',
 
@@ -3672,14 +4175,20 @@ function removeDuplicateClasses(classes) {
             ].join('|');
 
 
-            if (seen.has(key)) {
+            if (
+                seen.has(key)
+            ) {
+
                 return;
+
             }
 
 
             seen.add(key);
 
-            result.push(cls);
+            result.push(
+                cls
+            );
 
         }
     );
@@ -3694,12 +4203,19 @@ function removeDuplicateClasses(classes) {
 // ROOM NORMALIZE
 // ============================================================
 
-function normalizeRoom(room) {
+function normalizeRoom(
+    room
+) {
 
-    return String(room || '')
+    return String(
+        room || ''
+    )
         .trim()
         .toUpperCase()
-        .replace(/\s+/g, '');
+        .replace(
+            /\s+/g,
+            ''
+        );
 
 }
 
@@ -3708,7 +4224,10 @@ function normalizeRoom(room) {
 // NATURAL SORT
 // ============================================================
 
-function naturalSort(a, b) {
+function naturalSort(
+    a,
+    b
+) {
 
     return String(a)
         .localeCompare(
@@ -3734,6 +4253,7 @@ function getTodayName() {
 
 
     return [
+
         'Sunday',
         'Monday',
         'Tuesday',
@@ -3741,12 +4261,17 @@ function getTodayName() {
         'Thursday',
         'Friday',
         'Saturday'
-    ][today.getDay()];
+
+    ][
+        today.getDay()
+    ];
 
 }
 
 
-function isTodayDay(day) {
+function isTodayDay(
+    day
+) {
 
     return (
         normalizeDay(day) ===
@@ -3775,7 +4300,9 @@ function getSemester() {
     ];
 
 
-    for (const value of candidates) {
+    for (
+        const value of candidates
+    ) {
 
         if (
             value !== null &&
@@ -3810,7 +4337,9 @@ function getSemester() {
             )
         ) {
 
-            return detectSemesterFromDate(date);
+            return detectSemesterFromDate(
+                date
+            );
 
         }
 
@@ -3828,7 +4357,9 @@ function getSemester() {
 // SEMESTER DETECTOR
 // ============================================================
 
-function detectSemesterFromDate(date) {
+function detectSemesterFromDate(
+    date
+) {
 
     const month =
         date.getMonth() + 1;
@@ -3875,7 +4406,9 @@ function detectSemesterFromDate(date) {
 // SEMESTER NORMALIZER
 // ============================================================
 
-function normalizeSemesterName(value) {
+function normalizeSemesterName(
+    value
+) {
 
     const text =
         String(value).trim();
@@ -3924,7 +4457,8 @@ function normalizeSemesterName(value) {
     const year =
         yearMatch
             ? yearMatch[1]
-            : new Date().getFullYear();
+            : new Date()
+                .getFullYear();
 
 
     return semester
@@ -3938,7 +4472,9 @@ function normalizeSemesterName(value) {
 // META
 // ============================================================
 
-function updateMeta(data) {
+function updateMeta(
+    data
+) {
 
     if (!data) {
         return;
@@ -3952,7 +4488,10 @@ function updateMeta(data) {
 
         versionNumber.textContent =
             String(data.version)
-                .replace(/^v/i, '');
+                .replace(
+                    /^v/i,
+                    ''
+                );
 
     }
 
@@ -4090,7 +4629,9 @@ function createRoutineLinkHtml() {
                 class="routine-link"
             >
 
-                <i class="fas fa-external-link-alt"></i>
+                <i
+                    class="fas fa-external-link-alt"
+                ></i>
 
                 View Official Routine Source
 
@@ -4124,6 +4665,10 @@ async function downloadSection() {
     }
 
 
+    let imageElement =
+        null;
+
+
     try {
 
         showMessage(
@@ -4135,7 +4680,7 @@ async function downloadSection() {
         await loadHtml2Canvas();
 
 
-        const imageElement =
+        imageElement =
             createRoutineDownloadCard();
 
 
@@ -4144,11 +4689,17 @@ async function downloadSection() {
         );
 
 
+        // ----------------------------------------------------
+        // Allow browser to render everything
+        // ----------------------------------------------------
+
         await new Promise(
             resolve =>
-                setTimeout(
-                    resolve,
-                    300
+                requestAnimationFrame(
+                    () =>
+                        requestAnimationFrame(
+                            resolve
+                        )
                 )
         );
 
@@ -4158,35 +4709,62 @@ async function downloadSection() {
                 imageElement,
                 {
 
-                    scale: 2,
+                    scale: 2.5,
 
                     backgroundColor:
-                        '#f8fafc',
+                        '#f5f7fb',
 
-                    useCORS: true,
+                    useCORS:
+                        true,
 
-                    allowTaint: true,
+                    allowTaint:
+                        false,
 
-                    logging: false,
+                    logging:
+                        false,
+
+                    imageTimeout:
+                        15000,
 
                     width:
-                        imageElement.scrollWidth,
+                        imageElement.offsetWidth,
 
                     height:
-                        imageElement.scrollHeight
+                        imageElement.offsetHeight,
+
+                    scrollX:
+                        0,
+
+                    scrollY:
+                        0,
+
+                    windowWidth:
+                        imageElement.offsetWidth,
+
+                    windowHeight:
+                        imageElement.offsetHeight
 
                 }
             );
 
 
-        imageElement.remove();
+        if (imageElement) {
+
+            imageElement.remove();
+
+            imageElement =
+                null;
+
+        }
 
 
         const link =
-            document.createElement('a');
+            document.createElement(
+                'a'
+            );
 
 
-        const section =
+        let fileName =
             currentMode === 'section'
                 ? currentSearchTerm
                 : (
@@ -4196,15 +4774,34 @@ async function downloadSection() {
                 );
 
 
+        fileName =
+            String(fileName)
+                .replace(
+                    /[^a-zA-Z0-9_-]/g,
+                    '_'
+                );
+
+
         link.download =
-            `DIU-CSE-Routine-${section}.png`;
+            `DIU-CSE-Routine-${fileName}.png`;
 
 
         link.href =
-            canvas.toDataURL('image/png');
+            canvas.toDataURL(
+                'image/png',
+                1.0
+            );
+
+
+        document.body.appendChild(
+            link
+        );
 
 
         link.click();
+
+
+        link.remove();
 
 
         showMessage(
@@ -4220,6 +4817,13 @@ async function downloadSection() {
             'Download error:',
             error
         );
+
+
+        if (imageElement) {
+
+            imageElement.remove();
+
+        }
 
 
         showMessage(
@@ -4241,7 +4845,9 @@ function loadHtml2Canvas() {
     return new Promise(
         (resolve, reject) => {
 
-            if (window.html2canvas) {
+            if (
+                window.html2canvas
+            ) {
 
                 resolve();
 
@@ -4260,8 +4866,12 @@ function loadHtml2Canvas() {
 
                 existing.addEventListener(
                     'load',
-                    () => resolve()
+                    () => resolve(),
+                    {
+                        once: true
+                    }
                 );
+
 
                 existing.addEventListener(
                     'error',
@@ -4270,8 +4880,12 @@ function loadHtml2Canvas() {
                             new Error(
                                 'html2canvas failed to load.'
                             )
-                        )
+                        ),
+                    {
+                        once: true
+                    }
                 );
+
 
                 return;
 
@@ -4279,20 +4893,26 @@ function loadHtml2Canvas() {
 
 
             const script =
-                document.createElement('script');
+                document.createElement(
+                    'script'
+                );
 
 
             script.src =
                 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
 
 
-            script.async = true;
+            script.async =
+                true;
 
-            script.dataset.html2canvas = 'true';
+
+            script.dataset.html2canvas =
+                'true';
 
 
             script.onload =
-                () => resolve();
+                () =>
+                    resolve();
 
 
             script.onerror =
@@ -4317,12 +4937,40 @@ function loadHtml2Canvas() {
 // ============================================================
 // CREATE DOWNLOAD CARD
 // ============================================================
+//
+// IMPORTANT
+// ------------------------------------------------------------
+// PNG TABLE:
+//
+//              TIME
+//       ┌──────┬──────┬──────┬──────┬──────┬──────┐
+// DAY   │ 08:30│10:00 │11:30 │01:00 │02:30 │04:00 │
+//       ├──────┼──────┼──────┼──────┼──────┼──────┤
+// SAT   │      │      │      │      │      │      │
+// SUN   │      │      │      │      │      │      │
+//       └──────┴──────┴──────┴──────┴──────┴──────┘
+//
+// 11:30-02:30 LAB:
+//
+//        ┌───────────────┐
+//        │      LAB      │
+//        │    colspan=2  │
+//        └───────────────┘
+//
+// This design is completely independent from website CSS.
+// ============================================================
 
 function createRoutineDownloadCard() {
 
     const wrapper =
-        document.createElement('div');
+        document.createElement(
+            'div'
+        );
 
+
+    // --------------------------------------------------------
+    // OUTER FIXED CANVAS
+    // --------------------------------------------------------
 
     wrapper.style.position =
         'fixed';
@@ -4334,23 +4982,33 @@ function createRoutineDownloadCard() {
         '0';
 
     wrapper.style.width =
-        '1500px';
+        '1600px';
 
-    wrapper.style.background =
-        '#f8fafc';
-
-    wrapper.style.padding =
-        '45px';
+    wrapper.style.minWidth =
+        '1600px';
 
     wrapper.style.boxSizing =
         'border-box';
+
+    wrapper.style.padding =
+        '42px';
+
+    wrapper.style.background =
+        '#f5f7fb';
 
     wrapper.style.fontFamily =
         'Arial, Helvetica, sans-serif';
 
     wrapper.style.color =
-        '#111827';
+        '#172033';
 
+    wrapper.style.lineHeight =
+        '1.4';
+
+
+    // --------------------------------------------------------
+    // BASIC DATA
+    // --------------------------------------------------------
 
     const section =
         currentMode === 'section'
@@ -4371,7 +5029,11 @@ function createRoutineDownloadCard() {
             routineData?.version ||
             versionNumber?.textContent ||
             '5.0'
-        ).replace(/^v/i, '');
+        )
+            .replace(
+                /^v/i,
+                ''
+            );
 
 
     const sorted =
@@ -4382,9 +5044,36 @@ function createRoutineDownloadCard() {
         );
 
 
+    const teachers = [
+        ...new Set(
+            sorted
+                .map(
+                    cls =>
+                        String(
+                            cls.teacher || ''
+                        ).trim()
+                )
+                .filter(Boolean)
+        )
+    ];
+
+
+    const activeDays = [
+        ...new Set(
+            sorted
+                .map(
+                    cls =>
+                        normalizeDay(
+                            cls.day
+                        )
+                )
+                .filter(Boolean)
+        )
+    ];
+
+
     // --------------------------------------------------------
     // CELL MAP
-    // Only six standard slots.
     // --------------------------------------------------------
 
     const cellMap = {};
@@ -4399,7 +5088,8 @@ function createRoutineDownloadCard() {
             DISPLAY_TIME_SLOTS.forEach(
                 slot => {
 
-                    cellMap[day][slot] = [];
+                    cellMap[day][slot] =
+                        [];
 
                 }
             );
@@ -4412,24 +5102,42 @@ function createRoutineDownloadCard() {
         cls => {
 
             const day =
-                normalizeDay(cls.day);
+                normalizeDay(
+                    cls.day
+                );
 
 
-            const slot =
-                getClassTimeSlot(cls);
+            const time =
+                getClassTimeSlot(
+                    cls
+                );
 
 
             if (
-                isTwoSlotLab(cls)
+                !cellMap[day]
             ) {
 
-                if (cellMap[day]) {
+                return;
 
-                    cellMap[day][
-                        '11:30-01:00'
-                    ].push(cls);
+            }
 
-                }
+
+            // ------------------------------------------------
+            // Two-slot lab
+            // ------------------------------------------------
+
+            if (
+                isTwoSlotLab(
+                    cls
+                )
+            ) {
+
+                cellMap[day][
+                    '11:30-01:00'
+                ]
+                    .push(
+                        cls
+                    );
 
                 return;
 
@@ -4437,11 +5145,13 @@ function createRoutineDownloadCard() {
 
 
             if (
-                cellMap[day] &&
-                cellMap[day][slot]
+                cellMap[day][time]
             ) {
 
-                cellMap[day][slot].push(cls);
+                cellMap[day][time]
+                    .push(
+                        cls
+                    );
 
             }
 
@@ -4450,42 +5160,284 @@ function createRoutineDownloadCard() {
 
 
     // --------------------------------------------------------
-    // HEADER
+    // FIXED COLOR SYSTEM
     // --------------------------------------------------------
 
-    wrapper.innerHTML = `
+    const COLORS = {
+
+        page:
+            '#f5f7fb',
+
+        white:
+            '#ffffff',
+
+        navy:
+            '#172033',
+
+        navy2:
+            '#24314a',
+
+        header:
+            '#202b42',
+
+        text:
+            '#172033',
+
+        muted:
+            '#667085',
+
+        border:
+            '#d9dee8',
+
+        borderDark:
+            '#c7ceda',
+
+        time:
+            '#eef2f7',
+
+        today:
+            '#f0fdf4',
+
+        todayBorder:
+            '#22c55e',
+
+        theoryBg:
+            '#eef5ff',
+
+        theoryText:
+            '#2456a6',
+
+        labBg:
+            '#fff7df',
+
+        labText:
+            '#9a6700',
+
+        empty:
+            '#f8fafc',
+
+        emptyText:
+            '#a0a8b5'
+
+    };
+
+
+    // --------------------------------------------------------
+    // CELL CONTENT HELPER
+    // --------------------------------------------------------
+
+    function cellContent(
+        items
+    ) {
+
+        if (!items.length) {
+
+            return `
+
+                <div
+                    style="
+                        min-height:62px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        color:${COLORS.emptyText};
+                        font-size:20px;
+                        font-weight:500;
+                    "
+                >
+                    —
+                </div>
+
+            `;
+
+        }
+
+
+        return items
+            .map(
+                cls => {
+
+                    const isLab =
+                        normalizeClassType(
+                            cls.type
+                        ) === 'Lab';
+
+
+                    const comment =
+                        getDisplayComment(
+                            cls,
+                            currentMode !==
+                                'section',
+                            currentMode
+                        );
+
+
+                    const bg =
+                        isLab
+                            ? COLORS.labBg
+                            : COLORS.theoryBg;
+
+
+                    const tagBg =
+                        isLab
+                            ? '#f9e8ad'
+                            : '#dceaff';
+
+
+                    const tagColor =
+                        isLab
+                            ? COLORS.labText
+                            : COLORS.theoryText;
+
+
+                    return `
+
+                        <div
+                            style="
+                                background:${bg};
+                                border:1px solid ${COLORS.border};
+                                border-radius:10px;
+                                padding:10px 11px;
+                                margin-bottom:7px;
+                                box-sizing:border-box;
+                            "
+                        >
+
+                            <div
+                                style="
+                                    font-size:15px;
+                                    font-weight:800;
+                                    color:${COLORS.text};
+                                    line-height:1.25;
+                                    margin-bottom:6px;
+                                    word-break:break-word;
+                                "
+                            >
+
+                                ${escapeHtml(
+                                    cls.course ||
+                                    'N/A'
+                                )}
+
+                                ${
+                                    comment
+                                        ? `
+
+                                            <span
+                                                style="
+                                                    font-size:11px;
+                                                    font-weight:700;
+                                                    color:${COLORS.muted};
+                                                    margin-left:4px;
+                                                "
+                                            >
+                                                ${escapeHtml(
+                                                    comment
+                                                )}
+                                            </span>
+
+                                          `
+                                        : ''
+                                }
+
+                            </div>
+
+
+                            <span
+                                style="
+                                    display:inline-block;
+                                    background:${tagBg};
+                                    color:${tagColor};
+                                    border-radius:20px;
+                                    padding:3px 7px;
+                                    font-size:9px;
+                                    font-weight:800;
+                                    letter-spacing:.5px;
+                                    margin-bottom:6px;
+                                "
+                            >
+                                ${
+                                    isLab
+                                        ? 'LAB'
+                                        : 'THEORY'
+                                }
+                            </span>
+
+
+                            <div
+                                style="
+                                    color:${COLORS.muted};
+                                    font-size:11px;
+                                    line-height:1.5;
+                                    word-break:break-word;
+                                "
+                            >
+
+                                <div>
+                                    <b>
+                                        ${escapeHtml(
+                                            cls.teacher ||
+                                            'TBA'
+                                        )}
+                                    </b>
+                                </div>
+
+                                <div>
+                                    ${escapeHtml(
+                                        cls.room ||
+                                        'TBA'
+                                    )}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join('');
+
+    }
+
+
+    // --------------------------------------------------------
+    // BUILD HTML
+    // --------------------------------------------------------
+
+    let html = `
 
         <div
             style="
-                background:#ffffff;
-                border-radius:24px;
+                width:100%;
+                box-sizing:border-box;
+                background:${COLORS.white};
+                border:1px solid ${COLORS.border};
+                border-radius:20px;
                 overflow:hidden;
-                box-shadow:
-                    0 20px 60px
-                    rgba(15,23,42,.12);
-                border:1px solid #e5e7eb;
             "
         >
 
+            <!-- =================================================
+                 HEADER
+                 ================================================= -->
+
             <div
                 style="
-                    padding:38px 42px 30px;
-                    background:
-                        linear-gradient(
-                            135deg,
-                            #111827 0%,
-                            #1f2937 100%
-                        );
+                    background:${COLORS.navy};
                     color:#ffffff;
+                    padding:32px 36px 28px;
+                    box-sizing:border-box;
                 "
             >
 
                 <div
                     style="
-                        font-size:14px;
-                        letter-spacing:2px;
-                        font-weight:700;
-                        opacity:.75;
+                        font-size:13px;
+                        font-weight:800;
+                        letter-spacing:1.8px;
+                        color:#cbd5e1;
                         margin-bottom:8px;
                     "
                 >
@@ -4495,9 +5447,10 @@ function createRoutineDownloadCard() {
 
                 <div
                     style="
-                        font-size:30px;
+                        font-size:27px;
                         font-weight:800;
-                        margin-bottom:8px;
+                        line-height:1.2;
+                        margin-bottom:6px;
                     "
                 >
                     Department of Computer Science & Engineering
@@ -4506,8 +5459,8 @@ function createRoutineDownloadCard() {
 
                 <div
                     style="
-                        font-size:18px;
-                        opacity:.9;
+                        font-size:16px;
+                        color:#dbe3ef;
                     "
                 >
                     CSE Class Routine
@@ -4517,73 +5470,230 @@ function createRoutineDownloadCard() {
                 <div
                     style="
                         display:flex;
-                        gap:12px;
-                        flex-wrap:wrap;
-                        margin-top:25px;
+                        gap:10px;
+                        margin-top:22px;
                     "
                 >
 
-                    <span
+                    <div
                         style="
-                            background:rgba(255,255,255,.12);
-                            border:1px solid rgba(255,255,255,.18);
-                            padding:9px 14px;
-                            border-radius:999px;
-                            font-size:14px;
-                            font-weight:700;
+                            background:${COLORS.navy2};
+                            border:1px solid #3a4861;
+                            border-radius:8px;
+                            padding:8px 13px;
+                            font-size:12px;
+                            font-weight:800;
                         "
                     >
+                        SECTION:
                         ${escapeHtml(section)}
-                    </span>
+                    </div>
 
 
-                    <span
+                    <div
                         style="
-                            background:rgba(255,255,255,.12);
-                            border:1px solid rgba(255,255,255,.18);
-                            padding:9px 14px;
-                            border-radius:999px;
-                            font-size:14px;
-                            font-weight:700;
+                            background:${COLORS.navy2};
+                            border:1px solid #3a4861;
+                            border-radius:8px;
+                            padding:8px 13px;
+                            font-size:12px;
+                            font-weight:800;
                         "
                     >
-                        ${escapeHtml(semester)}
-                    </span>
+                        ${escapeHtml(
+                            semester
+                        )}
+                    </div>
 
 
-                    <span
+                    <div
                         style="
-                            background:rgba(255,255,255,.12);
-                            border:1px solid rgba(255,255,255,.18);
-                            padding:9px 14px;
-                            border-radius:999px;
-                            font-size:14px;
-                            font-weight:700;
+                            background:${COLORS.navy2};
+                            border:1px solid #3a4861;
+                            border-radius:8px;
+                            padding:8px 13px;
+                            font-size:12px;
+                            font-weight:800;
                         "
                     >
-                        Version ${escapeHtml(version)}
-                    </span>
+                        VERSION
+                        ${escapeHtml(version)}
+                    </div>
 
                 </div>
 
             </div>
 
 
+            <!-- =================================================
+                 SUMMARY
+                 ================================================= -->
+
             <div
                 style="
-                    padding:30px 34px 40px;
+                    display:flex;
+                    gap:10px;
+                    padding:20px 24px;
+                    background:#ffffff;
+                    border-bottom:1px solid ${COLORS.border};
+                    box-sizing:border-box;
+                "
+            >
+
+                <div
+                    style="
+                        flex:1;
+                        border:1px solid ${COLORS.border};
+                        border-radius:9px;
+                        padding:10px 14px;
+                        background:#ffffff;
+                    "
+                >
+
+                    <div
+                        style="
+                            font-size:10px;
+                            color:${COLORS.muted};
+                            font-weight:700;
+                            text-transform:uppercase;
+                        "
+                    >
+                        Total Classes
+                    </div>
+
+                    <div
+                        style="
+                            font-size:18px;
+                            font-weight:800;
+                            color:${COLORS.text};
+                        "
+                    >
+                        ${sorted.length}
+                    </div>
+
+                </div>
+
+
+                <div
+                    style="
+                        flex:1;
+                        border:1px solid ${COLORS.border};
+                        border-radius:9px;
+                        padding:10px 14px;
+                        background:#ffffff;
+                    "
+                >
+
+                    <div
+                        style="
+                            font-size:10px;
+                            color:${COLORS.muted};
+                            font-weight:700;
+                            text-transform:uppercase;
+                        "
+                    >
+                        Active Days
+                    </div>
+
+                    <div
+                        style="
+                            font-size:18px;
+                            font-weight:800;
+                            color:${COLORS.text};
+                        "
+                    >
+                        ${activeDays.length}
+                    </div>
+
+                </div>
+
+
+                <div
+                    style="
+                        flex:3;
+                        border:1px solid ${COLORS.border};
+                        border-radius:9px;
+                        padding:10px 14px;
+                        background:#ffffff;
+                        box-sizing:border-box;
+                    "
+                >
+
+                    <div
+                        style="
+                            font-size:10px;
+                            color:${COLORS.muted};
+                            font-weight:700;
+                            text-transform:uppercase;
+                            margin-bottom:3px;
+                        "
+                    >
+                        Teachers
+                    </div>
+
+                    <div
+                        style="
+                            font-size:12px;
+                            font-weight:700;
+                            color:${COLORS.text};
+                            white-space:nowrap;
+                            overflow:hidden;
+                        "
+                    >
+                        ${escapeHtml(
+                            teachers.join(
+                                '  •  '
+                            ) ||
+                            'N/A'
+                        )}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TABLE AREA
+                 ================================================= -->
+
+            <div
+                style="
+                    padding:24px;
+                    background:#ffffff;
+                    box-sizing:border-box;
                 "
             >
 
                 <table
                     style="
                         width:100%;
-                        border-collapse:separate;
-                        border-spacing:0;
+                        border-collapse:collapse;
                         table-layout:fixed;
-                        font-size:14px;
+                        border:1px solid ${COLORS.borderDark};
+                        font-size:12px;
                     "
                 >
+
+                    <colgroup>
+
+                        <col
+                            style="
+                                width:115px;
+                            "
+                        >
+
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+
+                    </colgroup>
+
+
+                    <!-- TABLE HEADER -->
 
                     <thead>
 
@@ -4591,19 +5701,70 @@ function createRoutineDownloadCard() {
 
                             <th
                                 style="
-                                    width:145px;
-                                    padding:15px;
-                                    background:#111827;
+                                    height:48px;
+                                    padding:8px;
+                                    background:${COLORS.header};
                                     color:#ffffff;
-                                    text-align:left;
-                                    border:1px solid #111827;
+                                    border:1px solid ${COLORS.header};
+                                    text-align:center;
+                                    font-size:12px;
+                                    font-weight:800;
+                                    vertical-align:middle;
                                 "
                             >
-                                Time
+                                DAY / TIME
                             </th>
 
     `;
 
+
+    // --------------------------------------------------------
+    // TIME HEADERS
+    // --------------------------------------------------------
+
+    DISPLAY_TIME_SLOTS.forEach(
+        slot => {
+
+            html += `
+
+                <th
+                    style="
+                        height:48px;
+                        padding:7px 4px;
+                        background:${COLORS.header};
+                        color:#ffffff;
+                        border:1px solid #34415a;
+                        text-align:center;
+                        font-size:11px;
+                        font-weight:800;
+                        line-height:1.25;
+                        vertical-align:middle;
+                    "
+                >
+                    ${escapeHtml(slot)}
+                </th>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+    `;
+
+
+    // --------------------------------------------------------
+    // DAY ROWS
+    // --------------------------------------------------------
 
     DAYS.forEach(
         day => {
@@ -4612,93 +5773,83 @@ function createRoutineDownloadCard() {
                 isTodayDay(day);
 
 
-            wrapper.innerHTML += `
+            html += `
 
-                            <th
-                                style="
-                                    padding:15px 8px;
-                                    background:#111827;
-                                    color:#ffffff;
-                                    text-align:center;
-                                    border:1px solid #111827;
-                                    ${
-                                        today
-                                            ? 'box-shadow:inset 0 -4px 0 #22c55e;'
-                                            : ''
-                                    }
-                                "
-                            >
+                <tr>
 
-                                ${escapeHtml(
-                                    day.substring(0, 3)
-                                )}
+                    <!-- DAY -->
 
-                                ${
-                                    today
-                                        ? ' •'
-                                        : ''
-                                }
+                    <td
+                        style="
+                            height:90px;
+                            padding:8px;
+                            background:${
+                                today
+                                    ? '#e9fbed'
+                                    : COLORS.time
+                            };
+                            border:1px solid ${COLORS.borderDark};
+                            text-align:center;
+                            vertical-align:middle;
+                            font-weight:800;
+                            box-sizing:border-box;
+                        "
+                    >
 
-                            </th>
-
-            `;
-
-        }
-    );
-
-
-    wrapper.innerHTML += `
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-    `;
+                        <div
+                            style="
+                                font-size:14px;
+                                color:${COLORS.text};
+                                line-height:1.25;
+                            "
+                        >
+                            ${escapeHtml(day)}
+                        </div>
 
 
-    DISPLAY_TIME_SLOTS.forEach(
-        (slot, slotIndex) => {
+                        ${
+                            today
+                                ? `
 
-            wrapper.innerHTML += `
+                                    <div
+                                        style="
+                                            display:inline-block;
+                                            margin-top:5px;
+                                            padding:2px 7px;
+                                            border-radius:20px;
+                                            background:#dcfce7;
+                                            color:#15803d;
+                                            font-size:9px;
+                                            font-weight:800;
+                                        "
+                                    >
+                                        TODAY
+                                    </div>
 
-                        <tr>
+                                  `
+                                : ''
+                        }
 
-                            <td
-                                style="
-                                    padding:13px 12px;
-                                    font-weight:700;
-                                    background:#f3f4f6;
-                                    border:1px solid #e5e7eb;
-                                    vertical-align:middle;
-                                "
-                            >
-                                ${escapeHtml(slot)}
-                            </td>
+                    </td>
 
             `;
 
 
-            DAYS.forEach(
-                day => {
+            let skipNextSlot =
+                false;
 
-                    const today =
-                        isTodayDay(day);
 
+            DISPLAY_TIME_SLOTS.forEach(
+                (slot, index) => {
 
                     // ------------------------------------------------
-                    // Second row of two-slot lab
+                    // Skip second half of 11:30-02:30 lab
                     // ------------------------------------------------
 
-                    if (
-                        slotIndex === 3 &&
-                        hasTwoSlotLab(
-                            cellMap[day][
-                                '11:30-01:00'
-                            ]
-                        )
-                    ) {
+                    if (skipNextSlot) {
+
+                        skipNextSlot =
+                            false;
 
                         return;
 
@@ -4706,41 +5857,16 @@ function createRoutineDownloadCard() {
 
 
                     const items =
-                        cellMap[day][slot] || [];
-
-
-                    if (!items.length) {
-
-                        wrapper.innerHTML += `
-
-                            <td
-                                style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:${
-                                        today
-                                            ? '#f0fdf4'
-                                            : '#ffffff'
-                                    };
-                                    vertical-align:top;
-                                    text-align:center;
-                                    color:#cbd5e1;
-                                "
-                            >
-                                —
-                            </td>
-
-                        `;
-
-                        return;
-
-                    }
+                        cellMap[day][slot] ||
+                        [];
 
 
                     const lab =
                         items.find(
                             cls =>
-                                isTwoSlotLab(cls)
+                                isTwoSlotLab(
+                                    cls
+                                )
                         );
 
 
@@ -4749,99 +5875,138 @@ function createRoutineDownloadCard() {
                     // ------------------------------------------------
 
                     if (
-                        lab &&
-                        slot === '11:30-01:00'
+                        slot ===
+                            '11:30-01:00' &&
+                        lab
                     ) {
 
                         const comment =
                             getDisplayComment(
                                 lab,
-                                currentMode !== 'section',
+                                currentMode !==
+                                    'section',
                                 currentMode
                             );
 
 
-                        wrapper.innerHTML += `
+                        html += `
 
                             <td
-                                rowspan="2"
+                                colspan="2"
                                 style="
-                                    padding:14px;
-                                    border:1px solid #e5e7eb;
-                                    background:#fefce8;
+                                    height:90px;
+                                    padding:9px;
+                                    background:${COLORS.labBg};
+                                    border:1px solid ${COLORS.borderDark};
                                     vertical-align:top;
-                                    text-align:left;
+                                    box-sizing:border-box;
                                 "
                             >
 
                                 <div
                                     style="
-                                        font-weight:800;
-                                        font-size:16px;
-                                        margin-bottom:7px;
+                                        min-height:70px;
+                                        box-sizing:border-box;
+                                        border:1px solid #eadca9;
+                                        border-radius:10px;
+                                        padding:10px;
+                                        background:#fffaf0;
                                     "
                                 >
-                                    ${escapeHtml(
-                                        lab.course
-                                    )}
 
-                                    ${
-                                        comment
-                                            ? `
-                                                <span
-                                                    style="
-                                                        font-size:12px;
-                                                        font-weight:600;
-                                                        color:#64748b;
-                                                    "
-                                                >
-                                                    ${escapeHtml(comment)}
-                                                </span>
-                                              `
-                                            : ''
-                                    }
+                                    <div
+                                        style="
+                                            font-size:15px;
+                                            font-weight:800;
+                                            color:${COLORS.text};
+                                            margin-bottom:5px;
+                                            line-height:1.25;
+                                            word-break:break-word;
+                                        "
+                                    >
 
-                                </div>
+                                        ${escapeHtml(
+                                            lab.course ||
+                                            'N/A'
+                                        )}
+
+                                        ${
+                                            comment
+                                                ? `
+
+                                                    <span
+                                                        style="
+                                                            font-size:11px;
+                                                            color:${COLORS.muted};
+                                                            margin-left:4px;
+                                                        "
+                                                    >
+                                                        ${escapeHtml(
+                                                            comment
+                                                        )}
+                                                    </span>
+
+                                                  `
+                                                : ''
+                                        }
+
+                                    </div>
 
 
-                                <div
-                                    style="
-                                        display:inline-block;
-                                        padding:4px 8px;
-                                        border-radius:999px;
-                                        background:#fef3c7;
-                                        color:#92400e;
-                                        font-size:11px;
-                                        font-weight:800;
-                                        margin-bottom:8px;
-                                    "
-                                >
-                                    LAB
-                                </div>
+                                    <span
+                                        style="
+                                            display:inline-block;
+                                            background:#f9e8ad;
+                                            color:${COLORS.labText};
+                                            border-radius:20px;
+                                            padding:3px 8px;
+                                            font-size:9px;
+                                            font-weight:800;
+                                            margin-bottom:6px;
+                                        "
+                                    >
+                                        LAB
+                                    </span>
 
 
-                                <div
-                                    style="
-                                        font-size:12px;
-                                        line-height:1.6;
-                                        color:#64748b;
-                                    "
-                                >
-                                    ${escapeHtml(
-                                        lab.teacher || '?'
-                                    )}
+                                    <div
+                                        style="
+                                            font-size:11px;
+                                            color:${COLORS.muted};
+                                            line-height:1.5;
+                                        "
+                                    >
 
-                                    <br>
+                                        <b>
+                                            ${escapeHtml(
+                                                lab.teacher ||
+                                                'TBA'
+                                            )}
+                                        </b>
 
-                                    ${escapeHtml(
-                                        lab.room || '?'
-                                    )}
+                                        <br>
+
+                                        ${escapeHtml(
+                                            lab.room ||
+                                            'TBA'
+                                        )}
+
+                                    </div>
 
                                 </div>
 
                             </td>
 
                         `;
+
+
+                        // ------------------------------------------------
+                        // 11:30-01:00 + 01:00-02:30
+                        // ------------------------------------------------
+
+                        skipNextSlot =
+                            true;
+
 
                         return;
 
@@ -4852,140 +6017,26 @@ function createRoutineDownloadCard() {
                     // NORMAL CELL
                     // ------------------------------------------------
 
-                    wrapper.innerHTML += `
+                    const bg =
+                        today
+                            ? COLORS.today
+                            : COLORS.white;
+
+
+                    html += `
 
                         <td
                             style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                background:${
-                                    today
-                                        ? '#f0fdf4'
-                                        : '#ffffff'
-                                };
+                                height:90px;
+                                padding:7px;
+                                background:${bg};
+                                border:1px solid ${COLORS.borderDark};
                                 vertical-align:top;
+                                box-sizing:border-box;
                             "
                         >
 
-                    `;
-
-
-                    items.forEach(
-                        cls => {
-
-                            const isLab =
-                                normalizeClassType(
-                                    cls.type
-                                ) === 'Lab';
-
-
-                            const comment =
-                                getDisplayComment(
-                                    cls,
-                                    currentMode !== 'section',
-                                    currentMode
-                                );
-
-
-                            wrapper.innerHTML += `
-
-                                <div
-                                    style="
-                                        padding:10px;
-                                        margin-bottom:7px;
-                                        border:1px solid #e5e7eb;
-                                        border-radius:10px;
-                                        background:#ffffff;
-                                    "
-                                >
-
-                                    <div
-                                        style="
-                                            font-weight:800;
-                                            font-size:15px;
-                                            margin-bottom:5px;
-                                        "
-                                    >
-
-                                        ${escapeHtml(
-                                            cls.course
-                                        )}
-
-                                        ${
-                                            comment
-                                                ? `
-                                                    <span
-                                                        style="
-                                                            font-size:11px;
-                                                            color:#64748b;
-                                                        "
-                                                    >
-                                                        ${escapeHtml(comment)}
-                                                    </span>
-                                                  `
-                                                : ''
-                                        }
-
-                                    </div>
-
-
-                                    <div
-                                        style="
-                                            display:inline-block;
-                                            padding:3px 7px;
-                                            border-radius:999px;
-                                            background:${
-                                                isLab
-                                                    ? '#fef3c7'
-                                                    : '#dcfce7'
-                                            };
-                                            color:${
-                                                isLab
-                                                    ? '#92400e'
-                                                    : '#166534'
-                                            };
-                                            font-size:10px;
-                                            font-weight:800;
-                                            margin-bottom:5px;
-                                        "
-                                    >
-                                        ${
-                                            isLab
-                                                ? 'LAB'
-                                                : 'THEORY'
-                                        }
-                                    </div>
-
-
-                                    <div
-                                        style="
-                                            font-size:11px;
-                                            color:#64748b;
-                                            line-height:1.5;
-                                        "
-                                    >
-
-                                        ${escapeHtml(
-                                            cls.teacher || '?'
-                                        )}
-
-                                        <br>
-
-                                        ${escapeHtml(
-                                            cls.room || '?'
-                                        )}
-
-                                    </div>
-
-                                </div>
-
-                            `;
-
-                        }
-                    );
-
-
-                    wrapper.innerHTML += `
+                            ${cellContent(items)}
 
                         </td>
 
@@ -4995,9 +6046,9 @@ function createRoutineDownloadCard() {
             );
 
 
-            wrapper.innerHTML += `
+            html += `
 
-                        </tr>
+                </tr>
 
             `;
 
@@ -5005,23 +6056,120 @@ function createRoutineDownloadCard() {
     );
 
 
-    wrapper.innerHTML += `
+    html += `
 
                     </tbody>
 
                 </table>
 
 
+                <!-- =================================================
+                     LEGEND
+                     ================================================= -->
+
                 <div
                     style="
-                        margin-top:25px;
-                        padding-top:18px;
-                        border-top:1px solid #e5e7eb;
+                        display:flex;
+                        align-items:center;
+                        gap:18px;
+                        margin-top:18px;
+                        padding:12px 14px;
+                        background:#f8fafc;
+                        border:1px solid ${COLORS.border};
+                        border-radius:9px;
+                        font-size:11px;
+                        color:${COLORS.muted};
+                    "
+                >
+
+                    <span
+                        style="
+                            display:flex;
+                            align-items:center;
+                            gap:6px;
+                        "
+                    >
+
+                        <span
+                            style="
+                                width:11px;
+                                height:11px;
+                                border-radius:3px;
+                                background:${COLORS.theoryBg};
+                                border:1px solid #c8dafa;
+                                display:inline-block;
+                            "
+                        ></span>
+
+                        Theory
+
+                    </span>
+
+
+                    <span
+                        style="
+                            display:flex;
+                            align-items:center;
+                            gap:6px;
+                        "
+                    >
+
+                        <span
+                            style="
+                                width:11px;
+                                height:11px;
+                                border-radius:3px;
+                                background:${COLORS.labBg};
+                                border:1px solid #eadca9;
+                                display:inline-block;
+                            "
+                        ></span>
+
+                        Lab
+
+                    </span>
+
+
+                    <span
+                        style="
+                            display:flex;
+                            align-items:center;
+                            gap:6px;
+                        "
+                    >
+
+                        <span
+                            style="
+                                width:11px;
+                                height:11px;
+                                border-radius:3px;
+                                background:${COLORS.today};
+                                border:1px solid #bbf7d0;
+                                display:inline-block;
+                            "
+                        ></span>
+
+                        Today
+
+                    </span>
+
+                </div>
+
+
+                <!-- =================================================
+                     FOOTER
+                     ================================================= -->
+
+                <div
+                    style="
                         display:flex;
                         justify-content:space-between;
-                        gap:20px;
-                        font-size:12px;
-                        color:#64748b;
+                        align-items:center;
+                        margin-top:18px;
+                        padding-top:15px;
+                        border-top:1px solid ${COLORS.border};
+                        font-size:10px;
+                        color:${COLORS.muted};
                     "
                 >
 
@@ -5029,9 +6177,11 @@ function createRoutineDownloadCard() {
                         Generated by DIU CSE Routine
                     </span>
 
+
                     <span>
                         ${escapeHtml(
-                            new Date().toLocaleString()
+                            new Date()
+                                .toLocaleString()
                         )}
                     </span>
 
@@ -5042,6 +6192,10 @@ function createRoutineDownloadCard() {
         </div>
 
     `;
+
+
+    wrapper.innerHTML =
+        html;
 
 
     return wrapper;
@@ -5056,7 +6210,10 @@ function createRoutineDownloadCard() {
 function handleClearSection() {
 
     if (sectionInput) {
-        sectionInput.value = '';
+
+        sectionInput.value =
+            '';
+
     }
 
 
@@ -5066,21 +6223,34 @@ function handleClearSection() {
 
 
     if (savedChip) {
-        savedChip.style.display = 'none';
+
+        savedChip.style.display =
+            'none';
+
     }
 
 
     if (savedSectionSpan) {
-        savedSectionSpan.textContent = '';
+
+        savedSectionSpan.textContent =
+            '';
+
     }
 
 
-    currentSearchTerm = '';
-    currentClasses = [];
+    currentSearchTerm =
+        '';
+
+
+    currentClasses =
+        [];
 
 
     if (routineContainer) {
-        routineContainer.innerHTML = '';
+
+        routineContainer.innerHTML =
+            '';
+
     }
 
 
@@ -5108,7 +6278,10 @@ function setStatus(
 ) {
 
     if (statusText) {
-        statusText.textContent = text;
+
+        statusText.textContent =
+            text;
+
     }
 
 
@@ -5121,7 +6294,9 @@ function setStatus(
         );
 
 
-        statusBadge.classList.add(type);
+        statusBadge.classList.add(
+            type
+        );
 
     }
 
@@ -5208,7 +6383,9 @@ function showNoRoutine(
                 "
             >
 
-                <i class="fas fa-calendar-alt"></i>
+                <i
+                    class="fas fa-calendar-alt"
+                ></i>
 
             </div>
 
@@ -5242,14 +6419,33 @@ function showNoRoutine(
 // ESCAPE HTML
 // ============================================================
 
-function escapeHtml(value) {
+function escapeHtml(
+    value
+) {
 
-    return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+    return String(
+        value ?? ''
+    )
+        .replace(
+            /&/g,
+            '&amp;'
+        )
+        .replace(
+            /</g,
+            '&lt;'
+        )
+        .replace(
+            />/g,
+            '&gt;'
+        )
+        .replace(
+            /"/g,
+            '&quot;'
+        )
+        .replace(
+            /'/g,
+            '&#039;'
+        );
 
 }
 
@@ -5258,13 +6454,29 @@ function escapeHtml(value) {
 // ESCAPE ATTRIBUTE
 // ============================================================
 
-function escapeAttribute(value) {
+function escapeAttribute(
+    value
+) {
 
-    return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/"/g, '&quot;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
+    return String(
+        value ?? ''
+    )
+        .replace(
+            /&/g,
+            '&amp;'
+        )
+        .replace(
+            /"/g,
+            '&quot;'
+        )
+        .replace(
+            /</g,
+            '&lt;'
+        )
+        .replace(
+            />/g,
+            '&gt;'
+        );
 
 }
 
@@ -5297,8 +6509,13 @@ setInterval(
             }
 
 
+            // ------------------------------------------------
+            // SECTION
+            // ------------------------------------------------
+
             if (
-                currentMode === 'section'
+                currentMode ===
+                'section'
             ) {
 
                 const saved =
@@ -5309,23 +6526,35 @@ setInterval(
 
                 if (saved) {
 
-                    routineData = null;
+                    routineData =
+                        null;
 
-                    await loadSection(saved);
+
+                    await loadSection(
+                        saved
+                    );
 
                 }
 
             }
 
+
+            // ------------------------------------------------
+            // TEACHER
+            // ------------------------------------------------
+
             else if (
-                currentMode === 'teacher'
+                currentMode ===
+                'teacher'
             ) {
 
                 if (
                     currentSearchTerm
                 ) {
 
-                    routineData = null;
+                    routineData =
+                        null;
+
 
                     await loadTeacher(
                         currentSearchTerm
@@ -5335,15 +6564,23 @@ setInterval(
 
             }
 
+
+            // ------------------------------------------------
+            // ROOM
+            // ------------------------------------------------
+
             else if (
-                currentMode === 'room'
+                currentMode ===
+                'room'
             ) {
 
                 if (
                     currentSearchTerm
                 ) {
 
-                    routineData = null;
+                    routineData =
+                        null;
+
 
                     await loadRoom(
                         currentSearchTerm
@@ -5353,14 +6590,23 @@ setInterval(
 
             }
 
+
+            // ------------------------------------------------
+            // EMPTY ROOM
+            // ------------------------------------------------
+
             else if (
-                currentMode === 'empty-room'
+                currentMode ===
+                'empty-room'
             ) {
 
-                routineData = null;
+                routineData =
+                    null;
+
 
                 await loadEmptyRooms(
-                    sectionInput?.value || ''
+                    sectionInput?.value ||
+                    ''
                 );
 
             }
