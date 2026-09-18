@@ -17,7 +17,7 @@
       "day": "Monday",
       "time": "11:30-01:00",
       "course": "MAT211",
-      "teacher": "MNT_1",
+      "teacher": "JS",
       "room": "ANX1-307",
       "section": "70_Q",
       "sub_section": "Main",
@@ -50,7 +50,7 @@
       "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "11:30-02:30",
       "course": "CSE214",
       "teacher": "TIS",
@@ -62,23 +62,23 @@
       "type": "Lab"
     },
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "BNS101",
-      "teacher": "BNS_4",
-      "room": "ANX1-103",
+      "day": "Sunday",
+      "time": "11:30-02:30",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-008",
       "section": "70_Q",
-      "sub_section": "Main",
+      "sub_section": "2",
       "batch": "70",
       "section_letter": "Q",
-      "type": "Theory"
+      "type": "Lab"
     },
     {
       "day": "Thursday",
       "time": "11:30-01:00",
-      "course": "CSE213",
-      "teacher": "TIS",
-      "room": "KT-217",
+      "course": "MAT211",
+      "teacher": "JS",
+      "room": "ANX1-202",
       "section": "70_Q",
       "sub_section": "Main",
       "batch": "70",
@@ -88,9 +88,9 @@
     {
       "day": "Thursday",
       "time": "01:00-02:30",
-      "course": "MAT211",
-      "teacher": "MNT_1",
-      "room": "ANX1-203",
+      "course": "BNS101",
+      "teacher": "BNS_4",
+      "room": "ANX1-201",
       "section": "70_Q",
       "sub_section": "Main",
       "batch": "70",
@@ -111,15 +111,15 @@
     },
     {
       "day": "Tuesday",
-      "time": "11:30-02:30",
-      "course": "CSE214",
+      "time": "11:30-01:00",
+      "course": "CSE213",
       "teacher": "TIS",
-      "room": "G1-005",
+      "room": "KT-218",
       "section": "70_Q",
-      "sub_section": "2",
+      "sub_section": "Main",
       "batch": "70",
       "section_letter": "Q",
-      "type": "Lab"
+      "type": "Theory"
     }
   ]
 }

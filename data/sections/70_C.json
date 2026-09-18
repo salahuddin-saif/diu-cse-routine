@@ -2,30 +2,6 @@
   "section": "70_C",
   "classes": [
     {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "MAT211",
-      "teacher": "SAR",
-      "room": "ANX1-101",
-      "section": "70_C",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "C",
-      "type": "Theory"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE214",
-      "teacher": "NSL",
-      "room": "G1-016",
-      "section": "70_C",
-      "sub_section": "1",
-      "batch": "70",
-      "section_letter": "C",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE212",
@@ -60,6 +36,30 @@
       "batch": "70",
       "section_letter": "C",
       "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "MAT211",
+      "teacher": "SAR",
+      "room": "ANX1-203",
+      "section": "70_C",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "C",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "FMA",
+      "room": "G1-003",
+      "section": "70_C",
+      "sub_section": "1",
+      "batch": "70",
+      "section_letter": "C",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",
@@ -113,7 +113,7 @@
       "day": "Wednesday",
       "time": "11:30-02:30",
       "course": "CSE214",
-      "teacher": "NSL",
+      "teacher": "FMA",
       "room": "G1-012",
       "section": "70_C",
       "sub_section": "2",

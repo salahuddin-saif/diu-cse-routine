@@ -6,12 +6,12 @@
       "time": "01:00-02:30",
       "course": "CSE113",
       "teacher": "MHN",
-      "room": "KT-305",
+      "room": "KT-510",
       "section": "72_H",
       "sub_section": "Main",
       "batch": "72",
       "section_letter": "H",
-      "type": "Theory"
+      "type": "Lab"
     },
     {
       "day": "Monday",
@@ -38,23 +38,11 @@
       "type": "Theory"
     },
     {
-      "day": "Saturday",
-      "time": "10:00-01:00",
-      "course": "CSE114",
-      "teacher": "MHN",
-      "room": "G1-021",
-      "section": "72_H",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "H",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
-      "time": "10:00-11:30",
+      "time": "08:30-10:00",
       "course": "PHY101",
       "teacher": "SSK",
-      "room": "KT-517(A)",
+      "room": "KT-518",
       "section": "72_H",
       "sub_section": "Main",
       "batch": "72",
@@ -72,6 +60,18 @@
       "batch": "72",
       "section_letter": "H",
       "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-01:00",
+      "course": "CSE114",
+      "teacher": "MHN",
+      "room": "G1-021",
+      "section": "72_H",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "H",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",

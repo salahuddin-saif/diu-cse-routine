@@ -3,9 +3,45 @@
   "classes": [
     {
       "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE113",
+      "teacher": "MSM",
+      "room": "KT-208",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "SMA",
+      "room": "G1-027",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE411",
+      "teacher": "NNM",
+      "room": "KT-307",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Saturday",
       "time": "11:30-01:00",
-      "course": "CSE447",
-      "teacher": "FAF",
+      "course": "CSE411",
+      "teacher": "NNM",
       "room": "KT-307",
       "section": "RE_A",
       "sub_section": "Main",
@@ -15,10 +51,58 @@
     },
     {
       "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE447",
-      "teacher": "FAF",
-      "room": "KT-305",
+      "time": "08:30-10:00",
+      "course": "PHY102",
+      "teacher": "SMA",
+      "room": "ANX1-103",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE311",
+      "teacher": "MHD",
+      "room": "ANX1-207",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE331",
+      "teacher": "SMTS",
+      "room": "KT-517(A)",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "01:00-04:00",
+      "course": "CSE312",
+      "teacher": "NT-8",
+      "room": "G1-006",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE311",
+      "teacher": "MHD",
+      "room": "KT-224",
       "section": "RE_A",
       "sub_section": "Main",
       "batch": "",
@@ -28,14 +112,50 @@
     {
       "day": "Tuesday",
       "time": "02:30-04:00",
-      "course": "CSE491",
-      "teacher": "DM1",
-      "room": "KT-318(A)",
+      "course": "CSE113",
+      "teacher": "MSM",
+      "room": "KT-307",
       "section": "RE_A",
       "sub_section": "Main",
       "batch": "",
       "section_letter": "",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE212",
+      "teacher": "RKR",
+      "room": "KT-518",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE331",
+      "teacher": "SMTS",
+      "room": "KT-517(A)",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE412",
+      "teacher": "NT-7",
+      "room": "G1-008",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -48,6 +168,18 @@
       "batch": "",
       "section_letter": "",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE412",
+      "teacher": "NT-7",
+      "room": "G1-008",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
     }
   ]
 }

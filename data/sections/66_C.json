@@ -2,6 +2,18 @@
   "section": "66_C",
   "classes": [
     {
+      "day": "Monday",
+      "time": "08:30-11:30",
+      "course": "CSE324",
+      "teacher": "FFZ",
+      "room": "G1-012",
+      "section": "66_C",
+      "sub_section": "1",
+      "batch": "66",
+      "section_letter": "C",
+      "type": "Lab"
+    },
+    {
       "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE328",
@@ -29,7 +41,7 @@
       "day": "Thursday",
       "time": "01:00-02:30",
       "course": "CSE323",
-      "teacher": "FFZ",
+      "teacher": "NT-2",
       "room": "KT-318(B)",
       "section": "66_C",
       "sub_section": "Main",
@@ -48,18 +60,6 @@
       "batch": "66",
       "section_letter": "C",
       "type": "Theory"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-11:30",
-      "course": "CSE324",
-      "teacher": "FFZ",
-      "room": "KT-501(B)",
-      "section": "66_C",
-      "sub_section": "1",
-      "batch": "66",
-      "section_letter": "C",
-      "type": "Lab"
     },
     {
       "day": "Tuesday",
@@ -89,7 +89,7 @@
       "day": "Wednesday",
       "time": "01:00-02:30",
       "course": "CSE323",
-      "teacher": "FFZ",
+      "teacher": "NT-2",
       "room": "KT-318(B)",
       "section": "66_C",
       "sub_section": "Main",

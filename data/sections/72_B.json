@@ -20,18 +20,6 @@
       "teacher": "MSM",
       "room": "G1-020",
       "section": "72_B",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE114",
-      "teacher": "MSM",
-      "room": "G1-020",
-      "section": "72_B",
       "sub_section": "2",
       "batch": "72",
       "section_letter": "B",
@@ -72,6 +60,18 @@
       "batch": "72",
       "section_letter": "B",
       "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-02:30",
+      "course": "CSE114",
+      "teacher": "MSM",
+      "room": "G1-020",
+      "section": "72_B",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "B",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",

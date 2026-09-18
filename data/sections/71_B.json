@@ -3,6 +3,18 @@
   "classes": [
     {
       "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "MRIS",
+      "room": "KT-304",
+      "section": "71_B",
+      "sub_section": "Main",
+      "batch": "71",
+      "section_letter": "B",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
       "time": "10:00-11:30",
       "course": "CSE123",
       "teacher": "MSM",
@@ -15,10 +27,22 @@
     },
     {
       "day": "Monday",
-      "time": "02:30-04:00",
+      "time": "11:30-02:30",
+      "course": "PHY103",
+      "teacher": "AAS",
+      "room": "KT-815",
+      "section": "71_B",
+      "sub_section": "1",
+      "batch": "71",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
       "course": "CSE121",
       "teacher": "MRIS",
-      "room": "KT-222",
+      "room": "G1-026",
       "section": "71_B",
       "sub_section": "Main",
       "batch": "71",
@@ -31,18 +55,6 @@
       "course": "CSE123",
       "teacher": "MSM",
       "room": "KT-220",
-      "section": "71_B",
-      "sub_section": "Main",
-      "batch": "71",
-      "section_letter": "B",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "CSE121",
-      "teacher": "MRIS",
-      "room": "G1-027",
       "section": "71_B",
       "sub_section": "Main",
       "batch": "71",
@@ -98,20 +110,8 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
+      "day": "Wednesday",
       "time": "11:30-02:30",
-      "course": "PHY103",
-      "teacher": "AAS",
-      "room": "KT-815",
-      "section": "71_B",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
       "course": "CSE122",
       "teacher": "MRIS",
       "room": "KT-810",
@@ -123,31 +123,7 @@
     },
     {
       "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE124",
-      "teacher": "MSM",
-      "room": "G1-020",
-      "section": "71_B",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE122",
-      "teacher": "MRIS",
-      "room": "KT-810",
-      "section": "71_B",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
+      "time": "08:30-11:30",
       "course": "CSE124",
       "teacher": "MSM",
       "room": "G1-020",

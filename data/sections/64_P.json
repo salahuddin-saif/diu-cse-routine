@@ -14,11 +14,35 @@
       "type": "Lab"
     },
     {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE474",
+      "teacher": "MRH",
+      "room": "KT-504",
+      "section": "64_P",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "P",
+      "type": "Lab"
+    },
+    {
       "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE473",
       "teacher": "GR",
       "room": "KT-303",
+      "section": "64_P",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "P",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE474",
+      "teacher": "MRH",
+      "room": "KT-218",
       "section": "64_P",
       "sub_section": "Main",
       "batch": "64",

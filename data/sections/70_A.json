@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "02:30-04:00",
+      "time": "11:30-01:00",
       "course": "CSE212",
       "teacher": "DMR",
-      "room": "KT-307",
+      "room": "KT-305",
       "section": "70_A",
       "sub_section": "Main",
       "batch": "70",
@@ -27,7 +27,7 @@
     },
     {
       "day": "Monday",
-      "time": "11:30-02:30",
+      "time": "01:00-04:00",
       "course": "CSE214",
       "teacher": "FMA",
       "room": "G1-006",

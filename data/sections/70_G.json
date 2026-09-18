@@ -15,6 +15,18 @@
     },
     {
       "day": "Monday",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "DMR",
+      "room": "KT-307",
+      "section": "70_G",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "G",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
       "time": "11:30-02:30",
       "course": "CSE214",
       "teacher": "SNK",
@@ -63,18 +75,6 @@
     },
     {
       "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE212",
-      "teacher": "DMR",
-      "room": "KT-307",
-      "section": "70_G",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "G",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
       "time": "08:30-11:30",
       "course": "CSE214",
       "teacher": "SNK",
@@ -102,7 +102,7 @@
       "time": "10:00-11:30",
       "course": "MAT211",
       "teacher": "MPL",
-      "room": "ANX1-307",
+      "room": "ANX1-103",
       "section": "70_G",
       "sub_section": "Main",
       "batch": "70",

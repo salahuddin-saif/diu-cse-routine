@@ -30,12 +30,12 @@
       "time": "10:00-11:30",
       "course": "CSE213",
       "teacher": "SS",
-      "room": "KT-216",
+      "room": "KT-510",
       "section": "70_D",
       "sub_section": "Main",
       "batch": "70",
       "section_letter": "D",
-      "type": "Theory"
+      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -55,6 +55,18 @@
       "course": "CSE212",
       "teacher": "SR",
       "room": "KT-219",
+      "section": "70_D",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "D",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "SR",
+      "room": "KT-303",
       "section": "70_D",
       "sub_section": "Main",
       "batch": "70",
@@ -91,18 +103,6 @@
       "course": "MAT211",
       "teacher": "SAR",
       "room": "ANX1-204",
-      "section": "70_D",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "D",
-      "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE212",
-      "teacher": "SR",
-      "room": "KT-517(A)",
       "section": "70_D",
       "sub_section": "Main",
       "batch": "70",

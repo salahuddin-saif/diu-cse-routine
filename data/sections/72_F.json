@@ -75,10 +75,10 @@
     },
     {
       "day": "Sunday",
-      "time": "04:00-05:30",
+      "time": "02:30-04:00",
       "course": "MAT102",
       "teacher": "AKC",
-      "room": "ANX1-101",
+      "room": "ANX1-210",
       "section": "72_F",
       "sub_section": "Main",
       "batch": "72",

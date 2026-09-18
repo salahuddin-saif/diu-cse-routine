@@ -40,9 +40,9 @@
     {
       "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "NDS",
-      "room": "ANX1-204",
+      "course": "BNS101",
+      "teacher": "BNS_1",
+      "room": "ANX1-207",
       "section": "70_K",
       "sub_section": "Main",
       "batch": "70",
@@ -62,6 +62,18 @@
       "type": "Theory"
     },
     {
+      "day": "Sunday",
+      "time": "01:00-02:30",
+      "course": "MAT211",
+      "teacher": "NDS",
+      "room": "ANX1-209",
+      "section": "70_K",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "K",
+      "type": "Theory"
+    },
+    {
       "day": "Thursday",
       "time": "08:30-10:00",
       "course": "CSE213",
@@ -74,32 +86,8 @@
       "type": "Theory"
     },
     {
-      "day": "Thursday",
-      "time": "01:00-02:30",
-      "course": "BNS101",
-      "teacher": "BNS_1",
-      "room": "ANX1-201",
-      "section": "70_K",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "K",
-      "type": "Theory"
-    },
-    {
       "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "MAT211",
-      "teacher": "NDS",
-      "room": "ANX1-103",
-      "section": "70_K",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "K",
-      "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
+      "time": "11:30-01:00",
       "course": "CSE213",
       "teacher": "AGT",
       "room": "KT-513",
@@ -111,10 +99,22 @@
     },
     {
       "day": "Wednesday",
-      "time": "11:30-02:30",
+      "time": "02:30-04:00",
+      "course": "MAT211",
+      "teacher": "NDS",
+      "room": "ANX1-202",
+      "section": "70_K",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "K",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-11:30",
       "course": "CSE214",
       "teacher": "AGT",
-      "room": "G1-005",
+      "room": "G1-002",
       "section": "70_K",
       "sub_section": "1",
       "batch": "70",

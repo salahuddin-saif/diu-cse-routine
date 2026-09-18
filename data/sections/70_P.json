@@ -38,7 +38,7 @@
       "type": "Theory"
     },
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "08:30-11:30",
       "course": "CSE214",
       "teacher": "SFMA",
@@ -65,7 +65,7 @@
       "day": "Thursday",
       "time": "11:30-01:00",
       "course": "MAT211",
-      "teacher": "MNT_1",
+      "teacher": "NDS",
       "room": "ANX1-201",
       "section": "70_P",
       "sub_section": "Main",
@@ -101,7 +101,7 @@
       "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "MAT211",
-      "teacher": "MNT_1",
+      "teacher": "NDS",
       "room": "ANX1-207",
       "section": "70_P",
       "sub_section": "Main",

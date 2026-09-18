@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "10:00-11:30",
+      "time": "11:30-01:00",
       "course": "CSE432",
       "teacher": "FH",
-      "room": "KT-224",
+      "room": "KT-304",
       "section": "65_E",
       "sub_section": "Main",
       "batch": "65",

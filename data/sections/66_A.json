@@ -18,19 +18,19 @@
       "time": "10:00-11:30",
       "course": "CSE323",
       "teacher": "NJO",
-      "room": "KT-513",
+      "room": "KT-208",
       "section": "66_A",
       "sub_section": "Main",
       "batch": "66",
       "section_letter": "A",
-      "type": "Lab"
+      "type": "Theory"
     },
     {
       "day": "Monday",
       "time": "11:30-02:30",
       "course": "CSE324",
       "teacher": "NJO",
-      "room": "G1-022",
+      "room": "G1-014",
       "section": "66_A",
       "sub_section": "1",
       "batch": "66",
@@ -86,18 +86,6 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
-      "time": "01:00-04:00",
-      "course": "CSE324",
-      "teacher": "NJO",
-      "room": "G1-002",
-      "section": "66_A",
-      "sub_section": "2",
-      "batch": "66",
-      "section_letter": "A",
-      "type": "Lab"
-    },
-    {
       "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE323",
@@ -120,6 +108,18 @@
       "batch": "66",
       "section_letter": "A",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-04:00",
+      "course": "CSE324",
+      "teacher": "NJO",
+      "room": "G1-016",
+      "section": "66_A",
+      "sub_section": "2",
+      "batch": "66",
+      "section_letter": "A",
+      "type": "Lab"
     }
   ]
 }

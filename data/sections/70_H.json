@@ -51,10 +51,10 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-11:30",
+      "time": "01:00-04:00",
       "course": "CSE214",
       "teacher": "TAK",
-      "room": "G1-005",
+      "room": "G1-009",
       "section": "70_H",
       "sub_section": "1",
       "batch": "70",

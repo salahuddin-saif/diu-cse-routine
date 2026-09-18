@@ -1,0 +1,53 @@
+{
+  "section": "RE_B(3C.)",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "MAT101",
+      "teacher": "DK",
+      "room": "KT-216",
+      "section": "RE_B(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "02:30-04:00",
+      "course": "MAT102",
+      "teacher": "JS",
+      "room": "KT-219",
+      "section": "RE_B(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "MAT101",
+      "teacher": "DK",
+      "room": "ANX1-401",
+      "section": "RE_B(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "MAT102",
+      "teacher": "JS",
+      "room": "ANX1-204",
+      "section": "RE_B(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

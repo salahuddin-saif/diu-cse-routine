@@ -2,42 +2,6 @@
   "section": "72_R",
   "classes": [
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "ENT_6",
-      "room": "ANX1-210",
-      "section": "72_R",
-      "sub_section": "Main",
-      "batch": "72",
-      "section_letter": "R",
-      "type": "Theory"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-04:00",
-      "course": "PHY101",
-      "teacher": "PNT_2",
-      "room": "KT-223",
-      "section": "72_R",
-      "sub_section": "Main",
-      "batch": "72",
-      "section_letter": "R",
-      "type": "Theory"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE114",
-      "teacher": "MSA",
-      "room": "G1-003",
-      "section": "72_R",
-      "sub_section": "2",
-      "batch": "72",
-      "section_letter": "R",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "MAT102",
@@ -77,13 +41,49 @@
       "day": "Thursday",
       "time": "02:30-04:00",
       "course": "PHY101",
-      "teacher": "PNT_2",
+      "teacher": "MKI",
       "room": "KT-218",
       "section": "72_R",
       "sub_section": "Main",
       "batch": "72",
       "section_letter": "R",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "ENG102",
+      "teacher": "ENT_6",
+      "room": "ANX1-307",
+      "section": "72_R",
+      "sub_section": "Main",
+      "batch": "72",
+      "section_letter": "R",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "PHY101",
+      "teacher": "MKI",
+      "room": "KT-201",
+      "section": "72_R",
+      "sub_section": "Main",
+      "batch": "72",
+      "section_letter": "R",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE114",
+      "teacher": "MSA",
+      "room": "G1-003",
+      "section": "72_R",
+      "sub_section": "2",
+      "batch": "72",
+      "section_letter": "R",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",

@@ -1,0 +1,29 @@
+{
+  "section": "RE_C(3C.)",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "MAT101",
+      "teacher": "DK",
+      "room": "ANX1-403",
+      "section": "RE_C(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "MAT101",
+      "teacher": "DK",
+      "room": "KT-304",
+      "section": "RE_C(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

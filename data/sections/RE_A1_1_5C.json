@@ -1,0 +1,65 @@
+{
+  "section": "RE_A1(1.5C",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE214",
+      "teacher": ") NT-5",
+      "room": "G1-011",
+      "section": "RE_A1(1.5C",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "SE214",
+      "teacher": "NT-5",
+      "room": "G1-011 C",
+      "section": "RE_A1(1.5C",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE224",
+      "teacher": "NT-6",
+      "room": "KT-810",
+      "section": "RE_A1(1.5C",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE222",
+      "teacher": "NT-8",
+      "room": "G1-011",
+      "section": "RE_A1(1.5C",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-02:30",
+      "course": "CSE124",
+      "teacher": "TAR",
+      "room": "G1-021",
+      "section": "RE_A1(1.5C",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    }
+  ]
+}

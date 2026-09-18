@@ -1,0 +1,29 @@
+{
+  "section": "RE_D(3C)",
+  "classes": [
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "CSE113",
+      "teacher": "MA",
+      "room": "KT-307",
+      "section": "RE_D(3C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE113",
+      "teacher": "MA",
+      "room": "KT-224",
+      "section": "RE_D(3C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

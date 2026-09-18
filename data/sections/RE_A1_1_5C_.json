@@ -1,0 +1,41 @@
+{
+  "section": "RE_A1(1.5C)",
+  "classes": [
+    {
+      "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE114",
+      "teacher": "NT-1",
+      "room": "G1-001",
+      "section": "RE_A1(1.5C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE224",
+      "teacher": "NT-6",
+      "room": "KT-810",
+      "section": "RE_A1(1.5C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "04:00-05:30",
+      "course": "CSE222",
+      "teacher": "NT-8",
+      "room": "G1-011",
+      "section": "RE_A1(1.5C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    }
+  ]
+}

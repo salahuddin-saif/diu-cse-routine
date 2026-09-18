@@ -3,7 +3,19 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "11:30-01:00",
+      "time": "08:30-10:00",
+      "course": "CSE316",
+      "teacher": "TAR",
+      "room": "KT-516",
+      "section": "66_D",
+      "sub_section": "Main",
+      "batch": "66",
+      "section_letter": "D",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
       "course": "CSE326",
       "teacher": "MMI",
       "room": "KT-305",
@@ -26,18 +38,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE316",
-      "teacher": "FFN",
-      "room": "KT-307",
-      "section": "66_D",
-      "sub_section": "Main",
-      "batch": "66",
-      "section_letter": "D",
-      "type": "Theory"
-    },
-    {
       "day": "Thursday",
       "time": "02:30-04:00",
       "course": "CSE323",
@@ -51,7 +51,7 @@
     },
     {
       "day": "Thursday",
-      "time": "08:30-11:30",
+      "time": "11:30-02:30",
       "course": "CSE324",
       "teacher": "CSA",
       "room": "KT-503",
@@ -65,7 +65,7 @@
       "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE316",
-      "teacher": "FFN",
+      "teacher": "TAR",
       "room": "KT-304",
       "section": "66_D",
       "sub_section": "Main",

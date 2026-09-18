@@ -5,7 +5,7 @@
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE453",
-      "teacher": "NT-7",
+      "teacher": "EHL",
       "room": "KT-219",
       "section": "65_O",
       "sub_section": "Main",
@@ -17,7 +17,7 @@
       "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE413",
-      "teacher": "NT-5",
+      "teacher": "TAK",
       "room": "KT-218",
       "section": "65_O",
       "sub_section": "Main",
@@ -29,8 +29,8 @@
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE453",
-      "teacher": "NT-7",
-      "room": "KT-510",
+      "teacher": "EHL",
+      "room": "KT-513",
       "section": "65_O",
       "sub_section": "Main",
       "batch": "65",
@@ -40,18 +40,6 @@
     {
       "day": "Sunday",
       "time": "01:00-02:30",
-      "course": "CSE413",
-      "teacher": "NT-5",
-      "room": "KT-222",
-      "section": "65_O",
-      "sub_section": "Main",
-      "batch": "65",
-      "section_letter": "O",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "02:30-04:00",
       "course": "CSE454",
       "teacher": "DMR",
       "room": "KT-307",
@@ -62,16 +50,28 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE454",
-      "teacher": "DMR",
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE413",
+      "teacher": "TAK",
       "room": "KT-305",
       "section": "65_O",
       "sub_section": "Main",
       "batch": "65",
       "section_letter": "O",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "CSE454",
+      "teacher": "DMR",
+      "room": "KT-503",
+      "section": "65_O",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "O",
+      "type": "Lab"
     }
   ]
 }

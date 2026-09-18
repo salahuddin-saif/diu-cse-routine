@@ -50,11 +50,11 @@
       "type": "Theory"
     },
     {
-      "day": "Thursday",
-      "time": "08:30-11:30",
+      "day": "Sunday",
+      "time": "01:00-04:00",
       "course": "CSE114",
       "teacher": "SHR",
-      "room": "G1-021",
+      "room": "G1-010",
       "section": "72_N",
       "sub_section": "1",
       "batch": "72",

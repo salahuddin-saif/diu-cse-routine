@@ -3,7 +3,7 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-11:30",
+      "time": "02:30-05:30",
       "course": "CSE322",
       "teacher": "MIN",
       "room": "G1-002",
@@ -15,10 +15,10 @@
     },
     {
       "day": "Monday",
-      "time": "02:30-05:30",
+      "time": "08:30-11:30",
       "course": "CSE322",
       "teacher": "MIN",
-      "room": "G1-002",
+      "room": "G1-007",
       "section": "67_H",
       "sub_section": "2",
       "batch": "67",
@@ -74,11 +74,11 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
+      "day": "Wednesday",
+      "time": "08:30-10:00",
       "course": "CSE321",
       "teacher": "MIN",
-      "room": "KT-224",
+      "room": "KT-208",
       "section": "67_H",
       "sub_section": "Main",
       "batch": "67",

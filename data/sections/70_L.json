@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "01:00-02:30",
+      "time": "11:30-01:00",
       "course": "BNS101",
       "teacher": "BNS_1",
-      "room": "ANX1-202",
+      "room": "ANX1-101",
       "section": "70_L",
       "sub_section": "Main",
       "batch": "70",

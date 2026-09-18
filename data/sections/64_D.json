@@ -2,6 +2,30 @@
   "section": "64_D",
   "classes": [
     {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE438",
+      "teacher": "HHP",
+      "room": "KT-513",
+      "section": "64_D",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "D",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE437",
+      "teacher": "SBA",
+      "room": "G1-026",
+      "section": "64_D",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "D",
+      "type": "Theory"
+    },
+    {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE438",
@@ -18,31 +42,7 @@
       "time": "11:30-01:00",
       "course": "CSE437",
       "teacher": "SBA",
-      "room": "KT-307",
-      "section": "64_D",
-      "sub_section": "Main",
-      "batch": "64",
-      "section_letter": "D",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE438",
-      "teacher": "HHP",
-      "room": "KT-220",
-      "section": "64_D",
-      "sub_section": "Main",
-      "batch": "64",
-      "section_letter": "D",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE437",
-      "teacher": "SBA",
-      "room": "KT-501(A)",
+      "room": "KT-503",
       "section": "64_D",
       "sub_section": "Main",
       "batch": "64",

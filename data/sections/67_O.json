@@ -75,15 +75,15 @@
     },
     {
       "day": "Tuesday",
-      "time": "01:00-02:30",
+      "time": "02:30-04:00",
       "course": "CSE317",
       "teacher": "RYS",
-      "room": "KT-513",
+      "room": "KT-305",
       "section": "67_O",
       "sub_section": "Main",
       "batch": "67",
       "section_letter": "O",
-      "type": "Lab"
+      "type": "Theory"
     },
     {
       "day": "Tuesday",

@@ -88,8 +88,8 @@
     {
       "day": "Tuesday",
       "time": "08:30-10:00",
-      "course": "CSE321",
-      "teacher": "NHE",
+      "course": "ACT327",
+      "teacher": "FNT_4",
       "room": "KT-318(B)",
       "section": "67_K",
       "sub_section": "Main",
@@ -112,8 +112,8 @@
     {
       "day": "Tuesday",
       "time": "01:00-02:30",
-      "course": "ACT327",
-      "teacher": "FNT_4",
+      "course": "CSE321",
+      "teacher": "NHE",
       "room": "KT-501(A)",
       "section": "67_K",
       "sub_section": "Main",

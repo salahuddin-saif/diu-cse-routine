@@ -74,6 +74,30 @@
       "type": "Theory"
     },
     {
+      "day": "Thursday",
+      "time": "11:30-02:30",
+      "course": "CSE114",
+      "teacher": "SHR",
+      "room": "G1-022",
+      "section": "72_P",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "P",
+      "type": "Lab"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-11:30",
+      "course": "CSE114",
+      "teacher": "SHR",
+      "room": "G1-022",
+      "section": "72_P",
+      "sub_section": "2",
+      "batch": "72",
+      "section_letter": "P",
+      "type": "Lab"
+    },
+    {
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE113",
@@ -96,30 +120,6 @@
       "batch": "72",
       "section_letter": "P",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-02:30",
-      "course": "CSE114",
-      "teacher": "SHR",
-      "room": "G1-022",
-      "section": "72_P",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "P",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-11:30",
-      "course": "CSE114",
-      "teacher": "SHR",
-      "room": "G1-022",
-      "section": "72_P",
-      "sub_section": "2",
-      "batch": "72",
-      "section_letter": "P",
-      "type": "Lab"
     }
   ]
 }

@@ -1,138 +1,53 @@
 {
   "section": "64_N",
-  "batch": "64",
   "classes": [
     {
-      "day": "Saturday",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE451",
+      "teacher": "MRY",
+      "room": "KT-517(A)",
+      "section": "64_N",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
       "time": "11:30-01:00",
-      "course": "CSE453",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "course": "CSE452",
+      "teacher": "MRH",
+      "room": "KT-216",
+      "section": "64_N",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "ECO426",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE454",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
+      "day": "Wednesday",
       "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
+      "course": "CSE451",
+      "teacher": "MRY",
+      "room": "KT-504",
+      "section": "64_N",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE454",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE453",
-      "teacher": "TBA",
-      "room": "TBA",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
+      "day": "Wednesday",
       "time": "11:30-01:00",
-      "course": "CSE453",
-      "teacher": "MRR",
-      "room": "KT-220",
-      "type": "Theory",
+      "course": "CSE452",
+      "teacher": "MRH",
+      "room": "KT-504",
+      "section": "64_N",
+      "sub_section": "Main",
       "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "ECO426",
-      "teacher": "SMS",
-      "room": "KT-224",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE454",
-      "teacher": "DAA",
-      "room": "MHN",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "ECO426",
-      "teacher": "SMS",
-      "room": "KT-218",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE454",
-      "teacher": "DAA",
-      "room": "KT-221",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
-    },
-    {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE453",
-      "teacher": "MRR",
-      "room": "ACC",
-      "type": "Theory",
-      "batch": "64",
-      "section": "N",
-      "sub_section": "Main"
+      "section_letter": "N",
+      "type": "Lab"
     }
   ]
 }

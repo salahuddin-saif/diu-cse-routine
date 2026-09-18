@@ -14,16 +14,16 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE491",
-      "teacher": "DMP",
-      "room": "G1-026",
+      "teacher": "DMU",
+      "room": "KT-513",
       "section": "63_B",
       "sub_section": "Main",
       "batch": "63",
       "section_letter": "B",
-      "type": "Theory"
+      "type": "Lab"
     }
   ]
 }

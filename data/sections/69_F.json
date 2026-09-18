@@ -14,11 +14,11 @@
       "type": "Theory"
     },
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
+      "day": "Monday",
+      "time": "02:30-04:00",
       "course": "AOL101",
       "teacher": "DRAR",
-      "room": "KT-516",
+      "room": "KT-222",
       "section": "69_F",
       "sub_section": "Main",
       "batch": "69",
@@ -26,23 +26,35 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "02:30-05:30",
+      "day": "Monday",
+      "time": "08:30-11:30",
       "course": "CSE216",
       "teacher": "EHL",
       "room": "KT-809",
       "section": "69_F",
-      "sub_section": "1",
+      "sub_section": "2",
       "batch": "69",
       "section_letter": "F",
       "type": "Lab"
     },
     {
-      "day": "Thursday",
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE215",
       "teacher": "EHL",
-      "room": "KT-218",
+      "room": "KT-510",
+      "section": "69_F",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "F",
+      "type": "Lab"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "AOL101",
+      "teacher": "DRAR",
+      "room": "KT-516",
       "section": "69_F",
       "sub_section": "Main",
       "batch": "69",
@@ -74,30 +86,6 @@
       "type": "Lab"
     },
     {
-      "day": "Tuesday",
-      "time": "02:30-05:30",
-      "course": "CSE216",
-      "teacher": "EHL",
-      "room": "KT-809",
-      "section": "69_F",
-      "sub_section": "2",
-      "batch": "69",
-      "section_letter": "F",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "DRAR",
-      "room": "KT-305",
-      "section": "69_F",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "F",
-      "type": "Theory"
-    },
-    {
       "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE221",
@@ -120,6 +108,18 @@
       "batch": "69",
       "section_letter": "F",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-05:30",
+      "course": "CSE216",
+      "teacher": "EHL",
+      "room": "KT-809",
+      "section": "69_F",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "F",
+      "type": "Lab"
     }
   ]
 }

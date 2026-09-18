@@ -3,7 +3,7 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "08:30-10:00",
+      "time": "10:00-11:30",
       "course": "CSE112",
       "teacher": "MHS",
       "room": "KT-513",
@@ -17,7 +17,7 @@
       "day": "Saturday",
       "time": "11:30-01:00",
       "course": "ENG101",
-      "teacher": "ENT_2",
+      "teacher": "PS",
       "room": "ANX1-208",
       "section": "73_Q",
       "sub_section": "Main",
@@ -39,18 +39,6 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
-      "course": "CSE115",
-      "teacher": "MSJ",
-      "room": "ANX1-202",
-      "section": "73_Q",
-      "sub_section": "Main",
-      "batch": "73",
-      "section_letter": "Q",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "MAT101",
       "teacher": "AMN",
@@ -62,10 +50,34 @@
       "type": "Theory"
     },
     {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "CSE112",
+      "teacher": "MHS",
+      "room": "ANX1-307",
+      "section": "73_Q",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "Q",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE115",
+      "teacher": "MSJ",
+      "room": "ANX1-302",
+      "section": "73_Q",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "Q",
+      "type": "Theory"
+    },
+    {
       "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "ENG101",
-      "teacher": "ENT_2",
+      "teacher": "PS",
       "room": "ANX1-210",
       "section": "73_Q",
       "sub_section": "Main",
@@ -79,18 +91,6 @@
       "course": "CSE115",
       "teacher": "MSJ",
       "room": "ANX1-210",
-      "section": "73_Q",
-      "sub_section": "Main",
-      "batch": "73",
-      "section_letter": "Q",
-      "type": "Theory"
-    },
-    {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE112",
-      "teacher": "MHS",
-      "room": "ANX1-202",
       "section": "73_Q",
       "sub_section": "Main",
       "batch": "73",

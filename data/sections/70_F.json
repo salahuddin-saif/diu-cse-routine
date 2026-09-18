@@ -15,12 +15,12 @@
     },
     {
       "day": "Monday",
-      "time": "02:30-05:30",
-      "course": "CSE214",
-      "teacher": "TAK",
-      "room": "G1-004",
+      "time": "02:30-04:00",
+      "course": "CSE213",
+      "teacher": "MUH",
+      "room": "KT-501(A)",
       "section": "70_F",
-      "sub_section": "1",
+      "sub_section": "Main",
       "batch": "70",
       "section_letter": "F",
       "type": "Lab"
@@ -62,30 +62,6 @@
       "type": "Theory"
     },
     {
-      "day": "Thursday",
-      "time": "11:30-01:00",
-      "course": "CSE213",
-      "teacher": "MUH",
-      "room": "KT-514",
-      "section": "70_F",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "F",
-      "type": "Theory"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-11:30",
-      "course": "CSE214",
-      "teacher": "TAK",
-      "room": "G1-003",
-      "section": "70_F",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "F",
-      "type": "Lab"
-    },
-    {
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "MAT211",
@@ -120,6 +96,30 @@
       "batch": "70",
       "section_letter": "F",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-02:30",
+      "course": "CSE214",
+      "teacher": "TAK",
+      "room": "G1-011",
+      "section": "70_F",
+      "sub_section": "1",
+      "batch": "70",
+      "section_letter": "F",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "TAK",
+      "room": "G1-011",
+      "section": "70_F",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "F",
+      "type": "Lab"
     }
   ]
 }

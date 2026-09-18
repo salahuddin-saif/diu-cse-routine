@@ -3,6 +3,42 @@
   "classes": [
     {
       "day": "Monday",
+      "time": "08:30-11:30",
+      "course": "CSE222",
+      "teacher": "ZZM",
+      "room": "G1-013",
+      "section": "69_D",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "D",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "AOL101",
+      "teacher": "MIN",
+      "room": "KT-501(B)",
+      "section": "69_D",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "D",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE221",
+      "teacher": "SZ",
+      "room": "KT-216",
+      "section": "69_D",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "D",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
       "time": "11:30-02:30",
       "course": "CSE222",
       "teacher": "ZZM",
@@ -14,47 +50,11 @@
       "type": "Lab"
     },
     {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "AOL101",
-      "teacher": "MIN",
-      "room": "KT-515",
-      "section": "69_D",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "D",
-      "type": "Theory"
-    },
-    {
-      "day": "Saturday",
-      "time": "11:30-02:30",
-      "course": "CSE222",
-      "teacher": "ZZM",
-      "room": "G1-010",
-      "section": "69_D",
-      "sub_section": "1",
-      "batch": "69",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE221",
-      "teacher": "SZ",
-      "room": "KT-208",
-      "section": "69_D",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "D",
-      "type": "Theory"
-    },
-    {
       "day": "Thursday",
       "time": "11:30-01:00",
       "course": "CSE215",
       "teacher": "NAB",
-      "room": "KT-320",
+      "room": "KT-305",
       "section": "69_D",
       "sub_section": "Main",
       "batch": "69",

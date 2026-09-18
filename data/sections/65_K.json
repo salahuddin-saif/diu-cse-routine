@@ -3,6 +3,18 @@
   "classes": [
     {
       "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE413",
+      "teacher": "TRN",
+      "room": "KT-220",
+      "section": "65_K",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "K",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE441",
       "teacher": "MHD",
@@ -26,22 +38,10 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE413",
-      "teacher": "NT-4",
-      "room": "KT-318(A)",
-      "section": "65_K",
-      "sub_section": "Main",
-      "batch": "65",
-      "section_letter": "K",
-      "type": "Theory"
-    },
-    {
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE413",
-      "teacher": "NT-4",
+      "teacher": "TRN",
       "room": "KT-217",
       "section": "65_K",
       "sub_section": "Main",

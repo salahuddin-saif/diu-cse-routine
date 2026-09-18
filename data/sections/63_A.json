@@ -14,6 +14,18 @@
       "type": "Theory"
     },
     {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE491",
+      "teacher": "DMY",
+      "room": "KT-504",
+      "section": "63_A",
+      "sub_section": "Main",
+      "batch": "63",
+      "section_letter": "A",
+      "type": "Lab"
+    },
+    {
       "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "CSE491",
@@ -26,35 +38,11 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "CSE450",
-      "teacher": "RKR",
-      "room": "KT-518",
-      "section": "63_A",
-      "sub_section": "Main",
-      "batch": "63",
-      "section_letter": "A",
-      "type": "Theory"
-    },
-    {
       "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE491",
       "teacher": "DMP",
       "room": "KT-220",
-      "section": "63_A",
-      "sub_section": "Main",
-      "batch": "63",
-      "section_letter": "A",
-      "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE450",
-      "teacher": "RKR",
-      "room": "KT-518",
       "section": "63_A",
       "sub_section": "Main",
       "batch": "63",

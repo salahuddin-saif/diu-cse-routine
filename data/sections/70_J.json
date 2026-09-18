@@ -17,10 +17,22 @@
       "day": "Monday",
       "time": "08:30-11:30",
       "course": "CSE214",
-      "teacher": "AGT",
+      "teacher": "NT-5",
       "room": "G1-014",
       "section": "70_J",
       "sub_section": "1",
+      "batch": "70",
+      "section_letter": "J",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "02:30-05:30",
+      "course": "CSE214",
+      "teacher": "NT-5",
+      "room": "G1-011",
+      "section": "70_J",
+      "sub_section": "2",
       "batch": "70",
       "section_letter": "J",
       "type": "Lab"
@@ -84,18 +96,6 @@
       "batch": "70",
       "section_letter": "J",
       "type": "Theory"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-11:30",
-      "course": "CSE214",
-      "teacher": "AGT",
-      "room": "G1-010",
-      "section": "70_J",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "J",
-      "type": "Lab"
     },
     {
       "day": "Wednesday",

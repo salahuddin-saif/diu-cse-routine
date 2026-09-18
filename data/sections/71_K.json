@@ -39,7 +39,7 @@
     },
     {
       "day": "Monday",
-      "time": "08:30-11:30",
+      "time": "02:30-05:30",
       "course": "CSE122",
       "teacher": "AKM",
       "room": "KT-810",
@@ -86,30 +86,6 @@
       "type": "Lab"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-11:30",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "G1-008",
-      "section": "71_K",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "K",
-      "type": "Lab"
-    },
-    {
-      "day": "Tuesday",
-      "time": "11:30-02:30",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "G1-008",
-      "section": "71_K",
-      "sub_section": "2",
-      "batch": "71",
-      "section_letter": "K",
-      "type": "Lab"
-    },
-    {
       "day": "Wednesday",
       "time": "10:00-11:30",
       "course": "CSE123",
@@ -144,6 +120,30 @@
       "batch": "71",
       "section_letter": "K",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-11:30",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "G1-008",
+      "section": "71_K",
+      "sub_section": "1",
+      "batch": "71",
+      "section_letter": "K",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-02:30",
+      "course": "CSE124",
+      "teacher": "JHJ",
+      "room": "G1-008",
+      "section": "71_K",
+      "sub_section": "2",
+      "batch": "71",
+      "section_letter": "K",
+      "type": "Lab"
     }
   ]
 }

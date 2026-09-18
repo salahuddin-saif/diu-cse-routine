@@ -14,30 +14,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE222",
-      "teacher": "LAR",
-      "room": "G1-011",
-      "section": "69_K",
-      "sub_section": "1",
-      "batch": "69",
-      "section_letter": "K",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
-      "time": "01:00-04:00",
-      "course": "CSE222",
-      "teacher": "LAR",
-      "room": "G1-011",
-      "section": "69_K",
-      "sub_section": "2",
-      "batch": "69",
-      "section_letter": "K",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE221",
@@ -74,6 +50,30 @@
       "type": "Theory"
     },
     {
+      "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE222",
+      "teacher": "FLA",
+      "room": "KT-510",
+      "section": "69_K",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "K",
+      "type": "Lab"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "CSE216",
+      "teacher": "EEE_3",
+      "room": "SH-105",
+      "section": "69_K",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "K",
+      "type": "Lab"
+    },
+    {
       "day": "Thursday",
       "time": "11:30-01:00",
       "course": "CSE216",
@@ -87,22 +87,10 @@
     },
     {
       "day": "Thursday",
-      "time": "11:30-01:00",
-      "course": "CSE216",
-      "teacher": "EEE_3",
-      "room": "EMBED LAB-KT-301",
-      "section": "69_K",
-      "sub_section": "2",
-      "batch": "69",
-      "section_letter": "K",
-      "type": "Lab"
-    },
-    {
-      "day": "Thursday",
       "time": "01:00-02:30",
       "course": "CSE216",
       "teacher": "EEE_3",
-      "room": "EMBED LAB-KT-301",
+      "room": "SH-105",
       "section": "69_K",
       "sub_section": "1",
       "batch": "69",
@@ -126,7 +114,7 @@
       "time": "04:00-05:30",
       "course": "CSE215",
       "teacher": "EEE_3",
-      "room": "KT-217",
+      "room": "KT-208",
       "section": "69_K",
       "sub_section": "Main",
       "batch": "69",

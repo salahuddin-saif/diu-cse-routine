@@ -2,11 +2,11 @@
   "section": "65_M",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "10:00-11:30",
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE413",
-      "teacher": "NT-4",
-      "room": "KT-218",
+      "teacher": "PB",
+      "room": "KT-222",
       "section": "65_M",
       "sub_section": "Main",
       "batch": "65",
@@ -29,20 +29,8 @@
       "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE453",
-      "teacher": "NT-7",
+      "teacher": "EHL",
       "room": "KT-220",
-      "section": "65_M",
-      "sub_section": "Main",
-      "batch": "65",
-      "section_letter": "M",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE413",
-      "teacher": "NT-4",
-      "room": "KT-219",
       "section": "65_M",
       "sub_section": "Main",
       "batch": "65",
@@ -65,13 +53,25 @@
       "day": "Sunday",
       "time": "02:30-04:00",
       "course": "CSE453",
-      "teacher": "NT-7",
+      "teacher": "EHL",
       "room": "KT-510",
       "section": "65_M",
       "sub_section": "Main",
       "batch": "65",
       "section_letter": "M",
       "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE413",
+      "teacher": "PB",
+      "room": "KT-517(A)",
+      "section": "65_M",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "M",
+      "type": "Theory"
     }
   ]
 }

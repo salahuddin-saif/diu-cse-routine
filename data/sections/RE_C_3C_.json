@@ -1,0 +1,29 @@
+{
+  "section": "RE_C(3C)",
+  "classes": [
+    {
+      "day": "Saturday",
+      "time": "10:00-11:30",
+      "course": "CSE113",
+      "teacher": "MB",
+      "room": "KT-218",
+      "section": "RE_C(3C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE113",
+      "teacher": "MB",
+      "room": "ANX1-102",
+      "section": "RE_C(3C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

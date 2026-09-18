@@ -3,27 +3,27 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "MAT101",
-      "teacher": "NDS",
-      "room": "ANX1-201",
-      "section": "73_L",
-      "sub_section": "Main",
-      "batch": "73",
-      "section_letter": "L",
-      "type": "Theory"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-01:00",
+      "time": "10:00-11:30",
       "course": "CSE112",
       "teacher": "AAK",
-      "room": "KT-501(A)",
+      "room": "KT-513",
       "section": "73_L",
       "sub_section": "Main",
       "batch": "73",
       "section_letter": "L",
       "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "MAT101",
+      "teacher": "AST",
+      "room": "ANX1-403",
+      "section": "73_L",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "L",
+      "type": "Theory"
     },
     {
       "day": "Thursday",
@@ -53,7 +53,7 @@
       "day": "Thursday",
       "time": "01:00-02:30",
       "course": "MAT101",
-      "teacher": "NDS",
+      "teacher": "AST",
       "room": "ANX1-102",
       "section": "73_L",
       "sub_section": "Main",

@@ -3,9 +3,9 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE437",
-      "teacher": "TBA",
+      "time": "08:30-10:00",
+      "course": "CSE438",
+      "teacher": "NT-8",
       "room": "KT-220",
       "section": "64_J",
       "sub_section": "Main",
@@ -14,11 +14,11 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "11:30-01:00",
+      "day": "Tuesday",
+      "time": "08:30-10:00",
       "course": "CSE438",
       "teacher": "NT-8",
-      "room": "KT-221",
+      "room": "KT-222",
       "section": "64_J",
       "sub_section": "Main",
       "batch": "64",
@@ -29,7 +29,7 @@
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE437",
-      "teacher": "TBA",
+      "teacher": "MUM",
       "room": "KT-219",
       "section": "64_J",
       "sub_section": "Main",
@@ -38,11 +38,11 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
-      "time": "11:30-01:00",
-      "course": "CSE438",
-      "teacher": "NT-8",
-      "room": "KT-221",
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE437",
+      "teacher": "MUM",
+      "room": "KT-201",
       "section": "64_J",
       "sub_section": "Main",
       "batch": "64",

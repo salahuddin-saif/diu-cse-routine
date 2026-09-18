@@ -24,18 +24,6 @@
       "batch": "63",
       "section_letter": "H",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE491",
-      "teacher": "DMQ",
-      "room": "KT-219",
-      "section": "63_H",
-      "sub_section": "Main",
-      "batch": "63",
-      "section_letter": "H",
-      "type": "Theory"
     }
   ]
 }
