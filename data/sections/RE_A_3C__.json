@@ -14,6 +14,30 @@
       "type": "Theory"
     },
     {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "ENG101",
+      "teacher": "ENT_8",
+      "room": "ANX1-307",
+      "section": "RE_A(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "ENG101",
+      "teacher": "ENT_8",
+      "room": "ANX1-401",
+      "section": "RE_A(3C.)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
       "day": "Sunday",
       "time": "01:00-02:30",
       "course": "MAT101",

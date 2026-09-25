@@ -4,8 +4,8 @@
     {
       "day": "Monday",
       "time": "01:00-02:30",
-      "course": "CSE326",
-      "teacher": "MMB",
+      "course": "CSE316",
+      "teacher": "MSJ",
       "room": "KT-304",
       "section": "66_H",
       "sub_section": "Main",
@@ -16,18 +16,6 @@
     {
       "day": "Monday",
       "time": "02:30-04:00",
-      "course": "CSE316",
-      "teacher": "MSJ",
-      "room": "KT-513",
-      "section": "66_H",
-      "sub_section": "Main",
-      "batch": "66",
-      "section_letter": "H",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
-      "time": "04:00-05:30",
       "course": "CSE328",
       "teacher": "MAH",
       "room": "KT-219",
@@ -38,11 +26,23 @@
       "type": "Theory"
     },
     {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE326",
+      "teacher": "MMB",
+      "room": "KT-517(A)",
+      "section": "66_H",
+      "sub_section": "Main",
+      "batch": "66",
+      "section_letter": "H",
+      "type": "Theory"
+    },
+    {
       "day": "Saturday",
       "time": "01:00-02:30",
-      "course": "CSE328",
-      "teacher": "MAH",
-      "room": "KT-224",
+      "course": "CSE316",
+      "teacher": "MSJ",
+      "room": "KT-515",
       "section": "66_H",
       "sub_section": "Main",
       "batch": "66",
@@ -52,8 +52,8 @@
     {
       "day": "Saturday",
       "time": "02:30-04:00",
-      "course": "CSE316",
-      "teacher": "MSJ",
+      "course": "CSE328",
+      "teacher": "MAH",
       "room": "KT-224",
       "section": "66_H",
       "sub_section": "Main",

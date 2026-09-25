@@ -62,6 +62,18 @@
       "type": "Theory"
     },
     {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE324",
+      "teacher": "FRN",
+      "room": "G1-014",
+      "section": "66_L",
+      "sub_section": "1",
+      "batch": "66",
+      "section_letter": "L",
+      "type": "Lab"
+    },
+    {
       "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE316",
@@ -108,18 +120,6 @@
       "batch": "66",
       "section_letter": "L",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-11:30",
-      "course": "CSE324",
-      "teacher": "FRN",
-      "room": "G1-014",
-      "section": "66_L",
-      "sub_section": "1",
-      "batch": "66",
-      "section_letter": "L",
-      "type": "Lab"
     }
   ]
 }

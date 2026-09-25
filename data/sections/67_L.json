@@ -2,18 +2,6 @@
   "section": "67_L",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "08:30-11:30",
-      "course": "CSE322",
-      "teacher": "KRY",
-      "room": "G1-007",
-      "section": "67_L",
-      "sub_section": "1",
-      "batch": "67",
-      "section_letter": "L",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE321",
@@ -29,10 +17,22 @@
       "day": "Sunday",
       "time": "04:00-05:30",
       "course": "ACT327",
-      "teacher": "FNT_4",
+      "teacher": "NN",
       "room": "KT-504",
       "section": "67_L",
       "sub_section": "Main",
+      "batch": "67",
+      "section_letter": "L",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "KRY",
+      "room": "G1-007",
+      "section": "67_L",
+      "sub_section": "1",
       "batch": "67",
       "section_letter": "L",
       "type": "Lab"
@@ -65,7 +65,7 @@
       "day": "Thursday",
       "time": "01:00-02:30",
       "course": "ACT327",
-      "teacher": "FNT_4",
+      "teacher": "NN",
       "room": "KT-222",
       "section": "67_L",
       "sub_section": "Main",

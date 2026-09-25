@@ -38,18 +38,6 @@
       "type": "Lab"
     },
     {
-      "day": "Saturday",
-      "time": "01:00-02:30",
-      "course": "CSE215",
-      "teacher": "SRRS",
-      "room": "KT-304",
-      "section": "69_P",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "P",
-      "type": "Theory"
-    },
-    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "AOL101",
@@ -62,11 +50,23 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "CSE215",
+      "teacher": "SRRS",
+      "room": "KT-220",
+      "section": "69_P",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "P",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
       "time": "08:30-11:30",
       "course": "CSE216",
       "teacher": "SRRS",
-      "room": "SH-105",
+      "room": "KT-809",
       "section": "69_P",
       "sub_section": "2",
       "batch": "69",
@@ -84,6 +84,18 @@
       "batch": "69",
       "section_letter": "P",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE222",
+      "teacher": "SRS",
+      "room": "G1-013",
+      "section": "69_P",
+      "sub_section": "2",
+      "batch": "69",
+      "section_letter": "P",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -105,18 +117,6 @@
       "room": "G1-002",
       "section": "69_P",
       "sub_section": "1",
-      "batch": "69",
-      "section_letter": "P",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-02:30",
-      "course": "CSE222",
-      "teacher": "SRS",
-      "room": "G1-013",
-      "section": "69_P",
-      "sub_section": "2",
       "batch": "69",
       "section_letter": "P",
       "type": "Lab"

@@ -39,18 +39,6 @@
     },
     {
       "day": "Saturday",
-      "time": "11:30-01:00",
-      "course": "CSE228",
-      "teacher": "NT-4",
-      "room": "KT-517(A)",
-      "section": "68_N",
-      "sub_section": "Main",
-      "batch": "68",
-      "section_letter": "N",
-      "type": "Theory"
-    },
-    {
-      "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE223",
       "teacher": "RYS",
@@ -62,10 +50,22 @@
       "type": "Theory"
     },
     {
+      "day": "Saturday",
+      "time": "02:30-04:00",
+      "course": "CSE228",
+      "teacher": "SRS",
+      "room": "G1-027",
+      "section": "68_N",
+      "sub_section": "Main",
+      "batch": "68",
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE228",
-      "teacher": "NT-4",
+      "teacher": "SRS",
       "room": "KT-219",
       "section": "68_N",
       "sub_section": "Main",

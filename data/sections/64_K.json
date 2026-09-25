@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "10:00-11:30",
+      "time": "01:00-02:30",
       "course": "CSE443",
       "teacher": "MTN",
-      "room": "KT-208",
+      "room": "KT-218",
       "section": "64_K",
       "sub_section": "Main",
       "batch": "64",

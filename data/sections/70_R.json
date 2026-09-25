@@ -41,7 +41,7 @@
       "day": "Saturday",
       "time": "02:30-04:00",
       "course": "BNS101",
-      "teacher": "BNS_4",
+      "teacher": "ANS",
       "room": "ANX1-102",
       "section": "70_R",
       "sub_section": "Main",
@@ -60,6 +60,30 @@
       "batch": "70",
       "section_letter": "R",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-04:00",
+      "course": "CSE214",
+      "teacher": "MRY",
+      "room": "G1-011",
+      "section": "70_R",
+      "sub_section": "1",
+      "batch": "70",
+      "section_letter": "R",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "MRY",
+      "room": "G1-011",
+      "section": "70_R",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "R",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -89,37 +113,13 @@
       "day": "Wednesday",
       "time": "01:00-02:30",
       "course": "BNS101",
-      "teacher": "BNS_4",
+      "teacher": "ANS",
       "room": "ANX1-401",
       "section": "70_R",
       "sub_section": "Main",
       "batch": "70",
       "section_letter": "R",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "01:00-04:00",
-      "course": "CSE214",
-      "teacher": "MRY",
-      "room": "G1-011",
-      "section": "70_R",
-      "sub_section": "1",
-      "batch": "70",
-      "section_letter": "R",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-11:30",
-      "course": "CSE214",
-      "teacher": "MRY",
-      "room": "G1-011",
-      "section": "70_R",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "R",
-      "type": "Lab"
     }
   ]
 }

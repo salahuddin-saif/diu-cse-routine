@@ -1,0 +1,29 @@
+{
+  "section": "RE_A93C)",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "02:30-04:00",
+      "course": "CSE325",
+      "teacher": "NT-5",
+      "room": "ANX1-209",
+      "section": "RE_A93C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "CSE325",
+      "teacher": "NT-5",
+      "room": "KT-223",
+      "section": "RE_A93C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

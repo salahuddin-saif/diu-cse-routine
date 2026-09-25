@@ -5,7 +5,7 @@
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "ACT327",
-      "teacher": "FNT_2",
+      "teacher": "MML",
       "room": "KT-224",
       "section": "67_D",
       "sub_section": "Main",
@@ -62,22 +62,10 @@
       "type": "Lab"
     },
     {
-      "day": "Thursday",
-      "time": "02:30-05:30",
-      "course": "CSE322",
-      "teacher": "TAA",
-      "room": "G1-002",
-      "section": "67_D",
-      "sub_section": "2",
-      "batch": "67",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
       "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "ACT327",
-      "teacher": "FNT_2",
+      "teacher": "MML",
       "room": "KT-510",
       "section": "67_D",
       "sub_section": "Main",
@@ -120,6 +108,18 @@
       "batch": "67",
       "section_letter": "D",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "TAA",
+      "room": "G1-010",
+      "section": "67_D",
+      "sub_section": "2",
+      "batch": "67",
+      "section_letter": "D",
+      "type": "Lab"
     }
   ]
 }

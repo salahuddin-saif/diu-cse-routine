@@ -26,18 +26,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "PHY103",
-      "teacher": "AAS",
-      "room": "KT-815",
-      "section": "71_B",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE121",
@@ -75,18 +63,6 @@
     },
     {
       "day": "Thursday",
-      "time": "11:30-02:30",
-      "course": "CSE122",
-      "teacher": "MRIS",
-      "room": "KT-809",
-      "section": "71_B",
-      "sub_section": "2",
-      "batch": "71",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
-      "day": "Thursday",
       "time": "08:30-11:30",
       "course": "PHY103",
       "teacher": "AAS",
@@ -110,6 +86,30 @@
       "type": "Theory"
     },
     {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE124",
+      "teacher": "MSM",
+      "room": "G1-020",
+      "section": "71_B",
+      "sub_section": "2",
+      "batch": "71",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "PHY103",
+      "teacher": "AAS",
+      "room": "KT-815",
+      "section": "71_B",
+      "sub_section": "1",
+      "batch": "71",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
       "day": "Wednesday",
       "time": "11:30-02:30",
       "course": "CSE122",
@@ -123,24 +123,24 @@
     },
     {
       "day": "Wednesday",
-      "time": "08:30-11:30",
-      "course": "CSE124",
-      "teacher": "MSM",
-      "room": "G1-020",
+      "time": "11:30-02:30",
+      "course": "CSE122",
+      "teacher": "MRIS",
+      "room": "KT-809",
       "section": "71_B",
-      "sub_section": "1",
+      "sub_section": "2",
       "batch": "71",
       "section_letter": "B",
       "type": "Lab"
     },
     {
       "day": "Wednesday",
-      "time": "11:30-02:30",
+      "time": "08:30-11:30",
       "course": "CSE124",
       "teacher": "MSM",
       "room": "G1-020",
       "section": "71_B",
-      "sub_section": "2",
+      "sub_section": "1",
       "batch": "71",
       "section_letter": "B",
       "type": "Lab"

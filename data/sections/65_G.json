@@ -38,11 +38,11 @@
       "type": "Theory"
     },
     {
-      "day": "Thursday",
-      "time": "01:00-02:30",
+      "day": "Wednesday",
+      "time": "08:30-10:00",
       "course": "CSE413",
       "teacher": "TRN",
-      "room": "KT-517(A)",
+      "room": "KT-220",
       "section": "65_G",
       "sub_section": "Main",
       "batch": "65",

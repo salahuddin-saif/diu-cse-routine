@@ -1,0 +1,17 @@
+{
+  "section": "63_RE_B",
+  "classes": [
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMD",
+      "room": "KT-501(B)",
+      "section": "63_RE_B",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    }
+  ]
+}

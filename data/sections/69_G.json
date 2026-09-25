@@ -26,7 +26,7 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Monday",
       "time": "08:30-11:30",
       "course": "CSE222",
       "teacher": "LAR",
@@ -38,8 +38,8 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
-      "time": "11:30-02:30",
+      "day": "Monday",
+      "time": "01:00-04:00",
       "course": "CSE222",
       "teacher": "LAR",
       "room": "G1-013",
@@ -50,23 +50,23 @@
       "type": "Lab"
     },
     {
-      "day": "Thursday",
+      "day": "Sunday",
       "time": "11:30-01:00",
       "course": "AOL101",
       "teacher": "UH",
-      "room": "KT-318(B)",
+      "room": "KT-513",
       "section": "69_G",
       "sub_section": "Main",
       "batch": "69",
       "section_letter": "G",
-      "type": "Theory"
+      "type": "Lab"
     },
     {
       "day": "Thursday",
-      "time": "08:30-11:30",
+      "time": "11:30-02:30",
       "course": "CSE216",
       "teacher": "MRH",
-      "room": "KT-809",
+      "room": "SH-105",
       "section": "69_G",
       "sub_section": "1",
       "batch": "69",
@@ -87,6 +87,18 @@
     },
     {
       "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE215",
+      "teacher": "MRH",
+      "room": "KT-208",
+      "section": "69_G",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "G",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
       "time": "10:00-11:30",
       "course": "CSE221",
       "teacher": "SZ",
@@ -103,18 +115,6 @@
       "course": "AOL101",
       "teacher": "UH",
       "room": "KT-217",
-      "section": "69_G",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "G",
-      "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "02:30-04:00",
-      "course": "CSE215",
-      "teacher": "MRH",
-      "room": "KT-222",
       "section": "69_G",
       "sub_section": "Main",
       "batch": "69",

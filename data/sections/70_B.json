@@ -50,23 +50,23 @@
       "type": "Lab"
     },
     {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "BNS101",
-      "teacher": "SMN",
-      "room": "KT-513",
-      "section": "70_B",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE213",
       "teacher": "SMAH",
       "room": "KT-208",
+      "section": "70_B",
+      "sub_section": "Main",
+      "batch": "70",
+      "section_letter": "B",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "BNS101",
+      "teacher": "SMN",
+      "room": "ANX1-203",
       "section": "70_B",
       "sub_section": "Main",
       "batch": "70",
@@ -110,7 +110,7 @@
       "type": "Theory"
     },
     {
-      "day": "Wednesday",
+      "day": "Tuesday",
       "time": "08:30-11:30",
       "course": "CSE214",
       "teacher": "SNK",

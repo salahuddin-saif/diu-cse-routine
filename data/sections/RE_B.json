@@ -2,11 +2,23 @@
   "section": "RE_B",
   "classes": [
     {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "DMD",
-      "room": "G1-027",
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "STA101",
+      "teacher": "AST",
+      "room": "ANX1-202",
+      "section": "RE_B",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00-11:30",
+      "course": "STA101",
+      "teacher": "AST",
+      "room": "ANX1-401",
       "section": "RE_B",
       "sub_section": "Main",
       "batch": "",

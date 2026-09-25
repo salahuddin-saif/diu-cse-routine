@@ -14,6 +14,30 @@
       "type": "Theory"
     },
     {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE215",
+      "teacher": "BM",
+      "room": "KT-223",
+      "section": "69_E",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "E",
+      "type": "Theory"
+    },
+    {
+      "day": "Saturday",
+      "time": "01:00-02:30",
+      "course": "AOL101",
+      "teacher": "UH",
+      "room": "KT-303",
+      "section": "69_E",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "E",
+      "type": "Theory"
+    },
+    {
       "day": "Saturday",
       "time": "02:30-05:30",
       "course": "CSE222",
@@ -27,51 +51,15 @@
     },
     {
       "day": "Sunday",
-      "time": "04:00-05:30",
-      "course": "CSE221",
-      "teacher": "AUA",
-      "room": "KT-222",
-      "section": "69_E",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "E",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-02:30",
+      "time": "08:30-11:30",
       "course": "CSE222",
       "teacher": "AUA",
-      "room": "G1-016",
+      "room": "G1-012",
       "section": "69_E",
       "sub_section": "2",
       "batch": "69",
       "section_letter": "E",
       "type": "Lab"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "UH",
-      "room": "KT-515",
-      "section": "69_E",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "E",
-      "type": "Theory"
-    },
-    {
-      "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "CSE215",
-      "teacher": "BM",
-      "room": "KT-515",
-      "section": "69_E",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "E",
-      "type": "Theory"
     },
     {
       "day": "Thursday",
@@ -86,13 +74,25 @@
       "type": "Lab"
     },
     {
-      "day": "Tuesday",
-      "time": "02:30-05:30",
+      "day": "Thursday",
+      "time": "08:30-11:30",
       "course": "CSE216",
       "teacher": "BM",
       "room": "SH-105",
       "section": "69_E",
       "sub_section": "2",
+      "batch": "69",
+      "section_letter": "E",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-01:00",
+      "course": "CSE221",
+      "teacher": "AUA",
+      "room": "KT-501(A)",
+      "section": "69_E",
+      "sub_section": "Main",
       "batch": "69",
       "section_letter": "E",
       "type": "Lab"

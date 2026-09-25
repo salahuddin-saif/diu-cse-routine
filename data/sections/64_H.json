@@ -2,11 +2,11 @@
   "section": "64_H",
   "classes": [
     {
-      "day": "Monday",
-      "time": "08:30-10:00",
+      "day": "Saturday",
+      "time": "01:00-02:30",
       "course": "CSE438",
       "teacher": "HMK",
-      "room": "KT-201",
+      "room": "G1-027",
       "section": "64_H",
       "sub_section": "Main",
       "batch": "64",
@@ -14,11 +14,11 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "01:00-02:30",
+      "day": "Saturday",
+      "time": "02:30-04:00",
       "course": "CSE437",
       "teacher": "MSS",
-      "room": "KT-501(A)",
+      "room": "KT-504",
       "section": "64_H",
       "sub_section": "Main",
       "batch": "64",

@@ -27,15 +27,27 @@
     },
     {
       "day": "Monday",
-      "time": "02:30-05:30",
+      "time": "08:30-11:30",
       "course": "CSE222",
       "teacher": "MTN",
-      "room": "G1-003",
+      "room": "G1-006",
       "section": "69_B",
       "sub_section": "1",
       "batch": "69",
       "section_letter": "B",
       "type": "Lab"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE221",
+      "teacher": "MTN",
+      "room": "KT-517(A)",
+      "section": "69_B",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "B",
+      "type": "Theory"
     },
     {
       "day": "Saturday",
@@ -74,19 +86,7 @@
       "type": "Lab"
     },
     {
-      "day": "Tuesday",
-      "time": "01:00-02:30",
-      "course": "CSE221",
-      "teacher": "MTN",
-      "room": "KT-219",
-      "section": "69_B",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "B",
-      "type": "Theory"
-    },
-    {
-      "day": "Tuesday",
+      "day": "Sunday",
       "time": "02:30-05:30",
       "course": "CSE222",
       "teacher": "MTN",

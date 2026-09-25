@@ -15,9 +15,21 @@
     },
     {
       "day": "Monday",
+      "time": "11:30-02:30",
+      "course": "CSE114",
+      "teacher": "MIH",
+      "room": "G1-011",
+      "section": "72_G",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "G",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
       "time": "08:30-11:30",
       "course": "CSE114",
-      "teacher": "NT-1",
+      "teacher": "MIH",
       "room": "G1-009",
       "section": "72_G",
       "sub_section": "2",
@@ -60,18 +72,6 @@
       "batch": "72",
       "section_letter": "G",
       "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-02:30",
-      "course": "CSE114",
-      "teacher": "NT-1",
-      "room": "G1-011",
-      "section": "72_G",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "G",
-      "type": "Lab"
     },
     {
       "day": "Tuesday",

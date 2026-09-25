@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Saturday",
-      "time": "01:00-02:30",
+      "time": "10:00-11:30",
       "course": "CSE113",
       "teacher": "MA",
-      "room": "KT-307",
+      "room": "KT-304",
       "section": "RE_D(3C)",
       "sub_section": "Main",
       "batch": "",
@@ -14,11 +14,11 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
+      "day": "Sunday",
+      "time": "01:00-02:30",
       "course": "CSE113",
       "teacher": "MA",
-      "room": "KT-224",
+      "room": "KT-306",
       "section": "RE_D(3C)",
       "sub_section": "Main",
       "batch": "",

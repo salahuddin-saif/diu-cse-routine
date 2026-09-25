@@ -1,0 +1,65 @@
+{
+  "section": "RE_A(2C)",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE421",
+      "teacher": "NT-2",
+      "room": "ANX1-204",
+      "section": "RE_A(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "CSE223",
+      "teacher": "NT-2",
+      "room": "KT-514",
+      "section": "RE_A(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-10:00",
+      "course": "CSE421",
+      "teacher": "NT-2",
+      "room": "ANX1-203",
+      "section": "RE_A(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE222",
+      "teacher": "NT-9",
+      "room": "G1-012",
+      "section": "RE_A(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "10:00-11:30",
+      "course": "CSE223",
+      "teacher": "NT-2",
+      "room": "ANX1-209",
+      "section": "RE_A(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

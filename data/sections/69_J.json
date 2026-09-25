@@ -27,6 +27,18 @@
     },
     {
       "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE216",
+      "teacher": "MLR",
+      "room": "SH-105",
+      "section": "69_J",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "J",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
       "time": "11:30-02:30",
       "course": "CSE216",
       "teacher": "MLR",
@@ -51,27 +63,27 @@
     },
     {
       "day": "Thursday",
-      "time": "11:30-02:30",
-      "course": "CSE216",
-      "teacher": "MLR",
-      "room": "SH-105",
-      "section": "69_J",
-      "sub_section": "1",
-      "batch": "69",
-      "section_letter": "J",
-      "type": "Lab"
-    },
-    {
-      "day": "Tuesday",
-      "time": "04:00-05:30",
+      "time": "10:00-11:30",
       "course": "CSE221",
       "teacher": "PPC",
-      "room": "KT-216",
+      "room": "KT-516",
       "section": "69_J",
       "sub_section": "Main",
       "batch": "69",
       "section_letter": "J",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE222",
+      "teacher": "PPC",
+      "room": "G1-010",
+      "section": "69_J",
+      "sub_section": "2",
+      "batch": "69",
+      "section_letter": "J",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -105,18 +117,6 @@
       "room": "G1-016",
       "section": "69_J",
       "sub_section": "1",
-      "batch": "69",
-      "section_letter": "J",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-02:30",
-      "course": "CSE222",
-      "teacher": "PPC",
-      "room": "G1-010",
-      "section": "69_J",
-      "sub_section": "2",
       "batch": "69",
       "section_letter": "J",
       "type": "Lab"

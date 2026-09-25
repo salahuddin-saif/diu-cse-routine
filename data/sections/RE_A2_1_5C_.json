@@ -3,9 +3,21 @@
   "classes": [
     {
       "day": "Monday",
+      "time": "08:30-11:30",
+      "course": "CSE114",
+      "teacher": "NT-1",
+      "room": "G1-021",
+      "section": "RE_A2(1.5C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
       "time": "11:30-02:30",
       "course": "CSE124",
-      "teacher": "NT-7",
+      "teacher": "YI",
       "room": "G1-003",
       "section": "RE_A2(1.5C)",
       "sub_section": "Main",
@@ -14,11 +26,11 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
-      "time": "08:30-11:30",
-      "course": "CSE114",
+      "day": "Monday",
+      "time": "02:30-05:30",
+      "course": "CSE214",
       "teacher": "NT-1",
-      "room": "G1-021",
+      "room": "G1-011",
       "section": "RE_A2(1.5C)",
       "sub_section": "Main",
       "batch": "",

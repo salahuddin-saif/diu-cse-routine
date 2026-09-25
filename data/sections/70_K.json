@@ -17,7 +17,7 @@
       "day": "Monday",
       "time": "04:00-05:30",
       "course": "BNS101",
-      "teacher": "BNS_1",
+      "teacher": "MAA",
       "room": "ANX1-102",
       "section": "70_K",
       "sub_section": "Main",
@@ -26,22 +26,10 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE214",
-      "teacher": "AGT",
-      "room": "G1-017",
-      "section": "70_K",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "K",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "BNS101",
-      "teacher": "BNS_1",
+      "teacher": "MAA",
       "room": "ANX1-207",
       "section": "70_K",
       "sub_section": "Main",
@@ -84,6 +72,18 @@
       "batch": "70",
       "section_letter": "K",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE214",
+      "teacher": "AGT",
+      "room": "G1-017",
+      "section": "70_K",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "K",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",

@@ -16,8 +16,8 @@
     {
       "day": "Monday",
       "time": "02:30-04:00",
-      "course": "CSE453",
-      "teacher": "EHL",
+      "course": "CSE413",
+      "teacher": "TAK",
       "room": "KT-504",
       "section": "65_N",
       "sub_section": "Main",
@@ -28,9 +28,9 @@
     {
       "day": "Monday",
       "time": "04:00-05:30",
-      "course": "CSE413",
-      "teacher": "TAK",
-      "room": "KT-216",
+      "course": "CSE453",
+      "teacher": "EHL",
+      "room": "KT-318(B)",
       "section": "65_N",
       "sub_section": "Main",
       "batch": "65",

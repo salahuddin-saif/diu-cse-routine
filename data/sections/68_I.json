@@ -26,18 +26,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE224",
-      "teacher": "ZMK",
-      "room": "EMBED LAB-KT-301",
-      "section": "68_I",
-      "sub_section": "2",
-      "batch": "68",
-      "section_letter": "I",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE228",
@@ -78,12 +66,24 @@
       "time": "02:30-04:00",
       "course": "CSE228",
       "teacher": "LAR",
-      "room": "KT-220",
+      "room": "KT-221",
       "section": "68_I",
       "sub_section": "Main",
       "batch": "68",
       "section_letter": "I",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE224",
+      "teacher": "ZMK",
+      "room": "EMBED LAB-KT-301",
+      "section": "68_I",
+      "sub_section": "2",
+      "batch": "68",
+      "section_letter": "I",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",

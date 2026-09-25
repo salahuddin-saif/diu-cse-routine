@@ -63,10 +63,10 @@
     },
     {
       "day": "Sunday",
-      "time": "02:30-04:00",
+      "time": "04:00-05:30",
       "course": "CSE413",
       "teacher": "MAIT",
-      "room": "KT-223",
+      "room": "KT-516",
       "section": "65_J",
       "sub_section": "Main",
       "batch": "65",

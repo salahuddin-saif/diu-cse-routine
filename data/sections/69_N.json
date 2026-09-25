@@ -3,7 +3,7 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "02:30-04:00",
+      "time": "04:00-05:30",
       "course": "CSE221",
       "teacher": "MIZ",
       "room": "KT-219",
@@ -38,18 +38,6 @@
       "type": "Lab"
     },
     {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "CSE221",
-      "teacher": "MIZ",
-      "room": "KT-218",
-      "section": "69_N",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "N",
-      "type": "Theory"
-    },
-    {
       "day": "Sunday",
       "time": "11:30-02:30",
       "course": "CSE222",
@@ -60,30 +48,6 @@
       "batch": "69",
       "section_letter": "N",
       "type": "Lab"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE215",
-      "teacher": "MLR",
-      "room": "KT-320",
-      "section": "69_N",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "N",
-      "type": "Theory"
-    },
-    {
-      "day": "Thursday",
-      "time": "10:00-11:30",
-      "course": "AOL101",
-      "teacher": "NNT",
-      "room": "KT-320",
-      "section": "69_N",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "N",
-      "type": "Theory"
     },
     {
       "day": "Thursday",
@@ -98,6 +62,30 @@
       "type": "Lab"
     },
     {
+      "day": "Tuesday",
+      "time": "11:30-01:00",
+      "course": "AOL101",
+      "teacher": "NNT",
+      "room": "KT-220",
+      "section": "69_N",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-02:30",
+      "course": "CSE221",
+      "teacher": "MIZ",
+      "room": "KT-219",
+      "section": "69_N",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
       "day": "Wednesday",
       "time": "01:00-02:30",
       "course": "AOL101",
@@ -108,6 +96,18 @@
       "batch": "69",
       "section_letter": "N",
       "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE215",
+      "teacher": "MLR",
+      "room": "KT-222",
+      "section": "69_N",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "N",
+      "type": "Theory"
     },
     {
       "day": "Wednesday",

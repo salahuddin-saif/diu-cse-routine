@@ -1,0 +1,17 @@
+{
+  "section": "RE_A1(2C)",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "11:30-02:30",
+      "course": "CSE422",
+      "teacher": "NT-2",
+      "room": "G1-012",
+      "section": "RE_A1(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    }
+  ]
+}

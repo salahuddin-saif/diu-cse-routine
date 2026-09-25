@@ -2,23 +2,11 @@
   "section": "69_I",
   "classes": [
     {
-      "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "CSE221",
-      "teacher": "MIZ",
-      "room": "KT-217",
-      "section": "69_I",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "I",
-      "type": "Theory"
-    },
-    {
       "day": "Saturday",
-      "time": "02:30-04:00",
+      "time": "10:00-11:30",
       "course": "CSE221",
       "teacher": "MIZ",
-      "room": "KT-501(B)",
+      "room": "KT-501(A)",
       "section": "69_I",
       "sub_section": "Main",
       "batch": "69",
@@ -27,10 +15,10 @@
     },
     {
       "day": "Saturday",
-      "time": "04:00-05:30",
+      "time": "11:30-01:00",
       "course": "AOL101",
       "teacher": "TRN",
-      "room": "KT-222",
+      "room": "KT-320",
       "section": "69_I",
       "sub_section": "Main",
       "batch": "69",
@@ -38,23 +26,11 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "AOL101",
-      "teacher": "TRN",
-      "room": "KT-219",
-      "section": "69_I",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "I",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-02:30",
+      "day": "Saturday",
+      "time": "02:30-05:30",
       "course": "CSE222",
       "teacher": "MIZ",
-      "room": "G1-006",
+      "room": "KT-501(B)",
       "section": "69_I",
       "sub_section": "1",
       "batch": "69",
@@ -99,10 +75,10 @@
     },
     {
       "day": "Wednesday",
-      "time": "04:00-05:30",
+      "time": "08:30-10:00",
       "course": "CSE215",
       "teacher": "NUM",
-      "room": "KT-303",
+      "room": "G1-027",
       "section": "69_I",
       "sub_section": "Main",
       "batch": "69",
@@ -111,15 +87,27 @@
     },
     {
       "day": "Wednesday",
-      "time": "11:30-02:30",
-      "course": "CSE222",
+      "time": "10:00-11:30",
+      "course": "CSE221",
       "teacher": "MIZ",
-      "room": "G1-014",
+      "room": "KT-510",
       "section": "69_I",
-      "sub_section": "2",
+      "sub_section": "Main",
       "batch": "69",
       "section_letter": "I",
       "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-02:30",
+      "course": "AOL101",
+      "teacher": "TRN",
+      "room": "ANX1-210",
+      "section": "69_I",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "I",
+      "type": "Theory"
     }
   ]
 }

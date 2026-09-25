@@ -26,6 +26,18 @@
       "type": "Theory"
     },
     {
+      "day": "Monday",
+      "time": "08:30-11:30",
+      "course": "CSE114",
+      "teacher": "MB",
+      "room": "G1-020",
+      "section": "72_I",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "I",
+      "type": "Lab"
+    },
+    {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "PHY101",
@@ -62,18 +74,6 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "08:30-11:30",
-      "course": "CSE114",
-      "teacher": "MB",
-      "room": "G1-020",
-      "section": "72_I",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "I",
-      "type": "Lab"
-    },
-    {
       "day": "Tuesday",
       "time": "01:00-02:30",
       "course": "CSE113",
@@ -84,6 +84,18 @@
       "batch": "72",
       "section_letter": "I",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE114",
+      "teacher": "MB",
+      "room": "G1-020",
+      "section": "72_I",
+      "sub_section": "2",
+      "batch": "72",
+      "section_letter": "I",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -108,18 +120,6 @@
       "batch": "72",
       "section_letter": "I",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-11:30",
-      "course": "CSE114",
-      "teacher": "MB",
-      "room": "G1-020",
-      "section": "72_I",
-      "sub_section": "2",
-      "batch": "72",
-      "section_letter": "I",
-      "type": "Lab"
     }
   ]
 }

@@ -41,7 +41,7 @@
       "day": "Sunday",
       "time": "02:30-04:00",
       "course": "ENG102",
-      "teacher": "ENT_6",
+      "teacher": "SWR",
       "room": "ANX1-203",
       "section": "72_P",
       "sub_section": "Main",
@@ -65,37 +65,13 @@
       "day": "Thursday",
       "time": "01:00-02:30",
       "course": "ENG102",
-      "teacher": "ENT_6",
+      "teacher": "SWR",
       "room": "ANX1-103",
       "section": "72_P",
       "sub_section": "Main",
       "batch": "72",
       "section_letter": "P",
       "type": "Theory"
-    },
-    {
-      "day": "Thursday",
-      "time": "11:30-02:30",
-      "course": "CSE114",
-      "teacher": "SHR",
-      "room": "G1-022",
-      "section": "72_P",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "P",
-      "type": "Lab"
-    },
-    {
-      "day": "Thursday",
-      "time": "08:30-11:30",
-      "course": "CSE114",
-      "teacher": "SHR",
-      "room": "G1-022",
-      "section": "72_P",
-      "sub_section": "2",
-      "batch": "72",
-      "section_letter": "P",
-      "type": "Lab"
     },
     {
       "day": "Tuesday",
@@ -120,6 +96,30 @@
       "batch": "72",
       "section_letter": "P",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "11:30-02:30",
+      "course": "CSE114",
+      "teacher": "SHR",
+      "room": "G1-022",
+      "section": "72_P",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "P",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-11:30",
+      "course": "CSE114",
+      "teacher": "SHR",
+      "room": "G1-022",
+      "section": "72_P",
+      "sub_section": "2",
+      "batch": "72",
+      "section_letter": "P",
+      "type": "Lab"
     }
   ]
 }

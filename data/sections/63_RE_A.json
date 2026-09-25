@@ -1,0 +1,29 @@
+{
+  "section": "63_RE_A",
+  "classes": [
+    {
+      "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMT",
+      "room": "KT-518",
+      "section": "63_RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-10:00",
+      "course": "CSE491",
+      "teacher": "DMT",
+      "room": "KT-510",
+      "section": "63_RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    }
+  ]
+}

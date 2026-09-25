@@ -74,6 +74,18 @@
       "type": "Theory"
     },
     {
+      "day": "Tuesday",
+      "time": "02:30-05:30",
+      "course": "CSE114",
+      "teacher": "MAIT",
+      "room": "G1-018",
+      "section": "72_M",
+      "sub_section": "2",
+      "batch": "72",
+      "section_letter": "M",
+      "type": "Lab"
+    },
+    {
       "day": "Wednesday",
       "time": "10:00-11:30",
       "course": "ENG102",
@@ -105,18 +117,6 @@
       "room": "G1-014",
       "section": "72_M",
       "sub_section": "1",
-      "batch": "72",
-      "section_letter": "M",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-11:30",
-      "course": "CSE114",
-      "teacher": "MAIT",
-      "room": "G1-018",
-      "section": "72_M",
-      "sub_section": "2",
       "batch": "72",
       "section_letter": "M",
       "type": "Lab"

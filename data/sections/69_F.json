@@ -26,18 +26,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE216",
-      "teacher": "EHL",
-      "room": "KT-809",
-      "section": "69_F",
-      "sub_section": "2",
-      "batch": "69",
-      "section_letter": "F",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE215",
@@ -79,6 +67,18 @@
       "course": "CSE222",
       "teacher": "ZZM",
       "room": "G1-005",
+      "section": "69_F",
+      "sub_section": "2",
+      "batch": "69",
+      "section_letter": "F",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE216",
+      "teacher": "EHL",
+      "room": "KT-809",
       "section": "69_F",
       "sub_section": "2",
       "batch": "69",

@@ -27,18 +27,6 @@
     },
     {
       "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE216",
-      "teacher": "MSU",
-      "room": "KT-809",
-      "section": "69_A",
-      "sub_section": "1",
-      "batch": "69",
-      "section_letter": "A",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
       "time": "08:30-11:30",
       "course": "CSE216",
       "teacher": "MSU",
@@ -67,6 +55,18 @@
       "course": "CSE222",
       "teacher": "SEA",
       "room": "G1-008",
+      "section": "69_A",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "A",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE216",
+      "teacher": "MSU",
+      "room": "KT-809",
       "section": "69_A",
       "sub_section": "1",
       "batch": "69",

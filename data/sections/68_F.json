@@ -14,18 +14,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE228",
-      "teacher": "SAL",
-      "room": "ANX1-207",
-      "section": "68_F",
-      "sub_section": "Main",
-      "batch": "68",
-      "section_letter": "F",
-      "type": "Theory"
-    },
-    {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE228",
@@ -75,10 +63,10 @@
     },
     {
       "day": "Thursday",
-      "time": "02:30-05:30",
+      "time": "11:30-02:30",
       "course": "CSE224",
       "teacher": "NTS",
-      "room": "EMBED LAB-KT-301",
+      "room": "SH-103",
       "section": "68_F",
       "sub_section": "2",
       "batch": "68",

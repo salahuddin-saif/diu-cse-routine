@@ -111,10 +111,10 @@
     },
     {
       "day": "Wednesday",
-      "time": "02:30-04:00",
+      "time": "11:30-01:00",
       "course": "CSE213",
       "teacher": "SS",
-      "room": "KT-306",
+      "room": "KT-224",
       "section": "70_D",
       "sub_section": "Main",
       "batch": "70",

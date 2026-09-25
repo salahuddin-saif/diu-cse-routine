@@ -6,7 +6,7 @@
       "time": "11:30-01:00",
       "course": "CSE228",
       "teacher": "LAR",
-      "room": "KT-220",
+      "room": "KT-218",
       "section": "68_L",
       "sub_section": "Main",
       "batch": "68",
@@ -21,18 +21,6 @@
       "room": "SH-103",
       "section": "68_L",
       "sub_section": "1",
-      "batch": "68",
-      "section_letter": "L",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
-      "time": "02:30-05:30",
-      "course": "CSE224",
-      "teacher": "IST",
-      "room": "EMBED LAB-KT-301",
-      "section": "68_L",
-      "sub_section": "2",
       "batch": "68",
       "section_letter": "L",
       "type": "Lab"
@@ -65,7 +53,7 @@
       "day": "Thursday",
       "time": "11:30-01:00",
       "course": "CSE227",
-      "teacher": "NT-2",
+      "teacher": "NT-1",
       "room": "KT-221",
       "section": "68_L",
       "sub_section": "Main",
@@ -78,12 +66,12 @@
       "time": "08:30-10:00",
       "course": "CSE228",
       "teacher": "LAR",
-      "room": "KT-503",
+      "room": "KT-318(B)",
       "section": "68_L",
       "sub_section": "Main",
       "batch": "68",
       "section_letter": "L",
-      "type": "Lab"
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -96,6 +84,18 @@
       "batch": "68",
       "section_letter": "L",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-05:30",
+      "course": "CSE224",
+      "teacher": "IST",
+      "room": "EMBED LAB-KT-301",
+      "section": "68_L",
+      "sub_section": "2",
+      "batch": "68",
+      "section_letter": "L",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -113,7 +113,7 @@
       "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE227",
-      "teacher": "NT-2",
+      "teacher": "NT-1",
       "room": "KT-318(A)",
       "section": "68_L",
       "sub_section": "Main",

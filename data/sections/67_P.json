@@ -2,28 +2,16 @@
   "section": "67_P",
   "classes": [
     {
-      "day": "Saturday",
+      "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "CSE315",
-      "teacher": "SNA",
+      "course": "CSE317",
+      "teacher": "RYS",
       "room": "KT-514",
       "section": "67_P",
       "sub_section": "Main",
       "batch": "67",
       "section_letter": "P",
       "type": "Theory"
-    },
-    {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE317",
-      "teacher": "NT-2",
-      "room": "KT-504",
-      "section": "67_P",
-      "sub_section": "Main",
-      "batch": "67",
-      "section_letter": "P",
-      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -38,22 +26,10 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "CSE317",
-      "teacher": "NT-2",
-      "room": "KT-306",
-      "section": "67_P",
-      "sub_section": "Main",
-      "batch": "67",
-      "section_letter": "P",
-      "type": "Theory"
-    },
-    {
       "day": "Thursday",
       "time": "11:30-01:00",
       "course": "ACT327",
-      "teacher": "FNT_4",
+      "teacher": "NN",
       "room": "KT-223",
       "section": "67_P",
       "sub_section": "Main",
@@ -87,15 +63,15 @@
     },
     {
       "day": "Tuesday",
-      "time": "02:30-04:00",
-      "course": "ACT327",
-      "teacher": "FNT_4",
-      "room": "KT-513",
+      "time": "01:00-02:30",
+      "course": "CSE315",
+      "teacher": "SNA",
+      "room": "KT-303",
       "section": "67_P",
       "sub_section": "Main",
       "batch": "67",
       "section_letter": "P",
-      "type": "Lab"
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -110,7 +86,7 @@
       "type": "Theory"
     },
     {
-      "day": "Wednesday",
+      "day": "Tuesday",
       "time": "08:30-11:30",
       "course": "CSE322",
       "teacher": "NT-4",
@@ -120,6 +96,30 @@
       "batch": "67",
       "section_letter": "P",
       "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "CSE317",
+      "teacher": "RYS",
+      "room": "ANX1-207",
+      "section": "67_P",
+      "sub_section": "Main",
+      "batch": "67",
+      "section_letter": "P",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "04:00-05:30",
+      "course": "ACT327",
+      "teacher": "NN",
+      "room": "ANX1-207",
+      "section": "67_P",
+      "sub_section": "Main",
+      "batch": "67",
+      "section_letter": "P",
+      "type": "Theory"
     }
   ]
 }

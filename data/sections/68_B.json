@@ -38,10 +38,22 @@
       "type": "Theory"
     },
     {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE228",
+      "teacher": "MIS",
+      "room": "KT-515",
+      "section": "68_B",
+      "sub_section": "Main",
+      "batch": "68",
+      "section_letter": "B",
+      "type": "Theory"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE228",
-      "teacher": "MAH",
+      "teacher": "MIS",
       "room": "KT-221",
       "section": "68_B",
       "sub_section": "Main",
@@ -108,18 +120,6 @@
       "batch": "68",
       "section_letter": "B",
       "type": "Lab"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-10:00",
-      "course": "CSE228",
-      "teacher": "MAH",
-      "room": "KT-217",
-      "section": "68_B",
-      "sub_section": "Main",
-      "batch": "68",
-      "section_letter": "B",
-      "type": "Theory"
     }
   ]
 }

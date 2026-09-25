@@ -17,37 +17,25 @@
       "day": "Monday",
       "time": "02:30-04:00",
       "course": "ACT327",
-      "teacher": "FNT_1",
-      "room": "KT-307",
+      "teacher": "IK",
+      "room": "KT-510",
       "section": "67_F",
       "sub_section": "Main",
       "batch": "67",
       "section_letter": "F",
-      "type": "Theory"
+      "type": "Lab"
     },
     {
       "day": "Saturday",
       "time": "01:00-02:30",
       "course": "ACT327",
-      "teacher": "FNT_1",
+      "teacher": "IK",
       "room": "G1-026",
       "section": "67_F",
       "sub_section": "Main",
       "batch": "67",
       "section_letter": "F",
       "type": "Theory"
-    },
-    {
-      "day": "Saturday",
-      "time": "08:30-11:30",
-      "course": "CSE322",
-      "teacher": "NT-3",
-      "room": "KT-501(A)",
-      "section": "67_F",
-      "sub_section": "1",
-      "batch": "67",
-      "section_letter": "F",
-      "type": "Lab"
     },
     {
       "day": "Saturday",
@@ -96,6 +84,18 @@
       "batch": "67",
       "section_letter": "F",
       "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "NT-3",
+      "room": "G1-014",
+      "section": "67_F",
+      "sub_section": "1",
+      "batch": "67",
+      "section_letter": "F",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",

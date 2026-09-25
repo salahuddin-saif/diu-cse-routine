@@ -2,6 +2,18 @@
   "section": "72_A",
   "classes": [
     {
+      "day": "Monday",
+      "time": "02:30-05:30",
+      "course": "CSE114",
+      "teacher": "MHN",
+      "room": "G1-020",
+      "section": "72_A",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "A",
+      "type": "Lab"
+    },
+    {
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "ENG102",
@@ -62,18 +74,6 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "02:30-05:30",
-      "course": "CSE114",
-      "teacher": "MHN",
-      "room": "G1-020",
-      "section": "72_A",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "A",
-      "type": "Lab"
-    },
-    {
       "day": "Thursday",
       "time": "01:00-02:30",
       "course": "PHY101",
@@ -110,7 +110,7 @@
       "type": "Theory"
     },
     {
-      "day": "Wednesday",
+      "day": "Tuesday",
       "time": "02:30-05:30",
       "course": "CSE114",
       "teacher": "MHN",

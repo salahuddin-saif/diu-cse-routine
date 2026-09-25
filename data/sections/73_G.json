@@ -38,18 +38,6 @@
       "type": "Lab"
     },
     {
-      "day": "Saturday",
-      "time": "10:00-11:30",
-      "course": "CSE115",
-      "teacher": "IJN",
-      "room": "ANX1-101",
-      "section": "73_G",
-      "sub_section": "Main",
-      "batch": "73",
-      "section_letter": "G",
-      "type": "Theory"
-    },
-    {
       "day": "Sunday",
       "time": "11:30-01:00",
       "course": "ENG101",
@@ -75,6 +63,18 @@
     },
     {
       "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "MAT101",
+      "teacher": "AST",
+      "room": "ANX1-103",
+      "section": "73_G",
+      "sub_section": "Main",
+      "batch": "73",
+      "section_letter": "G",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE112",
       "teacher": "ACC",
@@ -88,8 +88,8 @@
     {
       "day": "Tuesday",
       "time": "11:30-01:00",
-      "course": "MAT101",
-      "teacher": "AST",
+      "course": "CSE115",
+      "teacher": "IJN",
       "room": "ANX1-102",
       "section": "73_G",
       "sub_section": "Main",

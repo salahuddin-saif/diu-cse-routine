@@ -15,6 +15,18 @@
     },
     {
       "day": "Saturday",
+      "time": "08:30-10:00",
+      "course": "CSE444",
+      "teacher": "SBA",
+      "room": "KT-503",
+      "section": "64_L",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "L",
+      "type": "Lab"
+    },
+    {
+      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE443",
       "teacher": "MTN",
@@ -24,18 +36,6 @@
       "batch": "64",
       "section_letter": "L",
       "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-11:30",
-      "course": "CSE444",
-      "teacher": "SBA",
-      "room": "KT-501(A)",
-      "section": "64_L",
-      "sub_section": "Main",
-      "batch": "64",
-      "section_letter": "L",
-      "type": "Lab"
     },
     {
       "day": "Sunday",

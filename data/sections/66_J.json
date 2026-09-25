@@ -14,18 +14,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "02:30-05:30",
-      "course": "CSE324",
-      "teacher": "CSA",
-      "room": "G1-017",
-      "section": "66_J",
-      "sub_section": "2",
-      "batch": "66",
-      "section_letter": "J",
-      "type": "Lab"
-    },
-    {
       "day": "Thursday",
       "time": "01:00-02:30",
       "course": "CSE316",
@@ -84,6 +72,18 @@
       "batch": "66",
       "section_letter": "J",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-05:30",
+      "course": "CSE324",
+      "teacher": "CSA",
+      "room": "G1-017",
+      "section": "66_J",
+      "sub_section": "2",
+      "batch": "66",
+      "section_letter": "J",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
