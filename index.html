@@ -3,163 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#181A1B">
+    <meta name="theme-color" content="#171a1b">
     <title>DIU CSE Routine</title>
-    <link rel="icon" href="./static/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <div class="app-shell">
-
-    <!-- Desktop structure: same navigation concept as the reference layout -->
-    <div class="desktop-top-logo">
-        <div class="reference-logo"><i class="fas fa-graduation-cap"></i></div>
-        <span>DIU CSE Routine</span>
-    </div>
-
-    <aside class="desktop-sidebar" aria-label="Main navigation">
-        <div class="desktop-nav-section">
-            <button class="desktop-nav-item nav-item active" data-mode="section" type="button">
-                <i class="fas fa-user-graduate"></i><span>Student</span>
-            </button>
-            <button class="desktop-nav-item nav-item" data-mode="teacher" type="button">
-                <i class="fas fa-chalkboard-user"></i><span>Teacher</span>
-            </button>
-        </div>
-        <div class="desktop-nav-section">
-            <button class="desktop-nav-item nav-item" data-mode="room" type="button">
-                <i class="fas fa-search"></i><span>Room</span>
-            </button>
-            <button class="desktop-nav-item nav-item" data-mode="empty-room" type="button">
-                <i class="fas fa-box-open"></i><span>Empty</span>
-            </button>
-        </div>
-        <div class="desktop-nav-section nav-bottom">
-            <button class="desktop-nav-item" id="desktopSettingsBtn" type="button">
-                <i class="fas fa-cog"></i><span>Settings</span>
-            </button>
-        </div>
-    </aside>
-
-    <!-- Mobile top header -->
-    <header class="mobile-header">
-        <div class="mobile-brand">
-            <div class="mobile-brand-icon"><i id="viewModeIcon" class="fas fa-user-graduate"></i></div>
-            <strong id="viewModeTitle">Student</strong>
+    <header class="app-header">
+        <div class="brand">
+            <div class="brand-icon"><i class="fas fa-user-graduate"></i></div>
+            <strong>Student</strong>
         </div>
         <div class="header-actions">
-            <span id="statusBadge" class="status ready" title="Network/data status">
-                <i class="fas fa-circle"></i><span id="statusText">Ready</span>
-            </span>
-            <button class="icon-btn" id="mobileMenuBtn" aria-label="Menu" type="button">
-                <i class="fas fa-bars"></i>
-            </button>
+            <span id="statusBadge" class="status"><i class="fas fa-circle"></i><span id="statusText">Loading</span></span>
+            <button class="icon-btn" aria-label="Messages"><i class="fas fa-comments"></i></button>
+            <button class="icon-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
-    <!-- Mobile mode menu -->
-    <div id="mobileModeMenu" class="mobile-mode-menu hidden">
-        <button class="nav-item" data-mode="section" type="button"><i class="fas fa-user-graduate"></i><span>Student</span></button>
-        <button class="nav-item" data-mode="teacher" type="button"><i class="fas fa-chalkboard-user"></i><span>Teacher</span></button>
-        <button class="nav-item" data-mode="room" type="button"><i class="fas fa-door-open"></i><span>Room</span></button>
-        <button class="nav-item" data-mode="empty-room" type="button"><i class="fas fa-box-open"></i><span>Empty Room</span></button>
-    </div>
-
-    <main class="desktop-main">
-        <!-- Search section -->
+    <main>
         <section class="search-panel">
             <div class="search-row">
                 <div class="search-input-wrap">
-                    <button id="inputBackBtn" class="search-back hidden" type="button" aria-label="Back">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <i class="fas fa-search search-icon"></i>
-                    <input id="sectionInput" type="text" placeholder="Enter section (e.g., 70_N)"
-                           autocomplete="off" aria-label="Search section">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="sectionInput" placeholder="Enter section" value="70_N" autocomplete="off">
                 </div>
                 <select id="departmentSelect" aria-label="Department">
-                    <option value="cse">CSE</option>
-                    <option value="bba">BBA</option>
+                    <option>CSE</option>
                 </select>
             </div>
-
-            <div id="savedChip" class="saved-chip" style="display:none">
-                <span id="savedSection"></span>
-                <button id="clearSectionBtn" aria-label="Clear saved section" type="button">×</button>
+            <div class="saved-chip" id="savedChip" title="Current section">
+                <span id="savedSection">70_N</span><button id="clearSectionBtn" aria-label="Clear saved section">×</button>
             </div>
-            <div id="batchPillsContainer" class="batch-pills hidden"><div id="batchPills"></div></div>
-            <button id="showRoutineBtn" class="sr-only" type="button">Show Routine</button>
+            <button id="showRoutineBtn" class="sr-only">Show Routine</button>
             <div id="message" role="status"></div>
         </section>
 
-        <!-- Reference-style enrolled course summary shell; populated/updated by JS when applicable -->
-        <section id="coursesSection" class="reference-card hidden">
-            <div id="coursesDetails">
-                <div class="reference-card-header">
-                    <button id="coursesToggle" class="reference-title-btn" type="button">
-                        <i id="coursesChevron" class="fas fa-chevron-down"></i>
-                        <span id="coursesLabel">Enrolled Courses</span>
-                    </button>
-                    <div class="reference-actions">
-                        <button id="studentProfileIcon" class="mini-action hidden" type="button" title="Class Representative">
-                            <i class="fas fa-crown"></i><span>CR</span>
-                        </button>
-                        <button id="teacherInfoIcon" class="mini-action hidden" type="button" title="Teacher Contact Info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                        <button id="scheduleNotificationsIcon" class="mini-action hidden" type="button" title="Schedule Class Notifications">
-                            <i class="fas fa-bell"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="reference-summary">
-                    <div><span id="statLabel1">Batch</span><strong id="statValue1">-</strong></div>
-                    <div><span id="statLabel2">Section</span><strong id="statValue2">-</strong></div>
-                    <div><span id="statLabel3">Total Courses</span><strong id="statValue3">-</strong></div>
-                    <div><span id="statLabel4">Version</span><strong id="statValue4">-</strong></div>
-                    <div><span id="statLabel5">Classes/Week</span><strong id="statValue5">-</strong></div>
-                    <div class="download-summary">
-                        <span id="downloadPdfText">Download Routine</span>
-                        <button id="downloadPdfBtn" class="download-btn" type="button" title="Download routine">
-                            <i class="fas fa-download"></i>
-                        </button>
-                    </div>
-                </div>
-                <div id="courseListContainer" class="course-list hidden"></div>
-            </div>
-        </section>
-
-        <section id="teacherProfilesSection" class="teacher-profiles hidden">
-            <div id="teacherProfiles" class="teacher-row"></div>
-        </section>
-
-        <!-- Main routine renderer. Existing JS continues to own the live class/day/week content. -->
         <section id="routineContainer" class="routine-container">
             <div class="loading-state"><div class="spinner"></div><p>Loading routine data...</p></div>
         </section>
-
-        <div id="freeRoomsContainer" class="hidden"></div>
-        <div id="myRequestsPanel" class="hidden"></div>
-
-        <div id="initialEmptyStateStudent" class="hidden"></div>
-        <div id="initialEmptyStateTeacher" class="hidden"></div>
-        <div id="emptyState" class="hidden"></div>
-
-        <div id="errorMessage" class="error-toast hidden">
-            <span id="errorText"></span>
-            <button id="errorDismissButton" type="button" aria-label="Dismiss">&times;</button>
-        </div>
-
-        <div id="loadingSpinner" class="loading-overlay hidden">
-            <div class="text-center"><div class="spinner"></div><p>Loading...</p></div>
-        </div>
     </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-mode="section" type="button"><i class="fas fa-user"></i></button>
+        <button class="nav-item" data-mode="teacher" type="button"><i class="fas fa-address-card"></i></button>
+        <button class="nav-item" data-mode="room" type="button"><i class="fas fa-search"></i></button>
+        <button class="nav-item" data-mode="empty-room" type="button"><i class="fas fa-door-open"></i></button>
+    </nav>
 
     <footer class="desktop-footer">
         <span>Developed with ❤️ by MD. Salah Uddin</span>
         <span>Auto-updates every 3 hours</span>
-        <span>Powered by GitHub</span>
+        <span>Powered by GitHub </span>
         <span class="version">v<span id="versionNumber">5.0</span></span>
         <span id="lastUpdated"></span>
     </footer>
