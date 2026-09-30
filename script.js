@@ -101,36 +101,60 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mode switches
-    userBtn?.addEventListener('click', () => setMode('section'));
-    teacherBtn?.addEventListener('click', () => setMode('teacher'));
-    roomBtn?.addEventListener('click', () => setMode('room'));
-    emptyRoomBtn?.addEventListener('click', () => setMode('empty-room'));
+    // Mode switches (desktop + mobile). Use delegation so dynamically rendered
+    // navigation buttons also work reliably.
+    document.addEventListener('click', e => {
+        const btn = e.target.closest?.('.nav-item[data-mode]');
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        setMode(btn.dataset.mode);
+        document.getElementById('mobileModeMenu')?.classList.add('hidden');
+    });
+
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        document.getElementById('mobileModeMenu')?.classList.toggle('hidden');
+    });
 });
 
 // ============================================================
 // MODE
 // ============================================================
 function setMode(mode) {
-    if (currentMode === mode) return;
+    const validModes = ['section', 'teacher', 'room', 'empty-room'];
+    if (!validModes.includes(mode)) mode = 'section';
+
+    // Do not return early when the same mode is clicked. This makes the
+    // Teacher/Room buttons recover correctly even after a previous search.
     currentMode = mode;
     localStorage.setItem(MODE_KEY, mode);
     updateModeUI();
 
     if (routineContainer) routineContainer.innerHTML = '';
     if (savedChip) savedChip.style.display = 'none';
-    if (sectionInput) sectionInput.value = '';
+    if (sectionInput) {
+        sectionInput.value = '';
+        sectionInput.disabled = false;
+    }
     localStorage.removeItem(STORAGE_KEY);
+    currentSearchTerm = '';
+    currentClasses = [];
+    hideMessage();
 
     if (mode === 'section') {
         sectionInput.placeholder = 'Enter section (e.g., 70_N)';
         loadRoutineData();
     } else if (mode === 'teacher') {
         sectionInput.placeholder = 'Enter teacher initials (e.g., NSL)';
-        showNoRoutine('Teacher Mode', 'Enter teacher initials to see their classes.');
+        showNoRoutine('Teacher Mode', 'Enter teacher initials, then press Enter or tap the search icon.');
+        // Focus immediately so Teacher mode is visibly active and ready.
+        requestAnimationFrame(() => sectionInput?.focus());
     } else if (mode === 'room') {
         sectionInput.placeholder = 'Enter room (e.g., KT-516)';
-        showNoRoutine('Room Mode', 'Enter room name to see its schedule.');
+        showNoRoutine('Room Mode', 'Enter room name, then press Enter or tap the search icon.');
+        requestAnimationFrame(() => sectionInput?.focus());
     } else if (mode === 'empty-room') {
         sectionInput.placeholder = 'Enter day or room (optional)';
         loadEmptyRooms();
@@ -142,12 +166,18 @@ function setMode(mode) {
 // ============================================================
 function updateModeUI() {
     const brand = document.querySelector('.brand strong');
-    if (brand) {
-        if (currentMode === 'section') brand.textContent = 'Student';
-        else if (currentMode === 'teacher') brand.textContent = 'Teacher';
-        else if (currentMode === 'room') brand.textContent = 'Room';
-        else brand.textContent = 'Empty Room';
-    }
+    const modeTitle = document.getElementById('viewModeTitle');
+    const modeIcon = document.getElementById('viewModeIcon');
+    const labels = {
+        section: ['Student', 'fa-user-graduate'],
+        teacher: ['Teacher', 'fa-chalkboard-user'],
+        room: ['Room', 'fa-door-open'],
+        'empty-room': ['Empty Room', 'fa-box-open']
+    };
+    const [modeLabel, modeIconName] = labels[currentMode] || labels.section;
+    if (brand) brand.textContent = modeLabel;
+    if (modeTitle) modeTitle.textContent = modeLabel;
+    if (modeIcon) modeIcon.className = `fas ${modeIconName}`;
 
     document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
     if (currentMode === 'section' && userBtn) userBtn.classList.add('active');
