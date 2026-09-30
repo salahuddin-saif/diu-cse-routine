@@ -101,16 +101,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mode switches (desktop + mobile). Use delegation so dynamically rendered
-    // navigation buttons also work reliably.
+    // Mode switches (desktop + mobile).
+    // Bind directly to every navigation button. This avoids relying only on
+    // event delegation and makes Teacher / Room / Empty Room work reliably.
+    document.querySelectorAll('.nav-item[data-mode]').forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            const mode = btn.getAttribute('data-mode');
+            if (mode) setMode(mode);
+            document.getElementById('mobileModeMenu')?.classList.add('hidden');
+        });
+    });
+
+    // Fallback for any navigation button added later.
     document.addEventListener('click', e => {
-        const btn = e.target.closest?.('.nav-item[data-mode]');
+        const target = e.target;
+        const btn = target && target.closest ? target.closest('.nav-item[data-mode]') : null;
         if (!btn) return;
+        if (btn.dataset.mode === currentMode) return;
         e.preventDefault();
-        e.stopPropagation();
         setMode(btn.dataset.mode);
         document.getElementById('mobileModeMenu')?.classList.add('hidden');
-    });
+    }, true);
 
     document.getElementById('mobileMenuBtn')?.addEventListener('click', e => {
         e.preventDefault();
