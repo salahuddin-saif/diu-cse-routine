@@ -2,10 +2,22 @@
   "section": "RE_A1(1C)",
   "classes": [
     {
+      "day": "Monday",
+      "time": "08:30-10:00",
+      "course": "CSE314",
+      "teacher": "ARK",
+      "room": "G1-010",
+      "section": "RE_A1(1C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
       "day": "Tuesday",
       "time": "08:30-11:30",
       "course": "CSE332",
-      "teacher": "NT-9",
+      "teacher": "NT-11",
       "room": "G1-022",
       "section": "RE_A1(1C)",
       "sub_section": "Main",

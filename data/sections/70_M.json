@@ -62,18 +62,6 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
-      "time": "01:00-02:30",
-      "course": "MAT211",
-      "teacher": "MNM",
-      "room": "ANX1-210",
-      "section": "70_M",
-      "sub_section": "Main",
-      "batch": "70",
-      "section_letter": "M",
-      "type": "Theory"
-    },
-    {
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE212",

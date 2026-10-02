@@ -2,18 +2,6 @@
   "section": "63_A",
   "classes": [
     {
-      "day": "Saturday",
-      "time": "08:30-10:00",
-      "course": "CSE491",
-      "teacher": "DMY",
-      "room": "KT-222",
-      "section": "63_A",
-      "sub_section": "Main",
-      "batch": "63",
-      "section_letter": "A",
-      "type": "Theory"
-    },
-    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE491",

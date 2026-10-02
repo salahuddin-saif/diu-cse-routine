@@ -3,22 +3,10 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "02:30-05:30",
-      "course": "CSE322",
-      "teacher": "STA",
-      "room": "G1-014",
-      "section": "67_B",
-      "sub_section": "1",
-      "batch": "67",
-      "section_letter": "B",
-      "type": "Lab"
-    },
-    {
-      "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE315",
       "teacher": "AS",
-      "room": "KT-201",
+      "room": "KT-208",
       "section": "67_B",
       "sub_section": "Main",
       "batch": "67",
@@ -51,10 +39,10 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
+      "time": "10:00-11:30",
       "course": "CSE315",
       "teacher": "AS",
-      "room": "KT-201",
+      "room": "KT-213",
       "section": "67_B",
       "sub_section": "Main",
       "batch": "67",
@@ -69,6 +57,18 @@
       "room": "KT-501(A)",
       "section": "67_B",
       "sub_section": "Main",
+      "batch": "67",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-05:30",
+      "course": "CSE322",
+      "teacher": "STA",
+      "room": "G1-014",
+      "section": "67_B",
+      "sub_section": "1",
       "batch": "67",
       "section_letter": "B",
       "type": "Lab"

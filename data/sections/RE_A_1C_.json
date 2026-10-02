@@ -5,7 +5,7 @@
       "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE326",
-      "teacher": "NT-5",
+      "teacher": "MHIM",
       "room": "G1-006",
       "section": "RE_A(1C)",
       "sub_section": "Main",
@@ -14,10 +14,34 @@
       "type": "Lab"
     },
     {
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "CSE132",
+      "teacher": "MTF",
+      "room": "KT-304",
+      "section": "RE_A(1C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
       "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "CSE324",
-      "teacher": "NT-2",
+      "time": "10:00-11:30",
+      "course": "CSE212",
+      "teacher": "MTF",
+      "room": "KT-318(B)",
+      "section": "RE_A(1C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "02:30-05:30",
+      "course": "CSE312",
+      "teacher": "ASJ",
       "room": "G1-006",
       "section": "RE_A(1C)",
       "sub_section": "Main",
@@ -27,15 +51,27 @@
     },
     {
       "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "CSE312",
-      "teacher": "NT-8",
-      "room": "G1-003",
+      "time": "10:00-11:30",
+      "course": "CSE413",
+      "teacher": "NAE",
+      "room": "KT-303",
       "section": "RE_A(1C)",
       "sub_section": "Main",
       "batch": "",
       "section_letter": "",
-      "type": "Lab"
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "04:00-05:30",
+      "course": "CSE334",
+      "teacher": "NT-11",
+      "room": "KT-318(B)",
+      "section": "RE_A(1C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
     }
   ]
 }

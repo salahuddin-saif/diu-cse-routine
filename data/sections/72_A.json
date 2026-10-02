@@ -90,7 +90,7 @@
       "time": "10:00-11:30",
       "course": "ENG102",
       "teacher": "SMH",
-      "room": "ANX1-302",
+      "room": "ANX1-210",
       "section": "72_A",
       "sub_section": "Main",
       "batch": "72",
@@ -110,7 +110,7 @@
       "type": "Theory"
     },
     {
-      "day": "Tuesday",
+      "day": "Wednesday",
       "time": "02:30-05:30",
       "course": "CSE114",
       "teacher": "MHN",

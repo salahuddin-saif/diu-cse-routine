@@ -14,23 +14,23 @@
       "type": "Theory"
     },
     {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE453",
+      "teacher": "EHL",
+      "room": "KT-501(A)",
+      "section": "65_M",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "M",
+      "type": "Lab"
+    },
+    {
       "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE454",
       "teacher": "DAA",
       "room": "KT-306",
-      "section": "65_M",
-      "sub_section": "Main",
-      "batch": "65",
-      "section_letter": "M",
-      "type": "Theory"
-    },
-    {
-      "day": "Saturday",
-      "time": "02:30-04:00",
-      "course": "CSE453",
-      "teacher": "EHL",
-      "room": "KT-220",
       "section": "65_M",
       "sub_section": "Main",
       "batch": "65",

@@ -27,10 +27,10 @@
     },
     {
       "day": "Monday",
-      "time": "11:30-01:00",
+      "time": "01:00-02:30",
       "course": "ENG101",
       "teacher": "PS",
-      "room": "ANX1-203",
+      "room": "ANX1-202",
       "section": "73_M",
       "sub_section": "Main",
       "batch": "73",

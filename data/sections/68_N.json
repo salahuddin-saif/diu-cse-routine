@@ -3,18 +3,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE225",
-      "teacher": "NT-3",
-      "room": "KT-222",
-      "section": "68_N",
-      "sub_section": "Main",
-      "batch": "68",
-      "section_letter": "N",
-      "type": "Theory"
-    },
-    {
-      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE227",
       "teacher": "ZZM",
@@ -27,10 +15,22 @@
     },
     {
       "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE225",
+      "teacher": "IEA",
+      "room": "KT-307",
+      "section": "68_N",
+      "sub_section": "Main",
+      "batch": "68",
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
       "time": "11:30-02:30",
       "course": "CSE224",
       "teacher": "RYS",
-      "room": "EMBED LAB-KT-301",
+      "room": "KT-804",
       "section": "68_N",
       "sub_section": "2",
       "batch": "68",
@@ -89,7 +89,7 @@
       "day": "Wednesday",
       "time": "08:30-10:00",
       "course": "CSE225",
-      "teacher": "NT-3",
+      "teacher": "IEA",
       "room": "KT-217",
       "section": "68_N",
       "sub_section": "Main",

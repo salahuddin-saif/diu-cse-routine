@@ -26,6 +26,18 @@
       "type": "Theory"
     },
     {
+      "day": "Monday",
+      "time": "01:00-04:00",
+      "course": "CSE114",
+      "teacher": "SHR",
+      "room": "G1-010",
+      "section": "72_N",
+      "sub_section": "1",
+      "batch": "72",
+      "section_letter": "N",
+      "type": "Lab"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "PHY101",
@@ -48,18 +60,6 @@
       "batch": "72",
       "section_letter": "N",
       "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "01:00-04:00",
-      "course": "CSE114",
-      "teacher": "SHR",
-      "room": "G1-010",
-      "section": "72_N",
-      "sub_section": "1",
-      "batch": "72",
-      "section_letter": "N",
-      "type": "Lab"
     },
     {
       "day": "Thursday",
@@ -90,19 +90,7 @@
       "time": "02:30-04:00",
       "course": "MAT102",
       "teacher": "NRM",
-      "room": "ANX1-302",
-      "section": "72_N",
-      "sub_section": "Main",
-      "batch": "72",
-      "section_letter": "N",
-      "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "08:30-10:00",
-      "course": "ENG102",
-      "teacher": "MZS",
-      "room": "ANX1-102",
+      "room": "ANX1-101",
       "section": "72_N",
       "sub_section": "Main",
       "batch": "72",
@@ -115,6 +103,18 @@
       "course": "PHY101",
       "teacher": "MAM",
       "room": "KT-218",
+      "section": "72_N",
+      "sub_section": "Main",
+      "batch": "72",
+      "section_letter": "N",
+      "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "02:30-04:00",
+      "course": "ENG102",
+      "teacher": "MZS",
+      "room": "ANX1-210",
       "section": "72_N",
       "sub_section": "Main",
       "batch": "72",

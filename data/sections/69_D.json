@@ -3,18 +3,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE222",
-      "teacher": "ZZM",
-      "room": "G1-013",
-      "section": "69_D",
-      "sub_section": "1",
-      "batch": "69",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
       "time": "11:30-02:30",
       "course": "CSE222",
       "teacher": "ZZM",
@@ -28,21 +16,21 @@
     {
       "day": "Sunday",
       "time": "08:30-10:00",
-      "course": "AOL101",
-      "teacher": "MIN",
-      "room": "KT-501(A)",
+      "course": "CSE221",
+      "teacher": "SZ",
+      "room": "KT-216",
       "section": "69_D",
       "sub_section": "Main",
       "batch": "69",
       "section_letter": "D",
-      "type": "Lab"
+      "type": "Theory"
     },
     {
       "day": "Sunday",
       "time": "10:00-11:30",
-      "course": "CSE221",
-      "teacher": "SZ",
-      "room": "KT-216",
+      "course": "AOL101",
+      "teacher": "MIN",
+      "room": "KT-218",
       "section": "69_D",
       "sub_section": "Main",
       "batch": "69",
@@ -120,6 +108,18 @@
       "batch": "69",
       "section_letter": "D",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE222",
+      "teacher": "ZZM",
+      "room": "G1-013",
+      "section": "69_D",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "D",
+      "type": "Lab"
     }
   ]
 }

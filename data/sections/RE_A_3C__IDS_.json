@@ -1,0 +1,29 @@
+{
+  "section": "RE_A(3C)(IDS)",
+  "classes": [
+    {
+      "day": "Thursday",
+      "time": "01:00-02:30",
+      "course": "CSE315",
+      "teacher": "NT-9",
+      "room": "KT-216",
+      "section": "RE_A(3C)(IDS)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "CSE315",
+      "teacher": "NT-9",
+      "room": "KT-217",
+      "section": "RE_A(3C)(IDS)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "section": "RE_A(3C)(IC)",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "02:30-04:00",
+      "course": "CSE325",
+      "teacher": "AKM",
+      "room": "ANX1-302",
+      "section": "RE_A(3C)(IC)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "CSE325",
+      "teacher": "AKM",
+      "room": "KT-305",
+      "section": "RE_A(3C)(IC)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

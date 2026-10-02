@@ -38,6 +38,18 @@
       "type": "Theory"
     },
     {
+      "day": "Monday",
+      "time": "10:00-01:00",
+      "course": "CSE214",
+      "teacher": "TAB",
+      "room": "G1-010",
+      "section": "70_I",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "I",
+      "type": "Lab"
+    },
+    {
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "BNS101",
@@ -63,10 +75,10 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-10:00",
+      "time": "01:00-02:30",
       "course": "MAT211",
       "teacher": "MNM",
-      "room": "ANX1-204",
+      "room": "ANX1-210",
       "section": "70_I",
       "sub_section": "Main",
       "batch": "70",
@@ -81,18 +93,6 @@
       "room": "G1-005",
       "section": "70_I",
       "sub_section": "1",
-      "batch": "70",
-      "section_letter": "I",
-      "type": "Lab"
-    },
-    {
-      "day": "Sunday",
-      "time": "10:00-01:00",
-      "course": "CSE214",
-      "teacher": "TAB",
-      "room": "G1-010",
-      "section": "70_I",
-      "sub_section": "2",
       "batch": "70",
       "section_letter": "I",
       "type": "Lab"

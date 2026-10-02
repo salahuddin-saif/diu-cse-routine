@@ -26,18 +26,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE324",
-      "teacher": "HMK",
-      "room": "G1-016",
-      "section": "66_G",
-      "sub_section": "1",
-      "batch": "66",
-      "section_letter": "G",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE326",
@@ -108,6 +96,18 @@
       "batch": "66",
       "section_letter": "G",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE324",
+      "teacher": "HMK",
+      "room": "G1-016",
+      "section": "66_G",
+      "sub_section": "1",
+      "batch": "66",
+      "section_letter": "G",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",

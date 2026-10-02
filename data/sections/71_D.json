@@ -4,18 +4,6 @@
     {
       "day": "Monday",
       "time": "11:30-02:30",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "G1-013",
-      "section": "71_D",
-      "sub_section": "2",
-      "batch": "71",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-02:30",
       "course": "PHY103",
       "teacher": "AEE",
       "room": "KT-815",
@@ -86,6 +74,18 @@
       "type": "Theory"
     },
     {
+      "day": "Tuesday",
+      "time": "01:00-04:00",
+      "course": "CSE124",
+      "teacher": "KRY",
+      "room": "G1-013",
+      "section": "71_D",
+      "sub_section": "2",
+      "batch": "71",
+      "section_letter": "D",
+      "type": "Lab"
+    },
+    {
       "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "PHY102",
@@ -111,46 +111,10 @@
     },
     {
       "day": "Wednesday",
-      "time": "02:30-04:00",
+      "time": "02:30-05:30",
       "course": "CSE122",
       "teacher": "MHI",
       "room": "SH-105",
-      "section": "71_D",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "02:30-04:00",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "G1-008",
-      "section": "71_D",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "04:00-05:30",
-      "course": "CSE122",
-      "teacher": "MHI",
-      "room": "SH-105",
-      "section": "71_D",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "04:00-05:30",
-      "course": "CSE124",
-      "teacher": "JHJ",
-      "room": "G1-008",
       "section": "71_D",
       "sub_section": "1",
       "batch": "71",
@@ -165,6 +129,18 @@
       "room": "SH-105",
       "section": "71_D",
       "sub_section": "2",
+      "batch": "71",
+      "section_letter": "D",
+      "type": "Lab"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-11:30",
+      "course": "CSE124",
+      "teacher": "KRY",
+      "room": "G1-013",
+      "section": "71_D",
+      "sub_section": "1",
       "batch": "71",
       "section_letter": "D",
       "type": "Lab"

@@ -2,18 +2,6 @@
   "section": "68_F",
   "classes": [
     {
-      "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE227",
-      "teacher": "SNA",
-      "room": "KT-518",
-      "section": "68_F",
-      "sub_section": "Main",
-      "batch": "68",
-      "section_letter": "F",
-      "type": "Theory"
-    },
-    {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE228",
@@ -31,6 +19,18 @@
       "course": "CSE225",
       "teacher": "MFH",
       "room": "KT-518",
+      "section": "68_F",
+      "sub_section": "Main",
+      "batch": "68",
+      "section_letter": "F",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "08:30-10:00",
+      "course": "CSE227",
+      "teacher": "SNA",
+      "room": "KT-318(B)",
       "section": "68_F",
       "sub_section": "Main",
       "batch": "68",

@@ -30,7 +30,7 @@
       "time": "08:30-10:00",
       "course": "CSE121",
       "teacher": "SMC",
-      "room": "KT-224",
+      "room": "KT-213",
       "section": "71_E",
       "sub_section": "Main",
       "batch": "71",
@@ -69,6 +69,18 @@
       "room": "KT-816",
       "section": "71_E",
       "sub_section": "2",
+      "batch": "71",
+      "section_letter": "E",
+      "type": "Lab"
+    },
+    {
+      "day": "Thursday",
+      "time": "11:30-02:30",
+      "course": "CSE122",
+      "teacher": "SMC",
+      "room": "KT-810",
+      "section": "71_E",
+      "sub_section": "1",
       "batch": "71",
       "section_letter": "E",
       "type": "Lab"
@@ -156,18 +168,6 @@
       "batch": "71",
       "section_letter": "E",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-02:30",
-      "course": "CSE122",
-      "teacher": "SMC",
-      "room": "KT-810",
-      "section": "71_E",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "E",
-      "type": "Lab"
     }
   ]
 }

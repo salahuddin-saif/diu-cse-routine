@@ -1,0 +1,29 @@
+{
+  "section": "RE_A(3C)(SE)",
+  "classes": [
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
+      "course": "CSE315",
+      "teacher": "AHAK",
+      "room": "ANX1-302",
+      "section": "RE_A(3C)(SE)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE315",
+      "teacher": "AHAK",
+      "room": "ANX1-302",
+      "section": "RE_A(3C)(SE)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    }
+  ]
+}

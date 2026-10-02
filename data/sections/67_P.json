@@ -41,7 +41,7 @@
       "day": "Thursday",
       "time": "02:30-04:00",
       "course": "CSE321",
-      "teacher": "NT-4",
+      "teacher": "ARK",
       "room": "KT-221",
       "section": "67_P",
       "sub_section": "Main",
@@ -53,7 +53,7 @@
       "day": "Thursday",
       "time": "08:30-11:30",
       "course": "CSE322",
-      "teacher": "NT-4",
+      "teacher": "ARK",
       "room": "G1-004",
       "section": "67_P",
       "sub_section": "1",
@@ -77,25 +77,13 @@
       "day": "Tuesday",
       "time": "04:00-05:30",
       "course": "CSE321",
-      "teacher": "NT-4",
+      "teacher": "ARK",
       "room": "KT-219",
       "section": "67_P",
       "sub_section": "Main",
       "batch": "67",
       "section_letter": "P",
       "type": "Theory"
-    },
-    {
-      "day": "Tuesday",
-      "time": "08:30-11:30",
-      "course": "CSE322",
-      "teacher": "NT-4",
-      "room": "G1-016",
-      "section": "67_P",
-      "sub_section": "2",
-      "batch": "67",
-      "section_letter": "P",
-      "type": "Lab"
     },
     {
       "day": "Wednesday",
@@ -120,6 +108,18 @@
       "batch": "67",
       "section_letter": "P",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "ARK",
+      "room": "G1-016",
+      "section": "67_P",
+      "sub_section": "2",
+      "batch": "67",
+      "section_letter": "P",
+      "type": "Lab"
     }
   ]
 }

@@ -3,6 +3,18 @@
   "classes": [
     {
       "day": "Tuesday",
+      "time": "08:30-10:00",
+      "course": "CSE444",
+      "teacher": "MAS",
+      "room": "KT-517(A)",
+      "section": "64_M",
+      "sub_section": "Main",
+      "batch": "64",
+      "section_letter": "M",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE443",
       "teacher": "MTN",
@@ -12,18 +24,6 @@
       "batch": "64",
       "section_letter": "M",
       "type": "Lab"
-    },
-    {
-      "day": "Tuesday",
-      "time": "04:00-05:30",
-      "course": "CSE444",
-      "teacher": "MAS",
-      "room": "KT-208",
-      "section": "64_M",
-      "sub_section": "Main",
-      "batch": "64",
-      "section_letter": "M",
-      "type": "Theory"
     },
     {
       "day": "Wednesday",

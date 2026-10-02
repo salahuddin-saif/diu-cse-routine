@@ -2,6 +2,18 @@
   "section": "69_O",
   "classes": [
     {
+      "day": "Monday",
+      "time": "08:30-11:30",
+      "course": "CSE222",
+      "teacher": "AAA",
+      "room": "G1-009",
+      "section": "69_O",
+      "sub_section": "2",
+      "batch": "69",
+      "section_letter": "O",
+      "type": "Lab"
+    },
+    {
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "AOL101",
@@ -24,18 +36,6 @@
       "batch": "69",
       "section_letter": "O",
       "type": "Theory"
-    },
-    {
-      "day": "Saturday",
-      "time": "01:00-04:00",
-      "course": "CSE222",
-      "teacher": "AAA",
-      "room": "G1-003",
-      "section": "69_O",
-      "sub_section": "1",
-      "batch": "69",
-      "section_letter": "O",
-      "type": "Lab"
     },
     {
       "day": "Sunday",
@@ -63,12 +63,12 @@
     },
     {
       "day": "Sunday",
-      "time": "08:30-11:30",
+      "time": "01:00-04:00",
       "course": "CSE222",
       "teacher": "AAA",
-      "room": "G1-009",
+      "room": "G1-003",
       "section": "69_O",
-      "sub_section": "2",
+      "sub_section": "1",
       "batch": "69",
       "section_letter": "O",
       "type": "Lab"
@@ -111,10 +111,10 @@
     },
     {
       "day": "Tuesday",
-      "time": "08:30-11:30",
+      "time": "11:30-02:30",
       "course": "CSE216",
       "teacher": "MNS",
-      "room": "SH-105",
+      "room": "KT-809",
       "section": "69_O",
       "sub_section": "1",
       "batch": "69",

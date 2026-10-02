@@ -3,18 +3,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "08:30-10:00",
-      "course": "CSE325",
-      "teacher": "AKM",
-      "room": "ANX1-202",
-      "section": "RE_A",
-      "sub_section": "Main",
-      "batch": "",
-      "section_letter": "",
-      "type": "Theory"
-    },
-    {
-      "day": "Monday",
       "time": "02:30-04:00",
       "course": "CSE113",
       "teacher": "MSM",
@@ -74,6 +62,18 @@
       "type": "Theory"
     },
     {
+      "day": "Saturday",
+      "time": "04:00-05:30",
+      "course": "STA101",
+      "teacher": "AMN",
+      "room": "KT-305",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "PHY102",
@@ -122,16 +122,28 @@
       "type": "Theory"
     },
     {
-      "day": "Thursday",
-      "time": "02:30-05:30",
-      "course": "CSE312",
-      "teacher": "NT-8",
-      "room": "G1-006",
+      "day": "Sunday",
+      "time": "04:00-05:30",
+      "course": "STA101",
+      "teacher": "AMN",
+      "room": "KT-305",
       "section": "RE_A",
       "sub_section": "Main",
       "batch": "",
       "section_letter": "",
-      "type": "Lab"
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
+      "time": "01:00-02:30",
+      "course": "CSE491",
+      "teacher": "DMK",
+      "room": "KT-306",
+      "section": "RE_A",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
     },
     {
       "day": "Tuesday",
@@ -183,33 +195,9 @@
     },
     {
       "day": "Wednesday",
-      "time": "08:30-10:00",
+      "time": "02:30-05:30",
       "course": "CSE412",
-      "teacher": "NT-7",
-      "room": "G1-008",
-      "section": "RE_A",
-      "sub_section": "Main",
-      "batch": "",
-      "section_letter": "",
-      "type": "Lab"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE325",
-      "teacher": "AKM",
-      "room": "ANX1-401",
-      "section": "RE_A",
-      "sub_section": "Main",
-      "batch": "",
-      "section_letter": "",
-      "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "10:00-11:30",
-      "course": "CSE412",
-      "teacher": "NT-7",
+      "teacher": "ASJ",
       "room": "G1-008",
       "section": "RE_A",
       "sub_section": "Main",

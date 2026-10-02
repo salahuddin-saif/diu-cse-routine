@@ -3,18 +3,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE323",
-      "teacher": "MRM",
-      "room": "KT-320",
-      "section": "66_O",
-      "sub_section": "Main",
-      "batch": "66",
-      "section_letter": "O",
-      "type": "Theory"
-    },
-    {
-      "day": "Monday",
       "time": "08:30-11:30",
       "course": "CSE324",
       "teacher": "MRM",
@@ -29,7 +17,7 @@
       "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE316",
-      "teacher": "NT-5",
+      "teacher": "MHIM",
       "room": "KT-517(A)",
       "section": "66_O",
       "sub_section": "Main",
@@ -63,6 +51,18 @@
     },
     {
       "day": "Thursday",
+      "time": "10:00-11:30",
+      "course": "CSE328",
+      "teacher": "YI",
+      "room": "KT-217",
+      "section": "66_O",
+      "sub_section": "Main",
+      "batch": "66",
+      "section_letter": "O",
+      "type": "Theory"
+    },
+    {
+      "day": "Thursday",
       "time": "01:00-02:30",
       "course": "CSE326",
       "teacher": "SFMA",
@@ -77,7 +77,7 @@
       "day": "Thursday",
       "time": "02:30-04:00",
       "course": "CSE316",
-      "teacher": "NT-5",
+      "teacher": "MHIM",
       "room": "KT-223",
       "section": "66_O",
       "sub_section": "Main",
@@ -88,8 +88,8 @@
     {
       "day": "Tuesday",
       "time": "01:00-02:30",
-      "course": "CSE328",
-      "teacher": "YI",
+      "course": "CSE323",
+      "teacher": "MRM",
       "room": "KT-320",
       "section": "66_O",
       "sub_section": "Main",

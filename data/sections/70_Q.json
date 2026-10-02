@@ -62,18 +62,6 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
-      "time": "11:30-02:30",
-      "course": "CSE214",
-      "teacher": "TIS",
-      "room": "G1-008",
-      "section": "70_Q",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "Q",
-      "type": "Lab"
-    },
-    {
       "day": "Thursday",
       "time": "11:30-01:00",
       "course": "MAT211",
@@ -120,6 +108,18 @@
       "batch": "70",
       "section_letter": "Q",
       "type": "Theory"
+    },
+    {
+      "day": "Wednesday",
+      "time": "01:00-04:00",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-017",
+      "section": "70_Q",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "Q",
+      "type": "Lab"
     }
   ]
 }

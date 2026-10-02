@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "01:00-02:30",
+      "time": "11:30-01:00",
       "course": "CSE316",
       "teacher": "MSJ",
-      "room": "KT-304",
+      "room": "KT-221",
       "section": "66_H",
       "sub_section": "Main",
       "batch": "66",
@@ -40,8 +40,8 @@
     {
       "day": "Saturday",
       "time": "01:00-02:30",
-      "course": "CSE316",
-      "teacher": "MSJ",
+      "course": "CSE328",
+      "teacher": "MAH",
       "room": "KT-515",
       "section": "66_H",
       "sub_section": "Main",
@@ -52,9 +52,9 @@
     {
       "day": "Saturday",
       "time": "02:30-04:00",
-      "course": "CSE328",
-      "teacher": "MAH",
-      "room": "KT-224",
+      "course": "CSE316",
+      "teacher": "MSJ",
+      "room": "KT-220",
       "section": "66_H",
       "sub_section": "Main",
       "batch": "66",

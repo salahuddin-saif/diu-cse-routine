@@ -14,18 +14,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE222",
-      "teacher": "SRS",
-      "room": "G1-012",
-      "section": "69_N",
-      "sub_section": "2",
-      "batch": "69",
-      "section_letter": "N",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE215",
@@ -84,6 +72,18 @@
       "batch": "69",
       "section_letter": "N",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE222",
+      "teacher": "SRS",
+      "room": "G1-012",
+      "section": "69_N",
+      "sub_section": "2",
+      "batch": "69",
+      "section_letter": "N",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",

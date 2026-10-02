@@ -66,12 +66,12 @@
       "time": "11:30-01:00",
       "course": "CSE323",
       "teacher": "MAS",
-      "room": "KT-320",
+      "room": "KT-513",
       "section": "66_I",
       "sub_section": "Main",
       "batch": "66",
       "section_letter": "I",
-      "type": "Theory"
+      "type": "Lab"
     },
     {
       "day": "Thursday",

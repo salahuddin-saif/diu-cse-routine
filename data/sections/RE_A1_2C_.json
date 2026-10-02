@@ -3,9 +3,45 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "11:30-02:30",
+      "time": "11:30-01:00",
+      "course": "CSE234",
+      "teacher": "MLR",
+      "room": "EMBED LAB-KT-301",
+      "section": "RE_A1(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "11:30-01:00",
       "course": "CSE422",
-      "teacher": "NT-2",
+      "teacher": "RIM",
+      "room": "G1-012",
+      "section": "RE_A1(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE234",
+      "teacher": "MLR",
+      "room": "EMBED LAB-KT-301",
+      "section": "RE_A1(2C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Lab"
+    },
+    {
+      "day": "Monday",
+      "time": "01:00-02:30",
+      "course": "CSE422",
+      "teacher": "RIM",
       "room": "G1-012",
       "section": "RE_A1(2C)",
       "sub_section": "Main",

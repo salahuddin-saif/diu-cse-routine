@@ -39,21 +39,9 @@
     },
     {
       "day": "Tuesday",
-      "time": "08:30-10:00",
+      "time": "10:00-11:30",
       "course": "CSE453",
       "teacher": "EHL",
-      "room": "KT-517(A)",
-      "section": "65_O",
-      "sub_section": "Main",
-      "batch": "65",
-      "section_letter": "O",
-      "type": "Theory"
-    },
-    {
-      "day": "Tuesday",
-      "time": "10:00-11:30",
-      "course": "CSE413",
-      "teacher": "TAK",
       "room": "KT-217",
       "section": "65_O",
       "sub_section": "Main",
@@ -72,6 +60,18 @@
       "batch": "65",
       "section_letter": "O",
       "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "02:30-04:00",
+      "course": "CSE413",
+      "teacher": "TAK",
+      "room": "KT-201",
+      "section": "65_O",
+      "sub_section": "Main",
+      "batch": "65",
+      "section_letter": "O",
+      "type": "Theory"
     }
   ]
 }

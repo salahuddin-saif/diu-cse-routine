@@ -54,7 +54,7 @@
       "time": "01:00-02:30",
       "course": "PHY101",
       "teacher": "MKI",
-      "room": "KT-224",
+      "room": "KT-213",
       "section": "72_R",
       "sub_section": "Main",
       "batch": "72",
@@ -75,7 +75,7 @@
     },
     {
       "day": "Tuesday",
-      "time": "08:30-11:30",
+      "time": "10:00-01:00",
       "course": "CSE114",
       "teacher": "MSA",
       "room": "G1-003",

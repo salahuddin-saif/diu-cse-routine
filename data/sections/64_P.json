@@ -15,10 +15,10 @@
     },
     {
       "day": "Monday",
-      "time": "10:00-11:30",
+      "time": "11:30-01:00",
       "course": "CSE474",
       "teacher": "MRH",
-      "room": "G1-003",
+      "room": "G1-005",
       "section": "64_P",
       "sub_section": "Main",
       "batch": "64",

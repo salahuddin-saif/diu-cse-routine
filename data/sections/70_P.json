@@ -14,18 +14,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE214",
-      "teacher": "SFMA",
-      "room": "G1-016",
-      "section": "70_P",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "P",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "01:00-02:30",
       "course": "CSE212",
@@ -84,6 +72,18 @@
       "batch": "70",
       "section_letter": "P",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "SFMA",
+      "room": "G1-016",
+      "section": "70_P",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "P",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",
