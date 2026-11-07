@@ -50,6 +50,18 @@
       "type": "Lab"
     },
     {
+      "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "G1-008",
+      "section": "70_B",
+      "sub_section": "1",
+      "batch": "70",
+      "section_letter": "B",
+      "type": "Lab"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE213",
@@ -72,18 +84,6 @@
       "batch": "70",
       "section_letter": "B",
       "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-11:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "G1-008",
-      "section": "70_B",
-      "sub_section": "1",
-      "batch": "70",
-      "section_letter": "B",
-      "type": "Lab"
     },
     {
       "day": "Tuesday",

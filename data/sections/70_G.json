@@ -26,30 +26,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "G1-007",
-      "section": "70_G",
-      "sub_section": "1",
-      "batch": "70",
-      "section_letter": "G",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE214",
-      "teacher": "SNK",
-      "room": "G1-008",
-      "section": "70_G",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "G",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "MAT211",
@@ -86,6 +62,18 @@
       "type": "Theory"
     },
     {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "G1-007",
+      "section": "70_G",
+      "sub_section": "1",
+      "batch": "70",
+      "section_letter": "G",
+      "type": "Lab"
+    },
+    {
       "day": "Tuesday",
       "time": "08:30-10:00",
       "course": "BNS101",
@@ -120,6 +108,18 @@
       "batch": "70",
       "section_letter": "G",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30-02:30",
+      "course": "CSE214",
+      "teacher": "SNK",
+      "room": "G1-008",
+      "section": "70_G",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "G",
+      "type": "Lab"
     }
   ]
 }

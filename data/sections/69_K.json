@@ -3,10 +3,22 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "11:30-01:00",
+      "time": "01:00-02:30",
       "course": "AOL101",
       "teacher": "TRN",
       "room": "KT-517(A)",
+      "section": "69_K",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "K",
+      "type": "Theory"
+    },
+    {
+      "day": "Monday",
+      "time": "04:00-05:30",
+      "course": "CSE215",
+      "teacher": "MNS",
+      "room": "KT-208",
       "section": "69_K",
       "sub_section": "Main",
       "batch": "69",
@@ -31,18 +43,6 @@
       "course": "AOL101",
       "teacher": "TRN",
       "room": "KT-222",
-      "section": "69_K",
-      "sub_section": "Main",
-      "batch": "69",
-      "section_letter": "K",
-      "type": "Theory"
-    },
-    {
-      "day": "Saturday",
-      "time": "04:00-05:30",
-      "course": "CSE215",
-      "teacher": "MNS",
-      "room": "KT-208",
       "section": "69_K",
       "sub_section": "Main",
       "batch": "69",

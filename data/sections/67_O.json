@@ -14,18 +14,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE322",
-      "teacher": "JHJ",
-      "room": "G1-010",
-      "section": "67_O",
-      "sub_section": "2",
-      "batch": "67",
-      "section_letter": "O",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "08:30-10:00",
       "course": "ACT327",
@@ -50,7 +38,7 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "01:00-04:00",
       "course": "CSE322",
       "teacher": "JHJ",
@@ -93,6 +81,18 @@
       "room": "KT-501(A)",
       "section": "67_O",
       "sub_section": "Main",
+      "batch": "67",
+      "section_letter": "O",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "JHJ",
+      "room": "G1-010",
+      "section": "67_O",
+      "sub_section": "2",
       "batch": "67",
       "section_letter": "O",
       "type": "Lab"

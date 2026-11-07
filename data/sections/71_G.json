@@ -38,6 +38,30 @@
       "type": "Theory"
     },
     {
+      "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE122",
+      "teacher": "SMC",
+      "room": "KT-810",
+      "section": "71_G",
+      "sub_section": "1",
+      "batch": "71",
+      "section_letter": "G",
+      "type": "Lab"
+    },
+    {
+      "day": "Saturday",
+      "time": "11:30-02:30",
+      "course": "CSE122",
+      "teacher": "SMC",
+      "room": "KT-810",
+      "section": "71_G",
+      "sub_section": "2",
+      "batch": "71",
+      "section_letter": "G",
+      "type": "Lab"
+    },
+    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE123",
@@ -72,30 +96,6 @@
       "batch": "71",
       "section_letter": "G",
       "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-11:30",
-      "course": "CSE122",
-      "teacher": "SMC",
-      "room": "KT-810",
-      "section": "71_G",
-      "sub_section": "1",
-      "batch": "71",
-      "section_letter": "G",
-      "type": "Lab"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-02:30",
-      "course": "CSE122",
-      "teacher": "SMC",
-      "room": "KT-810",
-      "section": "71_G",
-      "sub_section": "2",
-      "batch": "71",
-      "section_letter": "G",
-      "type": "Lab"
     },
     {
       "day": "Thursday",

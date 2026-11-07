@@ -26,18 +26,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE324",
-      "teacher": "MRM",
-      "room": "G1-014",
-      "section": "66_M",
-      "sub_section": "2",
-      "batch": "66",
-      "section_letter": "M",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "11:30-01:00",
       "course": "CSE316",
@@ -69,6 +57,18 @@
       "room": "G1-001",
       "section": "66_M",
       "sub_section": "1",
+      "batch": "66",
+      "section_letter": "M",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE324",
+      "teacher": "MRM",
+      "room": "G1-014",
+      "section": "66_M",
+      "sub_section": "2",
       "batch": "66",
       "section_letter": "M",
       "type": "Lab"

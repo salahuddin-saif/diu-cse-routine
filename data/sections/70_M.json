@@ -2,18 +2,6 @@
   "section": "70_M",
   "classes": [
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE214",
-      "teacher": "NAE",
-      "room": "G1-011",
-      "section": "70_M",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "M",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "10:00-11:30",
       "course": "BNS101",
@@ -60,6 +48,18 @@
       "batch": "70",
       "section_letter": "M",
       "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE214",
+      "teacher": "NAE",
+      "room": "G1-011",
+      "section": "70_M",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "M",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",

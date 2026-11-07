@@ -2,18 +2,6 @@
   "section": "67_J",
   "classes": [
     {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE321",
-      "teacher": "TI",
-      "room": "G1-008",
-      "section": "67_J",
-      "sub_section": "2",
-      "batch": "67",
-      "section_letter": "J",
-      "type": "Lab"
-    },
-    {
       "day": "Saturday",
       "time": "01:00-02:30",
       "course": "ACT327",
@@ -38,6 +26,18 @@
       "type": "Theory"
     },
     {
+      "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "TI",
+      "room": "G1-005",
+      "section": "67_J",
+      "sub_section": "1",
+      "batch": "67",
+      "section_letter": "J",
+      "type": "Lab"
+    },
+    {
       "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE315",
@@ -57,18 +57,6 @@
       "room": "KT-503",
       "section": "67_J",
       "sub_section": "Main",
-      "batch": "67",
-      "section_letter": "J",
-      "type": "Lab"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-11:30",
-      "course": "CSE322",
-      "teacher": "TI",
-      "room": "G1-005",
-      "section": "67_J",
-      "sub_section": "1",
       "batch": "67",
       "section_letter": "J",
       "type": "Lab"
@@ -120,6 +108,18 @@
       "batch": "67",
       "section_letter": "J",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "08:30-11:30",
+      "course": "CSE321",
+      "teacher": "TI",
+      "room": "G1-008",
+      "section": "67_J",
+      "sub_section": "2",
+      "batch": "67",
+      "section_letter": "J",
+      "type": "Lab"
     }
   ]
 }

@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "01:00-02:30",
-      "course": "CSE321",
-      "teacher": "STA",
-      "room": "KT-518",
+      "time": "10:00-11:30",
+      "course": "ACT327",
+      "teacher": "IK",
+      "room": "ANX1-403",
       "section": "67_E",
       "sub_section": "Main",
       "batch": "67",
@@ -15,9 +15,9 @@
     },
     {
       "day": "Monday",
-      "time": "04:00-05:30",
-      "course": "ACT327",
-      "teacher": "IK",
+      "time": "01:00-02:30",
+      "course": "CSE321",
+      "teacher": "STA",
       "room": "KT-518",
       "section": "67_E",
       "sub_section": "Main",

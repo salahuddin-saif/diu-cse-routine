@@ -39,10 +39,10 @@
     },
     {
       "day": "Sunday",
-      "time": "10:00-11:30",
+      "time": "08:30-10:00",
       "course": "CSE441",
       "teacher": "MHD",
-      "room": "KT-217",
+      "room": "KT-201",
       "section": "65_J",
       "sub_section": "Main",
       "batch": "65",

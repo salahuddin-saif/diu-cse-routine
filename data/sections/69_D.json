@@ -2,18 +2,6 @@
   "section": "69_D",
   "classes": [
     {
-      "day": "Monday",
-      "time": "11:30-02:30",
-      "course": "CSE222",
-      "teacher": "ZZM",
-      "room": "G1-014",
-      "section": "69_D",
-      "sub_section": "2",
-      "batch": "69",
-      "section_letter": "D",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
       "time": "08:30-10:00",
       "course": "CSE221",
@@ -36,6 +24,18 @@
       "batch": "69",
       "section_letter": "D",
       "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "11:30-02:30",
+      "course": "CSE222",
+      "teacher": "ZZM",
+      "room": "G1-014",
+      "section": "69_D",
+      "sub_section": "2",
+      "batch": "69",
+      "section_letter": "D",
+      "type": "Lab"
     },
     {
       "day": "Thursday",

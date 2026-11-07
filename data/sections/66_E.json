@@ -62,6 +62,18 @@
       "type": "Lab"
     },
     {
+      "day": "Thursday",
+      "time": "11:30-02:30",
+      "course": "CSE324",
+      "teacher": "TAS",
+      "room": "G1-017",
+      "section": "66_E",
+      "sub_section": "2",
+      "batch": "66",
+      "section_letter": "E",
+      "type": "Lab"
+    },
+    {
       "day": "Tuesday",
       "time": "10:00-11:30",
       "course": "CSE328",
@@ -108,18 +120,6 @@
       "batch": "66",
       "section_letter": "E",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-02:30",
-      "course": "CSE324",
-      "teacher": "TAS",
-      "room": "G1-017",
-      "section": "66_E",
-      "sub_section": "2",
-      "batch": "66",
-      "section_letter": "E",
-      "type": "Lab"
     }
   ]
 }

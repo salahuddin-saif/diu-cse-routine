@@ -38,18 +38,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "01:00-04:00",
-      "course": "CSE214",
-      "teacher": "TAK",
-      "room": "G1-009",
-      "section": "70_H",
-      "sub_section": "1",
-      "batch": "70",
-      "section_letter": "H",
-      "type": "Lab"
-    },
-    {
       "day": "Sunday",
       "time": "11:30-01:00",
       "course": "CSE213",
@@ -60,6 +48,18 @@
       "batch": "70",
       "section_letter": "H",
       "type": "Theory"
+    },
+    {
+      "day": "Sunday",
+      "time": "01:00-04:00",
+      "course": "CSE214",
+      "teacher": "TAK",
+      "room": "G1-009",
+      "section": "70_H",
+      "sub_section": "1",
+      "batch": "70",
+      "section_letter": "H",
+      "type": "Lab"
     },
     {
       "day": "Tuesday",

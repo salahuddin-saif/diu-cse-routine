@@ -2,7 +2,7 @@
   "section": "RE_A1(1.5C)",
   "classes": [
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE114",
       "teacher": "NT-1",
@@ -14,7 +14,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "08:30-10:00",
       "course": "CSE214",
       "teacher": "NT-5",
@@ -26,7 +26,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE114",
       "teacher": "NT-1",
@@ -38,7 +38,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "10:00-11:30",
       "course": "CSE214",
       "teacher": "NT-5",
@@ -50,7 +50,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE214",
       "teacher": "NT-1",
@@ -62,7 +62,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "02:30-04:00",
       "course": "CSE224",
       "teacher": "NT-6",
@@ -74,7 +74,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "04:00-05:30",
       "course": "CSE214",
       "teacher": "NT-1",
@@ -86,7 +86,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "04:00-05:30",
       "course": "CSE224",
       "teacher": "NT-6",

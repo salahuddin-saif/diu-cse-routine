@@ -26,7 +26,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-02:30",
       "course": "CSE222",
       "teacher": "SRS",
@@ -90,7 +90,7 @@
       "time": "01:00-02:30",
       "course": "AOL101",
       "teacher": "NNT",
-      "room": "KT-501(A)",
+      "room": "KT-501(B)",
       "section": "69_N",
       "sub_section": "Main",
       "batch": "69",

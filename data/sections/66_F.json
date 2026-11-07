@@ -3,18 +3,6 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE324",
-      "teacher": "SAP",
-      "room": "G1-006",
-      "section": "66_F",
-      "sub_section": "1",
-      "batch": "66",
-      "section_letter": "F",
-      "type": "Lab"
-    },
-    {
-      "day": "Monday",
       "time": "01:00-02:30",
       "course": "CSE326",
       "teacher": "MUH",
@@ -36,18 +24,6 @@
       "batch": "66",
       "section_letter": "F",
       "type": "Theory"
-    },
-    {
-      "day": "Monday",
-      "time": "08:30-11:30",
-      "course": "CSE324",
-      "teacher": "SAP",
-      "room": "G1-016",
-      "section": "66_F",
-      "sub_section": "2",
-      "batch": "66",
-      "section_letter": "F",
-      "type": "Lab"
     },
     {
       "day": "Saturday",
@@ -93,6 +69,18 @@
       "room": "KT-501(A)",
       "section": "66_F",
       "sub_section": "Main",
+      "batch": "66",
+      "section_letter": "F",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "08:30-11:30",
+      "course": "CSE324",
+      "teacher": "SAP",
+      "room": "G1-016",
+      "section": "66_F",
+      "sub_section": "2",
       "batch": "66",
       "section_letter": "F",
       "type": "Lab"

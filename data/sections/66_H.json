@@ -39,15 +39,15 @@
     },
     {
       "day": "Saturday",
-      "time": "01:00-02:30",
+      "time": "11:30-01:00",
       "course": "CSE328",
       "teacher": "MAH",
-      "room": "KT-515",
+      "room": "KT-501(B)",
       "section": "66_H",
       "sub_section": "Main",
       "batch": "66",
       "section_letter": "H",
-      "type": "Theory"
+      "type": "Lab"
     },
     {
       "day": "Saturday",

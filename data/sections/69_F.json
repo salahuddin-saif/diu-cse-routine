@@ -75,6 +75,18 @@
     },
     {
       "day": "Tuesday",
+      "time": "02:30-05:30",
+      "course": "CSE216",
+      "teacher": "EHL",
+      "room": "KT-809",
+      "section": "69_F",
+      "sub_section": "1",
+      "batch": "69",
+      "section_letter": "F",
+      "type": "Lab"
+    },
+    {
+      "day": "Tuesday",
       "time": "08:30-11:30",
       "course": "CSE216",
       "teacher": "EHL",
@@ -108,18 +120,6 @@
       "batch": "69",
       "section_letter": "F",
       "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "02:30-05:30",
-      "course": "CSE216",
-      "teacher": "EHL",
-      "room": "KT-809",
-      "section": "69_F",
-      "sub_section": "1",
-      "batch": "69",
-      "section_letter": "F",
-      "type": "Lab"
     }
   ]
 }

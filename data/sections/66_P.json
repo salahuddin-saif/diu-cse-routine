@@ -75,10 +75,10 @@
     },
     {
       "day": "Thursday",
-      "time": "08:30-10:00",
+      "time": "10:00-11:30",
       "course": "CSE328",
       "teacher": "SNS",
-      "room": "KT-218",
+      "room": "KT-318(A)",
       "section": "66_P",
       "sub_section": "Main",
       "batch": "66",

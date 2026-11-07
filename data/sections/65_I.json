@@ -63,10 +63,10 @@
     },
     {
       "day": "Wednesday",
-      "time": "01:00-02:30",
+      "time": "02:30-04:00",
       "course": "CSE432",
       "teacher": "PB",
-      "room": "KT-501(B)",
+      "room": "KT-501(A)",
       "section": "65_I",
       "sub_section": "Main",
       "batch": "65",

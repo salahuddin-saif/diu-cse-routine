@@ -194,6 +194,30 @@
       "type": "Theory"
     },
     {
+      "day": "Thursday",
+      "time": "11:30-01:00",
+      "course": "CSE311",
+      "teacher": "ASJ",
+      "room": "G1-026",
+      "section": "RE_B(3C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "04:00-05:30",
+      "course": "CSE311",
+      "teacher": "ASJ",
+      "room": "KT-306",
+      "section": "RE_B(3C)",
+      "sub_section": "Main",
+      "batch": "",
+      "section_letter": "",
+      "type": "Theory"
+    },
+    {
       "day": "Wednesday",
       "time": "11:30-01:00",
       "course": "CSE121",

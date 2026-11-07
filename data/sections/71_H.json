@@ -3,10 +3,10 @@
   "classes": [
     {
       "day": "Monday",
-      "time": "10:00-11:30",
-      "course": "CSE123",
-      "teacher": "MJA",
-      "room": "KT-318(B)",
+      "time": "08:30-10:00",
+      "course": "CSE121",
+      "teacher": "AKM",
+      "room": "KT-515",
       "section": "71_H",
       "sub_section": "Main",
       "batch": "71",
@@ -15,18 +15,6 @@
     },
     {
       "day": "Monday",
-      "time": "11:30-01:00",
-      "course": "CSE121",
-      "teacher": "AKM",
-      "room": "KT-213",
-      "section": "71_H",
-      "sub_section": "Main",
-      "batch": "71",
-      "section_letter": "H",
-      "type": "Theory"
-    },
-    {
-      "day": "Sunday",
       "time": "10:00-11:30",
       "course": "CSE123",
       "teacher": "MJA",
@@ -38,7 +26,7 @@
       "type": "Theory"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "02:30-05:30",
       "course": "CSE122",
       "teacher": "AKM",
@@ -50,7 +38,7 @@
       "type": "Lab"
     },
     {
-      "day": "Sunday",
+      "day": "Saturday",
       "time": "11:30-02:30",
       "course": "CSE122",
       "teacher": "AKM",
@@ -60,6 +48,18 @@
       "batch": "71",
       "section_letter": "H",
       "type": "Lab"
+    },
+    {
+      "day": "Sunday",
+      "time": "10:00-11:30",
+      "course": "CSE123",
+      "teacher": "MJA",
+      "room": "KT-318(B)",
+      "section": "71_H",
+      "sub_section": "Main",
+      "batch": "71",
+      "section_letter": "H",
+      "type": "Theory"
     },
     {
       "day": "Sunday",

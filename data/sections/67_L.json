@@ -2,6 +2,18 @@
   "section": "67_L",
   "classes": [
     {
+      "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "JHJ",
+      "room": "G1-007",
+      "section": "67_L",
+      "sub_section": "1",
+      "batch": "67",
+      "section_letter": "L",
+      "type": "Lab"
+    },
+    {
       "day": "Sunday",
       "time": "01:00-02:30",
       "course": "CSE321",
@@ -21,18 +33,6 @@
       "room": "KT-504",
       "section": "67_L",
       "sub_section": "Main",
-      "batch": "67",
-      "section_letter": "L",
-      "type": "Lab"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-11:30",
-      "course": "CSE322",
-      "teacher": "JHJ",
-      "room": "G1-007",
-      "section": "67_L",
-      "sub_section": "1",
       "batch": "67",
       "section_letter": "L",
       "type": "Lab"

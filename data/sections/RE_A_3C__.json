@@ -62,30 +62,6 @@
       "type": "Theory"
     },
     {
-      "day": "Thursday",
-      "time": "08:30-10:00",
-      "course": "MAT102",
-      "teacher": "JS",
-      "room": "KT-216",
-      "section": "RE_A(3C.)",
-      "sub_section": "Main",
-      "batch": "",
-      "section_letter": "",
-      "type": "Theory"
-    },
-    {
-      "day": "Wednesday",
-      "time": "11:30-01:00",
-      "course": "MAT102",
-      "teacher": "JS",
-      "room": "ANX1-302",
-      "section": "RE_A(3C.)",
-      "sub_section": "Main",
-      "batch": "",
-      "section_letter": "",
-      "type": "Theory"
-    },
-    {
       "day": "Wednesday",
       "time": "02:30-04:00",
       "course": "CSE123",

@@ -26,18 +26,6 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
-      "time": "01:00-04:00",
-      "course": "CSE214",
-      "teacher": "TIS",
-      "room": "G1-009",
-      "section": "70_O",
-      "sub_section": "2",
-      "batch": "70",
-      "section_letter": "O",
-      "type": "Lab"
-    },
-    {
       "day": "Thursday",
       "time": "08:30-10:00",
       "course": "BNS101",
@@ -84,6 +72,18 @@
       "batch": "70",
       "section_letter": "O",
       "type": "Theory"
+    },
+    {
+      "day": "Tuesday",
+      "time": "01:00-04:00",
+      "course": "CSE214",
+      "teacher": "TIS",
+      "room": "G1-009",
+      "section": "70_O",
+      "sub_section": "2",
+      "batch": "70",
+      "section_letter": "O",
+      "type": "Lab"
     },
     {
       "day": "Wednesday",

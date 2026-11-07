@@ -15,10 +15,10 @@
     },
     {
       "day": "Monday",
-      "time": "02:30-04:00",
+      "time": "04:00-05:30",
       "course": "ACT327",
       "teacher": "IK",
-      "room": "KT-213",
+      "room": "KT-218",
       "section": "67_F",
       "sub_section": "Main",
       "batch": "67",
@@ -29,13 +29,25 @@
       "day": "Saturday",
       "time": "01:00-02:30",
       "course": "ACT327",
-      "teacher": "IK",
+      "teacher": "IK+",
       "room": "G1-026",
       "section": "67_F",
       "sub_section": "Main",
       "batch": "67",
       "section_letter": "F",
       "type": "Theory"
+    },
+    {
+      "day": "Saturday",
+      "time": "08:30-11:30",
+      "course": "CSE322",
+      "teacher": "IEA",
+      "room": "G1-014",
+      "section": "67_F",
+      "sub_section": "1",
+      "batch": "67",
+      "section_letter": "F",
+      "type": "Lab"
     },
     {
       "day": "Saturday",
@@ -84,18 +96,6 @@
       "batch": "67",
       "section_letter": "F",
       "type": "Theory"
-    },
-    {
-      "day": "Sunday",
-      "time": "08:30-11:30",
-      "course": "CSE322",
-      "teacher": "IEA",
-      "room": "G1-014",
-      "section": "67_F",
-      "sub_section": "1",
-      "batch": "67",
-      "section_letter": "F",
-      "type": "Lab"
     },
     {
       "day": "Tuesday",

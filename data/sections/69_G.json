@@ -26,7 +26,19 @@
       "type": "Theory"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
+      "time": "11:30-01:00",
+      "course": "AOL101",
+      "teacher": "UH",
+      "room": "KT-513",
+      "section": "69_G",
+      "sub_section": "Main",
+      "batch": "69",
+      "section_letter": "G",
+      "type": "Lab"
+    },
+    {
+      "day": "Sunday",
       "time": "08:30-11:30",
       "course": "CSE222",
       "teacher": "LAR",
@@ -38,25 +50,13 @@
       "type": "Lab"
     },
     {
-      "day": "Monday",
+      "day": "Sunday",
       "time": "01:00-04:00",
       "course": "CSE222",
       "teacher": "LAR",
       "room": "G1-013",
       "section": "69_G",
       "sub_section": "2",
-      "batch": "69",
-      "section_letter": "G",
-      "type": "Lab"
-    },
-    {
-      "day": "Sunday",
-      "time": "11:30-01:00",
-      "course": "AOL101",
-      "teacher": "UH",
-      "room": "KT-513",
-      "section": "69_G",
-      "sub_section": "Main",
       "batch": "69",
       "section_letter": "G",
       "type": "Lab"
